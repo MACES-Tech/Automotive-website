@@ -1,6 +1,21 @@
 {
   "name": "automotive-website",
-  "version": "0",
+  "version": "1.0.0",
+  "description": "automotive website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ahmed-Yehia993/Automotive-website.git"
+  },
+  "author": "Ahmed Yehia, Mohamed Ayman, Islam Ahmed",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ahmed-Yehia993/Automotive-website/issues"
+  },
+  "homepage": "https://github.com/Ahmed-Yehia993/Automotive-website#readme",
   "dependencies": {
     "body-parser": "^1.18.3",
     "express": "^4.16.4"
