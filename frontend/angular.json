@@ -23,9 +23,44 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "src/css/style.css",
+              "src/css/responsive.css",
+              "src/plugins/revolution/css/navigation.css",
+              "src/plugins/revolution/css/layers.css",
+              "src/plugins/revolution/css/settings.css",
+              "src/css/bootstrap.css",
+              "src/css/font-awesome.css",
+              "src/css/animate.css",
+              "src/css/color.css",
+              "src/css/flaticon.css",
+              "src/css/hover.css",
+              "src/css/owl.css"
             ],
-            "scripts": []
+            "scripts": [
+              "src/js/jquery.js" ,
+"src/js/bootstrap.min.js",
+"src/plugins/revolution/js/jquery.themepunch.revolution.min.js",
+"src/plugins/revolution/js/jquery.themepunch.tools.min.js",
+"src/plugins/revolution/js/extensions/revolution.extension.actions.min.js",
+"src/plugins/revolution/js/extensions/revolution.extension.carousel.min.js",
+"src/plugins/revolution/js/extensions/revolution.extension.kenburn.min.js",
+"src/plugins/revolution/js/extensions/revolution.extension.layeranimation.min.js",
+"src/plugins/revolution/js/extensions/revolution.extension.migration.min.js",
+"src/plugins/revolution/js/extensions/revolution.extension.navigation.min.js",
+"src/plugins/revolution/js/extensions/revolution.extension.parallax.min.js",
+"src/plugins/revolution/js/extensions/revolution.extension.slideanims.min.js",
+"src/plugins/revolution/js/extensions/revolution.extension.video.min.js",
+"src/js/main-slider-script.js",
+"src/js/jquery-ui.js",
+"src/js/jquery.fancybox.pack.js",
+"src/js/jquery.fancybox-media.js",
+"src/js/owl.js",
+"src/js/appear.js",
+"src/js/wow.js",
+"src/js/main-slider-script.js",
+"src/js/script.js"
+            ]
           },
           "configurations": {
             "production": {
