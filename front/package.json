@@ -1,8 +1,9 @@
 {
-  "name": "frontend",
+  "name": "front",
   "version": "1.0.0",
   "scripts": {},
   "private": true,
+  "main": "server.js",
   "dependencies": {
     "express": "^4.16.4"
   },
