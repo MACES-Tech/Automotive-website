@@ -14,10 +14,11 @@ db.sequelize.sync({force: false}).then(() => {
 });
 
 require('./app/route/carbrand.route.js')(app);
+require('./app/route/carModel.route.js')(app);
 
-// app.use(function(err,req,res,next){
-//     res.status(422).send({error:err.message})
-// })
+app.use(function(err,req,res,next){
+    res.status(422).send({error:err.message})
+})
 
 app.listen(process.env.port || 4000,function () {
 

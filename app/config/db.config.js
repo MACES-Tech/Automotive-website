@@ -21,6 +21,9 @@ db.sequelize = sequelize;
 
 //Models/tables
 db.carbrand = require('../model/carbrand.model.js')(sequelize, Sequelize);
+db.file = require('../model/file.model.js')(sequelize, Sequelize);
+db.carModel = require('../model/carModel.model.js')(sequelize, Sequelize);
+db.video = require('../model/video.model.js')(sequelize, Sequelize);
 
 
 module.exports = db;
