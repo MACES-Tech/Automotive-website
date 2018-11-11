@@ -1,0 +1,159 @@
+pages.login.authentication=Authentification
+pages.login.username=Nom d&#39;utilisateur
+pages.login.password=Mot de passe
+pages.login.connect=Connecter
+pages.login.error=Erreur d&#39;authentification : Nom d&#39;utilisateur ou mot de passe incorrect.
+
+request.reqtimeout=Erreur de connexion au backend
+
+pages.index.header.welcome=Bienvenue
+pages.index.header.logout=Déconnexion
+pages.index.menu.upload=Téléchargement de fichier
+pages.index.menu.result=Résultat
+pages.index.menu.configuration=Configuration
+pages.index.menu.userManagment=Gestion des utilisateurs
+pages.index.header.ok=Ok
+pages.index.header.language=Langue
+pages.index.header.english=Anglais
+pages.index.header.french=Français
+pages.index.header.anonymization=Anonymisation
+pages.index.header.intro=Service web pour la reconnaisance des entités nommèes et l'Anonymisation
+
+pages.noty.ok=Ok
+pages.noty.cancel=Annuler
+
+pages.profileCreation.profile.mode=mode
+pages.profileCreation.csv.colID=Col ID
+pages.profileCreation.csv.ColType=Type de Col
+pages.profileCreation.csv.offset=Offset
+pages.profileCreation.csv.mode=Mode
+pages.profileCreation.csvRules=Règle CSV
+pages.profileCreation.textRules=Règle Texte
+pages.profileCreation.rulesFile=Fichier de règles
+pages.profileCreation.emptyProfileName=Le nom de profil est vide
+pages.profileCreation.addProfile=Ajout de Profile
+pages.profileCreation.profileName=Nom du Profile
+pages.profileCreation.text.type=Type
+pages.profileCreation.text.offset=Offset
+pages.profileCreation.text.mode =Mode
+pages.profileCreation.note1=If your CSV file includes a text column set the type of this column: "Text" and set your configuration for this column using "Text Configuration".
+pages.profileCreation.note.title=Tip
+
+pages.configurations.rulesFileName=Nom du fichier de règles
+pages.configurations.corpsFileName=Nom du fichier de tags
+pages.configurations.profiles=Profils
+pages.configurations.createProfile=Créer un profil
+pages.configurations.create.success=Profil créé avec succès
+pages.configurations.configurations.profile.exist=Le profil existe déjà
+pages.configurations.removeAccent=Enlever les accents
+pages.configurations.no=Aucun
+pages.configurations.yes=Oui
+pages.configurations.corpsFile=Fichiers de tags
+pages.configurations.lowerCase=Minuscules
+pages.configurations.removeAccentLetters=Remplacer les lettres accentuées
+pages.configurations.lemmatization=Lemmatisation
+pages.configurations.processAsCSV=Fichier format CSV
+pages.configurations.noProfileFound=Aucun profil ne correspond
+pages.configurations.profileDeleteError=la suppression du profil
+pages.configurations.profileHasProcessedFile=Le fichier téléchargé n&#39;est pas encore traité
+pages.configurations.cancel=Annuler
+pages.configurations.uploaded=Téléchargé
+pages.configurations.processed=Traité
+pages.configurations.in_progress=En cours de traitement
+pages.configurations.error=Erreur
+pages.configurations.tagged=Taggé
+pages.configurations.anonymized=Anonymizé
+pages.configurations.pre_processed=Pre-traité
+pages.configurations.Text=Texte
+pages.configurations.CSV=CSV
+pages.configurations.Both=Texte+CSV
+
+pages.result.fileName=Nom de fichier
+pages.result.fileStatus=Statut du fichier
+pages.result.uploadDate=Date de transfert
+pages.result.profile=Profil
+pages.result.processedFiles=Processed Files
+pages.result.fileType=File Type
+pages.result.manage=Gérer
+pages.result.deleted=supprimé
+pages.result.completePercentage=Pourcentage d&#39;analyse
+pages.result.gaugeText=Exactitude
+pages.result.errorReason=Your profile doesn't match the input process
+pages.result.error=Error Stage
+
+
+upload.success=Fichier téléchargé avec succés
+upload.error=Erreur dans le fichier téléchargé
+upload.file.exist=Le fichier existe déjà
+
+pages.upload.file.empty=Aucun fichier sélectionné
+pages.upload.profile=Sélectionner le profil
+pages.upload.fileIsUploading=Fichier est actuellement téléchargé ...
+pages.upload.Type=Type
+pages.upload.Lang=Language
+pages.upload.note.title=Tip
+pages.upload.note1=1.CSV files has to be separated by "|".<br>2.If csv file includes a column with text values choose "Both" from Type.<br>3.CSV headers have to be the same as the selected profile columns' IDs.
+
+pages.profiles.asText=Fichier texte non csv
+pages.profiles.manage=Gérer
+pages.profiles.profileName=Nom du profil
+pages.profiles.addProfile=Ajouter Profil
+pages.profiles.note.title=Tip
+pages.profiles.note1=To preview your profile use online json's formatter like jsonformatter.curiousconcept.com
+
+pages.userManagement.addUser=Ajouter un utilisateur
+pages.userManagement.name=Nom
+pages.userManagement.username=Nom d&#39;utilisateur
+pages.userManagement.type=Type
+pages.userManagement.status=Statut
+pages.userManagement.modifications=Modifications
+pages.userManagement.addHeader=Ajouter un utilisateur
+pages.userManagement.editHeader=Modifier l&#39;utilisateur
+pages.userManagement.changePassword=changer le mot de passe
+pages.userManagement.password=mot de passe
+pages.userManagement.passwordConfirm=confirmation du mot de passe
+pages.userManagement.adminCheck=utilisateur admin
+pages.userManagement.apply=Appliquer
+pages.userManagement.cancel=Annuler
+pages.userManagement.passwordNotMatchMsg=Le mot de passe ne correspond pas
+pages.userManagement.cannotDeleteCurrentUserMsg=Impossible de supprimer l&#39;utilisateur
+pages.userManagement.cannotGetUserMsg=Impossible d&#39;obtenir la liste des utilisateurs
+pages.userManagement.cannotAddUserMsg=Vous ne pouvez pas ajouter d&#39;utilisateur
+pages.userManagement.cannotUpdateUserMsg=Vous ne pouvez pas mettre à jour les utilisateurs
+pages.userManagement.cannotDeleteUserMsg=Vous ne pouvez pas supprimer des utilisateurs
+pages.userManagement.confirmDeletion=êtes-vous sûr de vouloir supprimer l&#39;utilisateur :
+pages.userManagement.deleteSuccessfully=Utilisateur supprimé avec succès
+pages.userManagement.updateSuccessfully=Utilisateur mis à jour avec succès
+pages.userManagement.addSuccessfully=Utilisateur ajouté avec succès
+pages.userManagement.activeCheck=Utilisateur Actif
+pages.userManagement.deactivate=Désactiver
+pages.userManagement.userAlreadyExist=L&#39;utilisateur existe déjà
+pages.userManagement.deactivateCurrentUser=Ne pouvez pas désactiver l&#39;utilisateur actuel
+pages.userManagement.noUserExistWithUsername=Aucun utilisateur avec ce nom
+pages.userManagement.wrongPassword=Mot de passe incorrect
+pages.userManagement.userInactive=Cet utilisateur est actuellement inactif
+pages.userManagement.emptyUsername=Le nom d&#39;utilisateur ne peut pas être vide
+pages.userManagement.ADMIN=Administrateur
+pages.userManagement.USER=Utilisateur
+pages.userManagement.ACTIVE=Actif
+pages.userManagement.INACTIVE=Inactif
+pages.userManagement.fileAlreadyInUse=error! Folder under processing...
+
+
+pages.serviceManagement.ImportFile=Importer un fichier
+
+pages.pieChart.title=Résultats Statistiques
+
+pages.common.delete=Effacer
+pages.common.update=Mettre à jour
+
+pages.table.show=Afficher
+pages.table.showing=Affichage
+pages.table.entries=Items
+pages.table.loading=Chargement
+pages.table.processing=Traitement
+pages.table.first=Premier
+pages.table.last=Dernier
+pages.table.next=Suivant
+pages.table.previous=Précédant
+pages.table.nodataMsg=Pas de données disponibles dans la base de données

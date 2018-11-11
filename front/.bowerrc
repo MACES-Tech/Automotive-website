@@ -1,0 +1,5 @@
+{
+  "directory": "bower_components",
+  "proxy" : "http://proxypac.si.francetelecom.fr:8080/",
+  "https-proxy":"http://proxypac.si.francetelecom.fr:8080/"
+}
