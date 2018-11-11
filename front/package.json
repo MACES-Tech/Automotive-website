@@ -1,0 +1,18 @@
+{
+  "name": "Al_bargasy_automotive",
+  "description": "",
+  "main": "app/app.module.js",
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "express": "^4.16.4",
+    "http-server": "^0.11.1"
+  }
+}
