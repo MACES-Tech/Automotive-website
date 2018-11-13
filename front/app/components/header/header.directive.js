@@ -1,17 +1,13 @@
-(function() {
+'use strict';
+var app = angular.module('alBargasyApp');
 
-    var app = angular.module('alBargasyApp');
-    app.directive('header', function () {
-        
-        return {
-            restrict: 'EA', //Default in 1.3+
-            scope: {
-                datasource: '=',
-                add: '&',
-            },
-            controller: 'headerController',
-            templateUrl: './app/components/header/header.html'
-        };
-    });
-  
-  }());
+
+function headerImp () {
+    return {
+        restrict: 'AE',
+        controller: 'headerController',
+        templateUrl: './app/components/header/header.html'
+    };
+}
+
+app.directive('header', headerImp);
