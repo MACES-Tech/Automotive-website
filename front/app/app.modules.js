@@ -3,21 +3,6 @@ var app = angular.module('alBargasyApp',
         [
     'ui.bootstrap',
     'ngRoute',
-    'livrableTranslate',
-    'oc.lazyLoad',
-    'ngAria',
-    'ngMaterial',
-    'ngSanitize',
-    'angular-flexslider',
-    'rzModule',
-    'infinite-scroll',
-    'trNgGrid',
-    "angular-md5",
-    '720kb.tooltips',
-    'ngResource',
-    'ui.select',
-    'ngSanitize',
-    'ngMessages'
 ]).run(function($rootScope , $location) {
     $rootScope.goToHome = function(){
         $location.path("/home");
