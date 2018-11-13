@@ -1,8 +1,8 @@
 'use strict'
 var app = angular.module('alBargasyApp',
         [
-    'ui.bootstrap',
-    'ngRoute',
+    
+    'ngRoute'
 ]).run(function($rootScope , $location) {
     $rootScope.goToHome = function(){
         $location.path("/home");
