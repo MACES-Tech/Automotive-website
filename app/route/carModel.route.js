@@ -5,6 +5,8 @@ module.exports = function(app) {
     // Create a new carBrand
     app.post('/api/carModel', carModel.create);
  
-    // Delete a carBrand with Id
+    // Delete a carBrand with Id    
+    app.get('/api/carBrand/:carBrandId/carModel', carModel.findBycarBrandId);
+
     app.delete('/api/carModel/:carModelId', carModel.delete);
 }

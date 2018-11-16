@@ -37,6 +37,23 @@ app.service('brandModelsService', function ($http, $rootScope) {
             })
     };
 
+    self.getAllModels = function (carBrandId,cb) {
+        $http({
+            method: 'GET',
+            url: $rootScope.backendURL + "carBrand/"+carBrandId+"/carModel",
+        }).then(
+            function successCallback(res) {
+                if (res.status == 500) {
+                    cb(null, res);
+                } else {
+                    cb(res);
+                }
+            },
+            function errorCallback(err) {
+                cb(null, err);
+            })
+    };
+
     
 
     return self;
