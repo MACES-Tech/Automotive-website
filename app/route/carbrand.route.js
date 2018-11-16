@@ -10,6 +10,9 @@ module.exports = function(app) {
  
     // Retrieve a single carBrand by Id
     app.get('/api/carBrand/:brandId', carBrand.findById);
+
+    // Retrieve a single carBrand by name
+    app.get('/api/carBrand/name/:brandName', carBrand.findByName);
  
     // Update a carBrand with Id
     app.put('/api/carBrand/:brandId', carBrand.update);

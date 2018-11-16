@@ -1,7 +1,7 @@
 module.exports = (sequelize, Sequelize) => {
 	const Brand =  require('../model/carbrand.model.js')(sequelize, Sequelize);
     const File =  require('../model/file.model.js')(sequelize, Sequelize);
-    const Video =  require('../model/video.model.js')(sequelize, Sequelize);
+	const Video =  require('../model/video.model.js')(sequelize, Sequelize);
 	const CarModel = sequelize.define('car_model', {
         name: {
 			type: Sequelize.STRING
@@ -31,6 +31,6 @@ module.exports = (sequelize, Sequelize) => {
 	CarModel.belongsTo(Brand, {foreignKey : 'carBrandId'})
     CarModel.belongsTo(File, {foreignKey : 'mainImageId'})
     CarModel.belongsTo(File, {foreignKey : 'coverImageId'})
-    CarModel.belongsTo(Video, {foreignKey : 'videoId'})
+	CarModel.belongsTo(Video, {foreignKey : 'videoId'})
 	return CarModel;
 }

@@ -7,6 +7,13 @@ var app = angular.module('alBargasyApp',
     $rootScope.goToHome = function(){
         $location.path("/home");
     }
+    $rootScope.redirectTo404=function(){
+      $rootScope.currentTab ="";
+      $location.path ('/notFound');
+  }
+    $rootScope.backendURL = $location.protocol() + "://" + $location.host() + ":4000/api/" ;
+    $rootScope.currentTab ="skoda"
+
 });
 
 app.config(function ($httpProvider) {

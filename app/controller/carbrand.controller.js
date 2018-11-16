@@ -9,6 +9,7 @@ exports.create = (req, res, next) => {
 		arName: req.body.arName
 	}).then(carBrand => {		
 		// Send created carBrand to client
+		next()
 		res.send(carBrand);
 	}).catch(next);
 };
@@ -16,7 +17,7 @@ exports.create = (req, res, next) => {
 // FETCH all carBrands
 exports.findAll = (req, res, next) => {
 	CarBrand.findAll().then(carBrands => {
-	  // Send all carBrands to Client
+	  next()
 	  res.send(carBrands);
 	}).catch(next);
 };
@@ -24,6 +25,15 @@ exports.findAll = (req, res, next) => {
 // Find a carBrand by Id
 exports.findById = (req, res, next) => {	
 	CarBrand.findByPk(req.params.brandId).then(carBrand => {
+		next()
+		res.send(carBrand);
+	}).catch(next);
+};
+
+// Find a carBrand by Name
+exports.findByName = (req, res, next) => {
+	CarBrand.findAll({where:{name:req.params.brandName}}).then(carBrand => {
+		next()
 		res.send(carBrand);
 	}).catch(next);
 };
@@ -34,6 +44,7 @@ exports.update = (req, res, next) => {
 	CarBrand.update( { name: req.body.name,arName:req.body.arName}, 
 					 { where: {id: req.params.brandId} }
 				   ).then(() => {
+						next()
 					 res.status(200).send("updated successfully a carBrand with id = " + id);
 				   }).catch(next);
 };
@@ -44,6 +55,7 @@ exports.delete = (req, res, next) => {
 	CarBrand.destroy({
 	  where: { id: id }
 	}).then(() => {
+		next()
 	  res.status(200).send('deleted successfully a carBrand with id = ' + id);
 	}).catch(next);
 };

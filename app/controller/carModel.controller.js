@@ -1,11 +1,13 @@
 const db = require('../config/db.config.js');
 const CarModel = db.carModel;
 const fileService = require('../service/file.service.js');
+const videoService = require('../service/video.service.js');
 // Post a carBrand
 exports.create = (req, res, next) => {	
 	// Save to MySQL database
 	fileService.create(req.body.file,function(){
-		CarModel.create({  
+		CarModel
+		.build({  
 			name: req.body.name,
 			arName: req.body.arName,
 			bannerHeader: req.body.bannerHeader,
@@ -17,9 +19,10 @@ exports.create = (req, res, next) => {
 			mainImageId: req.body.mainImage,
 			coverImageId: req.body.coverImage,
 			videoId: req.body.video,
-			carBrandId: req.body.carBrand
-		}).then(carBrand => {		
+			carBrandId: req.body.carBrand}).setSections([])
+		.save().then(carBrand => {		
 			// Send created carBrand to client
+			next()
 			res.send(carBrand);
 		}).catch(next);
 	})
@@ -33,6 +36,7 @@ exports.delete = (req, res, next) => {
 	CarModel.destroy({
 	  where: { id: id }
 	}).then(() => {
+		next()
 	  res.status(200).send('deleted successfully a carModel with id = ' + id);
 	}).catch(next);
 };
