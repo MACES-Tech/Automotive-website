@@ -8,10 +8,10 @@ module.exports = (sequelize, Sequelize) => {
 			type: Sequelize.STRING
         },
         firstParagraph: {
-			type: Sequelize.STRING
+			type: Sequelize.TEXT
 		},
 		arFirstParagraph: {
-			type: Sequelize.STRING
+			type: Sequelize.TEXT
         }
       });
       Section.belongsTo(CarModel, {foreignKey: 'carModelId'});

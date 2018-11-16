@@ -9,10 +9,10 @@ module.exports = (sequelize, Sequelize) => {
 			type: Sequelize.STRING
         },
         paragraph: {
-			type: Sequelize.STRING
+			type: Sequelize.TEXT
 		},
 		arParagraph: {
-			type: Sequelize.STRING
+			type: Sequelize.TEXT
         }
       });
       Gallery.belongsTo(Section, {foreignKey: 'sectionId'});

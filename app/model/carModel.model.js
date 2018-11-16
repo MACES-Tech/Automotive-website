@@ -10,26 +10,26 @@ module.exports = (sequelize, Sequelize) => {
 			type: Sequelize.STRING
         },
         bannerHeader: {
-			type: Sequelize.STRING
+			type: Sequelize.TEXT
 		},
 		arBannerHeader: {
-			type: Sequelize.STRING
+			type: Sequelize.TEXT
         },
         firstHeader: {
-			type: Sequelize.STRING
+			type: Sequelize.TEXT
 		},
 		arFirstHeader: {
-			type: Sequelize.STRING
+			type: Sequelize.TEXT
         },
         firstParagraph: {
-			type: Sequelize.STRING
+			type: Sequelize.TEXT
 		},
 		arFirstParagraph: {
-			type: Sequelize.STRING
+			type: Sequelize.TEXT
         }
 	});
 	CarModel.belongsTo(Brand, {foreignKey : 'carBrandId'})
-    CarModel.belongsTo(File, {foreignKey : 'mainImageId'})
+    CarModel.belongsTo(File, {foreignKey : 'mainImageId' , as :"mainImage"})
     CarModel.belongsTo(File, {foreignKey : 'coverImageId'})
 	CarModel.belongsTo(Video, {foreignKey : 'videoId'})
 	return CarModel;

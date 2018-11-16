@@ -31,8 +31,11 @@ exports.create = (req, res, next) => {
  
 exports.findBycarBrandId = (req, res, next) => {
 	const carBrandId = req.params.carBrandId;
-	CarModel.findAll({where:{carBrandId:carBrandId}}).then((carModels)=>{
-		next()
+	CarModel.findAll({include: [
+		{ model: db.file, as: 'mainImage' }
+	],
+	where:{carBrandId:carBrandId}}).then((carModels)=>{
+		next();
 		res.status(200).send(carModels);
 	}).catch(next);
 
