@@ -9,11 +9,12 @@ angular.module('alBargasyApp').config(function($routeProvider){
     }).when("/notFound",{
         templateUrl:"./app/components/notFound/404.html",
     })
-
-    // .when('/pgu/manageAccounts' ,{
-    //         templateUrl:HTML_PATH.MANAGE_ACCOUNTS,
-    //         controller:'ManageAccountController'
-    //     })
+    .when('/services/:id' ,{
+            templateUrl:"./app/components/car.service/services.html"
+            // controller:'ManageAccountController'
+    }).when('/account' ,{
+        templateUrl:"./app/components/login.register/account.html"
+    })
     .otherwise({
         redirectTo:"/home"
     });
