@@ -1,4 +1,16 @@
 angular.module('alBargasyApp')
-    .controller('headerController', function ($rootScope, $scope, $location) {
+    .controller('headerController', function ($rootScope, $scope, $location, brandModelsService) {
        
+        $scope.init = function () {
+                brandModelsService.getAllBrands(function(res, err){
+                    if(res.data.length > 0 ){
+                        $scope.brands = res.data;
+                    }else{
+
+                    }
+                })
+           
+        }
+
+        $scope.init();
 });

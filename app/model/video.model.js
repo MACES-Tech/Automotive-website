@@ -1,6 +1,6 @@
 module.exports = (sequelize, Sequelize) => {
 	const Video = sequelize.define('video', {
-        url: {
+		url: {
 			type: Sequelize.STRING
 		}
 	});

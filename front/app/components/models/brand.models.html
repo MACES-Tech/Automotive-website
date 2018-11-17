@@ -1,0 +1,158 @@
+
+
+    
+    <!--Page Title-->
+    <!-- <section class="page-title" style="background-image:url(assets/images/background/5.jpg);">
+        <div class="auto-container">
+            <h1>Skoda Models</h1>
+        </div>
+    </section> -->
+    <!--End Page Title-->
+    
+    <!--Page Info-->
+    <section class="page-info">
+        <div class="auto-container">
+            <ul class="bread-crumb">
+                <li><a href="#/{{carbrand.name}}/models">{{carbrand.name}}</a></li>
+                <li class="current">Models</li>
+            </ul>
+        </div>
+    </section>
+    <!--End Page Info-->
+    
+    <!--Inventory Section-->
+    <section class="inventory-section ">
+    	<div class="auto-container">
+        	<div class="row clearfix">
+            	<!--Column-->
+            	<div class="column col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                	<!-- <div class="layout-box clearfix">
+                    	<div class="pull-left">
+                        	<div class="sort-form">
+                                <form action="inventory-form">
+                                    <div class="form-group">
+                                        <label>Sort By:</label>
+                                        <select class="custom-select-box">
+                                            <option>Price: Highest First</option>
+                                            <option>Second</option>
+                                            <option>Third</option>
+                                            <option>Fourth</option>
+                                            <option>Five</option>
+                                        </select>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="pull-right">
+                        	<ul class="view-options">
+                            	<li class="active"><a href="inventory-1.html"><span class="fa fa-th-large"></span></a></li>
+                                <li><a href="#"><span class="flaticon-list"></span></a></li>
+                            </ul>
+                        </div>
+                    </div> -->
+                    
+                    <!--End Sec Title-->
+                    <div class="row clearfix">
+                        <!--Car Block-->
+
+                        <div class="car-block col-lg-4 col-md-6 col-sm-6 col-xs-12" ng-repeat="model in carModels">
+                            <div class="inner-box">
+                                
+                                <div class="image">
+                                        <div class="edit-icons" ng-if="isAdmin()">
+                                                <span ng-click="confirmPopup(model.id)"><a href=""><i class="fa fa-trash" data-toggle="modal" data-target=".bd-example-modal-sm"></i></a> </span>
+                                                <span><a href=""><i class="fa fa-edit"></i></a> </span>
+                                            </div>
+                                    <a href="/{{currentTab}}/models/{{model.name}}"><img src="{{model.mainImage.path}}" alt="" /></a>
+                                    <!-- <div class="price">$42000</div> -->
+                                </div>
+                                <h3><a href="/{{currentTab}}/models/{{model.name}}">{{model.name}}</a></h3>
+                                <!-- <div class="lower-box">
+                                    <ul class="car-info">
+                                        <li><span class="fa fa-road icon"></span>26000</li>
+                                        <li><span class="icon fa fa-car"></span>Diesel</li>
+                                        <li><span class="icon fa fa-clock-o"></span>2014</li>
+                                    </ul>
+                                </div> -->
+                            </div>
+                        </div>
+                        <!--Car Block-->
+
+
+
+                    </div>
+                    <!--Styled Pagination-->
+                    <!-- <div class="styled-pagination text-center">
+                        <ul class="clearfix">
+                            <li><a href="#"><span class="fa fa-caret-left"></span></a></li>
+                            <li><a href="#" class="active">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#"><span class="fa fa-caret-right"></span></a></li>
+                        </ul>
+                    </div> -->
+                    <!--End Styled Pagination-->
+                    
+                </div>
+                
+                
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--End Inventory Section-->
+
+
+      
+
+    <!--Sell Car Section-->
+    <section class="sell-car-section"  ng-if="isAdmin()">
+            <div class="auto-container">
+                <div class="row clearfix">
+                    <!--Cell Car Column-->
+                    <div class="cell-car-column col-lg-9 col-md-8 col-sm-12 col-xs-12">
+                        <div class="inner-column">
+                            <!--Sec Title-->
+                            <div class="sec-title">
+                                <h2>Add New Car</h2>
+                            </div>
+                            
+                            <!--Sell Car Form-->
+                            <div class="sell-car-form">
+                                <h2>Vehicle Information</h2>
+                                <div class="form-box">
+                                    <form method="post" action="calculater-form">
+                                        <div class="row clearfix">
+                                            <div class="form-group col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                                                <label>Name</label>
+                                                <input type="text" name="fname" value="" placeholder="" required>
+                                            </div>
+                                            <div class="form-group col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                                                <label>Arabic Name</label>
+                                                <input type="text" name="fname" value="" placeholder="" required>
+                                            </div>
+                                            
+                                            <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                                                <label class="upload">Upload Car Photos</label>
+                                                <div class="field-inner clearfix">
+                                                    <input type="file" accept="image/*" onchange="angular.element(this).scope().onFilesSelected(this.files)" name="mainImage" id="ImageUploader1"  style="display: none">
+                                                    <button type="button" ng-click="openFileUploader()" class="upload-btn"><span class="fa fa-file-picture-o"></span> Choose File ...</button>
+                                                    <span ng-show="filesSelected.length > 0" id="fileLabel">
+                                                            <span ng-repeat=" file in filesSelected">{{file.name}} 
+                                                                <span ng-show="!$last">,</span> 
+                                                            </span>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                                                <button type="submit" class="theme-btn btn-style-one">submit Now</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>

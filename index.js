@@ -32,8 +32,16 @@ app.use(function(err,req,res,next){
 
     res.status(422).send({error:err.message})
 })
-// process.env.port ||
-app.listen( 4000,function () {
+app.use(function (req, res, next) {
+
+    res.setHeader('Access-Control-Allow-Origin', 'http://127.0.0.1:8082');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+    res.setHeader('Access-Control-Allow-Credentials', true);
+
+    next();
+});
+app.listen(process.env.port || 4000,function () {
 
     console.log("App listening at http://%s:%s")
 });

@@ -1,12 +1,21 @@
 'use strict'
 var app = angular.module('alBargasyApp',
         [
-    
-    'ngRoute'
+    'ngRoute','oitozero.ngSweetAlert'
 ]).run(function($rootScope , $location) {
     $rootScope.goToHome = function(){
         $location.path("/home");
     }
+    $rootScope.redirectTo404=function(){
+      $rootScope.currentTab ="";
+      $location.path ('/notFound');
+  }
+  $rootScope.isAdmin=function(){
+    return true;
+}
+    $rootScope.backendURL = $location.protocol() + "://" + $location.host() + ":4000/api/" ;
+    $rootScope.currentTab ="skoda"
+
 });
 
 app.config(function ($httpProvider) {
