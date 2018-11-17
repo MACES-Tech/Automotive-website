@@ -5,7 +5,8 @@ const videoService = require('../service/video.service.js');
 // Post a carBrand
 exports.create = (req, res, next) => {	
 	// Save to MySQL database
-	fileService.create(req.body.file,function(){
+	var model = req.body.name;
+	fileService.create(model,function(){
 		CarModel
 		.build({  
 			name: req.body.name,

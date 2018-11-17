@@ -66,6 +66,12 @@ angular.module('alBargasyApp')
                 $scope.filesSelected = files;
                 $scope.$apply();
         }
+        $scope.addNewCarModel = function(model){
+            modelObject = {name:model.name, arName:model.arName, mainImage:$scope.filesSelected,brandId:$scope.carbrand.id};
+            brandModelsService.creatNewModel(modelObject,function(p){
+                alert(p);
+            })
+        }
         $scope.init();
        
     });

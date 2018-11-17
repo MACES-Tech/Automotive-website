@@ -121,15 +121,15 @@
                             <div class="sell-car-form">
                                 <h2>Vehicle Information</h2>
                                 <div class="form-box">
-                                    <form method="post" action="calculater-form">
+                                    <form >
                                         <div class="row clearfix">
                                             <div class="form-group col-lg-4 col-md-6 col-sm-6 col-xs-12">
                                                 <label>Name</label>
-                                                <input type="text" name="fname" value="" placeholder="" required>
+                                                <input type="text" ng-model="model.name" name="name" value="" placeholder="" required>
                                             </div>
                                             <div class="form-group col-lg-4 col-md-6 col-sm-6 col-xs-12">
                                                 <label>Arabic Name</label>
-                                                <input type="text" name="fname" value="" placeholder="" required>
+                                                <input type="text" ng-model="model.arName" name="arName" value="" placeholder="" required>
                                             </div>
                                             
                                             <div class="form-group col-md-12 col-sm-12 col-xs-12">
@@ -145,7 +145,7 @@
                                                 </div>
                                             </div>
                                             <div class="form-group col-md-12 col-sm-12 col-xs-12">
-                                                <button type="submit" class="theme-btn btn-style-one">submit Now</button>
+                                                <button type="button" ng-click="addNewCarModel(model)" class="theme-btn btn-style-one">submit Now</button>
                                             </div>
                                         </div>
                                     </form>
