@@ -57,8 +57,12 @@
 
                         <div class="car-block col-lg-4 col-md-6 col-sm-6 col-xs-12" ng-repeat="model in carModels">
                             <div class="inner-box">
-                                <span><i class="fa fa-trash"></i> </span>
+                                
                                 <div class="image">
+                                        <div class="edit-icons" ng-if="isAdmin()">
+                                                <span ng-click="confirmPopup(model.id)"><a href=""><i class="fa fa-trash" data-toggle="modal" data-target=".bd-example-modal-sm"></i></a> </span>
+                                                <span><a href=""><i class="fa fa-edit"></i></a> </span>
+                                            </div>
                                     <a href="/{{currentTab}}/models/{{model.name}}"><img src="{{model.mainImage.path}}" alt="" /></a>
                                     <!-- <div class="price">$42000</div> -->
                                 </div>
@@ -98,8 +102,11 @@
 
     <!--End Inventory Section-->
 
+
+      
+
     <!--Sell Car Section-->
-    <section class="sell-car-section">
+    <section class="sell-car-section"  ng-if="isAdmin()">
             <div class="auto-container">
                 <div class="row clearfix">
                     <!--Cell Car Column-->
@@ -124,10 +131,17 @@
                                                 <label>Arabic Name</label>
                                                 <input type="text" name="fname" value="" placeholder="" required>
                                             </div>
+                                            
                                             <div class="form-group col-md-12 col-sm-12 col-xs-12">
                                                 <label class="upload">Upload Car Photos</label>
                                                 <div class="field-inner clearfix">
-                                                    <button type="button" class="upload-btn"><span class="fa fa-file-picture-o"></span> Choose File ...</button>
+                                                    <input type="file" accept="image/*" onchange="angular.element(this).scope().onFilesSelected(this.files)" name="mainImage" id="ImageUploader1"  style="display: none">
+                                                    <button type="button" ng-click="openFileUploader()" class="upload-btn"><span class="fa fa-file-picture-o"></span> Choose File ...</button>
+                                                    <span ng-show="filesSelected.length > 0" id="fileLabel">
+                                                            <span ng-repeat=" file in filesSelected">{{file.name}} 
+                                                                <span ng-show="!$last">,</span> 
+                                                            </span>
+                                                    </span>
                                                 </div>
                                             </div>
                                             <div class="form-group col-md-12 col-sm-12 col-xs-12">
@@ -142,4 +156,3 @@
                 </div>
             </div>
         </section>
-    
