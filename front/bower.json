@@ -38,8 +38,8 @@
     "angular-tooltips": "^1.1.10",
     "angular-ui-select": "",
     "angular-masonry": "^0.16.0",
-    "angular-messages": "1.5.8",
     "chart.js": "^2.5.0",
-    "angular-chart.js": ""
+    "angular-chart.js": "",
+    "ngSweetAlert": "angular-sweetalert#^1.1.2"
   }
 }
