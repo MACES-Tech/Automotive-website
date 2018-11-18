@@ -13,7 +13,8 @@ angular.module('alBargasyApp').config(function($routeProvider){
             templateUrl:"./app/components/car.service/services.html"
             // controller:'ManageAccountController'
     }).when('/account' ,{
-        templateUrl:"./app/components/login.register/account.html"
+        templateUrl:"./app/components/login.register/account.html",
+        controller: "loginRegisterController"
     })
     .otherwise({
         redirectTo:"/home"
