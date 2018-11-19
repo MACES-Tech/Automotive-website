@@ -57,7 +57,7 @@
                 <div class="upper-inner clearfix">
 
                     <div class="logo-outer">
-                        <div class="logo"><a href="#/skoda/models"><img src="assets/images/logo.png" alt="" title=""></a></div>
+                        <div class="logo"><a ng-click="goTopage('/skoda/models')" href=""><img src="assets/images/logo.png" alt="" title=""></a></div>
                     </div>
 
                     <div class="upper-right clearfix">
@@ -76,18 +76,18 @@
 
                                 <div class="navbar-collapse collapse clearfix">
                                     <ul class="navigation clearfix">
-                                        <li ng-class="currentTab==='skoda'? 'current':''" class="dropdown"><a href="#/skoda/models">SKODA</a>
+                                        <li ng-class="currentTab==='skoda'? 'current':''" class="dropdown"><a ng-click="goTopage('/skoda/models')"">SKODA</a>
                                             <ul>
-                                                <li><a href="#/skoda/models">Models</a></li>
-                                                <li><a ng-href="#services/1">Service Center</a></li>
+                                                <li><a ng-click="goTopage('/skoda/models')" >Models</a></li>
+                                                <li><a ng-click="goTopage('/services/1')" >Service Center</a></li>
                                                 <li><a href="#">Spare Parts</a></li>
                                             </ul>
                                         </li>
                                         <!-- <li><a href="services.html">Services</a></li> -->
-                                        <li ng-class="currentTab==='toyota'? 'current':''" class="dropdown"><a href="#/toyota/models">TOYOTA</a>
+                                        <li ng-class="currentTab==='toyota'? 'current':''" class="dropdown"><a ng-click="goTopage('/toyota/models')" >TOYOTA</a>
                                             <ul>
-                                                <li><a href="#/toyota/models">Models</a></li>
-                                                <li><a ng-href="#services/2">Service Center</a></li>
+                                                <li><a ng-click="goTopage('/toyota/models')" >Models</a></li>
+                                                <li><a ng-click="goTopage('/services/2')" >Service Center</a></li>
                                                 <li><a href="#">Spare Parts</a></li>
                                             </ul>
                                         </li>
@@ -160,7 +160,7 @@
             <div class="auto-container clearfix">
                 <!--Logo-->
                 <div class="logo pull-left">
-                    <a href="index.html" class="img-responsive" title="Car World"><img src="assets/images/logo-small.png"
+                    <a ng-click="goTopage('/skoda/models')" class="img-responsive" title="Car World"><img src="assets/images/logo-small.png"
                             alt="Tali" title="Car World"></a>
                 </div>
 
@@ -179,18 +179,18 @@
 
                         <div class="navbar-collapse collapse clearfix">
                             <ul class="navigation clearfix">
-                                <li ng-class="currentTab==='skoda'? 'current':''" class="dropdown "><a href="#/skoda/models">SKODA</a>
+                                <li ng-class="currentTab==='skoda'? 'current':''" class="dropdown "><a ng-click="goTopage('/skoda/models')">SKODA</a>
                                     <ul>
-                                        <li><a href="#/skoda/models">Models</a></li>
-                                        <li><a ng-href="#services/1">Service Center</a></li>
+                                        <li><a ng-click="goTopage('/skoda/models')" >Models</a></li>
+                                        <li><a ng-click="goTopage('/services/1')">Service Center</a></li>
                                         <li><a href="#">Spare Parts</a></li>
                                     </ul>
                                 </li>
                                 <!-- <li><a href="services.html">Services</a></li> -->
-                                <li ng-class="currentTab==='toyota'? 'current':''" class="dropdown"><a href="#/toyota/models">TOYOTA</a>
+                                <li ng-class="currentTab==='toyota'? 'current':''" class="dropdown"><a ng-click="goTopage('/toyota/models')">TOYOTA</a>
                                     <ul>
-                                        <li><a href="#/toyota/models">Models</a></li>
-                                        <li><a ng-href="#services/2">Service Center</a></li>
+                                        <li><a ng-click="goTopage('/toyota/models')">Models</a></li>
+                                        <li><a ng-click="goTopage('/services/2')" >Service Center</a></li>
                                         <li><a href="#">Spare Parts</a></li>
                                     </ul>
                                 </li>

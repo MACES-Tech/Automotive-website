@@ -1,7 +1,7 @@
 <section class="page-info">
     <div class="auto-container">
         <ul class="bread-crumb">
-            <li><a a href="#/{{currentTab}}/models">{{currentTab}}</a></li>
+            <li><a ng-click="goTopage('/' + currentTab +'/models' )" >{{currentTab}}</a></li>
             <li class="current">{{carModel.name}}</li>
         </ul>
     </div>
@@ -96,9 +96,9 @@
                             <!--Vehicle Details-->
                             <div class="vehicle-details">
                                 <div class="text-description">
-                                    <h2>Skoda Citigo</h2>
+                                    <h2>{{currentTab}} {{carModel.name}}</h2>
                                     <div class="text">
-                                        <p>The ŠKODA CITIGO redefines what’s possible in a city car. The compact dimensions conceal a surprisingly generous interior with top workmanship and numerous Simply Clever solutions, making the stylish-yet-thrifty CITIGO a very safe, mature all-rounder that is well suited to the city and beyond. It’s perfect for young drivers and families, couples, or as an additional runaround.</p>
+                                        <p>{{carModel.firstParagraph}}</p>
                                     </div>
                                 </div>
                                 

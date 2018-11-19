@@ -87,6 +87,24 @@ app.service('brandModelsService', function ($http, $rootScope) {
                 cb(null, err);
             })
     };
+    self.editModel = function(model,cb){
+        $http({
+            method: 'PUT',
+            url: $rootScope.backendURL + "carModel/" + model.id,
+            data:JSON.stringify(model)
+        }).then(
+            function successCallback(res) {
+                if (res.status == 500) {
+                    cb(null, res);
+                } else {
+                    cb(res);
+                }
+            },
+            function errorCallback(err) {
+                cb(null, err);
+            })
+    };
+    
     self.getModelByName = function(modelName,cb){
         $http({
             method: 'GET',

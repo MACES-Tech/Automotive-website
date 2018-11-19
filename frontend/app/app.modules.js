@@ -10,14 +10,16 @@ var app = angular.module('alBargasyApp',
       $rootScope.currentTab ="";
       $location.path ('/notFound');
     }
-  $rootScope.isAdmin=function(){
-    return true;
-  }
+  // $rootScope.isAdmin=function(){
+  //   return true;
+  // }
+  $rootScope.goTopage = function(PageName){
+    $location.path(PageName);
+}
     $rootScope.backendURL = $location.protocol() + "://" + $location.host() + ":"+ $location.port() +"/api/" ;
     $rootScope.currentTab ="skoda";
 
     $http.defaults.headers.post['Content-Type'] = 'application/json';
-
 
 })
 

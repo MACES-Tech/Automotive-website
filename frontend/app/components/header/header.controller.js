@@ -4,6 +4,7 @@ angular.module('alBargasyApp')
         $scope.goToAccountPage = function(){
             $location.path("/account");
         }
+        
         $scope.init = function () {
                 brandModelsService.getAllBrands(function(res, err){
                     if(res.data.length > 0 ){

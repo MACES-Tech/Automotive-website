@@ -30,7 +30,7 @@ var generateJwt = function(user) {
 }
 
 
-exports.register = function(req, res) {
+exports.register = function(req, res,next) {
 
   if(!req.body.name || !req.body.email || !req.body.password) {
     sendJSONresponse(res, 400, {
@@ -50,7 +50,7 @@ exports.register = function(req, res) {
   user.salt = saltAndHash.salt;
   user.hash = saltAndHash.hash;
 
-  User.create(user).then(User => {		
+  User.create(user.dataValues).then(User => {		
 		return res.status(200).send({
       token: generateJwt(user),
       user: user

@@ -11,4 +11,6 @@ module.exports = function(app) {
     app.delete('/api/carModel/:carModelId', carModel.delete);
         // Retrieve a single carModel by name
     app.get('/api/carModel/name/:modelName', carModel.findByName);
+
+    app.put('/api/carModel/:carModelId', carModel.update);
 }

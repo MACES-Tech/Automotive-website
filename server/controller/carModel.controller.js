@@ -12,7 +12,9 @@ exports.create = (req, res, next) => {
 		name: model.name,
 		arName: model.arName,
 		mainImageId: req.body.mainImage,
-		carBrandId: model.brandId
+		carBrandId: model.brandId,
+		firstParagraph: model.firstParagraph,
+		arFirstParagraph: model.arFirstParagraph
 	}).then(carModel => {		
 		// Send created carBrand to client
 		// next()
@@ -38,6 +40,17 @@ exports.findByName = (req, res, next) => {
 		res.send(carModel[0]);
 	}).catch(next);
 };
+exports.update = (req, res, next) => {
+	const id = req.params.carModelId;
+	carModelObject = req.body
+	CarModel.update( carModelObject, 
+					 { where: {id: req.params.carModelId} }
+					 ).then(() => {
+						// next()
+					 res.status(200).send("updated successfully a carBrand with id = " + id);
+				   }).catch(next);
+};
+
 // Delete a carBrand by Id
 exports.delete = (req, res, next) => {
 	const id = req.params.carModelId;
