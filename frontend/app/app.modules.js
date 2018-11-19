@@ -1,7 +1,7 @@
 'use strict'
 var app = angular.module('alBargasyApp',
         [
-    'ngRoute','oitozero.ngSweetAlert','ngFileUpload'
+    'ngRoute','oitozero.ngSweetAlert','ngFileUpload','ngCookies'
 ]).run(function($rootScope , $location,$http) {
     $rootScope.goToHome = function(){
         $location.path("/home");
@@ -9,10 +9,10 @@ var app = angular.module('alBargasyApp',
     $rootScope.redirectTo404=function(){
       $rootScope.currentTab ="";
       $location.path ('/notFound');
-  }
+    }
   $rootScope.isAdmin=function(){
     return true;
-}
+  }
     $rootScope.backendURL = $location.protocol() + "://" + $location.host() + ":"+ $location.port() +"/api/" ;
     $rootScope.currentTab ="skoda";
 

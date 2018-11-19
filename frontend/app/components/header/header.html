@@ -36,10 +36,11 @@
                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" href="#"><span
                                         class="icon flaticon-user"></span>&ensp;My Account &nbsp;<span class="fa fa-angle-down"></span></a>
                                 <ul class="dropdown-menu style-one" aria-labelledby="dropdownMenu2">
-                                    <li><a href="#account">My Account</a></li>
-                                    <li><a href="#">Settings</a></li>
+                                    <li><a ng-if="!isSignedIn()" ng-click=goToAccountPage()>My Account</a></li>
+                                    <li><a ng-if="isSignedIn()" ng-click="signOut()">Sign Out</a>
+                                    <!-- <li><a href="#">Settings</a></li>
                                     <li><a href="#">Wishlist</a></li>
-                                    <li><a href="#">Cart</a></li>
+                                    <li><a href="#">Cart</a></li> -->
                                 </ul>
                             </li>
                             <li><a class="sell-car" href="#">Sell Your Car</a></li>

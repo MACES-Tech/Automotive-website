@@ -30,7 +30,7 @@ var generateJwt = function(user) {
 }
 
 
-module.exports.register = function(req, res) {
+exports.register = function(req, res) {
 
   if(!req.body.name || !req.body.email || !req.body.password) {
     sendJSONresponse(res, 400, {
@@ -50,15 +50,13 @@ module.exports.register = function(req, res) {
   user.salt = saltAndHash.salt;
   user.hash = saltAndHash.hash;
 
-  user.save(function(err) {
-    var token;
-    token = generateJwt(user);
-    
-    res.send(200,{
-      "token" : token
+  User.create(user).then(User => {		
+		return res.status(200).send({
+      token: generateJwt(user),
+      user: user
     });
-  });
-
+	}).catch(next);
+    
 };
 
 function _onPassportAuth(req, res, error, user, info) {
@@ -69,14 +67,14 @@ function _onPassportAuth(req, res, error, user, info) {
   if (!user) {
       return res.send(401);
   } else {
-    return res.send(200,{
+    return res.status(200).send({
         token: generateJwt(user),
         user: user
     });
   }
 }
 
-module.exports.login = function(req, res) {
+exports.login = function(req, res) {
 
   if(!req.body.email || !req.body.password) {
     sendJSONresponse(res, 400, {
