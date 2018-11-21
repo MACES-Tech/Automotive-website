@@ -12,9 +12,9 @@ angular.module('alBargasyApp').config(function($routeProvider){
     }).when("/notFound",{
         templateUrl:"./app/components/notFound/404.html",
     })
-    .when('/services/:id' ,{
-            templateUrl:"./app/components/car.service/services.html"
-            // controller:'ManageAccountController'
+    .when('/services/:brandName' ,{
+            templateUrl:"./app/components/car.service/services.html",
+            controller:'carServiceController'
     }).when('/account' ,{
         templateUrl:"./app/components/login.register/account.html",
         controller: 'loginRegisterController'

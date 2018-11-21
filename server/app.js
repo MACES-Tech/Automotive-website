@@ -27,8 +27,11 @@
     require('./route/carbrand.route.js')(app);
     require('./route/carModel.route.js')(app);
     require('./route/authentication.route.js')(app);
+    require('./route/carService.route.js')(app);
     require('./route/gallery.route.js')(app);
     require('./controller/file.controller.js')(app);
+
+    
 
     
     

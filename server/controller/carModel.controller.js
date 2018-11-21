@@ -38,7 +38,6 @@ exports.findBycarBrandId = (req, res, next) => {
 		// next();
 		res.status(200).send(carModels);
 	}).catch(next);
-
 };
 exports.findByName = (req, res, next) => {
 	CarModel.findAll({where:{name:req.params.modelName}}).then(carModel => {
