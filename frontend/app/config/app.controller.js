@@ -9,7 +9,7 @@ angular.module('alBargasyApp')
         debugger
         $cookies.put("currentUser.object", admin);
         $cookies.put("currentUser.token", token);
-        $location.path("/home");
+        $location.path("/skoda/models");
     }
 
     $rootScope.getcurrentUser = function () {
@@ -43,7 +43,7 @@ angular.module('alBargasyApp')
             //     console.log("error in signing out");
             // } else {
                 $rootScope.unsetcurrentUser();
-                $location.path('/home');
+                $location.path('/skoda/models');
         //     }
         // });
     }

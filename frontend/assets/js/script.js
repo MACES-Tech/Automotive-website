@@ -101,6 +101,7 @@
 	//Two Item Carousel
 	if ($('.two-item-carousel').length) {
 		$('.two-item-carousel').owlCarousel({
+			navigation : true,
 			loop:true,
 			margin:30,
 			nav:true,
@@ -131,6 +132,7 @@
 	//Four Item Carousel
 	if ($('.four-item-carousel').length) {
 		$('.four-item-carousel').owlCarousel({
+			navigation : true,
 			loop:true,
 			margin:30,
 			nav:true,
@@ -181,6 +183,7 @@
 	//Single Item Carousel
 	if ($('.single-item-carousel').length) {
 		$('.single-item-carousel').owlCarousel({
+			navigation : true,
 			loop:true,
 			margin:10,
 			nav:true,
@@ -245,6 +248,7 @@
 	//Three Item Carousel
 	if ($('.three-item-carousel').length) {
 		$('.three-item-carousel').owlCarousel({
+			navigation : true,
 			loop:true,
 			margin:30,
 			nav:true,
@@ -294,6 +298,7 @@
 	//Testimonial Carousel
 	if ($('.testimonial-carousel').length) {
 		$('.testimonial-carousel').owlCarousel({
+			navigation : true,
 			loop:true,
 			margin:30,
 			nav:true,
@@ -330,6 +335,7 @@
 
 			$sync3
 				.owlCarousel({
+					navigation : true,
 					loop:false,
 					items: 1,
 					margin: 10,
@@ -349,6 +355,7 @@
 
 			$sync4
 				.owlCarousel({
+					navigation : true,
 					loop:false,
 					margin: 15,
 					items: 1,

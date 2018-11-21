@@ -42,7 +42,7 @@ angular.module('alBargasyApp')
                     if(!err){
                         if(res.data.length > 0 &&res.status ===200){
                             $scope.carbrand = res.data[0];
-                            $rootScope.currentTab = $scope.carbrand.name+"_service";
+                            $rootScope.currentTab = $scope.carbrand.name;
                             carServiceService.getCarServices($scope.carbrand.id,function(res,err){
                                 if(!err){
                                     for(var i = 0 ; i < res.data.length;i++){
