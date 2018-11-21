@@ -21,7 +21,16 @@ module.exports = (sequelize, Sequelize) => {
 			type: Sequelize.BOOLEAN, allowNull: false, defaultValue: false
 		},carBrandId:{
 			type: Sequelize.INTEGER,allowNull: false
-		}
+		},createdAt: {
+			allowNull: false,
+			defaultValue: new Date(),
+			type: Sequelize.DATE
+		  },
+		  updatedAt: {
+			allowNull: false,
+			defaultValue: new Date(),
+			type: Sequelize.DATE
+		  }
 	});
 	CarService.belongsTo(CarBrand, {foreignKey: 'carBrandId'});
 	CarService.belongsTo(File, {foreignKey : 'serviceImage',as:"serviceMainImage"})
