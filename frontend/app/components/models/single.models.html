@@ -84,8 +84,11 @@
                                 
                                 <!--Product Thumbs Carousel-->
                                 <div class="prod-thumbs-carousel owl-theme owl-carousel">
-                                    <div class="thumb-item" ng-repeat = "image in carModel.sections[0].files">
+                                    <div ng-repeat = "image in carModel.sections[0].files" class="thumb-item" >
                                         <figure class="thumb-box">
+                                                <div class="edit-icons" ng-if="isAdmin()">
+                                                        <span ng-click="confirmPopup(image.id)"><a href=""><i class="fa fa-trash" data-toggle="modal" data-target=".bd-example-modal-sm"></i></a> </span>
+                                                </div>
                                             <img ng-src="/uploads/{{image.file.path}}" alt="">
                                         </figure>
                                     </div>
@@ -93,7 +96,49 @@
                                 </div>
                                 
                             </div><!--End Product Carousel-->
-                            
+                            <section class="sell-car-section"  ng-if="isAdmin()">
+                                    <div class="auto-container">
+                                        <div class="row clearfix">
+                                            <!--Cell Car Column-->
+                                            <div class="cell-car-column col-lg-9 col-md-8 col-sm-12 col-xs-12">
+                                                <div class="inner-column">
+                                                    <!--Sec Title-->
+                                                    <div class="sec-title">
+                                                        <h2>Add Image</h2>
+                                                    </div>
+                                                    
+                                                    <!--Sell Car Form-->
+                                                    <div class="sell-car-form">
+                                                        <h2>Vehicle Information</h2>
+                                                        <div class="form-box">
+                                                            <form >
+                                                                <div class="row clearfix">
+                                                                    <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                                                                        <label class="upload">Upload  Photo</label>
+                                                                        <div class="field-inner clearfix">
+                                                                            <input id="ImageUploader1" type="file" ngf-select ng-model="up.file" name="file" 
+                                                                            ngf-pattern="'image/*'"  accept="image/*" ngf-max-size="20MB"
+                                                                             style="display: none">
+                                                                             
+                        
+                                                                            <button type="button" ng-click="openFileUploader()" class="upload-btn"><span class="fa fa-file-picture-o"></span> Choose File ...</button>
+                                                                            Image thumbnail: <img style="width:100px;" ngf-thumbnail="up.file || '/thumb.jpg'"/>
+                                                                            {{progress}}
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                                                                        <button type="button" ng-click="addNewImageToSlider(up)" class="theme-btn btn-style-one">submit Now</button>
+                        
+                                                                    </div>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
                             <!--Vehicle Details-->
                             <div class="vehicle-details">
                                 <div class="text-description">
@@ -327,4 +372,4 @@
                 </div>
             </div>
         </section>
-        <script src="../../../assets/js/script.js"></script> 
+        <!-- <script src="../../../assets/js/script.js"></script>  -->
