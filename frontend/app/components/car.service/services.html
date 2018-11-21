@@ -1,79 +1,21 @@
+<script src="/assets/js/jquery.js"></script> 
+<script src="/assets/js/bootstrap.min.js"></script>
+<script src="/assets/js/jquery.fancybox.pack.js"></script>
+<script src="/assets/js/jquery.fancybox-media.js"></script>
+<script src="/assets/js/owl.js"></script>
+<script src="/assets/js/appear.js"></script>
+<script src="/assets/js/jquery.datetimepicker.js"></script>
+<script src="/assets/js/jquery-ui.js"></script>
+<script src="/assets/js/wow.js"></script>
+<script src="/assets/js/script.js"></script>
+
+
+
 <div class="page-wrapper">
  	
     <!-- Preloader -->
     <!-- <div class="preloader"></div> -->
         
-        <!--Sticky Header-->
-        <div class="sticky-header">
-            <div class="auto-container clearfix">
-                <!--Logo-->
-                <div class="logo pull-left">
-                    <a href="index.html" class="img-responsive" title="Car World"><img src="assets/images/logo-small.png" alt="Tali" title="Car World"></a>
-                </div>
-                
-                <!--Right Col-->
-                <div class="right-col pull-right">
-                    <!-- Main Menu -->
-                    <nav class="main-menu">
-                        <div class="navbar-header">
-                            <!-- Toggle Button -->    	
-                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            </button>
-                        </div>
-                        
-                        <div class="navbar-collapse collapse clearfix">
-                            <ul class="navigation clearfix">
-                                    <li class="dropdown"><a href="#">SKODA</a>
-                                        <ul>
-                                            <li><a href="index.html">Models</a></li>
-                                            <li><a href="services.html">Service Center</a></li>
-                                            <li><a href="#">Spare Parts</a></li>
-                                        </ul>
-                                    </li>
-                                    <!-- <li><a href="services.html">Services</a></li> -->
-                                    <li class="dropdown"><a href="#">TOYOTA</a>
-                                        <ul>
-                                            <li><a href="#">Models</a></li>
-                                            <li><a href="#">Service Center</a></li>
-                                            <li><a href="#">Spare Parts</a></li>
-                                        </ul>
-                                    </li>
-                                    
-                                    <li class="dropdown"><a href="#">Cars</a>
-                                        <ul>
-                                            <li><a href="#">Buy</a></li>
-                                            <li><a href="#">Sell a Car</a></li>
-                                            <li><a href="#">Exchange</a></li>
-                                            <li><a href="#">Service Center</a></li>
-                                            <!-- <li><a href="faq.html">FAQ’s</a></li>
-                                            <li><a href="loan-calculater.html">Loan Calculator</a></li>
-                                            <li><a href="error-page.html">404 Page</a></li> -->
-                                        </ul>
-                                    </li>
-                                    <!-- <li class="dropdown"><a href="#">Shop</a>
-                                        <ul>
-                                            <li><a href="shop.html">Our Shop</a></li>
-                                            <li><a href="shop-single.html">Shop Single</a></li>
-                                            <li><a href="shoping-cart.html">Shoping Cart</a></li>
-                                            <li><a href="checkout.html">CheckOut</a></li>
-                                            <li><a href="account.html">Account</a></li>
-                                        </ul>
-                                    </li> -->
-                                    <li><a href="#">Contact</a></li>
-                                </ul>
-                        </div>
-                    </nav><!-- Main Menu End-->
-                </div>
-                
-            </div>
-        </div>
-        <!--End Sticky Header-->
-    
-    </header>
-    <!--End Main Header -->
     
     <!--Page Title-->
     <!-- <section class="page-title" style="background-image:url(assets/images/services/service-offers.506ea32b2a1fb2f1765352d4a51cbdaa.fill-1920x500.jpg);"> -->
@@ -102,16 +44,20 @@
             	<!--Image Column-->
             	<div class="image-column col-md-6 col-sm-12 col-xs-12">
                 	<div class="image">
-                    	<img src="assets/images/services/service-inspections.a48b0e2cf40b40b3ea8ab95bc08397f7.fill-1920x1096.jpg" alt="" />
+                    	<img ng-src="/uploads/{{generalService.serviceMainImage.path}}" alt="{{generalService.serviceMainImage.altValue}}" />
                     </div>
                 </div>
                 <!--Content Column-->
             	<div class="content-column col-md-6 col-sm-12 col-xs-12">
                 	<div class="inner-column">
+                            <div class="edit-icons" ng-if="isAdmin()">
+                                    <span ng-click="confirmPopup(generalService.id)"><a href=""><i class="fa fa-trash" data-toggle="modal" data-target=".bd-example-modal-sm"></i></a> </span>
+                                    <span ng-click="editService(generalService)"><a href=""><i class="fa fa-edit"></i></a> </span>
+                            </div>
                     	<div class="sec-title">
-                        	<h2>General Services</h2>
+                        	<h2>{{generalService.serviceTitle}}</h2>
                         </div>
-                        <div class="text">To keep your car in lasting working condition and to make sure that no guarantees are voided, you need to have it regularly serviced at a ŠKODA authorised service partner. You can find information on the frequency at which ŠKODAs need to be serviced in the service log or vehicle operating instructions, which are part and parcel of your ŠKODA’s on-board documentation.</div>
+                        <div class="text">{{generalService.serviceDescription}}</div>
                         <div class="row clearfix">
                         	<div class="col-md-6 col-sm-6 col-xs-12">
                             	<ul class="list-style-four">
@@ -138,38 +84,19 @@
             	<div class="row clearfix">
                 	
                     <!--Services Block Four-->
-                    <div class="services-block-four col-md-4 col-sm-12 col-xs-12">
+                    <div class="services-block-four col-md-4 col-sm-12 col-xs-12" ng-repeat="service in services track by $index">
                     	<div class="inner-box">
+                                <div class="edit-icons" ng-if="isAdmin()">
+                                        <span ng-click="confirmPopup(service.id)"><a href=""><i class="fa fa-trash" data-toggle="modal" data-target=".bd-example-modal-sm"></i></a> </span>
+                                        <span ng-click="editService(service)"><a href=""><i class="fa fa-edit"></i></a> </span>
+                                </div>
                         	<div class="image">
-                            	<img src="assets/images/services/service-2.jpg" alt="" />
+                                <img ng-src="/uploads/{{service.serviceMainImage.path}}" alt="{{service.serviceMainImage.altValue}}" />
                             </div>
-                            <h3><a href="#">Interim Car Service</a></h3>
-                            <div class="text">The Interim service is recommended every 6 months high-mileage drivers, or where more frequent.</div>
+                            <h3><a href="#">{{service.serviceTitle}}</a></h3>
+                            <div class="text">{{service.serviceDescription}}</div>
                         </div>
-                    </div>
-                    
-                    <!--Services Block Four-->
-                    <div class="services-block-four col-md-4 col-sm-12 col-xs-12">
-                    	<div class="inner-box">
-                        	<div class="image">
-                            	<img src="assets/images/services/service-3.jpg" alt="" />
-                            </div>
-                            <h3><a href="#">Full Car Service</a></h3>
-                            <div class="text">Our Full Service exceeds most manu facturers service schedules. If you book a full car service.</div>
-                        </div>
-                    </div>
-                    
-                    <!--Services Block Four-->
-                    <div class="services-block-four col-md-4 col-sm-12 col-xs-12">
-                    	<div class="inner-box">
-                        	<div class="image">
-                            	<img src="assets/images/services/service-4.jpg" alt="" />
-                            </div>
-                            <h3><a href="#">Major Car Service</a></h3>
-                            <div class="text">Our Full Service exceeds most manu facturers service schedules. If you book a full car service.</div>
-                        </div>
-                    </div>
-                    
+                    </div>                    
                 </div>
             </div>
         </div>
@@ -177,7 +104,7 @@
     <!--End Services Section Two-->
     
     <!--Services Section Three-->
-    <section class="services-section-three">
+    <section class="services-section-three" >
     	<div class="auto-container">
         	<!--Sec Title-->
             <div class="sec-title light centered">
@@ -374,8 +301,76 @@
     </section>
     <!--End Services Section Three-->
     
+
+    <!--Sell Car Section-->
+    <section class="sell-car-section"  ng-if="isAdmin()">
+        <div class="auto-container">
+            <div class="row clearfix">
+                <!--Cell Car Column-->
+                <div class="cell-car-column col-lg-9 col-md-8 col-sm-12 col-xs-12">
+                    <div class="inner-column">
+                        <!--Sec Title-->
+                        <div class="sec-title">
+                            <h2>Add / edit Service</h2>
+                        </div>
+                        
+                        <!--Sell Car Form-->
+                        <div class="sell-car-form">
+                            <h2>Service Information</h2>
+                            <div class="form-box">
+                                <form >
+                                    <div class="row clearfix">
+                                        <div class="form-group col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                                            <!-- <input type="hidden" ng-model="model.id" name="name" value="" placeholder="" required="required"> -->
+                                            <label>Name</label>
+                                            <input type="text" ng-model="addEditService.serviceTitle" name="name" value="" placeholder="" required="required">
+                                        </div>
+                                        <div class="form-group col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                                            <label>Arabic Name</label>
+                                            <input type="text" ng-model="addEditService.arServiceTitle" name="arName" value="" placeholder="" required="required">
+                                        </div>
+                                        <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                                            <label>description</label>
+                                            <textarea  ng-model="addEditService.serviceDescription" name="firstParagraph" value="" placeholder="" required="required"></textarea>
+                                        </div>
+                                        <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                                            <label>Arabic description</label>
+                                            <textarea ng-model="addEditService.arServiceDescription" name="arFirstParagraph" value="" placeholder="" required="required"></textarea>
+                                        </div>
+
+                                        <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                                            <label class="upload">Upload Service Photo</label>
+                                            <div class="field-inner clearfix">
+                                                <input id="ImageUploader1" type="file" ngf-select ng-model="up.file" name="file" 
+                                                ngf-pattern="'image/*'"  accept="image/*" ngf-max-size="20MB"
+                                                 style="display: none">
+                                                 
+
+                                                <button type="button" ng-click="openFileUploader()" class="upload-btn"><span class="fa fa-file-picture-o"></span> Choose File ...</button>
+                                                Image thumbnail: <img style="width:100px;" ngf-thumbnail="up.file || '/thumb.jpg'"/>
+                                                {{progress}}
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                                            <input type="checkbox" ng-model="addEditService.serviceIsGeneral" name="generalService" ng-true-value="true" ng-false-value="false"> main service?
+                                        </div>
+                                        <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                                            <button type="button" ng-click="addNewService()" class="theme-btn btn-style-one">submit Now</button>
+                                            <button type="button" ng-click="clearData()" class="theme-btn btn-style-one">clear</button>
+
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!--Services Schedule Sections-->
-    <section class="services-schedule-sections grey-bg">
+    <section class="services-schedule-sections grey-bg" ng-if="!isAdmin()">
     	<div class="auto-container">
         	<!--Sec Title-->
             <div class="sec-title">
@@ -416,11 +411,7 @@
                                             <option>Wheel Four</option>
                                         </select>
                                     </div>
-                                    <div class="form-group col-md-4 col-sm-6 col-xs-12">
-                                        <label>Schedule Date & Time</label>
-                                        <span class="clock-icon"><span class="icon fa fa-clock-o"></span></span>
-                                        <input class="date-time-picker" type="text" name="fname" value="" placeholder="" required>
-                                    </div>
+                                    
                                     <div class="form-group col-md-4 col-sm-12 col-xs-12">
                                         <button type="submit" class="theme-btn btn-style-one">Request a Service</button>
                                     </div>

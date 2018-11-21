@@ -1,5 +1,6 @@
 module.exports = (sequelize, Sequelize) => {
-	const Brand =  require('../model/carbrand.model.js')(sequelize, Sequelize);
+	const CarBrand =  require('../model/carbrand.model.js')(sequelize, Sequelize);
+	const File =  require('../model/file.model.js')(sequelize, Sequelize);
 	const CarService = sequelize.define('car_service', {
 	  serviceTitle: {
 			type: Sequelize.STRING
@@ -13,8 +14,8 @@ module.exports = (sequelize, Sequelize) => {
 		arServiceDescription: {
 			type: Sequelize.STRING
 		},
-		serviceImage: {
-			type: Sequelize.STRING
+		serviceImage:{
+			type: Sequelize.INTEGER
 		},
 		serviceIsGeneral:{
 			type: Sequelize.BOOLEAN, allowNull: false, defaultValue: false
@@ -22,7 +23,7 @@ module.exports = (sequelize, Sequelize) => {
 			type: Sequelize.INTEGER,allowNull: false
 		}
 	});
-	CarService.belongsToMany(Brand, { through: 'carBrandId',foreignKey : 'fk_carBrandId'});
-	Brand.belongsToMany(CarService, {foreignKey: 'fk_carBrandId',through: 'id'});
+	CarService.belongsTo(CarBrand, {foreignKey: 'carBrandId'});
+	CarService.belongsTo(File, {foreignKey : 'serviceImage',as:"serviceMainImage"})
 	return CarService;
 }
