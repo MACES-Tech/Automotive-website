@@ -18,8 +18,12 @@ exports.create = (req, res, next) => {
 		firstParagraph: model.firstParagraph,
 		arFirstParagraph: model.arFirstParagraph
 	}).then(carModel => {
-		Section.create({carModelId: carModel.id}).then(section=>{
-			res.send(carModel);
+		Section.create({firstHeader:"slider",carModelId: carModel.id}).then(section=>{
+			Section.create({firstHeader:"body",carModelId: carModel.id}).then(section=>{
+				Section.create({firstHeader:"brochures",carModelId: carModel.id}).then(section=>{
+					res.send(carModel);
+				})
+			})
 		}).catch(next);
 	}).catch(next);
 	
@@ -40,7 +44,7 @@ exports.findByName = (req, res, next) => {
 		// next()
 		model = carModel[0];
 		var jsonResult = model.toJSON();
-		Section.findAll({where:{carModelId:model.id}}).then(sections =>{
+		Section.findAll({where:{carModelId:model.id} ,order:[['firstHeader', 'DESC']] }).then(sections =>{
 			jsonResult.sections = [];
 			for (let index = 0; index < sections.length; index++) {
 				jsonResult.sections.push(sections[index].toJSON());
