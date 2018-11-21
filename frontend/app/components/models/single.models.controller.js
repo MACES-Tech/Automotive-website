@@ -1,6 +1,9 @@
 angular.module('alBargasyApp')
     .controller('singleModelController', function ($window,$rootScope, $scope, $location, $routeParams,$route, brandModelsService,SweetAlert,Upload,galleryService) {
         $scope.carModel ={};
+        $scope.slider = {};
+        $scope.body={};
+        $scope.brochures={};
         $scope.init = function () {
             if ($routeParams.brandName) {
                 //get an existing object
@@ -13,6 +16,17 @@ angular.module('alBargasyApp')
                                 brandModelsService.getModelByName($routeParams.modelName,function(res,err){
                                     if(!err){
                                         $scope.carModel = res.data;
+                                        // $scope.carModel.sections.forEach(section => {
+                                        //     if(section.firstHeader === "slider"){
+                                        //         $scope.slider = (section);
+                                        //     }
+                                        //     if(section.firstHeader === "body"){
+                                        //         $scope.body =(section);
+                                        //     }
+                                        //     if(section.firstHeader === "brochures"){
+                                        //         $scope.brochures =(section);
+                                        //     }
+                                        // });
                                         $scope.reloadScripts();
                                     }
                                 })
@@ -59,30 +73,28 @@ angular.module('alBargasyApp')
                 }
             })
         }
+        $scope.openFileUploader = function(id){
+            document.getElementById(id).click();
 
-        $scope.addNewImageToSlider = function(up){
+        }
+        $scope.addNewImageToSection = function(up,sectionId){
             Upload.upload({
                 url: $rootScope.backendURL +'upload', //webAPI exposed to upload the file
                 data:{file:up.file} //pass file as data, should be user ng-model
             }).then(function (resp) { //upload function returns a promise
                 if(resp.data.error_code === 0){
                     insertedFile = resp.data.insertedFile
-                    galleryObject = {fileId:insertedFile.id, sectionId:$scope.carModel.sections[0].id}
+                    galleryObject = {fileId:insertedFile.id, sectionId:sectionId}
                     galleryService.addImageToGallery(galleryObject,function(res,err){
                         if(!err){
                             SweetAlert.swal("Good job!", "The Image added successfully", "success");
-                            $route.reload();                        }
+                            $route.reload();                        
+                        }
 
                     })
                 }
             })
         }
-
-        $scope.openFileUploader = function(){
-            document.getElementById('ImageUploader1').click();
-
-        }
-
         $scope.reloadScripts = function(){
             var script = document.createElement('script');
 
