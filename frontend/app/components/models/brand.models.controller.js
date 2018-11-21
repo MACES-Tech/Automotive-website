@@ -75,8 +75,9 @@ angular.module('alBargasyApp')
                     url: $rootScope.backendURL +'upload', //webAPI exposed to upload the file
                     data:{file:up.file} //pass file as data, should be user ng-model
                 }).then(function (resp) { //upload function returns a promise
-                    if(resp.data.error_code === 0){ //validate success                    
+                    if(resp.data.error_code === 0){ //validate success
                         modelObject = {name:model.name, arName:model.arName,arFirstParagraph:model.arFirstParagraph,firstParagraph:model.firstParagraph, mainImage:resp.data.insertedFile.id,brandId:$scope.carbrand.id};
+                        modelObject.keyFeatures = model.keyFeatures;
                         brandModelsService.creatNewModel(modelObject,function(res,err){
                             if(!err){
                                 SweetAlert.swal("Good job!", "The car added successfully", "success");
@@ -111,7 +112,8 @@ angular.module('alBargasyApp')
                 if(!up.file){
                     console.log('edit only');
                     modelObject = {id:model.id,name:model.name, arName:model.arName,arFirstParagraph:model.arFirstParagraph,firstParagraph:model.firstParagraph,brandId:$scope.carbrand.id};
-                            brandModelsService.editModel(modelObject,function(res,err){
+                    modelObject.keyFeatures = model.keyFeatures;    
+                        brandModelsService.editModel(modelObject,function(res,err){
                                 if(!err){
                                     SweetAlert.swal("Good job!", "The car updated successfully", "success");
                                     brandModelsService.getAllModels($scope.carbrand.id,function(res,err){
@@ -193,6 +195,7 @@ angular.module('alBargasyApp')
             model.firstParagraph="";
             $scope.progress = "";
             $scope.up = {}
+            model.keyFeatures={};
         }
         $scope.editmodel = function(model){
             $scope.model.id = model.id;
@@ -200,6 +203,7 @@ angular.module('alBargasyApp')
             $scope.model.arName = model.arName;
             $scope.model.arFirstParagraph = model.arFirstParagraph;
             $scope.model.firstParagraph = model.firstParagraph;
+            $scope.model.keyFeatures = model.keyFeatures;
         }
         $scope.init();
        
