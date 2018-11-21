@@ -13,6 +13,7 @@ angular.module('alBargasyApp')
                                 brandModelsService.getModelByName($routeParams.modelName,function(res,err){
                                     if(!err){
                                         $scope.carModel = res.data;
+                                        // $scope.reloadScripts();
                                     }
                                 })
                             }else{
@@ -30,6 +31,13 @@ angular.module('alBargasyApp')
             } else {
                 $rootScope.redirectTo404()
             }
+        }
+        $scope.reloadScripts = function(){
+            var script = document.createElement('script');
+
+            script.src = "assets/js/owl.js";
+
+            document.head.appendChild(script);
         }
         $scope.init();
        

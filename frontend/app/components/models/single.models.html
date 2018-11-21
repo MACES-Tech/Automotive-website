@@ -70,25 +70,26 @@
                                     
                                     <!--Product image Carousel-->
                                     <ul class="prod-image-carousel owl-theme owl-carousel">
-                                        <li><figure class="image"><img src="images/citigo/skoda-citigo-m70-highlights-01.5704d0ed0c0428a5a6f935ce5e3e3b59.fill-1920x1096.jpg" alt=""><a class="lightbox-image fancy-btn" data-fancybox-group="example-gallery" href="images/citigo/skoda-citigo-m70-highlights-01.5704d0ed0c0428a5a6f935ce5e3e3b59.fill-1920x1096.jpg" title="Commute in the"><span class="fa fa-search-plus"></span></a></figure></li>
-                                        <li><figure class="image"><img src="images/citigo/skoda-citigo-m62-exterior-02.4c9803ea2224f61a2b4d82269509d049.fill-1920x960.jpg" alt=""><a class="lightbox-image fancy-btn" data-fancybox-group="example-gallery" href="images/citigo/skoda-citigo-m62-exterior-02.4c9803ea2224f61a2b4d82269509d049.fill-1920x960.jpg" title="Distenct headlights flank the grill to create the car's unmistakable face"><span class="fa fa-search-plus"></span></a></figure></li>
-                                        <li><figure class="image"><img src="images/citigo/Driver-assistance-systems-m27-com.190af406f14158f8484c21d22100daf6.fill-1120x441.jpg" alt=""><a class="lightbox-image fancy-btn" data-fancybox-group="example-gallery" href="https://www.youtube.com/watch?v=jZP0FehvQM0" title="Skoda Citigo"><span class="fa fa-play"></span></a></figure></li>
-                                        <li><figure class="image"><img src="images/citigo/skoda-citigo-m62-exterior-04.a51f71ec4f0b0ffd34b451f9da9abe98.fill-999x499.jpg" alt=""><a class="lightbox-image fancy-btn" data-fancybox-group="example-gallery" href="images/citigo/skoda-citigo-m62-exterior-04.a51f71ec4f0b0ffd34b451f9da9abe98.fill-999x499.jpg" title="Slender and vertical, the taillights make room for the wide tailgate."><span class="fa fa-search-plus"></span></a></figure></li>
-                                        <li><figure class="image"><img src="images/citigo/skoda-citigo-m62-interior-01.f1fe626385f9cb2088a0656800cb0fcb.fill-999x499.jpg" alt=""><a class="lightbox-image fancy-btn" data-fancybox-group="example-gallery" href="images/citigo/skoda-citigo-m62-interior-01.f1fe626385f9cb2088a0656800cb0fcb.fill-999x499.jpg" title="The interior boasts broad, sound ergonomics and high seating comfort."><span class="fa fa-search-plus"></span></a></figure></li>
-                                        <li><figure class="image"><img src="images/citigo/skoda-citigo-m62-interior-04.382887b79450e3cd8c702d1064392a27.fill-999x499.jpg" alt=""><a class="lightbox-image fancy-btn" data-fancybox-group="example-gallery" href="images/citigo/skoda-citigo-m62-interior-04.382887b79450e3cd8c702d1064392a27.fill-999x499.jpg" title="The boot volume can be increased to 959 litres."><span class="fa fa-search-plus"></span></a></figure></li>
-                                        <li><figure class="image"><img src="images/citigo/skoda-citigo-m70-highlights.cdb28cec9696f2cfb2c33602efa915fe.fill-840x380.jpg" alt=""><a class="lightbox-image fancy-btn" data-fancybox-group="example-gallery" href="images/citigo/skoda-citigo-m70-highlights.cdb28cec9696f2cfb2c33602efa915fe.fill-840x380.jpg" title="ENJOY YOUR RIDE"><span class="fa fa-search-plus"></span></a></figure></li>
+                                        <li ng-repeat = "image in carModel.sections[0].files">
+                                            <figure class="image">
+                                                <img  ng-src="/uploads/{{image.file.path}}" alt="">
+                                                <a class="lightbox-image fancy-btn" data-fancybox-group="example-gallery" href="/uploads/{{image.file.path}}" title="Distenct headlights flank the grill to create the car's unmistakable face">
+                                                    <span class="fa fa-search-plus"></span>
+                                                </a>
+                                            </figure>
+                                        </li>
+
                                     </ul>
                                 </div>
                                 
                                 <!--Product Thumbs Carousel-->
                                 <div class="prod-thumbs-carousel owl-theme owl-carousel">
-                                    <div class="thumb-item"><figure class="thumb-box"><img src="images/citigo/skoda-citigo-m70-highlights-01.5704d0ed0c0428a5a6f935ce5e3e3b59.fill-1920x1096.jpg" alt=""></figure></div>
-                                    <div class="thumb-item"><figure class="thumb-box"><img src="images/citigo/skoda-citigo-m62-exterior-02.4c9803ea2224f61a2b4d82269509d049.fill-1920x960.jpg" alt=""></figure></div>
-                                    <div class="thumb-item"><figure class="thumb-box"><img src="images/citigo/Driver-assistance-systems-m27-com.190af406f14158f8484c21d22100daf6.fill-1120x441.jpg" alt=""><div class="video-icon"><span class="fa fa-play"></span></div></figure></div>
-                                    <div class="thumb-item"><figure class="thumb-box"><img src="images/citigo/skoda-citigo-m62-exterior-04.a51f71ec4f0b0ffd34b451f9da9abe98.fill-999x499.jpg" alt=""></figure></div>
-                                    <div class="thumb-item"><figure class="thumb-box"><img src="images/citigo/skoda-citigo-m62-interior-01.f1fe626385f9cb2088a0656800cb0fcb.fill-999x499.jpg" alt=""></figure></div>
-                                    <div class="thumb-item"><figure class="thumb-box"><img src="images/citigo/skoda-citigo-m62-interior-04.382887b79450e3cd8c702d1064392a27.fill-999x499.jpg" alt=""></figure></div>
-                                    <div class="thumb-item"><figure class="thumb-box"><img src="images/citigo/skoda-citigo-m70-highlights.cdb28cec9696f2cfb2c33602efa915fe.fill-840x380.jpg" alt=""></figure></div>
+                                    <div class="thumb-item" ng-repeat = "image in carModel.sections[0].files">
+                                        <figure class="thumb-box">
+                                            <img ng-src="/uploads/{{image.file.path}}" alt="">
+                                        </figure>
+                                    </div>
+
                                 </div>
                                 
                             </div><!--End Product Carousel-->
@@ -105,10 +106,10 @@
                                 <div class="images">
                                     <div class="row clearfix">
                                         <div class="image-column col-md-5 col-sm-4 col-xs-12">
-                                            <figure class="image"><img src="images/citigo/skoda-citigo-m70-highlights.7372c446e46a65453bbbf3c74b5240e0.fill-840x380.jpg" alt=""></figure>
+                                            <figure class="image"><img src="assets/images/citigo/skoda-citigo-m70-highlights.7372c446e46a65453bbbf3c74b5240e0.fill-840x380.jpg" alt=""></figure>
                                         </div>
                                         <div class="image-column col-md-7 col-sm-8 col-xs-12">
-                                            <figure class="image"><img src="images/citigo/skoda-citigo-m70-highlights.cdb28cec9696f2cfb2c33602efa915fe.fill-840x380 (1).jpg" alt=""></figure>
+                                            <figure class="image"><img src="assets/images/citigo/skoda-citigo-m70-highlights.cdb28cec9696f2cfb2c33602efa915fe.fill-840x380 (1).jpg" alt=""></figure>
                                         </div>
                                     </div>
                                 </div>
@@ -326,3 +327,4 @@
                 </div>
             </div>
         </section>
+        <script src="../../../assets/js/script.js"></script> 

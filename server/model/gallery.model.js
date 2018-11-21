@@ -16,6 +16,6 @@ module.exports = (sequelize, Sequelize) => {
         }
       });
       Gallery.belongsTo(Section, {foreignKey: 'sectionId'});
-      Gallery.belongsTo(File, {foreignKey: 'fileId'});
+      Gallery.belongsTo(File, {foreignKey: 'fileId', as :"file"});
       return Gallery;
 }
