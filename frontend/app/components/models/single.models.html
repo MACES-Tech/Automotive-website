@@ -86,7 +86,7 @@
                                 <div class="prod-thumbs-carousel owl-theme owl-carousel">
                                     <div ng-repeat = "image in carModel.sections[0].files" class="thumb-item" >
                                         <figure class="thumb-box">
-                                                <div class="edit-icons" ng-if="isAdmin()" style="margin-right: 50px;">
+                                                <div class="edit-icons" ng-if="isAdmin()" style="margin-right: 40px;">
                                                         <span ng-click="confirmPopup(image.id)"><a href=""><i class="fa fa-trash" data-toggle="modal" data-target=".bd-example-modal-sm"></i></a> </span>
                                                 </div>
                                             <img ng-src="/uploads/{{image.file.path}}" alt="">
@@ -212,18 +212,18 @@
                                         <div class="listing-outer clearfix">
                                             <div class="list-column">
                                                 <ul class="list-style-seven">
-                                                    <li class="clearfix"><span class="ttl">Body</span><span class="dtl">Convertible</span></li>
-                                                    <li class="clearfix"><span class="ttl">Total Kilometres</span><span class="dtl">2090Km’s</span></li>
-                                                    <li class="clearfix"><span class="ttl">Fuel Type</span><span class="dtl">Unleaded petrol, RON 95/91*</span></li>
-                                                    <li class="clearfix"><span class="ttl">Reg.Year</span><span class="dtl">2013, Aug</span></li>
+                                                    <li class="clearfix"><span class="ttl">Body</span><span class="dtl">{{carModel.keyFeatures.body}}</span></li>
+                                                    <!-- <li class="clearfix"><span class="ttl">Total Kilometres</span><span class="dtl">2090Km’s</span></li> -->
+                                                    <li class="clearfix"><span class="ttl">Fuel Type</span><span class="dtl">{{carModel.keyFeatures.fuelType}}</span></li>
+                                                    <li class="clearfix"><span class="ttl">Reg.Year</span><span class="dtl">{{carModel.keyFeatures.regYear}}</span></li>
                                                 </ul>
                                             </div>
                                             <div class="list-column">
                                                 <ul class="list-style-seven">
-                                                    <li class="clearfix"><span class="ttl">Transmission</span><span class="dtl">Semi Automatic</span></li>
-                                                    <li class="clearfix"><span class="ttl">Engine</span><span class="dtl">3.7L V-L cyl</span></li>
-                                                    <li class="clearfix"><span class="ttl">Fuel Economy</span><span class="dtl">14.55 kmpl</span></li>
-                                                    <li class="clearfix"><span class="ttl">Color</span><span class="dtl">TitaniumMetalic</span></li>
+                                                    <li class="clearfix"><span class="ttl">Transmission</span><span class="dtl">{{carModel.keyFeatures.transmission}}</span></li>
+                                                    <li class="clearfix"><span class="ttl">Engine</span><span class="dtl">{{carModel.keyFeatures.engine}}</span></li>
+                                                    <li class="clearfix"><span class="ttl">Fuel Economy</span><span class="dtl">{{carModel.keyFeatures.fuelEconomy}}</span></li>
+                                                    <!-- <li class="clearfix"><span class="ttl">Color</span><span class="dtl">TitaniumMetalic</span></li> -->
                                                 </ul>
                                             </div>
                                         </div>
@@ -232,119 +232,7 @@
                             </div>
                             
                             <!--Details Panel Box-->
-                            <div class="details-panel-box tech-details">
-                                <div class="panel-header"><div class="panel-btn clearfix"><h4><strong>Technical Details</strong> of {{currentTab}} {{carModel.name}} </h4><div class="arrow"><span class="fa fa-angle-down"></span></div></div></div>
-                                <div class="panel-content">
-                                    <div class="content-box tabs-box inventory-tabs clearfix">
-                                        <div class="tab-buttons-outer">
-                                            <ul class="tab-buttons clearfix">
-                                                <li class="tab-btn active-btn" data-tab="#tab-one">Performance</li>
-                                                <li class="tab-btn" data-tab="#tab-two">Capacity</li>
-                                                <li class="tab-btn" data-tab="#tab-three">Comfort</li>
-                                                <li class="tab-btn" data-tab="#tab-four">Safety</li>
-                                            </ul>
-                                        </div>
-                                        
-                                        <!--Tabs Content-->
-                                        <div class="tabs-content">
-                                            <!--Tab / Active Tab-->
-                                            <div class="tab active-tab" id="tab-one">
-                                                <div class="listing-outer clearfix">
-                                                    <div class="list-column">
-                                                        <ul class="list-style-eight">
-                                                            <li class="clearfix"><span class="ttl">Seating Capacity:</span><span class="dtl">3 Front and 4 Back Comfortable</span></li>
-                                                            <li class="clearfix"><span class="ttl">Cargo Volume</span><span class="dtl">460-Litres Maximum</span></li>
-                                                            <li class="clearfix"><span class="ttl">Number of Doors</span><span class="dtl">4 Doors (2 Front & 2 Back)</span></li>
-                                                            <li class="clearfix"><span class="ttl">Tyre Type:</span><span class="dtl">Tubeless, Radial (ARBC Approved)</span></li>
-                                                            <li class="clearfix"><span class="ttl">Tyre Size:</span><span class="dtl">218/53 R15 ( With Stepney)</span></li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="list-column">
-                                                        <ul class="list-style-eight">
-                                                            <li class="clearfix"><span class="ttl">Wheel Size</span><span class="dtl">165/38 R15 (With Stepney)</span></li>
-                                                            <li class="clearfix"><span class="ttl">Wheel Type</span><span class="dtl">Alloy Wheel (ARBC Approved)</span></li>
-                                                            <li class="clearfix"><span class="ttl">Fuel Tank Capacity:</span><span class="dtl">65 Litres</span></li>
-                                                            <li class="clearfix"><span class="ttl">Front Headroom:</span><span class="dtl">914mm Front Headroom</span></li>
-                                                            <li class="clearfix"><span class="ttl">Rear Headroom:</span><span class="dtl">916mm Rear Headroom</span></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div><!--End Tab-->
-                                            <!--Tab-->
-                                            <div class="tab" id="tab-two">
-                                                <div class="listing-outer clearfix">
-                                                    <div class="list-column">
-                                                        <ul class="list-style-eight">
-                                                            <li class="clearfix"><span class="ttl">Seating Capacity:</span><span class="dtl">3 Front and 4 Back Comfortable</span></li>
-                                                            <li class="clearfix"><span class="ttl">Cargo Volume</span><span class="dtl">460-Litres Maximum</span></li>
-                                                            <li class="clearfix"><span class="ttl">Number of Doors</span><span class="dtl">4 Doors (2 Front & 2 Back)</span></li>
-                                                            <li class="clearfix"><span class="ttl">Tyre Type:</span><span class="dtl">Tubeless, Radial (ARBC Approved)</span></li>
-                                                            <li class="clearfix"><span class="ttl">Tyre Size:</span><span class="dtl">218/53 R15 ( With Stepney)</span></li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="list-column">
-                                                        <ul class="list-style-eight">
-                                                            <li class="clearfix"><span class="ttl">Wheel Size</span><span class="dtl">165/38 R15 (With Stepney)</span></li>
-                                                            <li class="clearfix"><span class="ttl">Wheel Type</span><span class="dtl">Alloy Wheel (ARBC Approved)</span></li>
-                                                            <li class="clearfix"><span class="ttl">Fuel Tank Capacity:</span><span class="dtl">65 Litres</span></li>
-                                                            <li class="clearfix"><span class="ttl">Front Headroom:</span><span class="dtl">914mm Front Headroom</span></li>
-                                                            <li class="clearfix"><span class="ttl">Rear Headroom:</span><span class="dtl">916mm Rear Headroom</span></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div><!--End Tab-->
-                                            <!--Tab-->
-                                            <div class="tab" id="tab-three">
-                                                <div class="listing-outer clearfix">
-                                                    <div class="list-column">
-                                                        <ul class="list-style-eight">
-                                                            <li class="clearfix"><span class="ttl">Seating Capacity:</span><span class="dtl">3 Front and 4 Back Comfortable</span></li>
-                                                            <li class="clearfix"><span class="ttl">Cargo Volume</span><span class="dtl">460-Litres Maximum</span></li>
-                                                            <li class="clearfix"><span class="ttl">Number of Doors</span><span class="dtl">4 Doors (2 Front & 2 Back)</span></li>
-                                                            <li class="clearfix"><span class="ttl">Tyre Type:</span><span class="dtl">Tubeless, Radial (ARBC Approved)</span></li>
-                                                            <li class="clearfix"><span class="ttl">Tyre Size:</span><span class="dtl">218/53 R15 ( With Stepney)</span></li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="list-column">
-                                                        <ul class="list-style-eight">
-                                                            <li class="clearfix"><span class="ttl">Wheel Size</span><span class="dtl">165/38 R15 (With Stepney)</span></li>
-                                                            <li class="clearfix"><span class="ttl">Wheel Type</span><span class="dtl">Alloy Wheel (ARBC Approved)</span></li>
-                                                            <li class="clearfix"><span class="ttl">Fuel Tank Capacity:</span><span class="dtl">65 Litres</span></li>
-                                                            <li class="clearfix"><span class="ttl">Front Headroom:</span><span class="dtl">914mm Front Headroom</span></li>
-                                                            <li class="clearfix"><span class="ttl">Rear Headroom:</span><span class="dtl">916mm Rear Headroom</span></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div><!--End Tab-->
-                                            <!--Tab-->
-                                            <div class="tab" id="tab-four">
-                                                <div class="listing-outer clearfix">
-                                                    <div class="list-column">
-                                                        <ul class="list-style-eight">
-                                                            <li class="clearfix"><span class="ttl">Seating Capacity:</span><span class="dtl">3 Front and 4 Back Comfortable</span></li>
-                                                            <li class="clearfix"><span class="ttl">Cargo Volume</span><span class="dtl">460-Litres Maximum</span></li>
-                                                            <li class="clearfix"><span class="ttl">Number of Doors</span><span class="dtl">4 Doors (2 Front & 2 Back)</span></li>
-                                                            <li class="clearfix"><span class="ttl">Tyre Type:</span><span class="dtl">Tubeless, Radial (ARBC Approved)</span></li>
-                                                            <li class="clearfix"><span class="ttl">Tyre Size:</span><span class="dtl">218/53 R15 ( With Stepney)</span></li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="list-column">
-                                                        <ul class="list-style-eight">
-                                                            <li class="clearfix"><span class="ttl">Wheel Size</span><span class="dtl">165/38 R15 (With Stepney)</span></li>
-                                                            <li class="clearfix"><span class="ttl">Wheel Type</span><span class="dtl">Alloy Wheel (ARBC Approved)</span></li>
-                                                            <li class="clearfix"><span class="ttl">Fuel Tank Capacity:</span><span class="dtl">65 Litres</span></li>
-                                                            <li class="clearfix"><span class="ttl">Front Headroom:</span><span class="dtl">914mm Front Headroom</span></li>
-                                                            <li class="clearfix"><span class="ttl">Rear Headroom:</span><span class="dtl">916mm Rear Headroom</span></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div><!--End Tab-->
-                                            
-                                        </div><!--End Tabs Content-->
-                                        
-                                    </div>
-                                </div>
-                            </div>
+                            
                             
                             <!--Details Panel Box-->
                             <div class="details-panel-box extra-features">
@@ -407,9 +295,42 @@
                         <div class="brochures-widget">
                             <div class="default-sidebar-title"><h2>Our Brochures</h2></div>
                             <ul class="brochures-list">
-                                <li><a href="images/citigo/CITIGO-Catalogue.0a052170396bd56eebcad30bc69bd10f.pdf"><span class="fa fa-file-pdf-o"></span> Catalogue.pdf</a></li>
-                                <li><a href="images/citigo/CITIGO-Accessories.5dc5bf440b707590a7a21e0f79126298.pdf"><span class="fa fa-file-pdf-o"></span> Accessories.pdf</a></li>
+                                <li  ng-repeat = "image in carModel.sections[1].files"><a ng-href="/uploads/{{image.file.path}}" target="_blank"><span class="fa fa-file-pdf-o"></span> {{image.file.altValue}}</a></li>
                             </ul>
+
+                            <section class="sell-car-section"  ng-if="isAdmin()">
+                                    <div class="auto-container">
+                                        <div class="row clearfix">
+                                            <!--Cell Car Column-->       
+                                            <div class="sell-car-form">
+                                                    <h2>File Information</h2>
+                                            <div class="form-box">
+                                                <form >
+                                                    <div class="row clearfix">
+                                                        <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                                                            <label class="upload">Upload  File</label>
+                                                            <div class="field-inner clearfix">
+                                                                <input id="ImageUploader3" type="file" ngf-select ng-model="up.file" name="file" 
+                                                                ngf-max-size="20MB"
+                                                                style="display: none">
+                                                                
+
+                                                                <button type="button" ng-click="openFileUploader('ImageUploader3')" class="upload-btn"><span class="fa fa-file-picture-o"></span> Choose File ...</button>
+                                                                <!-- Image thumbnail: <img style="width:100px;" ngf-thumbnail="up.file || '/thumb.jpg'"/> -->
+                                                                {{progress}}
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                                                            <button type="button" ng-click="addNewImageToSection(up,carModel.sections[1].id)" class="theme-btn btn-style-one">submit Now</button>
+
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
                         </div>
                         
                     </div>
