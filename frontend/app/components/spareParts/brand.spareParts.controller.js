@@ -1,5 +1,5 @@
 angular.module('alBargasyApp')
-    .controller('modelsController', function ($window,$rootScope, $scope, $location, $routeParams, brandModelsService,SweetAlert,Upload) {
+    .controller('sparePartsController', function ($window,$rootScope, $scope, $location, $routeParams, brandSparePartsService,brandModelsService,SweetAlert,Upload) {
         $scope.carModels =[];
         $scope.up = {};
         $scope.model = {};
@@ -12,7 +12,7 @@ angular.module('alBargasyApp')
                         if(res.data.length > 0 &&res.status ===200){
                             $scope.carbrand = res.data[0];
                             $rootScope.currentTab = $scope.carbrand.name;
-                            brandModelsService.getAllModels($scope.carbrand.id,function(res,err){
+                            brandSparePartsService.getAllSpareParts($scope.carbrand.id,function(res,err){
                                 if(!err){
                                     $scope.carModels = res.data;
                                 }
@@ -49,10 +49,10 @@ angular.module('alBargasyApp')
              });
         }
         $scope.deleteIt = function(modelId){
-            brandModelsService.deleteModelById(modelId,function(res,err){
+            brandSparePartsService.deleteSparePartsById(modelId,function(res,err){
                 if(!err){
                     SweetAlert.swal("Deleted!", "Your data has been deleted.", "success");
-                    brandModelsService.getAllModels($scope.carbrand.id,function(res,err){
+                    brandSparePartsService.getAllSpareParts($scope.carbrand.id,function(res,err){
                         if(!err){
                             $scope.carModels = res.data;
                         }
@@ -68,7 +68,7 @@ angular.module('alBargasyApp')
                 $scope.filesSelected = files;
                 $scope.$apply();
         }
-        $scope.addNewCarModel = function(up,model){
+        $scope.addNewCarSparePart = function(up,model){
             console.log(up)
             if(!model.id){
                 Upload.upload({
@@ -76,12 +76,11 @@ angular.module('alBargasyApp')
                     data:{file:up.file} //pass file as data, should be user ng-model
                 }).then(function (resp) { //upload function returns a promise
                     if(resp.data.error_code === 0){ //validate success
-                        modelObject = {name:model.name, arName:model.arName,arFirstParagraph:model.arFirstParagraph,firstParagraph:model.firstParagraph, mainImage:resp.data.insertedFile.id,brandId:$scope.carbrand.id};
-                        modelObject.keyFeatures = model.keyFeatures;
-                        brandModelsService.creatNewModel(modelObject,function(res,err){
+                        modelObject = {name:model.name, arName:model.arName,price:model.price, mainImageId:resp.data.insertedFile.id,carBrandId:$scope.carbrand.id};
+                        brandSparePartsService.creatNewSparePart(modelObject,function(res,err){
                             if(!err){
                                 SweetAlert.swal("Good job!", "The car added successfully", "success");
-                                brandModelsService.getAllModels($scope.carbrand.id,function(res,err){
+                                brandSparePartsService.getAllSpareParts($scope.carbrand.id,function(res,err){
                                     if(!err){
                                         $scope.carModels = res.data;
                                     }
@@ -111,12 +110,11 @@ angular.module('alBargasyApp')
                 console.log(up)
                 if(!up.file){
                     console.log('edit only');
-                    modelObject = {id:model.id,name:model.name, arName:model.arName,arFirstParagraph:model.arFirstParagraph,firstParagraph:model.firstParagraph,brandId:$scope.carbrand.id};
-                    modelObject.keyFeatures = model.keyFeatures;    
-                        brandModelsService.editModel(modelObject,function(res,err){
+                    modelObject = {id:model.id,name:model.name, arName:model.arName,price:model.price,carBrandId:$scope.carbrand.id};
+                        brandSparePartsService.editSparePart(modelObject,function(res,err){
                                 if(!err){
                                     SweetAlert.swal("Good job!", "The car updated successfully", "success");
-                                    brandModelsService.getAllModels($scope.carbrand.id,function(res,err){
+                                    brandSparePartsService.getAllSpareParts($scope.carbrand.id,function(res,err){
                                         if(!err){
                                             $scope.carModels = res.data;
                                         }
@@ -136,12 +134,11 @@ angular.module('alBargasyApp')
                         data:{file:up.file} //pass file as data, should be user ng-model
                     }).then(function (resp) { //upload function returns a promise
                         if(resp.data.error_code === 0){ //validate success                    
-                            modelObject = {id:model.id,name:model.name, arName:model.arName,arFirstParagraph:model.arFirstParagraph,firstParagraph:model.firstParagraph, mainImageId:resp.data.insertedFile.id,brandId:$scope.carbrand.id};
-                            modelObject.keyFeatures = model.keyFeatures;  
-                            brandModelsService.editModel(modelObject,function(res,err){
+                            modelObject = {id:model.id,name:model.name, arName:model.arName,price:model.price, mainImageId:resp.data.insertedFile.id,carBrandId:$scope.carbrand.id};
+                            brandSparePartsService.editSparePart(modelObject,function(res,err){
                                 if(!err){
                                     SweetAlert.swal("Good job!", "The car updated successfully", "success");
-                                    brandModelsService.getAllModels($scope.carbrand.id,function(res,err){
+                                    brandSparePartsService.getAllSpareParts($scope.carbrand.id,function(res,err){
                                         if(!err){
                                             $scope.carModels = res.data;
                                         }
@@ -192,19 +189,15 @@ angular.module('alBargasyApp')
             model.id="";
             model.arName="";
             model.name="";
-            model.arFirstParagraph="";
-            model.firstParagraph="";
+            model.price="";
             $scope.progress = "";
             $scope.up = {}
-            model.keyFeatures={};
         }
-        $scope.editmodel = function(model){
+        $scope.editSparePart = function(model){
             $scope.model.id = model.id;
             $scope.model.name = model.name;
             $scope.model.arName = model.arName;
-            $scope.model.arFirstParagraph = model.arFirstParagraph;
-            $scope.model.firstParagraph = model.firstParagraph;
-            $scope.model.keyFeatures = model.keyFeatures;
+            $scope.model.price = model.price;
         }
         $scope.init();
        

@@ -12,7 +12,7 @@ angular.module('alBargasyApp').config(function($routeProvider){
     }).when("/notFound",{
         templateUrl:"./app/components/notFound/404.html",
     })
-    .when('/services/:brandName' ,{
+    .when('/:brandName/services' ,{
             templateUrl:"./app/components/car.service/services.html",
             controller:'carServiceController'
     }).when('/account' ,{
@@ -21,6 +21,9 @@ angular.module('alBargasyApp').config(function($routeProvider){
     }).when('/request_services' ,{
         templateUrl:"./app/components/car.service/request_service_list.html",
         controller: 'requestedServiceController'
+    }).when("/:brandName/spare_parts",{
+        templateUrl:"./app/components/spareParts/brand.spareParts.html",
+        controller:'sparePartsController'
     })
     .otherwise({
         redirectTo:"/notFound"

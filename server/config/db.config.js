@@ -30,4 +30,5 @@ db.carService = require('../model/carService.model.js')(sequelize, Sequelize);
 db.users = require('../model/users.model.js')(sequelize, Sequelize);
 db.services = require('../model/services.model.js')(sequelize, Sequelize);
 db.keyFeatures = require('../model/keyFeatures.model.js')(sequelize, Sequelize);
+db.spareParts = require('../model/spareParts.model.js')(sequelize, Sequelize);
 module.exports = db;
