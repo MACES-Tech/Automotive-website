@@ -78,7 +78,8 @@
 
     <!--AngularJS UI Bootstrap & its dependecies ref: http://angular-/UI.github.io/bootstrap/-->
     <script src="assets/libs/ui-bootstrap-tpls-2.1.4.min.js"></script>
-    <!-- <script src="bower_components/angular-animate/angular-animate.min.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.min.js"></script>
+    <!-- 
     <script src="bower_components/angularjs-slider/dist/rzslider.js"></script> -->
 
     <script src="assets/libs/angular-material/angular-material.min.js"></script>
@@ -92,6 +93,9 @@
     <script src="bower_components/ng-file-upload/ng-file-upload.min.js"></script>
 
     <script src="bower_components/angular-cookies/angular-cookies.min.js"></script>
+
+    <link rel='stylesheet' href='bower_components/angular-loading-bar/build/loading-bar.min.css' type='text/css' media='all' />
+<script type='text/javascript' src='bower_components/angular-loading-bar/build/loading-bar.min.js'></script>
 
 </head>
 
@@ -127,8 +131,7 @@
 
 
 <div container style="background:white" ng-controller="appController">
-    <div header-panel></div>
-    <div class="preloader"></div>
+    <div header-panel></div>    
     <div ng-view ></div>
     <div footer-panel></div>
 </div>
