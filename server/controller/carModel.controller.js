@@ -1,5 +1,7 @@
 const db = require('../config/db.config.js');
 const CarModel = db.carModel;
+const Section = db.section;
+const Gallery = db.gallery;
 const fileService = require('../service/file.service.js');
 const videoService = require('../service/video.service.js');
 // Post a carBrand
@@ -15,10 +17,10 @@ exports.create = (req, res, next) => {
 		carBrandId: model.brandId,
 		firstParagraph: model.firstParagraph,
 		arFirstParagraph: model.arFirstParagraph
-	}).then(carModel => {		
-		// Send created carBrand to client
-		// next()
-		res.send(carModel);
+	}).then(carModel => {
+		Section.create({carModelId: carModel.id}).then(section=>{
+			res.send(carModel);
+		}).catch(next);
 	}).catch(next);
 	
 };
@@ -36,7 +38,28 @@ exports.findBycarBrandId = (req, res, next) => {
 exports.findByName = (req, res, next) => {
 	CarModel.findAll({where:{name:req.params.modelName}}).then(carModel => {
 		// next()
-		res.send(carModel[0]);
+		model = carModel[0];
+		var jsonResult = model.toJSON();
+		Section.findAll({where:{carModelId:model.id}}).then(sections =>{
+			jsonResult.sections = [];
+			for (let index = 0; index < sections.length; index++) {
+				jsonResult.sections.push(sections[index].toJSON());
+				Gallery.findAll({include: [
+					{ model: db.file, as: 'file' }
+				], where:{sectionId:jsonResult.sections[index].id}}).then(files =>{
+					jsonResult.sections[index].files = [];
+					for (let index2 = 0; index2 < files.length; index2++) {
+						const element = files[index2].toJSON();
+						jsonResult.sections[index].files.push(element);
+					}
+					if(index === jsonResult.sections.length - 1){
+						res.send(jsonResult);
+					}
+				})
+				
+			}
+		})
+		
 	}).catch(next);
 };
 exports.update = (req, res, next) => {
