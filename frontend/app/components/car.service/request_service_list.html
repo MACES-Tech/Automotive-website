@@ -10,20 +10,23 @@
 <script src="/assets/js/script.js"></script>
 
 <style>
-        table {
-            border-collapse: collapse;
-            border-spacing: 0;
-            width: 100%;
-            border: 1px solid #ddd;
-        }
-        
-        th, td {
-            text-align: left;
-            padding: 8px;
-        }
-        
-        tr:nth-child(even){background-color: #f2f2f2}
-        </style>
+    table {
+        border-collapse: collapse;
+        border-spacing: 0;
+        width: 100%;
+        border: 1px solid #ddd;
+    }
+
+    th,
+    td {
+        text-align: left;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f2f2f2
+    }
+</style>
 <div class="page-wrapper">
 
     <!-- Preloader -->
@@ -51,24 +54,30 @@
     </section>
     <!--End Page Info-->
 
-    <div class="auto-container" style="overflow-x:auto;overflow-y:auto;">
-        <table>
-            <tr>
-                <th>Name</th>
-                <th>Phone</th>
-                <th>Email</th>
-                <th>Car Brand</th>
-                <th>Car Model</th>
-                <th>Chassis Number</th>
-            </tr>
-            <tr ng-repeat="service in allRequestedServices track by $index">
-                <td>{{service.name}}</td>
-                <td>{{service.phone}}</td>
-                <td>{{service.email}}</td>
-                <td>{{service.brand}}</td>
-                <td>{{service.model}}</td>
-                <td>{{service.chassis}}</td>
-            </tr>
-        </table>
-    </div>
+    <section class="services-section-two">
+        <div class="auto-container">
+            <div class="row clearfix">
+                <div class="auto-container" style="overflow-x:auto;overflow-y:auto;">
+                    <table>
+                        <tr>
+                            <th>Name</th>
+                            <th>Phone</th>
+                            <th>Email</th>
+                            <th>Car Brand</th>
+                            <th>Car Model</th>
+                            <th>Chassis Number</th>
+                        </tr>
+                        <tr ng-repeat="service in allRequestedServices track by $index">
+                            <td>{{service.name}}</td>
+                            <td>{{service.phone}}</td>
+                            <td>{{service.email}}</td>
+                            <td>{{service.brand}}</td>
+                            <td>{{service.model}}</td>
+                            <td>{{service.chassis}}</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
 </div>

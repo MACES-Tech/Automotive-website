@@ -16,7 +16,7 @@ angular.module('alBargasyApp')
             $scope.requestService.chassis = "";
             
         }
-        
+        $rootScope.currentTab = $routeParams.brandName;
 
 
         $scope.init = function () {

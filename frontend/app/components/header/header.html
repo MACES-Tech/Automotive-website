@@ -3,7 +3,7 @@
 <script src="assets/js/script.js"></script> 
 <div class="page-wrapper">
     <!-- Preloader -->
-    <div class="preloader"></div>
+    <!-- <div class="preloader"></div> -->
     <!-- Main Header-->
     <header class="main-header">
         <!-- Header-->
@@ -35,17 +35,19 @@
                     <!--Top Right-->
                     <div class="top-right">
                         <ul class="dropdown-option clearfix">
-                            <li class="account dropdown"><a class="btn btn-default dropdown-toggle" id="dropdownMenu2"
+                            <!-- <li class="account dropdown"><a class="btn btn-default dropdown-toggle" id="dropdownMenu2"
                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" ><span
                                         class="icon flaticon-user"></span>&ensp;My Account &nbsp;<span class="fa fa-angle-down"></span></a>
                                 <ul class="dropdown-menu style-one" aria-labelledby="dropdownMenu2">
                                     <li><a ng-if="!isSignedIn()" ng-click=goToAccountPage()>My Account</a></li>
                                     <li><a ng-if="isSignedIn()" ng-click="signOut()">Sign Out</a>
-                                    <!-- <li><a href="#">Settings</a></li>
+                                    <li><a href="#">Settings</a></li>
                                     <li><a href="#">Wishlist</a></li>
-                                    <li><a href="#">Cart</a></li> -->
+                                    <li><a href="#">Cart</a></li> 
                                 </ul>
-                            </li>
+                            </li> -->
+                            <li><a class="icon flaticon-user" ng-if="!isSignedIn()" ng-click=goToAccountPage()>&ensp;My Account&ensp;</a></li>
+                            <li><a class="icon flaticon-user" ng-if="isSignedIn()" ng-click="signOut()">&ensp;Sign Out&ensp;</a></li>
                             <li><a class="sell-car" href="#">Sell Your Car</a></li>
                         </ul>
                     </div>
