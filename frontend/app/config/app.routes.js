@@ -18,6 +18,9 @@ angular.module('alBargasyApp').config(function($routeProvider){
     }).when('/account' ,{
         templateUrl:"./app/components/login.register/account.html",
         controller: 'loginRegisterController'
+    }).when('/request_services' ,{
+        templateUrl:"./app/components/car.service/request_service_list.html",
+        controller: 'requestedServiceController'
     })
     .otherwise({
         redirectTo:"/notFound"

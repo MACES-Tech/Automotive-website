@@ -1,0 +1,74 @@
+<script src="/assets/js/jquery.js"></script>
+<script src="/assets/js/bootstrap.min.js"></script>
+<script src="/assets/js/jquery.fancybox.pack.js"></script>
+<script src="/assets/js/jquery.fancybox-media.js"></script>
+<script src="/assets/js/owl.js"></script>
+<script src="/assets/js/appear.js"></script>
+<script src="/assets/js/jquery.datetimepicker.js"></script>
+<script src="/assets/js/jquery-ui.js"></script>
+<script src="/assets/js/wow.js"></script>
+<script src="/assets/js/script.js"></script>
+
+<style>
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+            width: 100%;
+            border: 1px solid #ddd;
+        }
+        
+        th, td {
+            text-align: left;
+            padding: 8px;
+        }
+        
+        tr:nth-child(even){background-color: #f2f2f2}
+        </style>
+<div class="page-wrapper">
+
+    <!-- Preloader -->
+    <!-- <div class="preloader"></div> -->
+
+
+    <!--Page Title-->
+    <section class="page-title" style="background-image:url(assets/images/services/service-offers.506ea32b2a1fb2f1765352d4a51cbdaa.fill-1920x500.jpg);">
+        -->
+        <div class="auto-container">
+            <h1>Services</h1>
+        </div>
+    </section>
+    <!--End Page Title-->
+
+    <!--Page Info-->
+    <section class="page-info">
+        <div class="auto-container">
+            <ul class="bread-crumb">
+                <li><a href="index.html">Skoda</a></li>
+                <!-- <li>Pages</li> -->
+                <li class="current">Requested Services</li>
+            </ul>
+        </div>
+    </section>
+    <!--End Page Info-->
+
+    <div class="auto-container" style="overflow-x:auto;overflow-y:auto;">
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Phone</th>
+                <th>Email</th>
+                <th>Car Brand</th>
+                <th>Car Model</th>
+                <th>Chassis Number</th>
+            </tr>
+            <tr ng-repeat="service in allRequestedServices track by $index">
+                <td>{{service.name}}</td>
+                <td>{{service.phone}}</td>
+                <td>{{service.email}}</td>
+                <td>{{service.brand}}</td>
+                <td>{{service.model}}</td>
+                <td>{{service.chassis}}</td>
+            </tr>
+        </table>
+    </div>
+</div>

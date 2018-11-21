@@ -5,12 +5,37 @@ angular.module('alBargasyApp')
         $scope.addEditService = {};
         $scope.up = {}
         $scope.carbrand ={};
+        $scope.requestService = {};
+        $scope.requestService.brand = $routeParams.brandName;
+        if($rootScope.getcurrentUser()!=""){
+            var user = $rootScope.getcurrentUser();
+            $scope.requestService.name = user.name;
+            $scope.requestService.email = user.email;
+            $scope.requestService.phone = user.phone;
+            $scope.requestService.model = "";
+            $scope.requestService.chassis = "";
+            
+        }
+        
+
+
         $scope.init = function () {
             $scope.services = [];
             $scope.generalService = {};
             $scope.addEditService = {};
             $scope.up = {}
             $scope.carbrand ={};
+            $scope.requestService = {};
+            $scope.requestService.brand = $routeParams.brandName;
+            if($rootScope.getcurrentUser()!=""){
+                var user = $rootScope.getcurrentUser();
+                $scope.requestService.name = user.name;
+                $scope.requestService.email = user.email;
+                $scope.requestService.phone = user.phone;
+                $scope.requestService.model = "";
+                $scope.requestService.chassis = "";
+            }
+            
             if ($routeParams.brandName) {
                 //get an existing object
                 brandModelsService.getCarBrandByName($routeParams.brandName,function(res, err){
@@ -202,5 +227,31 @@ angular.module('alBargasyApp')
         $scope.editService = function(service){
             $scope.addEditService = angular.copy(service);
             $scope.up = {};
+        }
+        $scope.requestNewService = function(){
+            var error = false;
+            var p = $scope.requestService;
+            for (var key in p) {
+                if (p.hasOwnProperty(key)) {
+                    if(p[key]=="" || p[key]==undefined){
+                        error = true;
+                        break;
+                    }
+                }
+            }
+            if(error){
+                SweetAlert.swal("Error", "an error occuers", "error");
+            }else{
+                carServiceService.requestNewService($scope.requestService,function(res,err){
+                    if(!err){
+                        SweetAlert.swal("Good job!", "The car updated successfully", "success");
+                            $scope.forceClearAllData();
+                            $scope.init();
+                    }else{
+                        SweetAlert.swal("Error", "an error occuers", "error");
+                    }
+                })
+            }
+            
         }
 });

@@ -13,7 +13,7 @@
                     <div class="top-left">
                         <ul class="dropdown-option clearfix">
                             <li class="location dropdown"><a class="btn btn-default dropdown-toggle" id="dropdownMenu1"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" href="#"><span
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" ><span
                                         class="icon fa fa-gear"></span>Select Language &nbsp;<span class="fa fa-angle-down"></span></a>
                                 <ul class="dropdown-menu style-one" aria-labelledby="dropdownMenu1">
                                     <li><a href="#">English</a></li>
@@ -33,7 +33,7 @@
                     <div class="top-right">
                         <ul class="dropdown-option clearfix">
                             <li class="account dropdown"><a class="btn btn-default dropdown-toggle" id="dropdownMenu2"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" href="#"><span
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" ><span
                                         class="icon flaticon-user"></span>&ensp;My Account &nbsp;<span class="fa fa-angle-down"></span></a>
                                 <ul class="dropdown-menu style-one" aria-labelledby="dropdownMenu2">
                                     <li><a ng-if="!isSignedIn()" ng-click=goToAccountPage()>My Account</a></li>
@@ -112,6 +112,7 @@
                                     </ul>
                                 </li> -->
                                         <li><a href="contact.html">Contact</a></li>
+                                        <li><a ng-if="isAdmin()" ng-click="goTopage('request_services')">Requested Services</a></li>
                                     </ul>
                                 </div>
                             </nav>

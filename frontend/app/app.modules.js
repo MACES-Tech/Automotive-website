@@ -1,7 +1,7 @@
 'use strict'
 var app = angular.module('alBargasyApp',
         [
-    'ngRoute','oitozero.ngSweetAlert','ngFileUpload','ngCookies'
+    'ngRoute','oitozero.ngSweetAlert','ngFileUpload','ngCookies','oc.lazyLoad'
 ]).run(function($rootScope , $location,$http) {
     $rootScope.goToHome = function(){
         $location.path("/home");
