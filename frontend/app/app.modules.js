@@ -23,6 +23,10 @@ var app = angular.module('alBargasyApp',
 
 })
 
+app.config(['$httpProvider', '$compileProvider', function ($httpProvider, $compileProvider) {
+  $httpProvider.interceptors.push('APIInterceptor');
+  $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|tel|file|blob):/);
+}]);
 
 app.filter('propsFilter', function() {
   return function(items, props) {

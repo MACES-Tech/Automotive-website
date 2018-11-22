@@ -109,6 +109,7 @@
 <!-- config -->
 <script src="app/config/app.routes.js"></script>
 <script src="app/config/app.controller.js"></script>
+<script src="app/config/api.interceptor.service.js"></script>
 
 
 <!-- Directive -->
@@ -134,9 +135,18 @@
 <script src="app/components/spareParts/service/brand.spareParts.service.js"></script>
 
 
-<div container style="background:white" ng-controller="appController">
+
+<div ng-show="rootLoading" class="overlay">
+        <div class="loader">
+          <svg class="circular" viewBox="25 25 50 50">
+            <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" />
+          </svg>
+        </div>
+      </div>
+<div>
+<div ng-cloak container style="background:white" ng-controller="appController">
     <div header-panel></div>   
-    <div class="preloader"></div>
+    <!-- <div class="preloader"></div> -->
     <div ng-view ></div>
     <div footer-panel></div>
 </div>

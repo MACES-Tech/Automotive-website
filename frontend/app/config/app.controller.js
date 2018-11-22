@@ -1,6 +1,7 @@
 angular.module('alBargasyApp')
     .controller('appController', function ($http, $rootScope, $scope,$location,$cookies) {
        
+        $rootScope.rootLoading = false;
     $rootScope.isSignedIn = function () {
         return $cookies.get('currentUser.token') !== undefined;
     }
@@ -47,4 +48,15 @@ angular.module('alBargasyApp')
         //     }
         // });
     }
+    $rootScope.$on('$locationChangeSuccess', function () {
+        var url = window.location.href;
+        if (url.indexOf("?#") === -1 && url.indexOf("#") !== -1)
+            window.location.href = url.replace("#", "?#")
+
+        $rootScope.rootLoading = false;
+    });
+
+    $rootScope.$on('$locationChangeSuccess', function () {
+        $rootScope.rootLoading = false;
+    });
 });
