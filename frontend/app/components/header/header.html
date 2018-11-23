@@ -17,13 +17,13 @@
                         <ul class="dropdown-option clearfix">
                             <li class="location dropdown"><a class="btn btn-default dropdown-toggle" id="dropdownMenu1"
                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" ><span
-                                        class="icon fa fa-gear"></span>Select Language &nbsp;<span class="fa fa-angle-down"></span></a>
+                                        class="icon fa fa-gear"></span>{{'select_lang'|translate}} &nbsp;<span class="fa fa-angle-down"></span></a>
                                 <ul class="dropdown-menu style-one" aria-labelledby="dropdownMenu1">
-                                    <li><a href="#">English</a></li>
-                                    <li><a href="#">Arabic</a></li>
+                                    <li><a ng-click="setPrefferdLanguage('en')">{{'english'|translate}}</a></li>
+                                    <li><a ng-click="setPrefferdLanguage('ar')">{{'arabic'|translate}}</a></li>
                                 </ul>
                             </li>
-                        </ul>
+                        </ul> 
                         <div class="social-links">
                             <a href="#"><span class="fa fa-facebook-f"></span></a>
                             <a href="#"><span class="fa fa-twitter"></span></a>
@@ -46,9 +46,9 @@
                                     <li><a href="#">Cart</a></li> 
                                 </ul>
                             </li> -->
-                            <li><a class="icon flaticon-user" ng-if="!isSignedIn()" ng-click=goToAccountPage()>&ensp;My Account&ensp;</a></li>
-                            <li><a class="icon flaticon-user" ng-if="isSignedIn()" ng-click="signOut()">&ensp;Sign Out&ensp;</a></li>
-                            <li><a class="sell-car" href="#">Sell Your Car</a></li>
+                            <li><a class="icon flaticon-user" ng-if="!isSignedIn()" ng-click=goToAccountPage()>&ensp;{{'my_account'|translate}}&ensp;</a></li>
+                            <li><a class="icon flaticon-user" ng-if="isSignedIn()" ng-click="signOut()">&ensp;{{'sign_out'|translate}}&ensp;</a></li>
+                            <!-- <li><a class="sell-car" href="#">Sell Your Car</a></li> -->
                         </ul>
                     </div>
 
@@ -81,27 +81,27 @@
 
                                 <div class="navbar-collapse collapse clearfix">
                                     <ul class="navigation clearfix">
-                                        <li ng-class="currentTab==='skoda'? 'current':''" class="dropdown"><a ng-click="goTopage('/skoda/models')"">SKODA</a>
+                                        <li ng-class="currentTab==='skoda'? 'current':''" class="dropdown"><a ng-click="goTopage('/skoda/models')"">{{'skoda'|translate}}</a>
                                             <ul>
-                                                <li><a ng-click="goTopage('/skoda/models')" >Models</a></li>
-                                                <li><a ng-click="goTopage('/skoda/services')" >Service Center</a></li>
-                                                <li><a ng-click="goTopage('/skoda/spare_parts')">Spare Parts</a></li>
+                                                <li><a ng-click="goTopage('/skoda/models')" >{{'models'|translate}}</a></li>
+                                                <li><a ng-click="goTopage('/skoda/services')" >{{'service_center'|translate}}</a></li>
+                                                <li><a ng-click="goTopage('/skoda/spare_parts')">{{'spare_parts'|translate}}</a></li>
                                             </ul>
                                         </li>
                                         <!-- <li><a href="services.html">Services</a></li> -->
-                                        <li ng-class="currentTab==='toyota'? 'current':''" class="dropdown"><a ng-click="goTopage('/toyota/models')" >TOYOTA</a>
+                                        <li ng-class="currentTab==='toyota'? 'current':''" class="dropdown"><a ng-click="goTopage('/toyota/models')" >{{'toyota'|translate}}</a>
                                             <ul>
-                                                <li><a ng-click="goTopage('/toyota/models')" >Models</a></li>
-                                                <li><a ng-click="goTopage('/toyota/services')" >Service Center</a></li>
-                                                <li><a ng-click="goTopage('/toyota/spare_parts')">Spare Parts</a></li>
+                                                <li><a ng-click="goTopage('/toyota/models')" >{{'models'|translate}}</a></li>
+                                                <li><a ng-click="goTopage('/toyota/services')" >{{'service_center'|translate}}</a></li>
+                                                <li><a ng-click="goTopage('/toyota/spare_parts')">{{'spare_parts'|translate}}</a></li>
                                             </ul>
                                         </li>
-                                        <li ng-class="currentTab==='cars'? 'current':''" class="dropdown"><a href="#">Cars</a>
+                                        <li ng-class="currentTab==='cars'? 'current':''" class="dropdown"><a href="#">{{'cars'|translate}}</a>
                                             <ul>
-                                                <li><a href="#">Buy</a></li>
-                                                <li><a href="#">Sell a Car</a></li>
-                                                <li><a href="#">Exchange</a></li>
-                                                <li><a href="#">Service Center</a></li>
+                                                <li><a href="#">{{'buy'|translate}}</a></li>
+                                                <li><a href="#">{{'sell'|translate}}</a></li>
+                                                <li><a href="#">{{'exchange'|translate}}</a></li>
+                                                <li><a href="#">{{'service_center'|translate}}</a></li>
                                                 <!-- <li><a href="faq.html">FAQ’s</a></li>
                                         <li><a href="loan-calculater.html">Loan Calculator</a></li>
                                         <li><a href="error-page.html">404 Page</a></li> -->
@@ -116,19 +116,19 @@
                                         <li><a href="account.html">Account</a></li>
                                     </ul>
                                 </li> -->
-                                        <li><a href="contact.html">Contact</a></li>
-                                        <li><a ng-if="isAdmin()" ng-click="goTopage('request_services')">Requested Services</a></li>
+                                        <li><a ng-click="goTopage('/contact')">{{'contact_us'|translate}}</a></li>
+                                        <li><a ng-if="isAdmin()" ng-click="goTopage('request_services')">{{'requested_services'|translate}}</a></li>
                                     </ul>
                                 </div>
                             </nav>
                             <!-- Main Menu End-->
 
                             <!--More Options-->
-                            <div class="more-options">
+                            <!-- <div class="more-options">
                                 <div class="cart-box">
                                     <a href="shoping-cart.html">Cart <span class="icon fa fa-shopping-cart"><span class="number">0</span></span></a>
                                 </div>
-                            </div>
+                            </div> -->
 
                         </div>
 
@@ -185,27 +185,27 @@
 
                         <div class="navbar-collapse collapse clearfix">
                             <ul class="navigation clearfix">
-                                <li ng-class="currentTab==='skoda'? 'current':''" class="dropdown "><a ng-click="goTopage('/skoda/models')">SKODA</a>
+                                <li ng-class="currentTab==='skoda'? 'current':''" class="dropdown "><a ng-click="goTopage('/skoda/models')">{{'skoda'|translate}}</a>
                                     <ul>
-                                        <li><a ng-click="goTopage('/skoda/models')" >Models</a></li>
-                                        <li><a ng-click="goTopage('/skoda/services')">Service Center</a></li>
-                                        <li><a  ng-click="goTopage('/skoda/spare_parts')">Spare Parts</a></li>
+                                        <li><a ng-click="goTopage('/skoda/models')" >{{'models'|translate}}</a></li>
+                                        <li><a ng-click="goTopage('/skoda/services')">{{'service_center'|translate}}</a></li>
+                                        <li><a  ng-click="goTopage('/skoda/spare_parts')">{{'spare_parts'|translate}}</a></li>
                                     </ul>
                                 </li>
                                 <!-- <li><a href="services.html">Services</a></li> -->
-                                <li ng-class="currentTab==='toyota'? 'current':''" class="dropdown"><a ng-click="goTopage('/toyota/models')">TOYOTA</a>
+                                <li ng-class="currentTab==='toyota'? 'current':''" class="dropdown"><a ng-click="goTopage('/toyota/models')">{{'toyota'|translate}}</a>
                                     <ul>
-                                        <li><a ng-click="goTopage('/toyota/models')">Models</a></li>
-                                        <li><a ng-click="goTopage('/toyota/services')" >Service Center</a></li>
-                                        <li><a ng-click="goTopage('/toyota/spare_parts')">Spare Parts</a></li>
+                                        <li><a ng-click="goTopage('/toyota/models')">{{'models'|translate}}</a></li>
+                                        <li><a ng-click="goTopage('/toyota/services')" >{{'service_center'|translate}}</a></li>
+                                        <li><a ng-click="goTopage('/toyota/spare_parts')">{{'spare_parts'|translate}}</a></li>
                                     </ul>
                                 </li>
-                                <li ng-class="currentTab==='cars'? 'current':''" class="dropdown"><a href="#">Cars</a>
+                                <li ng-class="currentTab==='cars'? 'current':''" class="dropdown"><a href="#">{{'cars'|translate}}</a>
                                     <ul>
-                                        <li><a href="#">Buy</a></li>
-                                        <li><a href="#">Sell a Car</a></li>
-                                        <li><a href="#">Exchange</a></li>
-                                        <li><a href="#">Service Center</a></li>
+                                        <li><a href="#">{{'buy'|translate}}</a></li>
+                                        <li><a href="#">{{'sell'|translate}}</a></li>
+                                        <li><a href="#">{{'exchange'|translate}}</a></li>
+                                        <li><a href="#">{{'service_center'|translate}}</a></li>
                                         <!-- <li><a href="faq.html">FAQ’s</a></li>
                                                 <li><a href="loan-calculater.html">Loan Calculator</a></li>
                                                 <li><a href="error-page.html">404 Page</a></li> -->
@@ -220,7 +220,7 @@
                                                 <li><a href="account.html">Account</a></li>
                                             </ul>
                                         </li> -->
-                                <li><a href="#">Contact</a></li>
+                                <li><a ng-click="goTopage('/contact')">{{'contact_us'|translate}}</a></li>
                             </ul>
                         </div>
                     </nav><!-- Main Menu End-->

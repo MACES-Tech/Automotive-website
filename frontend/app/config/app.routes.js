@@ -47,6 +47,8 @@ angular.module('alBargasyApp').config(function ($routeProvider, $ocLazyLoadProvi
             controller: 'sparePartsController'
         }).when('/', {
             redirectTo: "/skoda/models"
+        }).when('/contact', {
+            templateUrl: "./app/components/contactUs/contact.html",
         })
         .otherwise({
             redirectTo: "/notFound"

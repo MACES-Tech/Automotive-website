@@ -18,7 +18,7 @@
     <!--Page Title-->
     <section class="page-title" style="background-image:url(assets/images/services/service-offers.506ea32b2a1fb2f1765352d4a51cbdaa.fill-1920x500.jpg);"> -->
          <div class="auto-container">
-            <h1>Services</h1>
+            <h1>{{'services'|translate}}</h1>
         </div>
     </section>
     <!--End Page Title-->
@@ -27,9 +27,9 @@
     <section class="page-info">
         <div class="auto-container">
             <ul class="bread-crumb">
-                <li><a href="index.html">{{currentTab}}</a></li>
+                <li><a ng-click="goTopage('/skoda/models')">{{currentTab|translate}}</a></li>
                 <!-- <li>Pages</li> -->
-                <li class="current">Services</li>
+                <li class="current">{{'services'|translate}}</li>
             </ul>
         </div>
     </section>
@@ -53,9 +53,11 @@
                                     <span ng-click="editService(generalService)"><a href=""><i class="fa fa-edit"></i></a> </span>
                             </div>
                     	<div class="sec-title">
-                        	<h2>{{generalService.serviceTitle}}</h2>
+                            <h2 ng-if="lang=='en'">{{generalService.serviceTitle}}</h2>
+                            <h2 ng-if="lang=='ar'">{{generalService.arServiceTitle}}</h2>
                         </div>
-                        <div class="text">{{generalService.serviceDescription}}</div>
+                        <div class="text" ng-if="lang=='en'">{{generalService.serviceDescription}}</div>
+                        <div class="text" ng-if="lang=='ar'">{{generalService.arServiceDescription}}</div>
                         <div class="row clearfix">
                         	<div class="col-md-6 col-sm-6 col-xs-12">
                             	<ul class="list-style-four">
@@ -91,8 +93,10 @@
                         	<div class="image">
                                 <img ng-src="/uploads/{{service.serviceMainImage.path}}" alt="{{service.serviceMainImage.altValue}}" />
                             </div>
-                            <h3><a href="#">{{service.serviceTitle}}</a></h3>
-                            <div class="text">{{service.serviceDescription}}</div>
+                            <h3><div ng-if="lang=='en'">{{service.serviceTitle}}</div></h3>
+                            <h3><div  ng-if="lang=='ar'">{{service.arServiceTitle}}</div></h3>
+                            <div class="text" ng-if="lang=='en'">{{service.serviceDescription}}</div>
+                            <div class="text" ng-if="lang=='ar'">{{service.arServiceDescription}}</div>
                         </div>
                     </div>                    
                 </div>
@@ -309,35 +313,35 @@
                     <div class="inner-column">
                         <!--Sec Title-->
                         <div class="sec-title">
-                            <h2>Add / edit Service</h2>
+                            <h2>{{'add_edit_service'|translate}}</h2>
                         </div>
                         
                         <!--Sell Car Form-->
                         <div class="sell-car-form">
-                            <h2>Service Information</h2>
+                            <h2>{{'service_information'|translate}}</h2>
                             <div class="form-box">
                                 <form >
-                                    <div class="row clearfix">
+                                    <div class="row clearfix" >
                                         <div class="form-group col-lg-4 col-md-6 col-sm-6 col-xs-12">
                                             <!-- <input type="hidden" ng-model="model.id" name="name" value="" placeholder="" required="required"> -->
-                                            <label>Name</label>
+                                            <label class="{{ default_float }}">{{'name'|translate}}</label>
                                             <input type="text" ng-model="addEditService.serviceTitle" name="name" value="" placeholder="" required="required">
                                         </div>
                                         <div class="form-group col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                                            <label>Arabic Name</label>
+                                            <label class="{{ default_float }}">{{'arabic_name'|translate}}</label>
                                             <input type="text" ng-model="addEditService.arServiceTitle" name="arName" value="" placeholder="" required="required">
                                         </div>
                                         <div class="form-group col-md-12 col-sm-12 col-xs-12">
-                                            <label>description</label>
+                                            <label class="{{ default_float }}">{{'description'|translate}}</label>
                                             <textarea  ng-model="addEditService.serviceDescription" name="firstParagraph" value="" placeholder="" required="required"></textarea>
                                         </div>
                                         <div class="form-group col-md-12 col-sm-12 col-xs-12">
-                                            <label>Arabic description</label>
+                                            <label class="{{ default_float }}">{{'arabic_description'|translate}}</label>
                                             <textarea ng-model="addEditService.arServiceDescription" name="arFirstParagraph" value="" placeholder="" required="required"></textarea>
                                         </div>
 
                                         <div class="form-group col-md-12 col-sm-12 col-xs-12">
-                                            <label class="upload">Upload Service Photo</label>
+                                            <label class="upload">{{'upload_service_photo'|translate}}</label>
                                             <div class="field-inner clearfix">
                                                 <input id="ImageUploader1" type="file" ngf-select ng-model="up.file" name="file" 
                                                 ngf-pattern="'image/*'"  accept="image/*" ngf-max-size="20MB"
@@ -345,16 +349,16 @@
                                                  
 
                                                 <button type="button" ng-click="openFileUploader()" class="upload-btn"><span class="fa fa-file-picture-o"></span> Choose File ...</button>
-                                                Image thumbnail: <img style="width:100px;" ngf-thumbnail="up.file || '/thumb.jpg'"/>
+                                                {{'image_thumbnail'|translate}}: <img style="width:100px;" ngf-thumbnail="up.file || '/thumb.jpg'"/>
                                                 {{progress}}
                                             </div>
                                         </div>
                                         <div class="form-group col-md-12 col-sm-12 col-xs-12">
-                                            <input type="checkbox" ng-model="addEditService.serviceIsGeneral" name="generalService" ng-true-value="true" ng-false-value="false"> main service?
+                                            <input type="checkbox" ng-model="addEditService.serviceIsGeneral" name="generalService" ng-true-value="true" ng-false-value="false"> {{'main_service'|translate}}
                                         </div>
                                         <div class="form-group col-md-12 col-sm-12 col-xs-12">
-                                            <button type="button" ng-click="addNewService()" class="theme-btn btn-style-one">submit Now</button>
-                                            <button type="button" ng-click="clearData()" class="theme-btn btn-style-one">clear</button>
+                                            <button type="button" ng-click="addNewService()" class="theme-btn btn-style-one">{{'submit_now'|translate}}</button>
+                                            <button type="button" ng-click="clearData()" class="theme-btn btn-style-one">{{'cancel'|translate}}</button>
 
                                         </div>
                                     </div>

@@ -10284,7 +10284,12 @@ img{
 	color:#eb1d27;
 }
 
-
+.float-l{
+	float: left
+}
+.float-r{
+	float: right
+}
 /**************** LOADER ****************/
 
 .overlay {

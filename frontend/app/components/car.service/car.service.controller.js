@@ -7,6 +7,7 @@ angular.module('alBargasyApp')
         $scope.carbrand ={};
         $scope.requestService = {};
         $scope.requestService.brand = $routeParams.brandName;
+        $scope.lang = $rootScope.getPreffrerdLanguage ();
         if($rootScope.getcurrentUser()!=""){
             var user = $rootScope.getcurrentUser();
             $scope.requestService.name = user.name;

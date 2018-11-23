@@ -15,7 +15,7 @@
     <section class="page-info">
         <div class="auto-container">
             <ul class="bread-crumb">
-                <li><a href="index.html">Home</a></li>
+                <li><a ng-click="goTopage('/skoda/models')">Home</a></li>
                 <li>Pages</li>
                 <li class="current">My Account</li>
             </ul>
@@ -37,7 +37,7 @@
                     
                     <!--Login Form-->
                     <div class="styled-form login-form">
-                        <form method="post" action="index.html">
+                        <form method="post" actiongoTopage('/skoda/models')>
                             <div class="form-group">
                                 <span class="adon-icon"><span class="fa fa-envelope-o"></span></span>
                                 <input type="email" name="useremil" value="" ng-model="email" placeholder="Emai Address*">
@@ -75,7 +75,7 @@
                     
                     <!--Login Form-->
                     <div class="styled-form register-form">
-                        <form method="post" action="index.html">
+                        <form method="post" actiongoTopage('/skoda/models')>
                             <div class="form-group">
                                 <span class="adon-icon"><span class="fa fa-user"></span></span>
                                 <input type="text" name="username" value="" ng-model="registerModel.name" placeholder="Your Name *">

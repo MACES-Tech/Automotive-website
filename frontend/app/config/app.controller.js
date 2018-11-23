@@ -1,6 +1,7 @@
 angular.module('alBargasyApp')
-    .controller('appController', function ($http, $rootScope, $scope,$location,$cookies,$translate) {
+    .controller('appController', function ($http, $rootScope, $scope,$location,$cookies,$translate,$route) {
        
+        $rootScope.default_float =  'float-r' ;
         $rootScope.rootLoading = false;
     $rootScope.isSignedIn = function () {
         return $cookies.get('currentUser.token') !== undefined;
@@ -61,6 +62,7 @@ angular.module('alBargasyApp')
     });
 
     $rootScope.getPreffrerdLanguage = function() {
+        var selectLang = "ar";
         if (localStorage.getItem("prefferedLanguage") != null) {
             selectLang = localStorage.getItem("prefferedLanguage");
         } else if ($cookies.get("prefferedLanguage") != null) {
@@ -71,11 +73,11 @@ angular.module('alBargasyApp')
     };
     $rootScope.setPrefferdLanguage = function(lang) {
         var langSmall = lang.toLowerCase();
-        var oldLang = selectLang.toLowerCase();
-        var newLang = langSmall;
         if (langSmall === 'en' || langSmall === 'ar') {
             $translate.use(langSmall);
-            saveLangLocally(lang);
+            $rootScope.default_float = langSmall === 'ar' ? 'float-r' : 'float-l';
+            saveLangLocally(langSmall);
+            $route.reload();
         }
         // defineChangeLanguageBroadCast(oldLang, newLang);
     };

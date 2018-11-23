@@ -1,6 +1,6 @@
 angular.module('alBargasyApp')
     .controller('headerController', function ($rootScope, $scope, $location, brandModelsService) {
-       
+        $scope.lang = $rootScope.getPreffrerdLanguage ();
         $scope.goToAccountPage = function(){
             $location.path("/account");
         }

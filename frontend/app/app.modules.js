@@ -30,7 +30,7 @@ app.config(['$httpProvider', '$compileProvider', function ($httpProvider, $compi
 
 app.config(['$translateProvider', function ($translateProvider) {
   $translateProvider.useStaticFilesLoader({
-    prefix: 'config/translation/',
+    prefix: 'app/translate/',
     suffix: '.json'
   });
   $translateProvider.preferredLanguage('ar');
