@@ -1,7 +1,7 @@
 'use strict'
 var app = angular.module('alBargasyApp',
         [
-    'ngRoute','oitozero.ngSweetAlert','ngFileUpload','ngCookies','oc.lazyLoad'
+    'ngRoute','oitozero.ngSweetAlert','ngFileUpload','ngCookies','oc.lazyLoad','pascalprecht.translate'
 ]).run(function($rootScope , $location,$http) {
     $rootScope.goToHome = function(){
         $location.path("/home");
@@ -26,6 +26,14 @@ var app = angular.module('alBargasyApp',
 app.config(['$httpProvider', '$compileProvider', function ($httpProvider, $compileProvider) {
   $httpProvider.interceptors.push('APIInterceptor');
   $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|tel|file|blob):/);
+}]);
+
+app.config(['$translateProvider', function ($translateProvider) {
+  $translateProvider.useStaticFilesLoader({
+    prefix: 'config/translation/',
+    suffix: '.json'
+  });
+  $translateProvider.preferredLanguage('ar');
 }]);
 
 app.filter('propsFilter', function() {

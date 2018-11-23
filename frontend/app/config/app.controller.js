@@ -1,5 +1,5 @@
 angular.module('alBargasyApp')
-    .controller('appController', function ($http, $rootScope, $scope,$location,$cookies) {
+    .controller('appController', function ($http, $rootScope, $scope,$location,$cookies,$translate) {
        
         $rootScope.rootLoading = false;
     $rootScope.isSignedIn = function () {
@@ -59,4 +59,37 @@ angular.module('alBargasyApp')
     $rootScope.$on('$locationChangeSuccess', function () {
         $rootScope.rootLoading = false;
     });
+
+    $rootScope.getPreffrerdLanguage = function() {
+        if (localStorage.getItem("prefferedLanguage") != null) {
+            selectLang = localStorage.getItem("prefferedLanguage");
+        } else if ($cookies.get("prefferedLanguage") != null) {
+            selectLang = $cookies.get("prefferedLanguage");
+        }
+        $translate.use(selectLang.toLowerCase());
+        return selectLang;
+    };
+    $rootScope.setPrefferdLanguage = function(lang) {
+        var langSmall = lang.toLowerCase();
+        var oldLang = selectLang.toLowerCase();
+        var newLang = langSmall;
+        if (langSmall === 'en' || langSmall === 'ar') {
+            $translate.use(langSmall);
+            saveLangLocally(lang);
+        }
+        // defineChangeLanguageBroadCast(oldLang, newLang);
+    };
+    // function defineChangeLanguageBroadCast(oldLang, newLang) {
+    //     if (oldLang != newLang) {
+    //         $rootScope.$broadcast('changeLanguage', {});
+    //     }
+    // };
+    function saveLangLocally(lang) {
+        selectLang = lang;
+        if (localStorage != undefined) {
+            localStorage.setItem("prefferedLanguage", lang);
+        } else {
+            $cookies.put("prefferedLanguage", lang);
+        }
+    };
 });
