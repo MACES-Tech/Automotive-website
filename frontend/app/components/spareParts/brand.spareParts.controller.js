@@ -3,6 +3,7 @@ angular.module('alBargasyApp')
         $scope.carModels =[];
         $scope.up = {};
         $scope.model = {};
+        $scope.lang = $rootScope.getPreffrerdLanguage();
         $scope.init = function () {
             
             if ($routeParams.brandName) {

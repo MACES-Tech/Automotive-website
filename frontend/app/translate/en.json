@@ -53,6 +53,9 @@
     "fuel_type":"Fuel Type",
     "engine":"Engine",
     "reg_year":"Reg Year",
-    "fuel_economy":"Fuel Economy"
+    "fuel_economy":"Fuel Economy",
+    "add_edit_spare_part":"Add / edit Spare Part",
+    "spare_part_info":"Spare Part Information",
+    "price":"Price"
 
 }

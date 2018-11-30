@@ -1,164 +1,124 @@
-
-
-    
-    <!--Page Title-->
-    <!-- <section class="page-title" style="background-image:url(assets/images/background/5.jpg);">
+<!--Page Title-->
+<!-- <section class="page-title" style="background-image:url(assets/images/background/5.jpg);">
         <div class="auto-container">
             <h1>Skoda Models</h1>
         </div>
     </section> -->
-    <!--End Page Title-->
-    
-    <!--Page Info-->
-    <section class="page-info">
-        <div class="auto-container">
-            <ul class="bread-crumb">
-                <li><a ng-click="goTopage('/{{carbrand.name}}/models')" href="">{{carbrand.name}}</a></li>
-                <li class="current">Spare Parts</li>
-            </ul>
-        </div>
-    </section>
-    <!--End Page Info-->
-    
-    <!--Inventory Section-->
-    <section class="inventory-section ">
-    	<div class="auto-container">
-        	<div class="row clearfix">
-            	<!--Column-->
-            	<div class="column col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                	<!-- <div class="layout-box clearfix">
-                    	<div class="pull-left">
-                        	<div class="sort-form">
-                                <form action="inventory-form">
-                                    <div class="form-group">
-                                        <label>Sort By:</label>
-                                        <select class="custom-select-box">
-                                            <option>Price: Highest First</option>
-                                            <option>Second</option>
-                                            <option>Third</option>
-                                            <option>Fourth</option>
-                                            <option>Five</option>
-                                        </select>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                        <div class="pull-right">
-                        	<ul class="view-options">
-                            	<li class="active"><a href="inventory-1.html"><span class="fa fa-th-large"></span></a></li>
-                                <li><a href="#"><span class="flaticon-list"></span></a></li>
-                            </ul>
-                        </div>
-                    </div> -->
-                    
-                    <!--End Sec Title-->
-                    <div class="row clearfix">
-                        <!--Car Block-->
+<!--End Page Title-->
 
-                        <div ng-if="carModels.length > 0" class="car-block col-lg-4 col-md-6 col-sm-6 col-xs-12"  ng-repeat="model in carModels">
-                            <div class="inner-box">
-                                <div class="image">
-                                        <div class="edit-icons" ng-if="isAdmin()">
-                                                <span ng-click="confirmPopup(model.id)"><a href=""><i class="fa fa-trash" data-toggle="modal" data-target=".bd-example-modal-sm"></i></a> </span>
-                                                <span ng-click="editSparePart(model)"><a href=""><i class="fa fa-edit"></i></a> </span>
-                                        </div>
-                                    <a  ><img ng-src="/uploads/{{model.mainImage.path}}" alt="{{model.mainImage.altValue}}" /></a>
-                                    <div class="price">{{model.price}} LE</div>
-                                </div>
-                                <h3><a >{{model.name}}</a></h3>
-                                <!-- <div class="lower-box">
-                                    <ul class="car-info">
-                                        <li><span class="fa fa-road icon"></span>26000</li>
-                                        <li><span class="icon fa fa-car"></span>Diesel</li>
-                                        <li><span class="icon fa fa-clock-o"></span>2014</li>
-                                    </ul>
-                                </div> -->
-                            </div>
-                        </div>
-                        <!--Car Block-->
+<!--Page Info-->
+<section class="page-info">
+    <div class="auto-container">
+        <ul class="bread-crumb">
+            <li ng-if="lang=='en'"><a ng-click="goTopage('/{{carbrand.name}}/models')" href="">{{carbrand.name}}</a></li>
+            <li ng-if="lang=='ar'"><a ng-click="goTopage('/{{carbrand.name}}/models')" href="">{{carbrand.arName}}</a></li>
+            <li class="current">{{'spare_parts'|translate}}</li>
+        </ul>
+    </div>
+</section>
+<!--End Page Info-->
 
+<!--Inventory Section-->
+<section class="inventory-section ">
+    <div class="auto-container">
+        <div class="row clearfix">
+            <!--Column-->
+            <div class="column col-lg-12 col-md-12 col-sm-12 col-xs-12">
 
-
-                    </div>
-                    <!--Styled Pagination-->
-                    <!-- <div class="styled-pagination text-center">
-                        <ul class="clearfix">
-                            <li><a href="#"><span class="fa fa-caret-left"></span></a></li>
-                            <li><a href="#" class="active">1</a></li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#"><span class="fa fa-caret-right"></span></a></li>
-                        </ul>
-                    </div> -->
-                    <!--End Styled Pagination-->
-                    
-                </div>
-                
-                
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!--End Inventory Section-->
-
-
-      
-
-    <!--Sell Car Section-->
-    <section class="sell-car-section"  ng-if="isAdmin()">
-            <div class="auto-container">
+                <!--End Sec Title-->
                 <div class="row clearfix">
-                    <!--Cell Car Column-->
-                    <div class="cell-car-column col-lg-9 col-md-8 col-sm-12 col-xs-12">
-                        <div class="inner-column">
-                            <!--Sec Title-->
-                            <div class="sec-title">
-                                <h2>Add / edit Spare Part</h2>
-                            </div>
-                            
-                            <!--Sell Car Form-->
-                            <div class="sell-car-form">
-                                <h2>Spare Part Information</h2>
-                                <div class="form-box">
-                                    <form >
-                                        <div class="row clearfix">
-                                            <div class="form-group col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                                                <input type="hidden" ng-model="model.id" name="name" value="" placeholder="" required="required">
-                                                <label>Name</label>
-                                                <input type="text" ng-model="model.name" name="name" value="" placeholder="" required="required">
-                                            </div>
-                                            <div class="form-group col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                                                <label>Arabic Name</label>
-                                                <input type="text" ng-model="model.arName" name="arName" value="" placeholder="" required="required">
-                                            </div>
-                                            <div class="form-group col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                                                    <label>Price</label>
-                                                    <input type="text" ng-model="model.price" name="arName" value="" placeholder="" required="required">
-                                                </div>
-                                            <div class="form-group col-md-12 col-sm-12 col-xs-12">
-                                                <label class="upload">Upload Car Photos</label>
-                                                <div class="field-inner clearfix">
-                                                    <input id="ImageUploader1" type="file" ngf-select ng-model="up.file" name="file" 
-                                                    ngf-pattern="'image/*'"  accept="image/*" ngf-max-size="20MB"
-                                                     style="display: none">
-                                                     
+                    <!--Car Block-->
 
-                                                    <button type="button" ng-click="openFileUploader()" class="upload-btn"><span class="fa fa-file-picture-o"></span> Choose File ...</button>
-                                                    Image thumbnail: <img style="width:100px;" ngf-thumbnail="up.file || '/thumb.jpg'"/>
-                                                    {{progress}}
-                                                </div>
-                                            </div>
-                                            <div class="form-group col-md-12 col-sm-12 col-xs-12">
-                                                <button type="button" ng-click="addNewCarSparePart(up,model)" class="theme-btn btn-style-one">submit Now</button>
-                                                <button type="button" ng-click="clearData(model)" class="theme-btn btn-style-one">clear</button>
-
-                                            </div>
-                                        </div>
-                                    </form>
+                    <div ng-if="carModels.length > 0" class="car-block col-lg-4 col-md-6 col-sm-6 col-xs-12" ng-repeat="model in carModels">
+                        <div class="inner-box">
+                            <div class="image">
+                                <div class="edit-icons" ng-if="isAdmin()">
+                                    <span ng-click="confirmPopup(model.id)"><a href=""><i class="fa fa-trash"
+                                                data-toggle="modal" data-target=".bd-example-modal-sm"></i></a> </span>
+                                    <span ng-click="editSparePart(model)"><a href=""><i class="fa fa-edit"></i></a>
+                                    </span>
                                 </div>
+                                <a><img ng-src="/uploads/{{model.mainImage.path}}" alt="{{model.mainImage.altValue}}" /></a>
+                                <div class="price">{{model.price}} LE</div>
                             </div>
+                            <h3>
+                                <a ng-if="lang=='en'">{{model.name}}</a>
+                                <a ng-if="lang=='ar'">{{model.arName}}</a>
+                            </h3>
+                        </div>
+                    </div>
+                    <!--Car Block-->
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</section>
+
+<!--End Inventory Section-->
+
+
+
+
+<!--Sell Car Section-->
+<section class="sell-car-section" ng-if="isAdmin()">
+    <div class="auto-container">
+        <div class="row clearfix">
+            <!--Cell Car Column-->
+            <div class="cell-car-column col-lg-9 col-md-8 col-sm-12 col-xs-12">
+                <div class="inner-column">
+                    <!--Sec Title-->
+                    <div class="sec-title">
+                        <h2>{{'add_edit_spare_part'|translate}}</h2>
+                    </div>
+
+                    <!--Sell Car Form-->
+                    <div class="sell-car-form">
+                        <h2>{{'spare_part_info'|translate}}</h2>
+                        <div class="form-box">
+                            <form>
+                                <div class="row clearfix">
+                                    <div class="form-group col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                                        <input type="hidden" ng-model="model.id" name="name" value="" placeholder=""
+                                            required="required">
+                                        <label>{{'name'|translate}}</label>
+                                        <input type="text" ng-model="model.name" name="name" value="" placeholder=""
+                                            required="required">
+                                    </div>
+                                    <div class="form-group col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                                        <label>{{'arabic_name'|translate}}</label>
+                                        <input type="text" ng-model="model.arName" name="arName" value="" placeholder=""
+                                            required="required">
+                                    </div>
+                                    <div class="form-group col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                                        <label>{{'price'|translate}}</label>
+                                        <input type="text" ng-model="model.price" name="arName" value="" placeholder=""
+                                            required="required">
+                                    </div>
+                                    <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                                        <label class="upload">{{'upload_photo'|translate}}</label>
+                                        <div class="field-inner clearfix">
+                                            <input id="ImageUploader1" type="file" ngf-select ng-model="up.file" name="file"
+                                                ngf-pattern="'image/*'" accept="image/*" ngf-max-size="20MB" style="display: none">
+
+
+                                            <button type="button" ng-click="openFileUploader()" class="upload-btn"><span
+                                                    class="fa fa-file-picture-o"></span> Choose File ...</button>
+                                                    {{'image_thumbnail'|translate}}: <img style="width:100px;" ngf-thumbnail="up.file || '/thumb.jpg'" />
+                                            {{progress}}
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                                        <button type="button" ng-click="addNewCarSparePart(up,model)" class="theme-btn btn-style-one">{{'submit_now'|translate}}</button>
+                                        <button type="button" ng-click="clearData(model)" class="theme-btn btn-style-one">{{'cancel'|translate}}</button>
+
+                                    </div>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </div>
+</section>
