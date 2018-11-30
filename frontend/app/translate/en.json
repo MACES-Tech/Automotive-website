@@ -28,8 +28,16 @@
     "contact_us":"Contact Us",
     "home":"Home",
     "requested_services":"Requested Services",
+    "request_services":"Request Services",
     "service_without_description":"Service without description",
     "service_with_description":"Service with description",
-    "service_in_slider":"Full range of services"
+    "service_in_slider":"Full range of services",
+    "schedule_service":"Schedule for Service",
+    "phone": "Phone",
+    "email": "Email",
+    "car_brand": "Car Brand",
+    "car_model": "Car Model",
+    "chassis_no": "Chassis No",
+    "service_hours":"Service Hours:"
 
 }

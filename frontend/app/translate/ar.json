@@ -28,8 +28,16 @@
     "contact_us":"تواصل معنا",
     "home":"الرئيسية",
     "requested_services":"طلبات الصيانة",
+    "request_services":"حجز صيانة",
     "service_without_description":"صيانة بدون تفاصيل",
     "service_with_description":"صيانة بالتفاصيل",
-    "service_in_slider":"مجموعة كاملة من الخدمات"
+    "service_in_slider":"مجموعة كاملة من الخدمات",
+    "schedule_service":"حجز صيانة",
+    "phone": "رقم الهاتف",
+    "email": "البريد الالكتروني",
+    "car_brand": "المركة",
+    "car_model": "الموديل",
+    "chassis_no": "رقم الشاسية",
+    "service_hours":"مواعيد الصيانة"
     
 }

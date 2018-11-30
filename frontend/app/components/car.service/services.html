@@ -271,7 +271,7 @@
         <div class="auto-container">
             <!--Sec Title-->
             <div class="sec-title">
-                <h2>Schedule for Service</h2>
+                <h2>{{'schedule_service'|translate}}</h2>
             </div>
             <div class="row clearfix">
                 <!--Form Column-->
@@ -283,32 +283,32 @@
                             <form method="post">
                                 <div class="row clearfix">
                                     <div class="form-group col-md-4 col-sm-6 col-xs-12">
-                                        <label>Name*</label>
+                                        <label>{{'name'|translate}}</label>
                                         <input type="text" name="name" ng-model="requestService.name" value=""
                                             placeholder="" required>
                                     </div>
                                     <div class="form-group col-md-4 col-sm-6 col-xs-12">
-                                        <label>Phone</label>
+                                        <label>{{'phone'|translate}}</label>
                                         <input type="text" name="phone" ng-model="requestService.phone" value=""
                                             placeholder="" required>
                                     </div>
                                     <div class="form-group col-md-4 col-sm-6 col-xs-12">
-                                        <label>Email*</label>
+                                        <label>{{'email'|translate}}</label>
                                         <input type="text" name="email" ng-model="requestService.email" value=""
                                             placeholder="" required>
                                     </div>
                                     <div class="form-group col-md-4 col-sm-6 col-xs-12">
-                                        <label>Car Brand</label>
+                                        <label>{{'car_brand'|translate}}</label>
                                         <input ng-disabled="true" type="text" name="brand" ng-model="requestService.brand"
                                             value="" placeholder="" required>
                                     </div>
                                     <div class="form-group col-md-4 col-sm-6 col-xs-12">
-                                        <label>Car Model</label>
+                                        <label>{{'car_model'|translate}}</label>
                                         <input type="text" name="model" ng-model="requestService.model" value=""
                                             placeholder="" required>
                                     </div>
                                     <div class="form-group col-md-4 col-sm-6 col-xs-12">
-                                        <label>Chassis No</label>
+                                        <label>{{'chassis_no'|translate}}</label>
                                         <input type="text" name="chassis" ng-model="requestService.chassis" value=""
                                             placeholder="" required>
                                     </div>
@@ -325,14 +325,13 @@
                                     </div> -->
 
                                     <div class="form-group col-md-4 col-sm-12 col-xs-12">
-                                        <button type="submit" ng-click="requestNewService()" class="theme-btn btn-style-one">Request
-                                            a Service</button>
+                                        <button type="submit" ng-click="requestNewService()" class="theme-btn btn-style-one">{{'request_services'|translate}}</button>
                                     </div>
-                                    <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                                    <!-- <div class="form-group col-md-12 col-sm-12 col-xs-12">
                                         <div class="text"><span class="theme_color">*</span> Our customercare excutive
                                             will contact you within <span class="theme_color">24 hours</span> now
                                             onwards.</div>
-                                    </div>
+                                    </div> -->
                                 </div>
                             </form>
                         </div>
@@ -343,7 +342,7 @@
                 <!--Time Column-->
                 <div class="time-column col-lg-3 col-md-6 col-sm-12 col-xs-12">
                     <div class="inner-column">
-                        <h3>Service Hours:</h3>
+                        <h3>{{'service_hours'|translate}}</h3>
                         <ul>
                             <li class="clearfix"><span class="left-text">Monday - Friday</span> <span class="right-text">09am
                                     - 18pm</span></li>
