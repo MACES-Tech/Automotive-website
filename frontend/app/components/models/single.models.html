@@ -2,7 +2,8 @@
     <div class="auto-container">
         <ul class="bread-crumb">
             <li><a ng-click="goTopage('/' + currentTab +'/models' )" >{{currentTab|translate}}</a></li>
-            <li class="current">{{carModel.name}}</li>
+            <li class="current" ng-if="lang=='en'">{{carModel.name}}</li>
+            <li class="current" ng-if="lang=='ar'">{{carModel.arName}}</li>
         </ul>
     </div>
 </section>
@@ -19,54 +20,6 @@
                             <!--Product Carousel-->
                             <div class="product-carousel-outer">
                                 <div class="big-image-outer">
-                                
-                                    <!--Schedule Test Drive Form-->
-                                    <!-- <div class="schedule-drive-outer">
-                                        <div class="form-outer">
-                                            <div class="form-header">
-                                                <h2>Schedule a Test Drive</h2>
-                                                <div class="vehicle-model">Skoda Citigo - READY, CITY, GO!</div>
-                                                <div class="hide-form-btn"><span class="fa fa-close"></span></div>
-                                            </div>
-                                            <div class="form-box">
-                                                <div class="cars-form">
-                                                    <form method="post" action="contact.html">
-                                                        <div class="row clearfix">
-                                                            <div class="form-group col-md-6 col-sm-6 col-xs-12">
-                                                                <label>Name</label>
-                                                                <div class="field-inner">
-                                                                    <input type="text" name="field-name" value="" placeholder="">
-                                                                </div>
-                                                            </div>
-                                                            <div class="form-group col-md-6 col-sm-6 col-xs-12">
-                                                                <label>Email</label>
-                                                                <div class="field-inner">
-                                                                    <input type="email" name="field-name" value="" placeholder="">
-                                                                </div>
-                                                            </div>
-                                                            <div class="form-group col-md-6 col-sm-6 col-xs-12">
-                                                                <label>Phone</label>
-                                                                <div class="field-inner">
-                                                                    <input type="text" name="field-name" value="" placeholder="">
-                                                                </div>
-                                                            </div>
-                                                            <div class="form-group col-md-6 col-sm-6 col-xs-12">
-                                                                <label>Date &amp; Time</label>
-                                                                <div class="field-inner">
-                                                                    <span class="fa fa-clock-o"></span>
-                                                                    <input class="date-time-picker" type="text" name="field-name" value="" placeholder="">
-                                                                </div>
-                                                            </div>
-                                                            <div class="form-group col-md-12 col-sm-12 col-xs-12">
-                                                                <button class="theme-btn btn-style-one">Request Now</button>
-                                                            </div>
-                                                        </div>
-                                                        
-                                                    </form>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div> -->
                                     
                                     <!--Product image Carousel-->
                                     <ul class="prod-image-carousel owl-theme owl-carousel">
@@ -104,17 +57,17 @@
                                                 <div class="inner-column">
                                                     <!--Sec Title-->
                                                     <div class="sec-title">
-                                                        <h2>Add Image to Slider</h2>
+                                                        <h2>{{'add_image_slider'|translate}}</h2>
                                                     </div>
                                                     
                                                     <!--Sell Car Form-->
                                                     <div class="sell-car-form">
-                                                        <h2>Image Information</h2>
+                                                        <h2>{{'image_info'|translate}}</h2>
                                                         <div class="form-box">
                                                             <form >
                                                                 <div class="row clearfix">
                                                                     <div class="form-group col-md-12 col-sm-12 col-xs-12">
-                                                                        <label class="upload">Upload  Photo</label>
+                                                                        <label class="upload">{{'upload_photo'|translate}}</label>
                                                                         <div class="field-inner clearfix">
                                                                             <input id="ImageUploader1" type="file" ngf-select ng-model="up.file" name="file" 
                                                                             ngf-pattern="'image/*'"  accept="image/*" ngf-max-size="20MB"
@@ -122,12 +75,12 @@
                                                                              
                         
                                                                             <button type="button" ng-click="openFileUploader('ImageUploader1')" class="upload-btn"><span class="fa fa-file-picture-o"></span> Choose File ...</button>
-                                                                            Image thumbnail: <img style="width:100px;" ngf-thumbnail="up.file || '/thumb.jpg'"/>
+                                                                            {{'image_thumbnail'|translate}}: <img style="width:100px;" ngf-thumbnail="up.file || '/thumb.jpg'"/>
                                                                             {{progress}}
                                                                         </div>
                                                                     </div>
                                                                     <div class="form-group col-md-12 col-sm-12 col-xs-12">
-                                                                        <button type="button" ng-click="addNewImageToSection(up,carModel.sections[0].id)" class="theme-btn btn-style-one">submit Now</button>
+                                                                        <button type="button" ng-click="addNewImageToSection(up,carModel.sections[0].id)" class="theme-btn btn-style-one">{{'submit_now'|translate}}</button>
                         
                                                                     </div>
                                                                 </div>
@@ -142,9 +95,11 @@
                             <!--Vehicle Details-->
                             <div class="vehicle-details">
                                 <div class="text-description">
-                                    <h2>{{currentTab}} {{carModel.name}}</h2>
+                                    <h2 ng-if="lang=='en'">{{currentTab|translate}} {{carModel.name|translate}}</h2>
+                                    <h2 ng-if="lang=='ar'">{{currentTab|translate}} {{carModel.arName|translate}}</h2>
                                     <div class="text">
-                                        <p>{{carModel.firstParagraph}}</p>
+                                        <p ng-if="lang=='en'">{{carModel.firstParagraph}}</p>
+                                        <p ng-if="lang=='ar'">{{carModel.arFirstParagraph}}</p>
                                     </div>
                                 </div>
                                 
@@ -168,17 +123,17 @@
                                                 <div class="inner-column">
                                                     <!--Sec Title-->
                                                     <div class="sec-title">
-                                                        <h2>Add Image to body</h2>
+                                                        <h2>{{'add_image_body'|translate}}</h2>
                                                     </div>
                                                     
                                                     <!--Sell Car Form-->
                                                     <div class="sell-car-form">
-                                                        <h2>Image Information</h2>
+                                                        <h2>{{'image_info'|translate}}</h2>
                                                         <div class="form-box">
                                                             <form >
                                                                 <div class="row clearfix">
                                                                     <div class="form-group col-md-12 col-sm-12 col-xs-12">
-                                                                        <label class="upload">Upload  Photo</label>
+                                                                        <label class="upload">{{'upload_photo'|translate}}</label>
                                                                         <div class="field-inner clearfix">
                                                                             <input id="ImageUploader2" type="file" ngf-select ng-model="up.file" name="file" 
                                                                             ngf-pattern="'image/*'"  accept="image/*" ngf-max-size="20MB"
@@ -186,12 +141,12 @@
                                                                              
                         
                                                                             <button type="button" ng-click="openFileUploader('ImageUploader2')" class="upload-btn"><span class="fa fa-file-picture-o"></span> Choose File ...</button>
-                                                                            Image thumbnail: <img style="width:100px;" ngf-thumbnail="up.file || '/thumb.jpg'"/>
+                                                                            {{'image_thumbnail'|translate}}: <img style="width:100px;" ngf-thumbnail="up.file || '/thumb.jpg'"/>
                                                                             {{progress}}
                                                                         </div>
                                                                     </div>
                                                                     <div class="form-group col-md-12 col-sm-12 col-xs-12">
-                                                                        <button type="button" ng-click="addNewImageToSection(up,carModel.sections[2].id)" class="theme-btn btn-style-one">submit Now</button>
+                                                                        <button type="button" ng-click="addNewImageToSection(up,carModel.sections[2].id)" class="theme-btn btn-style-one">{{'submit_now'|translate}}</button>
                         
                                                                     </div>
                                                                 </div>
@@ -293,7 +248,7 @@
                         
                         <!--Brochures Widget-->
                         <div class="brochures-widget">
-                            <div class="default-sidebar-title"><h2>Our Brochures</h2></div>
+                            <div class="default-sidebar-title"><h2>{{'brochures'|translate}}</h2></div>
                             <ul class="brochures-list">
                                 <li  ng-repeat = "image in carModel.sections[1].files"><a ng-href="/uploads/{{image.file.path}}" target="_blank"><span class="fa fa-file-pdf-o"></span> {{image.file.altValue}}</a></li>
                             </ul>
@@ -303,12 +258,12 @@
                                         <div class="row clearfix">
                                             <!--Cell Car Column-->       
                                             <div class="sell-car-form">
-                                                    <h2>File Information</h2>
+                                                    <h2>{{'file_info'|translate}}</h2>
                                             <div class="form-box">
                                                 <form >
                                                     <div class="row clearfix">
                                                         <div class="form-group col-md-12 col-sm-12 col-xs-12">
-                                                            <label class="upload">Upload  File</label>
+                                                            <label class="upload">{{'upload_file'|translate}}</label>
                                                             <div class="field-inner clearfix">
                                                                 <input id="ImageUploader3" type="file" ngf-select ng-model="up.file" name="file" 
                                                                 ngf-max-size="20MB"
@@ -321,7 +276,7 @@
                                                             </div>
                                                         </div>
                                                         <div class="form-group col-md-12 col-sm-12 col-xs-12">
-                                                            <button type="button" ng-click="addNewImageToSection(up,carModel.sections[1].id)" class="theme-btn btn-style-one">submit Now</button>
+                                                            <button type="button" ng-click="addNewImageToSection(up,carModel.sections[1].id)" class="theme-btn btn-style-one">{{'submit_now'|translate}}</button>
 
                                                         </div>
                                                     </div>

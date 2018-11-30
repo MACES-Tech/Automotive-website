@@ -8,12 +8,14 @@ exports.create = (req, res, next) => {
 	
 	carService.create({  
 		serviceTitle: service.serviceTitle,
-		arServiceTitlerName: service.arServiceTitle,
+		arServiceTitle: service.arServiceTitle,
 		serviceDescription: service.serviceDescription,
 		arServiceDescription: service.arServiceDescription,
 		serviceImage: req.body.mainImage,
 		carBrandId: service.carBrandId,
-		serviceIsGeneral: service.serviceIsGeneral
+		serviceIsGeneral: service.serviceIsGeneral,
+		miniService:service.miniService,
+		sliderService:service.sliderService
 	}).then(car_Service => {		
 		// Send created carBrand to client
 		// next()

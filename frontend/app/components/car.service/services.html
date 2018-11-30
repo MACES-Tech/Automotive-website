@@ -1,4 +1,4 @@
-<script src="/assets/js/jquery.js"></script> 
+<script src="/assets/js/jquery.js"></script>
 <script src="/assets/js/bootstrap.min.js"></script>
 <script src="/assets/js/jquery.fancybox.pack.js"></script>
 <script src="/assets/js/jquery.fancybox-media.js"></script>
@@ -10,19 +10,20 @@
 <script src="/assets/js/script.js"></script>
 
 <div class="page-wrapper">
- 	
+
     <!-- Preloader -->
     <!-- <div class="preloader"></div> -->
-        
-    
+
+
     <!--Page Title-->
-    <section class="page-title" style="background-image:url(assets/images/services/service-offers.506ea32b2a1fb2f1765352d4a51cbdaa.fill-1920x500.jpg);"> -->
-         <div class="auto-container">
+    <section class="page-title" style="background-image:url(assets/images/services/service-offers.506ea32b2a1fb2f1765352d4a51cbdaa.fill-1920x500.jpg);">
+        -->
+        <div class="auto-container">
             <h1>{{'services'|translate}}</h1>
         </div>
     </section>
     <!--End Page Title-->
-    
+
     <!--Page Info-->
     <section class="page-info">
         <div class="auto-container">
@@ -34,45 +35,49 @@
         </div>
     </section>
     <!--End Page Info-->
-    
+
     <!--Services Section Two-->
     <section class="services-section-two">
-    	<div class="auto-container">
-        	<div class="row clearfix">
-            	<!--Image Column-->
-            	<div class="image-column col-md-6 col-sm-12 col-xs-12">
-                	<div class="image">
-                    	<img ng-src="/uploads/{{generalService.serviceMainImage.path}}" alt="{{generalService.serviceMainImage.altValue}}" />
+        <div class="auto-container">
+            <div class="row clearfix">
+                <!--Image Column-->
+                <div class="image-column col-md-6 col-sm-12 col-xs-12">
+                    <div class="image">
+                        <img ng-src="/uploads/{{generalService.serviceMainImage.path}}" alt="{{generalService.serviceMainImage.altValue}}" />
                     </div>
                 </div>
                 <!--Content Column-->
-            	<div class="content-column col-md-6 col-sm-12 col-xs-12">
-                	<div class="inner-column">
-                            <div class="edit-icons" ng-if="isAdmin()">
-                                    <span ng-click="confirmPopup(generalService.id)"><a href=""><i class="fa fa-trash" data-toggle="modal" data-target=".bd-example-modal-sm"></i></a> </span>
-                                    <span ng-click="editService(generalService)"><a href=""><i class="fa fa-edit"></i></a> </span>
-                            </div>
-                    	<div class="sec-title">
+                <div class="content-column col-md-6 col-sm-12 col-xs-12">
+                    <div class="inner-column">
+                        <div class="edit-icons" ng-if="isAdmin()">
+                            <span ng-click="confirmPopup(generalService.id)"><a href=""><i class="fa fa-trash"
+                                        data-toggle="modal" data-target=".bd-example-modal-sm"></i></a> </span>
+                            <span ng-click="editService(generalService)"><a href=""><i class="fa fa-edit"></i></a>
+                            </span>
+                        </div>
+                        <div class="sec-title">
                             <h2 ng-if="lang=='en'">{{generalService.serviceTitle}}</h2>
                             <h2 ng-if="lang=='ar'">{{generalService.arServiceTitle}}</h2>
                         </div>
                         <div class="text" ng-if="lang=='en'">{{generalService.serviceDescription}}</div>
                         <div class="text" ng-if="lang=='ar'">{{generalService.arServiceDescription}}</div>
                         <div class="row clearfix">
-                        	<div class="col-md-6 col-sm-6 col-xs-12">
-                            	<ul class="list-style-four">
-                                	<li>Replace the engine oil</li>
-                                    <li>Check/Replace the fuel filter </li>
-                                    <li>Check/Replace windshield wipers</li>
-                                    <li>Replace air filter</li>
-                                </ul>
-                            </div>
-                            <div class="col-md-6 col-sm-6 col-xs-12">
-                            	<ul class="list-style-four">
-                                	<li>Flush transmission fluid</li>
-                                    <li>Clean or replace battery </li>
-                                    <li>Inspect or replace brake pads</li>
-                                    <li>Inspect or replace timing belt</li>
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <ul class="list-style-four" ng-repeat="s in miniServices">
+                                    <li ng-if="lang=='en'">{{s.serviceTitle}}
+                                        <span ng-if="isAdmin()" ng-click="confirmPopup(s.id)"><a href=""><i class="fa fa-trash"
+                                                    data-toggle="modal" data-target=".bd-example-modal-sm"></i></a>
+                                        </span>
+                                        <span ng-if="isAdmin()" ng-click="editService(s)"><a href=""><i class="fa fa-edit"></i></a>
+                                        </span>
+                                    </li>
+                                    <li ng-if="lang=='ar'">{{s.arServiceTitle}}
+                                        <span ng-if="isAdmin()" ng-click="confirmPopup(s.id)"><a href=""><i class="fa fa-trash"
+                                                    data-toggle="modal" data-target=".bd-example-modal-sm"></i></a>
+                                        </span>
+                                        <span ng-if="isAdmin()" ng-click="editService(s)"><a href=""><i class="fa fa-edit"></i></a>
+                                        </span>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
@@ -81,231 +86,95 @@
             </div>
             <!--Services Blocks Section-->
             <div class="services-blocks-section">
-            	<div class="row clearfix">
-                	
+                <div class="row clearfix">
+
                     <!--Services Block Four-->
                     <div class="services-block-four col-md-4 col-sm-12 col-xs-12" ng-repeat="service in services track by $index">
-                    	<div class="inner-box">
-                                <div class="edit-icons" ng-if="isAdmin()">
-                                        <span ng-click="confirmPopup(service.id)"><a href=""><i class="fa fa-trash" data-toggle="modal" data-target=".bd-example-modal-sm"></i></a> </span>
-                                        <span ng-click="editService(service)"><a href=""><i class="fa fa-edit"></i></a> </span>
-                                </div>
-                        	<div class="image">
+                        <div class="inner-box">
+                            <div class="edit-icons" ng-if="isAdmin()">
+                                <span ng-click="confirmPopup(service.id)"><a href=""><i class="fa fa-trash" data-toggle="modal"
+                                            data-target=".bd-example-modal-sm"></i></a> </span>
+                                <span ng-click="editService(service)"><a href=""><i class="fa fa-edit"></i></a> </span>
+                            </div>
+                            <div class="image">
                                 <img ng-src="/uploads/{{service.serviceMainImage.path}}" alt="{{service.serviceMainImage.altValue}}" />
                             </div>
-                            <h3><div ng-if="lang=='en'">{{service.serviceTitle}}</div></h3>
-                            <h3><div  ng-if="lang=='ar'">{{service.arServiceTitle}}</div></h3>
+                            <h3>
+                                <div ng-if="lang=='en'">{{service.serviceTitle}}</div>
+                            </h3>
+                            <h3>
+                                <div ng-if="lang=='ar'">{{service.arServiceTitle}}</div>
+                            </h3>
                             <div class="text" ng-if="lang=='en'">{{service.serviceDescription}}</div>
                             <div class="text" ng-if="lang=='ar'">{{service.arServiceDescription}}</div>
                         </div>
-                    </div>                    
+                    </div>
                 </div>
             </div>
         </div>
     </section>
     <!--End Services Section Two-->
-    
+
     <!--Services Section Three-->
-    <section class="services-section-three" >
-    	<div class="auto-container">
-        	<!--Sec Title-->
+    <section class="services-section-three">
+        <div class="auto-container">
+            <!--Sec Title-->
             <div class="sec-title light centered">
-            	<h2>Full Range Of Services</h2>
+                <h2>{{'service_in_slider'|translate}}</h2>
             </div>
-            <div class="four-item-carousel owl-carousel owl-theme">
-            
-            	<!--Services Block Five-->
-            	<div class="services-block-five">
-                	<div class="inner-box">
-                    	<div class="content-box">
-                            <div class="icon-box">
-                                <span class="icon flaticon-rim"></span>
-                            </div>
-                            <h3><a href="#">Wheel Works</a></h3>
-                            <div class="text">Know how to pursue pleasure seds encounter consequences that are ut extremely painfull nor pursues.</div>
-                        </div>
-                        <div class="overlay-box" style="background-image:url(assets/images/resource/service-5.jpg);">
-                        	<div class="overlay-inner">
-                                <div class="icon-box">
-                                    <span class="icon flaticon-rim"></span>
+
+            <slick infinite=true slides-to-show=3 slides-to-scroll=3 ng-if="showSlider">
+                <div class="owl-carousel owl-theme" ng-repeat="s in sliderServices">
+                    <!--Services Block Five-->
+                    <div class="edit-icons" ng-if="isAdmin()">
+                        <span ng-click="confirmPopup(s.id)"><a href=""><i class="fa fa-trash"
+                                    data-toggle="modal" data-target=".bd-example-modal-sm"></i></a> </span>
+                        <span ng-click="editService(s)"><a href=""><i class="fa fa-edit"></i></a>
+                        </span>
+                    </div>
+                    <div class="services-block-five" style="margin:30px">
+                        <div class="inner-box">
+                            <div class="content-box">
+                                <!-- <div class="icon-box"> -->
+                                <!-- <span class="icon flaticon-rim"></span> -->
+                                <div class="image">
+                                    <img style="margin:auto" ng-src="/uploads/{{s.serviceMainImage.path}}" alt="{{generalService.serviceMainImage.altValue}}" />
                                 </div>
-                                <h3><a href="#">Wheel Works</a></h3>
-                                <div class="text">Know how to pursue pleasure seds encounter consequences that are ut extremely painfull nor pursues.</div>
-                                <a href="#" class="read-more">Read More</a>
+                                <!-- </div> -->
+                                <h3> <a ng-if="lang=='en'">{{s.serviceTitle}}</a>
+                                    <a ng-if="lang=='ar'">{{s.arServiceTitle}}</a></h3>
+                                <div class="text" ng-if="lang=='en'">
+                                    {{s.serviceDescription}}</div>
+                                <div class="text" ng-if="lang=='ar'">
+                                    {{s.arServiceDescription}}</div>
+                            </div>
+                            <div class="overlay-box" style="background-image:url(assets/images/resource/service-5.jpg);">
+                                <div class="overlay-inner">
+                                    <div class="icon-box">
+                                        <!-- <span class="icon flaticon-rim"></span> -->
+                                        <div class="image">
+                                            <img style="margin:auto" ng-src="/uploads/{{s.serviceMainImage.path}}" alt="{{generalService.serviceMainImage.altValue}}" />
+                                        </div>
+                                    </div>
+                                    <h3> <a ng-if="lang=='en'">{{s.serviceTitle}}</a>
+                                        <a ng-if="lang=='ar'">{{s.arServiceTitle}}</a></h3>
+                                    <div class="text" ng-if="lang=='en'">
+                                        {{s.serviceDescription}}</div>
+                                    <div class="text" ng-if="lang=='ar'">
+                                        {{s.arServiceDescription}}</div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                
-                <!--Services Block Five-->
-            	<div class="services-block-five">
-                	<div class="inner-box">
-                    	<div class="content-box">
-                            <div class="icon-box">
-                                <span class="icon flaticon-spray-gun"></span>
-                            </div>
-                            <h3><a href="#">Painting Works</a></h3>
-                            <div class="text"> Praising pain was bon and give you a complete account of the uts system expound the actual teachings.</div>
-                        </div>
-                        <div class="overlay-box" style="background-image:url(assets/images/resource/service-5.jpg);">
-                        	<div class="overlay-inner">
-                                <div class="icon-box">
-                                    <span class="icon flaticon-spray-gun"></span>
-                                </div>
-                                <h3><a href="#">Painting Works</a></h3>
-                                <div class="text"> Praising pain was bon and give you a complete account of the uts system expound the actual teachings.</div>
-                                <a href="#" class="read-more">Read More</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!--Services Block Five-->
-            	<div class="services-block-five">
-                	<div class="inner-box">
-                    	<div class="content-box">
-                            <div class="icon-box">
-                                <span class="icon flaticon-symbol"></span>
-                            </div>
-                            <h3><a href="#">Air Conditioner</a></h3>
-                            <div class="text">There are many variationsavailable but the majority have suffereed seds alteration in some form.</div>
-                        </div>
-                        <div class="overlay-box" style="background-image:url(assets/images/resource/service-5.jpg);">
-                        	<div class="overlay-inner">
-                                <div class="icon-box">
-                                    <span class="icon flaticon-symbol"></span>
-                                </div>
-                                <h3><a href="#">Air Conditioner</a></h3>
-                                <div class="text">There are many variationsavailable but the majority have suffereed seds alteration in some form.</div>
-                                <a href="#" class="read-more">Read More</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!--Services Block Five-->
-            	<div class="services-block-five">
-                	<div class="inner-box">
-                    	<div class="content-box">
-                            <div class="icon-box">
-                                <span class="icon flaticon-car-washing"></span>
-                            </div>
-                            <h3><a href="#">Water Service</a></h3>
-                            <div class="text"> Which of usundertakes laborious physical exercise, except to ut obtain some advantage from it.</div>
-                        </div>
-                        <div class="overlay-box" style="background-image:url(assets/images/resource/service-5.jpg);">
-                        	<div class="overlay-inner">
-                                <div class="icon-box">
-                                    <span class="icon flaticon-car-washing"></span>
-                                </div>
-                                <h3><a href="#">Water Service</a></h3>
-                                <div class="text"> Which of usundertakes laborious physical exercise, except to ut obtain some advantage from it.</div>
-                                <a href="#" class="read-more">Read More</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!--Services Block Five-->
-            	<div class="services-block-five">
-                	<div class="inner-box">
-                    	<div class="content-box">
-                            <div class="icon-box">
-                                <span class="icon flaticon-rim"></span>
-                            </div>
-                            <h3><a href="#">Wheel Works</a></h3>
-                            <div class="text">Know how to pursue pleasure seds encounter consequences that are ut extremely painfull nor pursues.</div>
-                        </div>
-                        <div class="overlay-box" style="background-image:url(assets/images/resource/service-5.jpg);">
-                        	<div class="overlay-inner">
-                                <div class="icon-box">
-                                    <span class="icon flaticon-rim"></span>
-                                </div>
-                                <h3><a href="#">Wheel Works</a></h3>
-                                <div class="text">Know how to pursue pleasure seds encounter consequences that are ut extremely painfull nor pursues.</div>
-                                <a href="#" class="read-more">Read More</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!--Services Block Five-->
-            	<div class="services-block-five">
-                	<div class="inner-box">
-                    	<div class="content-box">
-                            <div class="icon-box">
-                                <span class="icon flaticon-spray-gun"></span>
-                            </div>
-                            <h3><a href="#">Painting Works</a></h3>
-                            <div class="text"> Praising pain was bon and give you a complete account of the uts system expound the actual teachings.</div>
-                        </div>
-                        <div class="overlay-box" style="background-image:url(assets/images/resource/service-5.jpg);">
-                        	<div class="overlay-inner">
-                                <div class="icon-box">
-                                    <span class="icon flaticon-spray-gun"></span>
-                                </div>
-                                <h3><a href="#">Painting Works</a></h3>
-                                <div class="text"> Praising pain was bon and give you a complete account of the uts system expound the actual teachings.</div>
-                                <a href="#" class="read-more">Read More</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!--Services Block Five-->
-            	<div class="services-block-five">
-                	<div class="inner-box">
-                    	<div class="content-box">
-                            <div class="icon-box">
-                                <span class="icon flaticon-symbol"></span>
-                            </div>
-                            <h3><a href="#">Air Conditioner</a></h3>
-                            <div class="text">There are many variationsavailable but the majority have suffereed seds alteration in some form.</div>
-                        </div>
-                        <div class="overlay-box" style="background-image:url(assets/images/resource/service-5.jpg);">
-                        	<div class="overlay-inner">
-                                <div class="icon-box">
-                                    <span class="icon flaticon-symbol"></span>
-                                </div>
-                                <h3><a href="#">Air Conditioner</a></h3>
-                                <div class="text">There are many variationsavailable but the majority have suffereed seds alteration in some form.</div>
-                                <a href="#" class="read-more">Read More</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!--Services Block Five-->
-            	<div class="services-block-five">
-                	<div class="inner-box">
-                    	<div class="content-box">
-                            <div class="icon-box">
-                                <span class="icon flaticon-car-washing"></span>
-                            </div>
-                            <h3><a href="#">Water Service</a></h3>
-                            <div class="text"> Which of usundertakes laborious physical exercise, except to ut obtain some advantage from it.</div>
-                        </div>
-                        <div class="overlay-box" style="background-image:url(assets/images/resource/service-5.jpg);">
-                        	<div class="overlay-inner">
-                                <div class="icon-box">
-                                    <span class="icon flaticon-car-washing"></span>
-                                </div>
-                                <h3><a href="#">Water Service</a></h3>
-                                <div class="text"> Which of usundertakes laborious physical exercise, except to ut obtain some advantage from it.</div>
-                                <a href="#" class="read-more">Read More</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-            </div>
+            </slick>
         </div>
     </section>
     <!--End Services Section Three-->
-    
+
 
     <!--Sell Car Section-->
-    <section class="sell-car-section"  ng-if="isAdmin()">
+    <section class="sell-car-section" ng-if="isAdmin()">
         <div class="auto-container">
             <div class="row clearfix">
                 <!--Cell Car Column-->
@@ -315,46 +184,72 @@
                         <div class="sec-title">
                             <h2>{{'add_edit_service'|translate}}</h2>
                         </div>
-                        
+
                         <!--Sell Car Form-->
                         <div class="sell-car-form">
                             <h2>{{'service_information'|translate}}</h2>
                             <div class="form-box">
-                                <form >
-                                    <div class="row clearfix" >
+                                <form>
+                                    <div class="row clearfix">
+                                        <div class="form-group col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                                            <label>
+                                                <input type="radio" ng-model="addEditService.type" ng-value="1">
+                                                {{'service_with_description'|translate}}
+                                            </label>
+                                        </div>
+                                        <div class="form-group col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                                            <label>
+                                                <input type="radio" ng-model="addEditService.type" ng-value="2">
+                                                {{'service_in_slider'|translate}}
+                                            </label>
+                                        </div>
+                                        <div class="form-group col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                                            <label>
+                                                <input type="radio" ng-model="addEditService.type" ng-value="3">
+                                                {{'service_without_description'|translate}}
+                                            </label>
+                                        </div>
                                         <div class="form-group col-lg-4 col-md-6 col-sm-6 col-xs-12">
                                             <!-- <input type="hidden" ng-model="model.id" name="name" value="" placeholder="" required="required"> -->
                                             <label class="{{ default_float }}">{{'name'|translate}}</label>
-                                            <input type="text" ng-model="addEditService.serviceTitle" name="name" value="" placeholder="" required="required">
+                                            <input type="text" ng-model="addEditService.serviceTitle" name="name" value=""
+                                                placeholder="" required="required">
                                         </div>
                                         <div class="form-group col-lg-4 col-md-6 col-sm-6 col-xs-12">
                                             <label class="{{ default_float }}">{{'arabic_name'|translate}}</label>
-                                            <input type="text" ng-model="addEditService.arServiceTitle" name="arName" value="" placeholder="" required="required">
+                                            <input type="text" ng-model="addEditService.arServiceTitle" name="arName"
+                                                value="" placeholder="" required="required">
                                         </div>
-                                        <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                                        <div class="form-group col-md-12 col-sm-12 col-xs-12" ng-if="addEditService.type!=3">
                                             <label class="{{ default_float }}">{{'description'|translate}}</label>
-                                            <textarea  ng-model="addEditService.serviceDescription" name="firstParagraph" value="" placeholder="" required="required"></textarea>
+                                            <textarea ng-model="addEditService.serviceDescription" name="firstParagraph"
+                                                value="" placeholder="" required="required"></textarea>
                                         </div>
-                                        <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                                        <div class="form-group col-md-12 col-sm-12 col-xs-12" ng-if="addEditService.type!=3">
                                             <label class="{{ default_float }}">{{'arabic_description'|translate}}</label>
-                                            <textarea ng-model="addEditService.arServiceDescription" name="arFirstParagraph" value="" placeholder="" required="required"></textarea>
+                                            <textarea ng-model="addEditService.arServiceDescription" name="arFirstParagraph"
+                                                value="" placeholder="" required="required"></textarea>
                                         </div>
 
-                                        <div class="form-group col-md-12 col-sm-12 col-xs-12">
-                                            <label class="upload">{{'upload_service_photo'|translate}}</label>
+                                        <div class="form-group col-md-12 col-sm-12 col-xs-12" ng-if="addEditService.type!=3">
+                                            <label class="upload">{{'upload_photo'|translate}}</label>
                                             <div class="field-inner clearfix">
-                                                <input id="ImageUploader1" type="file" ngf-select ng-model="up.file" name="file" 
-                                                ngf-pattern="'image/*'"  accept="image/*" ngf-max-size="20MB"
-                                                 style="display: none">
-                                                 
+                                                <input id="ImageUploader1" type="file" ngf-select ng-model="up.file"
+                                                    name="file" ngf-pattern="'image/*'" accept="image/*" ngf-max-size="20MB"
+                                                    style="display: none">
 
-                                                <button type="button" ng-click="openFileUploader()" class="upload-btn"><span class="fa fa-file-picture-o"></span> Choose File ...</button>
-                                                {{'image_thumbnail'|translate}}: <img style="width:100px;" ngf-thumbnail="up.file || '/thumb.jpg'"/>
+
+                                                <button type="button" ng-click="openFileUploader()" class="upload-btn"><span
+                                                        class="fa fa-file-picture-o"></span> Choose File ...</button>
+                                                {{'image_thumbnail'|translate}}: <img style="width:100px;"
+                                                    ngf-thumbnail="up.file || '/thumb.jpg'" />
                                                 {{progress}}
                                             </div>
                                         </div>
-                                        <div class="form-group col-md-12 col-sm-12 col-xs-12">
-                                            <input type="checkbox" ng-model="addEditService.serviceIsGeneral" name="generalService" ng-true-value="true" ng-false-value="false"> {{'main_service'|translate}}
+                                        <div class="form-group col-md-12 col-sm-12 col-xs-12" ng-if="addEditService.type==1">
+                                            <input type="checkbox" ng-model="addEditService.serviceIsGeneral" name="generalService"
+                                                ng-true-value="true" ng-false-value="false">
+                                            {{'main_service'|translate}}
                                         </div>
                                         <div class="form-group col-md-12 col-sm-12 col-xs-12">
                                             <button type="button" ng-click="addNewService()" class="theme-btn btn-style-one">{{'submit_now'|translate}}</button>
@@ -373,45 +268,51 @@
 
     <!--Services Schedule Sections-->
     <section class="services-schedule-sections grey-bg" ng-if="!isAdmin()">
-    	<div class="auto-container">
-        	<!--Sec Title-->
+        <div class="auto-container">
+            <!--Sec Title-->
             <div class="sec-title">
-            	<h2>Schedule for Service</h2>
+                <h2>{{'schedule_service'|translate}}</h2>
             </div>
             <div class="row clearfix">
-            	<!--Form Column-->
-            	<div class="form-column col-lg-9 col-md-12 col-sm-12 col-xs-12">
-                	
+                <!--Form Column-->
+                <div class="form-column col-lg-9 col-md-12 col-sm-12 col-xs-12">
+
                     <!--Services Form-->
                     <div class="services-form">
                         <div class="form-box">
-                            <form method="post" >
+                            <form method="post">
                                 <div class="row clearfix">
                                     <div class="form-group col-md-4 col-sm-6 col-xs-12">
-                                        <label>Name*</label>
-                                        <input type="text" name="name" ng-model = "requestService.name" value="" placeholder="" required>
+                                        <label>{{'name'|translate}}</label>
+                                        <input type="text" name="name" ng-model="requestService.name" value=""
+                                            placeholder="" required>
                                     </div>
                                     <div class="form-group col-md-4 col-sm-6 col-xs-12">
-                                        <label>Phone</label>
-                                        <input type="text" name="phone" ng-model = "requestService.phone" value="" placeholder="" required>
+                                        <label>{{'phone'|translate}}</label>
+                                        <input type="text" name="phone" ng-model="requestService.phone" value=""
+                                            placeholder="" required>
                                     </div>
                                     <div class="form-group col-md-4 col-sm-6 col-xs-12">
-                                        <label>Email*</label>
-                                        <input type="text" name="email" ng-model = "requestService.email" value="" placeholder="" required>
+                                        <label>{{'email'|translate}}</label>
+                                        <input type="text" name="email" ng-model="requestService.email" value=""
+                                            placeholder="" required>
                                     </div>
                                     <div class="form-group col-md-4 col-sm-6 col-xs-12">
-                                            <label>Car Brand</label>
-                                            <input ng-disabled = "true" type="text" name="brand" ng-model = "requestService.brand" value="" placeholder="" required>
+                                        <label>{{'car_brand'|translate}}</label>
+                                        <input ng-disabled="true" type="text" name="brand" ng-model="requestService.brand"
+                                            value="" placeholder="" required>
                                     </div>
                                     <div class="form-group col-md-4 col-sm-6 col-xs-12">
-                                        <label>Car Model</label>
-                                        <input type="text" name="model" ng-model = "requestService.model" value="" placeholder="" required>
+                                        <label>{{'car_model'|translate}}</label>
+                                        <input type="text" name="model" ng-model="requestService.model" value=""
+                                            placeholder="" required>
                                     </div>
                                     <div class="form-group col-md-4 col-sm-6 col-xs-12">
-                                            <label>Chassis No</label>
-                                            <input type="text" name="chassis" ng-model = "requestService.chassis" value="" placeholder="" required>
-                                        </div>
-                                    
+                                        <label>{{'chassis_no'|translate}}</label>
+                                        <input type="text" name="chassis" ng-model="requestService.chassis" value=""
+                                            placeholder="" required>
+                                    </div>
+
                                     <!-- <div class="form-group col-md-4 col-sm-6 col-xs-12">
                                         <label>Service*</label>
                                         <select class="custom-select-box">
@@ -422,42 +323,47 @@
                                             <option>Wheel Four</option>
                                         </select>
                                     </div> -->
-                                    
+
                                     <div class="form-group col-md-4 col-sm-12 col-xs-12">
-                                        <button type="submit" ng-click="requestNewService()" class="theme-btn btn-style-one">Request a Service</button>
+                                        <button type="submit" ng-click="requestNewService()" class="theme-btn btn-style-one">{{'request_services'|translate}}</button>
                                     </div>
-                                    <div class="form-group col-md-12 col-sm-12 col-xs-12">
-                                    	<div class="text"><span class="theme_color">*</span> Our customercare excutive will contact you within <span class="theme_color">24 hours</span> now onwards.</div>
-                                    </div>
+                                    <!-- <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                                        <div class="text"><span class="theme_color">*</span> Our customercare excutive
+                                            will contact you within <span class="theme_color">24 hours</span> now
+                                            onwards.</div>
+                                    </div> -->
                                 </div>
                             </form>
                         </div>
                     </div>
                     <!--End Services Form-->
-                    
+
                 </div>
                 <!--Time Column-->
                 <div class="time-column col-lg-3 col-md-6 col-sm-12 col-xs-12">
-                	<div class="inner-column">
-                    	<h3>Service Hours:</h3>
+                    <div class="inner-column">
+                        <h3>{{'service_hours'|translate}}</h3>
                         <ul>
-                        	<li class="clearfix"><span class="left-text">Monday - Friday</span> <span class="right-text">09am - 18pm</span></li>
-                            <li class="clearfix"><span class="left-text">Saturday</span> <span class="right-text">10am - 15pm</span></li>
+                            <li class="clearfix"><span class="left-text">Monday - Friday</span> <span class="right-text">09am
+                                    - 18pm</span></li>
+                            <li class="clearfix"><span class="left-text">Saturday</span> <span class="right-text">10am
+                                    - 15pm</span></li>
                             <li class="clearfix"><span class="left-text">Sunday</span> <span class="right-text theme_color">Closed</span></li>
                         </ul>
-                        <div class="text"><span class="theme_color">*</span> Every 3rd Staurday and all govt holidays are closed.</div>
+                        <div class="text"><span class="theme_color">*</span> Every 3rd Staurday and all govt holidays
+                            are closed.</div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
     <!--End Services Schedule Sections-->
-    
+
     <!--Brands Section-->
-   
+
     <!--End Brands Section-->
-    
-    
+
+
 </div>
 <!--End pagewrapper-->
 

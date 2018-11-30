@@ -4,6 +4,7 @@ angular.module('alBargasyApp')
         $scope.slider = {};
         $scope.body={};
         $scope.brochures={};
+        $scope.lang = $rootScope.getPreffrerdLanguage();
         $scope.init = function () {
             if ($routeParams.brandName) {
                 //get an existing object
