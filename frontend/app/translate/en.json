@@ -2,7 +2,7 @@
     "skoda":"SKODA",
     "toyota":"TOYOTA",
     "services":"Services",
-    "name":"Name",
+    "name":"English Name",
     "arabic_name":"Arabic Name",
     "description":"Description",
     "arabic_description":"Arabic Description",
@@ -27,5 +27,9 @@
     "exchange":"Exchange Car",
     "contact_us":"Contact Us",
     "home":"Home",
-    "requested_services":"Requested Services"
+    "requested_services":"Requested Services",
+    "service_without_description":"Service without description",
+    "service_with_description":"Service with description",
+    "service_in_slider":"Full range of services"
+
 }

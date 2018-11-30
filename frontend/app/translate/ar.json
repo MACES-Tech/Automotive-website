@@ -2,7 +2,7 @@
     "skoda":"سكودا",
     "toyota":"تويوتا",
     "services": "صيانة و خدمات",
-    "name":"الأسم",
+    "name":"الأسم بالانجليزي",
     "arabic_name":"الأسم بالعربي",
     "description":"الوصف",
     "arabic_description":"الوصف بالعربي",
@@ -27,6 +27,9 @@
     "exchange":"استبدال سيارة",
     "contact_us":"تواصل معنا",
     "home":"الرئيسية",
-    "requested_services":"طلبات الصيانة"
+    "requested_services":"طلبات الصيانة",
+    "service_without_description":"صيانة بدون تفاصيل",
+    "service_with_description":"صيانة بالتفاصيل",
+    "service_in_slider":"مجموعة كاملة من الخدمات"
     
 }

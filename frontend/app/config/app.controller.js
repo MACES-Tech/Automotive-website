@@ -68,7 +68,10 @@ angular.module('alBargasyApp')
         } else if ($cookies.get("prefferedLanguage") != null) {
             selectLang = $cookies.get("prefferedLanguage");
         }
-        $translate.use(selectLang.toLowerCase());
+        var langSmall = selectLang.toLowerCase();
+        $rootScope.default_float = langSmall === 'ar' ? 'float-r' : 'float-l';
+        $translate.use(langSmall);
+        $rootScope.lang = langSmall;
         return selectLang;
     };
     $rootScope.setPrefferdLanguage = function(lang) {
@@ -77,6 +80,7 @@ angular.module('alBargasyApp')
             $translate.use(langSmall);
             $rootScope.default_float = langSmall === 'ar' ? 'float-r' : 'float-l';
             saveLangLocally(langSmall);
+            $rootScope.lang = langSmall;
             $route.reload();
         }
         // defineChangeLanguageBroadCast(oldLang, newLang);
