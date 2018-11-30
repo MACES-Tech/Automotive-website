@@ -6,7 +6,7 @@
     "arabic_name":"الأسم بالعربي",
     "description":"الوصف",
     "arabic_description":"الوصف بالعربي",
-    "upload_service_photo":"ارفع صوره",
+    "upload_photo":"ارفع صوره",
     "image_thumbnail":"صورة مصغره",
     "submit_now":"حفظ",
     "cancel":"الغاء",
@@ -38,6 +38,21 @@
     "car_brand": "المركة",
     "car_model": "الموديل",
     "chassis_no": "رقم الشاسية",
-    "service_hours":"مواعيد الصيانة"
+    "service_hours":"مواعيد الصيانة",
+    "add_image_slider":"اضف صورة",
+    "image_info":"بيانات الصورة",
+    "add_image_body":"اضف صورة",
+    "brochures":"الكتيبات",
+    "file_info":"بيانات الملف",
+    "upload_file":"رفع ملف",
+    "add_edit_car":"اضافة \\ تعديل سيارة",
+    "vehicle_info":"بيانات السيارة",
+    "specs":"مواصفات",
+    "body":"الجسم",
+    "transmission":"ناقل الحركة",
+    "fuel_type":"نوع الوقود",
+    "engine":"المحرك",
+    "reg_year":"السنة",
+    "fuel_economy":"وقود اقتصادي"
     
 }

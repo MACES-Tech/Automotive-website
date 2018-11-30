@@ -6,7 +6,7 @@
     "arabic_name":"Arabic Name",
     "description":"Description",
     "arabic_description":"Arabic Description",
-    "upload_service_photo":"Upload Service Photo",
+    "upload_photo":"Upload Photo",
     "image_thumbnail":"Image thumbnail",
     "submit_now":"Submit Now",
     "cancel":"cancel",
@@ -38,6 +38,21 @@
     "car_brand": "Car Brand",
     "car_model": "Car Model",
     "chassis_no": "Chassis No",
-    "service_hours":"Service Hours:"
+    "service_hours":"Service Hours:",
+    "add_image_slider":"Add Image to Slider",
+    "image_info":"Image Information",
+    "add_image_body":"Add Image to body",
+    "brochures":"Brochures",
+    "file_info":"File Information",
+    "upload_file":"Upload  File",
+    "add_edit_car":"ADD / EDIT CAR",
+    "vehicle_info":"Vehicle Information",
+    "specs":"Specifications",
+    "body":"Body",
+    "transmission":"Transmission",
+    "fuel_type":"Fuel Type",
+    "engine":"Engine",
+    "reg_year":"Reg Year",
+    "fuel_economy":"Fuel Economy"
 
 }
