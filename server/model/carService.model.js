@@ -30,7 +30,13 @@ module.exports = (sequelize, Sequelize) => {
 			allowNull: false,
 			defaultValue: new Date(),
 			type: Sequelize.DATE
-		  }
+			},
+			miniService:{
+				type: Sequelize.BOOLEAN, allowNull: false, defaultValue: false
+			},
+			sliderService:{
+				type: Sequelize.BOOLEAN, allowNull: false, defaultValue: false
+			}
 	});
 	CarService.belongsTo(CarBrand, {foreignKey: 'carBrandId'});
 	CarService.belongsTo(File, {foreignKey : 'serviceImage',as:"serviceMainImage"})

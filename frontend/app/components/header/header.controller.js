@@ -4,6 +4,12 @@ angular.module('alBargasyApp')
         $scope.goToAccountPage = function(){
             $location.path("/account");
         }
+        $scope.toggle = {};
+        if($scope.lang=='ar'){
+            $scope.toggle.switch = true;
+        }else{
+            $scope.toggle.switch = false;
+        }
         
         $scope.init = function () {
                 brandModelsService.getAllBrands(function(res, err){
@@ -15,7 +21,14 @@ angular.module('alBargasyApp')
                 })
            
         }
-
+        $scope.changeLang = function(l){
+            $scope.toggle.switch = l;
+            if($scope.toggle.switch){
+                $rootScope.setPrefferdLanguage('ar')
+            }else{
+                $rootScope.setPrefferdLanguage('en')
+            }
+        }
         $rootScope.$on('$routeChangeStart', function (next, last) {
             debugger
             if($('.preloader').length){
