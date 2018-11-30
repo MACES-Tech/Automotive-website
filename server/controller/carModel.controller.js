@@ -3,6 +3,8 @@ const CarModel = db.carModel;
 const Section = db.section;
 const Gallery = db.gallery;
 const KeyFeatures = db.keyFeatures;
+const ExtrafeaturesJointable = db.extrafeaturesJointable;
+const Extrafeatures = db.extrafeatures;
 const keyFeaturesService = require('../service/keyFeatures.service');
 const videoService = require('../service/video.service.js');
 // Post a carBrand
@@ -19,7 +21,10 @@ exports.create = (req, res, next) => {
 		firstParagraph: model.firstParagraph,
 		arFirstParagraph: model.arFirstParagraph
 	}).then(carModel => {
-		
+		model.extraFeatures.forEach(option => {
+			ExtrafeaturesJointable.create({carModelId:carModel.id,extraFeaturesId:option})
+		});
+
 		Section.create({firstHeader:"slider",carModelId: carModel.id}).then(section=>{
 			Section.create({firstHeader:"body",carModelId: carModel.id}).then(section=>{
 				Section.create({firstHeader:"brochures",carModelId: carModel.id}).then(section=>{
@@ -69,6 +74,14 @@ exports.findByName = (req, res, next) => {
 			keyFeatures = keyFeatures[0];
 			jsonResult.keyFeatures = keyFeatures.toJSON();
 
+			ExtrafeaturesJointable.findAll({include: [
+				{ model: db.extrafeatures, as: 'extraFeatures' }
+			], where:{carModelId:model.id},order:[['createdAt', 'DESC']]}).then(extraFeatures =>{
+				
+				jsonResult.extraFeatures = [];
+				for (let index = 0; index < extraFeatures.length; index++) {
+					jsonResult.extraFeatures.push(extraFeatures[index].extraFeatures.toJSON());
+				}
 			Section.findAll({where:{carModelId:model.id} ,order:[['firstHeader', 'DESC']] }).then(sections =>{
 				jsonResult.sections = [];
 				for (let index = 0; index < sections.length; index++) {
@@ -89,14 +102,30 @@ exports.findByName = (req, res, next) => {
 				}
 			})
 		})
+	})
 	}).catch(next);
 };
+exports.findAllExtraFeatures = (req, res, next)=>{
+	Extrafeatures.findAll().then(extrafeatures => {
+		res.send(extrafeatures);
+	})
+}
 exports.update = (req, res, next) => {
 	const id = req.params.carModelId;
 	carModelObject = req.body
 	CarModel.update( carModelObject, 
 					 { where: {id: req.params.carModelId} }
 					 ).then(() => {
+						if(carModelObject.extraFeatures.length > 0 ){
+							ExtrafeaturesJointable.destroy({
+								where: { carModelId: id }
+							  }).then(() => {
+								carModelObject.extraFeatures.forEach(option => {
+									ExtrafeaturesJointable.create({carModelId:carModelObject.id,extraFeaturesId:option})
+								});
+							  })
+						}
+
 						KeyFeatures.update(carModelObject.keyFeatures,{
 							where: {id: carModelObject.keyFeatures.id}
 						}).then((updated) =>{

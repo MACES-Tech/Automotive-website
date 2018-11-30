@@ -13,4 +13,7 @@ module.exports = function(app) {
     app.get('/api/carModel/name/:modelName', carModel.findByName);
 
     app.put('/api/carModel/:carModelId', carModel.update);
+    
+
+    app.get('/api/extraFeatures', carModel.findAllExtraFeatures);
 }

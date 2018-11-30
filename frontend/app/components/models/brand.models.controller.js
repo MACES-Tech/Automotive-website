@@ -1,6 +1,7 @@
 angular.module('alBargasyApp')
     .controller('modelsController', function ($window,$rootScope, $scope, $location, $routeParams, brandModelsService,SweetAlert,Upload) {
         $scope.carModels =[];
+        $scope.extraFeatures =[];
         $scope.up = {};
         $scope.model = {};
         $scope.lang = $rootScope.getPreffrerdLanguage();
@@ -16,6 +17,11 @@ angular.module('alBargasyApp')
                             brandModelsService.getAllModels($scope.carbrand.id,function(res,err){
                                 if(!err){
                                     $scope.carModels = res.data;
+                                    brandModelsService.getAllExtraFeatures(function(res,err){
+                                        if(!err){
+                                            $scope.extraFeatures = res.data;
+                                        }
+                                    })
                                 }
                             })
 
@@ -79,6 +85,12 @@ angular.module('alBargasyApp')
                     if(resp.data.error_code === 0){ //validate success
                         modelObject = {name:model.name, arName:model.arName,arFirstParagraph:model.arFirstParagraph,firstParagraph:model.firstParagraph, mainImage:resp.data.insertedFile.id,brandId:$scope.carbrand.id};
                         modelObject.keyFeatures = model.keyFeatures;
+                        modelObject.extraFeatures=[];
+                        $scope.extraFeatures.forEach(element => {
+                            if(element.selected){
+                                modelObject.extraFeatures.push(element.id);
+                            }
+                        });
                         brandModelsService.creatNewModel(modelObject,function(res,err){
                             if(!err){
                                 SweetAlert.swal("Good job!", "The car added successfully", "success");
@@ -113,7 +125,13 @@ angular.module('alBargasyApp')
                 if(!up.file){
                     console.log('edit only');
                     modelObject = {id:model.id,name:model.name, arName:model.arName,arFirstParagraph:model.arFirstParagraph,firstParagraph:model.firstParagraph,brandId:$scope.carbrand.id};
-                    modelObject.keyFeatures = model.keyFeatures;    
+                    modelObject.keyFeatures = model.keyFeatures;
+                    modelObject.extraFeatures=[];
+                        $scope.extraFeatures.forEach(element => {
+                            if(element.selected){
+                                modelObject.extraFeatures.push(element.id);
+                            }
+                        });    
                         brandModelsService.editModel(modelObject,function(res,err){
                                 if(!err){
                                     SweetAlert.swal("Good job!", "The car updated successfully", "success");
@@ -138,7 +156,13 @@ angular.module('alBargasyApp')
                     }).then(function (resp) { //upload function returns a promise
                         if(resp.data.error_code === 0){ //validate success                    
                             modelObject = {id:model.id,name:model.name, arName:model.arName,arFirstParagraph:model.arFirstParagraph,firstParagraph:model.firstParagraph, mainImageId:resp.data.insertedFile.id,brandId:$scope.carbrand.id};
-                            modelObject.keyFeatures = model.keyFeatures;  
+                            modelObject.keyFeatures = model.keyFeatures;
+                            modelObject.extraFeatures=[];
+                            $scope.extraFeatures.forEach(element => {
+                                if(element.selected){
+                                    modelObject.extraFeatures.push(element.id);
+                                }
+                            });  
                             brandModelsService.editModel(modelObject,function(res,err){
                                 if(!err){
                                     SweetAlert.swal("Good job!", "The car updated successfully", "success");
@@ -171,7 +195,16 @@ angular.module('alBargasyApp')
                 }
             }
         }
-
+        $scope.toggleEf = function(index){
+            if($scope.extraFeatures[index].selected){
+                if($scope.extraFeatures[index].selected==true)
+                    $scope.extraFeatures[index].selected=false;
+                if($scope.extraFeatures[index].selected==false)
+                    $scope.extraFeatures[index].selected=true;
+            }else{
+                $scope.extraFeatures[index].selected=true;
+            }
+        }
         $scope.clearData = function(model){
             SweetAlert.swal({
                 title: "Are you sure?",
@@ -198,6 +231,7 @@ angular.module('alBargasyApp')
             $scope.progress = "";
             $scope.up = {}
             model.keyFeatures={};
+            model.options={};
         }
         $scope.editmodel = function(model){
             $scope.model.id = model.id;

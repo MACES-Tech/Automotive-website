@@ -13,8 +13,7 @@
     <section class="page-info">
         <div class="auto-container">
             <ul class="bread-crumb">
-                <li ng-if="lang=='en'"><a  ng-click="goTopage('/{{carbrand.name}}/models')" href="">{{carbrand.name}}</a></li>
-                <li ng-if="lang=='ar'"><a  ng-click="goTopage('/{{carbrand.name}}/models')" href="">{{carbrand.arName}}</a></li>
+                    <li> <a ng-click="goTopage('/' + currentTab +'/models' )" >{{currentTab|translate}}</a></li>
                 <li class="current">{{'models'|translate}}</li>
             </ul>
         </div>
@@ -227,15 +226,44 @@
                                                 <input type="text" ng-model="model.keyFeatures.arFuelEconomy" name="arName" value="" placeholder="" required="required">
                                             </div> -->
                                             
-                                            <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                                            <!-- <div class="form-group col-md-12 col-sm-12 col-xs-12">
                                                 <button type="button" ng-click="addNewCarModel(up,model)" class="theme-btn btn-style-one">{{'submit_now'|translate}}</button>
                                                 <button type="button" ng-click="clearData(model)" class="theme-btn btn-style-one">{{'cancel'|translate}}</button>
 
-                                            </div>
+                                            </div> -->
                                         </div>
                                     </form>
                                 </div>
                             </div>
+
+                            <div class="sell-car-form">
+                                    <h2>{{'Extra_Features'|translate}}</h2>
+                                    <div class="form-box">
+                                        <form >
+                                            <div class="row clearfix">
+                                                
+                                                    <div class="content-box">
+                                                            <div class="listing-outer clearfix">
+                                                                <div class="list-column">
+                                                                    <ul >
+                                                                        <li ng-repeat ="ef in extraFeatures"> 
+                                                                            <input type="checkbox" id="ef-{{ef.id}}" ng-model="model.options[$index]" ng-value="ef" ng-change="toggleEf($index)"/>
+                                                                            <span ng-if="lang=='en'"> {{ef.title}} </span>
+                                                                            <span ng-if="lang=='ar'"> {{ef.arTitle}} </span>
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                                                    <button type="button" ng-click="addNewCarModel(up,model)" class="theme-btn btn-style-one">{{'submit_now'|translate}}</button>
+                                                    <button type="button" ng-click="clearData(model)" class="theme-btn btn-style-one">{{'cancel'|translate}}</button>
+    
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
 
 
                         </div>

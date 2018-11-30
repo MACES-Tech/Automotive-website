@@ -161,23 +161,31 @@
                             
                             <!--Details Panel Box-->
                             <div class="details-panel-box">
-                                <div class="panel-header"><div class="panel-btn clearfix"><h4><strong>Key Features</strong> of {{currentTab}} {{carModel.name}} </h4><div class="arrow"><span class="fa fa-angle-down"></span></div></div></div>
+                                <div class="panel-header"><div class="panel-btn clearfix">
+                                    <h4>
+                                        <strong>{{'Key_Features'|translate}}</strong>
+                                        {{'of'|translate}}
+                                        <span ng-if="lang=='en'">{{currentTab|translate}} {{carModel.name|translate}}</span>
+                                        <span ng-if="lang=='ar'">{{currentTab|translate}} {{carModel.arName|translate}}</span>
+
+                                    </h4>
+                                <div class="arrow"><span class="fa fa-angle-down"></span></div></div></div>
                                 <div class="panel-content">
                                     <div class="content-box">
                                         <div class="listing-outer clearfix">
                                             <div class="list-column">
                                                 <ul class="list-style-seven">
-                                                    <li class="clearfix"><span class="ttl">Body</span><span class="dtl">{{carModel.keyFeatures.body}}</span></li>
+                                                    <li class="clearfix"><span class="ttl">{{'body'|translate}}</span><span class="dtl">{{carModel.keyFeatures.body}}</span></li>
                                                     <!-- <li class="clearfix"><span class="ttl">Total Kilometres</span><span class="dtl">2090Km’s</span></li> -->
-                                                    <li class="clearfix"><span class="ttl">Fuel Type</span><span class="dtl">{{carModel.keyFeatures.fuelType}}</span></li>
-                                                    <li class="clearfix"><span class="ttl">Reg.Year</span><span class="dtl">{{carModel.keyFeatures.regYear}}</span></li>
+                                                    <li class="clearfix"><span class="ttl">{{'fuel_type'|translate}}</span><span class="dtl">{{carModel.keyFeatures.fuelType}}</span></li>
+                                                    <li class="clearfix"><span class="ttl">{{'reg_year'|translate}}</span><span class="dtl">{{carModel.keyFeatures.regYear}}</span></li>
                                                 </ul>
                                             </div>
                                             <div class="list-column">
                                                 <ul class="list-style-seven">
-                                                    <li class="clearfix"><span class="ttl">Transmission</span><span class="dtl">{{carModel.keyFeatures.transmission}}</span></li>
-                                                    <li class="clearfix"><span class="ttl">Engine</span><span class="dtl">{{carModel.keyFeatures.engine}}</span></li>
-                                                    <li class="clearfix"><span class="ttl">Fuel Economy</span><span class="dtl">{{carModel.keyFeatures.fuelEconomy}}</span></li>
+                                                    <li class="clearfix"><span class="ttl">{{'transmission'|translate}}</span><span class="dtl">{{carModel.keyFeatures.transmission}}</span></li>
+                                                    <li class="clearfix"><span class="ttl">{{'engine'|translate}}</span><span class="dtl">{{carModel.keyFeatures.engine}}</span></li>
+                                                    <li class="clearfix"><span class="ttl">{{'fuel_economy'|translate}}</span><span class="dtl">{{carModel.keyFeatures.fuelEconomy}}</span></li>
                                                     <!-- <li class="clearfix"><span class="ttl">Color</span><span class="dtl">TitaniumMetalic</span></li> -->
                                                 </ul>
                                             </div>
@@ -191,32 +199,20 @@
                             
                             <!--Details Panel Box-->
                             <div class="details-panel-box extra-features">
-                                <div class="panel-header"><div class="panel-btn clearfix"><h4><strong>Extra Features </strong> of {{currentTab}} {{carModel.name}} </h4><div class="arrow"><span class="fa fa-angle-down"></span></div></div></div>
+                                <div class="panel-header"><div class="panel-btn clearfix"><h4>
+                                        <strong>{{'Extra_Features'|translate}}</strong>
+                                        {{'of'|translate}}
+                                        <span ng-if="lang=='en'">{{currentTab|translate}} {{carModel.name|translate}}</span>
+                                        <span ng-if="lang=='ar'">{{currentTab|translate}} {{carModel.arName|translate}}</span>
+
+                                    </h4><div class="arrow"><span class="fa fa-angle-down"></span></div></div></div>
                                 <div class="panel-content">
                                     <div class="content-box">
                                         <div class="listing-outer clearfix">
                                             <div class="list-column">
                                                 <ul class="list-style-nine">
-                                                    <li>Auto on Headlights</li>
-                                                    <li>LED Taillights</li>
-                                                    <li>Solar Tinted Glass</li>
-                                                    <li>Spare Tire Kit (Inflator)</li>
-                                                </ul>
-                                            </div>
-                                            <div class="list-column">
-                                                <ul class="list-style-nine">
-                                                    <li>Sensor Airbags (Approved)</li>
-                                                    <li>Child Seat Anchors</li>
-                                                    <li>Anti Theft System (Alarm)</li>
-                                                    <li>Advanced Bluetooth</li>
-                                                </ul>
-                                            </div>
-                                            <div class="list-column">
-                                                <ul class="list-style-nine">
-                                                    <li>CD & DVD Players</li>
-                                                    <li>Electric Side Mirror</li>
-                                                    <li>Navigation System</li>
-                                                    <li>Rear Traffic Alert</li>
+                                                    <li ng-repeat ="ef in carModel.extraFeatures"> <span ng-if="lang=='en'"> {{ef.title}} </span>
+                                                        <span ng-if="lang=='ar'"> {{ef.arTitle}} </span></li>
                                                 </ul>
                                             </div>
                                         </div>

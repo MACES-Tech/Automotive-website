@@ -87,6 +87,22 @@ app.service('brandModelsService', function ($http, $rootScope) {
                 cb(null, err);
             })
     };
+    self.getAllExtraFeatures = function(cb){
+        $http({
+            method: 'GET',
+            url: $rootScope.backendURL + "extraFeatures",
+        }).then(
+            function successCallback(res) {
+                if (res.status == 500) {
+                    cb(null, res);
+                } else {
+                    cb(res);
+                }
+            },
+            function errorCallback(err) {
+                cb(null, err);
+            })
+    }
     self.editModel = function(model,cb){
         $http({
             method: 'PUT',

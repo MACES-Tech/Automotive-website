@@ -2,8 +2,7 @@
 <section class="page-info">
     <div class="auto-container">
         <ul class="bread-crumb">
-            <li ng-if="lang=='en'"><a ng-click="goTopage('/{{carbrand.name}}/models')" href="">{{carbrand.name}}</a></li>
-            <li ng-if="lang=='ar'"><a ng-click="goTopage('/{{carbrand.name}}/models')" href="">{{carbrand.arName}}</a></li>
+                <li><a ng-click="goTopage('/' + currentTab +'/models' )" >{{currentTab|translate}}</a></li>
             <li class="current">{{'spare_parts'|translate}}</li>
         </ul>
     </div>

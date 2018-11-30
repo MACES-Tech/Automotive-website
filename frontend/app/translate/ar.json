@@ -56,6 +56,8 @@
     "fuel_economy":"وقود اقتصادي",
     "add_edit_spare_part":"اضافة \\ تعديل قطع غيار",
     "spare_part_info":"بيانات قطع الغيار",
-    "price":"السعر"
-    
+    "price":"السعر",
+    "Key_Features":"الميزات الرئيسية",
+    "of" : "فى",
+    "Extra_Features":"المميزات الاضافية"    
 }

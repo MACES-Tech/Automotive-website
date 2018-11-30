@@ -56,6 +56,9 @@
     "fuel_economy":"Fuel Economy",
     "add_edit_spare_part":"Add / edit Spare Part",
     "spare_part_info":"Spare Part Information",
-    "price":"Price"
+    "price":"Price",
+    "Key_Features":"Key Features",
+    "of" : "of",
+    "Extra_Features":"Extra Features"
 
 }
