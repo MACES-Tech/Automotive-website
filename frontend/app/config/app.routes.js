@@ -44,11 +44,21 @@ angular.module('alBargasyApp').config(function ($routeProvider, $ocLazyLoadProvi
             }
         }).when("/:brandName/spare_parts", {
             templateUrl: "./app/components/spareParts/brand.spareParts.html",
-            controller: 'sparePartsController'
+            controller: 'sparePartsController',
+            resolve: {
+                deps: ['$ocLazyLoad', function ($ocLazyLoad) {
+                    return $ocLazyLoad.load({
+                        files: [
+                            "./app/components/contactUs/contact.controller.js",
+                        ]
+                    });
+                }]
+            }
         }).when('/', {
             redirectTo: "/home"
         }).when('/contact', {
             templateUrl: "./app/components/contactUs/contact.html",
+            controller:"contactController"
         })
         .otherwise({
             redirectTo: "/notFound"

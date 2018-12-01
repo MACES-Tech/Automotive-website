@@ -228,6 +228,8 @@ angular.module('alBargasyApp')
                 if(!err){
                     createdObject = res.data;
                     $scope.extraFeatures.push(createdObject);
+                    extraFeature.name="";
+                    extraFeature.arabicName="";
                 }else{
                     SweetAlert.swal("Error", "an error occuers", "error");
                 }

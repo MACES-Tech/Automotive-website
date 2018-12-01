@@ -119,7 +119,7 @@
                                         <li><a href="account.html">Account</a></li>
                                     </ul>
                                 </li> -->
-                                        <li><a ng-click="goTopage('/contact')">{{'contact_us'|translate}}</a></li>
+                                        <li ng-class="currentTab==='contact'? 'current':''"><a ng-click="goTopage('/contact')">{{'contact_us'|translate}}</a></li>
                                         <li><a ng-if="isAdmin()" ng-click="goTopage('request_services')">{{'requested_services'|translate}}</a></li>
                                     </ul>
                                 </div>
@@ -147,9 +147,9 @@
             <div class="auto-container">
                 <div class="lower-inner">
                     <ul class="info-block">
-                        <li><span class="icon flaticon-maps-and-flags"></span>2 AlMansourya RD, Giza, Egypt</li>
-                        <li><span class="icon flaticon-telephone"></span>Phone: +201022214312</li>
-                        <li><span class="icon flaticon-timer"></span>Mon-Satday: 09.00am to 18.00pm</li>
+                        <li><span class="icon flaticon-maps-and-flags"></span>{{'small_address'|translate}}</li>
+                        <li><span class="icon flaticon-telephone"></span>{{'phone'|translate}}: +201067560150</li>
+                        <li><span class="icon flaticon-timer"></span>{{'Sunday'|translate}} - {{'Thursday'|translate}}: 11:00 - 19:00</li>
                     </ul>
                     <!-- Search -->
                     <div class="search-box">
@@ -224,7 +224,7 @@
                                                 <li><a href="account.html">Account</a></li>
                                             </ul>
                                         </li> -->
-                                <li><a ng-click="goTopage('/contact')">{{'contact_us'|translate}}</a></li>
+                                <li  ng-class="currentTab==='contact'? 'current':''"><a ng-click="goTopage('/contact')">{{'contact_us'|translate}}</a></li>
                             </ul>
                         </div>
                     </nav><!-- Main Menu End-->
