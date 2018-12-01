@@ -10,9 +10,16 @@ angular.module('alBargasyApp')
                     //         $scope.extraFeatures = res.data;
                     //     }
                     // })
+                    $scope.reloadScripts();
                 }
             })
           }
           $scope.init();
+          $scope.reloadScripts = function(){
+            var script = document.createElement('script');
 
+            script.src = "assets/js/script.js";
+
+            document.head.appendChild(script);
+        }
     });
