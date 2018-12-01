@@ -5,11 +5,11 @@ angular.module('alBargasyApp')
             brandModelsService.getAllModelsWithoutBrand(function(res,err){
                 if(!err){
                     $scope.carModels = res.data;
-                    brandModelsService.getAllExtraFeatures(function(res,err){
-                        if(!err){
-                            $scope.extraFeatures = res.data;
-                        }
-                    })
+                    // brandModelsService.getAllExtraFeatures(function(res,err){
+                    //     if(!err){
+                    //         $scope.extraFeatures = res.data;
+                    //     }
+                    // })
                 }
             })
           }

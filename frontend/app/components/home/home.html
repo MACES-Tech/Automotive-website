@@ -40,12 +40,12 @@
                                                     <span ng-click="confirmPopup(model.id)"><a href=""><i class="fa fa-trash" data-toggle="modal" data-target=".bd-example-modal-sm"></i></a> </span>
                                                     <span ng-click="editmodel(model)"><a href=""><i class="fa fa-edit"></i></a> </span>
                                             </div>
-                                        <a ng-click="goTopage('/' + currentTab +'/models/' + model.name )" ><img ng-src="/uploads/{{model.mainImage.path}}" alt="{{model.mainImage.altValue}}" /></a>
+                                        <a ng-click="goTopage('/' + model.car_brand.name +'/models/' + model.name )" ><img ng-src="/uploads/{{model.mainImage.path}}" alt="{{model.mainImage.altValue}}" /></a>
                                         <!-- <div class="price">$42000</div> -->
                                     </div>
                                     <h3>
-                                        <a ng-if="lang=='en'" ng-click="goTopage('/' + currentTab +'/models/' + model.name )" >{{model.name}}</a>
-                                        <a ng-if="lang=='ar'" ng-click="goTopage('/' + currentTab +'/models/' + model.name )" >{{model.arName}}</a>
+                                        <a ng-if="lang=='en'" ng-click="goTopage('/' + model.car_brand.name +'/models/' + model.name )" >{{model.name}}</a>
+                                        <a ng-if="lang=='ar'" ng-click="goTopage('/' + model.car_brand.name +'/models/' + model.name )" >{{model.arName}}</a>
                                     </h3>
                                     
                                     <!-- <div class="lower-box">

@@ -68,7 +68,8 @@ exports.findBycarBrandId = (req, res, next) => {
 
 exports.findAllcars = (req, res, next) => {
 	CarModel.findAll({include: [
-		{ model: db.file, as: 'mainImage' }
+		{ model: db.file, as: 'mainImage' },
+		{ model: db.carbrand, as:'car_brand'}
 	]}).then((carModels)=>{
 		// next();
 		var jsonResult = [];
