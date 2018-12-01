@@ -15,9 +15,9 @@ var app = angular.module('alBargasyApp',
   // }
   $rootScope.goTopage = function(PageName){
     $location.path(PageName);
-}
+  }
     $rootScope.backendURL = $location.protocol() + "://" + $location.host() + ":"+ $location.port() +"/api/" ;
-    $rootScope.currentTab ="skoda";
+    $rootScope.currentTab ="home";
 
     $http.defaults.headers.post['Content-Type'] = 'application/json';
 

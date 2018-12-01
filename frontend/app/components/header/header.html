@@ -65,7 +65,7 @@
                 <div class="upper-inner clearfix">
 
                     <div class="logo-outer">
-                        <div class="logo"><a ng-click="goTopage('/skoda/models')" href=""><img src="assets/images/logo.png" alt="" title=""></a></div>
+                        <div class="logo"><a ng-click="goTopage('/home')" href=""><img src="assets/images/logo.png" alt="" title=""></a></div>
                     </div>
 
                     <div class="upper-right clearfix">
@@ -81,10 +81,10 @@
                                         <span class="icon-bar"></span>
                                     </button>
                                 </div>
-
                                 <div class="navbar-collapse collapse clearfix">
                                     <ul class="navigation clearfix">
-                                        <li ng-class="currentTab==='skoda'? 'current':''" class="dropdown"><a ng-click="goTopage('/skoda/models')"">{{'skoda'|translate}}</a>
+                                        <li ng-class="currentTab==='home'? 'current':''"><a  ng-click="goTopage('/home')">{{'home'|translate}}</a></li>
+                                        <li ng-class="currentTab==='skoda'? 'current':''" class="dropdown"><a ng-click="goTopage('/skoda/models')">{{'skoda'|translate}}</a>
                                             <ul>
                                                 <li><a ng-click="goTopage('/skoda/models')" >{{'models'|translate}}</a></li>
                                                 <li><a ng-click="goTopage('/skoda/services')" >{{'service_center'|translate}}</a></li>
@@ -169,8 +169,8 @@
             <div class="auto-container clearfix">
                 <!--Logo-->
                 <div class="logo pull-left">
-                    <a ng-click="goTopage('/skoda/models')" class="img-responsive" title="Car World"><img src="assets/images/logo-small.png"
-                            alt="Tali" title="Car World"></a>
+                    <a ng-click="goTopage('/home')" class="img-responsive" title="Cars"><img src="assets/images/logo-small.png"
+                            alt="Tali" title="Cars"></a>
                 </div>
 
                 <!--Right Col-->
@@ -188,6 +188,7 @@
 
                         <div class="navbar-collapse collapse clearfix">
                             <ul class="navigation clearfix">
+                                <li ng-class="currentTab==='home'? 'current':''"><a  ng-click="goTopage('/home')">{{'home'|translate}}</a></li>
                                 <li ng-class="currentTab==='skoda'? 'current':''" class="dropdown "><a ng-click="goTopage('/skoda/models')">{{'skoda'|translate}}</a>
                                     <ul>
                                         <li><a ng-click="goTopage('/skoda/models')" >{{'models'|translate}}</a></li>

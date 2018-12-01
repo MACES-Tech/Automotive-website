@@ -64,6 +64,31 @@ exports.findBycarBrandId = (req, res, next) => {
 		}
 	}).catch(next);
 };
+
+
+exports.findAllcars = (req, res, next) => {
+	CarModel.findAll({include: [
+		{ model: db.file, as: 'mainImage' }
+	]}).then((carModels)=>{
+		// next();
+		var jsonResult = [];
+		for (let index = 0; index < carModels.length; index++) {
+			const element = carModels[index];
+			
+			jsonElement = element.toJSON();
+			keyFeaturesService.getKeyFeatures(jsonElement.id,jsonElement,function(jsonElement){
+				
+				jsonResult.push(jsonElement);
+
+				if(index == carModels.length - 1){
+					res.status(200).send(jsonResult);
+		
+				}
+			})
+		}
+	}).catch(next);
+};
+
 exports.findByName = (req, res, next) => {
 	CarModel.findAll({where:{name:req.params.modelName}}).then(carModel => {
 		// next()

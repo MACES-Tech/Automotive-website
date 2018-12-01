@@ -7,7 +7,7 @@
     <!--Page Title-->
     <section class="page-title" style="background-image:url(assets/images/background/5.jpg);">
         <div class="auto-container">
-            <h1>Skoda Models</h1>
+            <h1>{{'home'|translate}}</h1>
         </div>
     </section>
     <!--End Page Title-->
@@ -16,8 +16,7 @@
     <section class="page-info">
         <div class="auto-container">
             <ul class="bread-crumb">
-                <li><a ng-click="goTopage('/skoda/models')">Skoda</a></li>
-                <li class="current">Models</li>
+                <li class="current">{{'home'|translate}}</li>
             </ul>
         </div>
     </section>
@@ -25,134 +24,30 @@
     
     <!--Inventory Section-->
     <section class="inventory-section ">
-    	<div class="auto-container">
-        	<div class="row clearfix">
-            	<!--Column-->
-            	<div class="column col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                	<!-- <div class="layout-box clearfix">
-                    	<div class="pull-left">
-                        	<div class="sort-form">
-                                <form action="inventory-form">
-                                    <div class="form-group">
-                                        <label>Sort By:</label>
-                                        <select class="custom-select-box">
-                                            <option>Price: Highest First</option>
-                                            <option>Second</option>
-                                            <option>Third</option>
-                                            <option>Fourth</option>
-                                            <option>Five</option>
-                                        </select>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                        <div class="pull-right">
-                        	<ul class="view-options">
-                            	<li class="active"><a href="inventory-1.html"><span class="fa fa-th-large"></span></a></li>
-                                <li><a href="#"><span class="flaticon-list"></span></a></li>
-                            </ul>
-                        </div>
-                    </div> -->
-                    
-                    <!--End Sec Title-->
-                    <div class="row clearfix">
-                        <!--Car Block-->
-                        <div class="car-block col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                            <div class="inner-box">
-                                <div class="image">
-                                    <a href="citigo.html"><img src="assets/images/Skoda-models/citigo.png" alt="" /></a>
-                                    <div class="price">$42000</div>
-                                </div>
-                                <h3><a href="citigo.html">citigo</a></h3>
-                                <!-- <div class="lower-box">
-                                    <ul class="car-info">
-                                        <li><span class="fa fa-road icon"></span>26000</li>
-                                        <li><span class="icon fa fa-car"></span>Diesel</li>
-                                        <li><span class="icon fa fa-clock-o"></span>2014</li>
-                                    </ul>
-                                </div> -->
-                            </div>
-                        </div>
-
-                        <!--Car Block-->
-                        <div class="car-block col-lg-4 col-md-6 col-sm-6 col-xs-12">
+            <div class="auto-container">
+                <div class="row clearfix">
+                    <!--Column-->
+                    <div class="column col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        
+                        <!--End Sec Title-->
+                        <div class="row clearfix">
+                            <!--Car Block-->
+    
+                            <div ng-if="carModels.length > 0" class="car-block col-lg-4 col-md-6 col-sm-6 col-xs-12"  ng-repeat="model in carModels">
                                 <div class="inner-box">
                                     <div class="image">
-                                        <a href="fabia.html"><img src="assets/images/Skoda-models/new-fabia.png" alt="" /></a>
-                                        <div class="price">$42000</div>
+                                            <div class="edit-icons" ng-if="isAdmin()">
+                                                    <span ng-click="confirmPopup(model.id)"><a href=""><i class="fa fa-trash" data-toggle="modal" data-target=".bd-example-modal-sm"></i></a> </span>
+                                                    <span ng-click="editmodel(model)"><a href=""><i class="fa fa-edit"></i></a> </span>
+                                            </div>
+                                        <a ng-click="goTopage('/' + currentTab +'/models/' + model.name )" ><img ng-src="/uploads/{{model.mainImage.path}}" alt="{{model.mainImage.altValue}}" /></a>
+                                        <!-- <div class="price">$42000</div> -->
                                     </div>
-                                    <h3><a href="inventory-single.html">New Fabia</a></h3>
-                                            <!-- <div class="lower-box">
-                                                <ul class="car-info">
-                                                    <li><span class="fa fa-road icon"></span>26000</li>
-                                                    <li><span class="icon fa fa-car"></span>Diesel</li>
-                                                    <li><span class="icon fa fa-clock-o"></span>2014</li>
-                                                </ul>
-                                            </div> -->
-                                </div>
-                        </div>
-
-                        <!--Car Block-->
-                        <div class="car-block col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                                <div class="inner-box">
-                                    <div class="image">
-                                        <a href="rapid.html"><img src="assets/images/Skoda-models/RAPID.png" alt="" /></a>
-                                        <div class="price">$42000</div>
-                                    </div>
-                                    <h3><a href="inventory-single.html">RAPID</a></h3>
-                                            <!-- <div class="lower-box">
-                                                <ul class="car-info">
-                                                    <li><span class="fa fa-road icon"></span>26000</li>
-                                                    <li><span class="icon fa fa-car"></span>Diesel</li>
-                                                    <li><span class="icon fa fa-clock-o"></span>2014</li>
-                                                </ul>
-                                            </div> -->
-                                </div>
-                        </div>
-
-                        <!--Car Block-->
-                        <div class="car-block col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                                <div class="inner-box">
-                                    <div class="image">
-                                        <a href="octavia.html"><img src="assets/images/Skoda-models/OCTAVIA.png" alt="" /></a>
-                                        <div class="price">$42000</div>
-                                    </div>
-                                    <h3><a href="inventory-single.html">OCTAVIA</a></h3>
-                                            <!-- <div class="lower-box">
-                                                <ul class="car-info">
-                                                    <li><span class="fa fa-road icon"></span>26000</li>
-                                                    <li><span class="icon fa fa-car"></span>Diesel</li>
-                                                    <li><span class="icon fa fa-clock-o"></span>2014</li>
-                                                </ul>
-                                            </div> -->
-                                </div>
-                        </div>
-                        <!--Car Block-->
-                        <div class="car-block col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                                <div class="inner-box">
-                                    <div class="image">
-                                        <a href="inventory-single.html"><img src="assets/images/Skoda-models/SUPERB.png" alt="" /></a>
-                                        <div class="price">$42000</div>
-                                    </div>
-                                    <h3><a href="inventory-single.html">SUPERB</a></h3>
-                                            <!-- <div class="lower-box">
-                                                <ul class="car-info">
-                                                    <li><span class="fa fa-road icon"></span>26000</li>
-                                                    <li><span class="icon fa fa-car"></span>Diesel</li>
-                                                    <li><span class="icon fa fa-clock-o"></span>2014</li>
-                                                </ul>
-                                            </div> -->
-                                </div>
-                        </div>
-
-                        <!--Car Block-->
-                        <div class="car-block col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                            <div class="inner-box">
-                                <div class="image">
-                                    <a href="inventory-single.html"><img src="assets/images/Skoda-models/KAROQ.png" alt="" /></a>
-                                    <div class="price">$42000</div>
-                                </div>
-                                <h3><a href="inventory-single.html">KAROQ</a></h3>
+                                    <h3>
+                                        <a ng-if="lang=='en'" ng-click="goTopage('/' + currentTab +'/models/' + model.name )" >{{model.name}}</a>
+                                        <a ng-if="lang=='ar'" ng-click="goTopage('/' + currentTab +'/models/' + model.name )" >{{model.arName}}</a>
+                                    </h3>
+                                    
                                     <!-- <div class="lower-box">
                                         <ul class="car-info">
                                             <li><span class="fa fa-road icon"></span>26000</li>
@@ -160,49 +55,38 @@
                                             <li><span class="icon fa fa-clock-o"></span>2014</li>
                                         </ul>
                                     </div> -->
-                            </div>
-                        </div>
-
-                        <!--Car Block-->
-                        <div class="car-block col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                            <div class="inner-box">
-                                <div class="image">
-                                    <a href="inventory-single.html"><img src="assets/images/Skoda-models/KODIAQ.png" alt="" /></a>
-                                    <div class="price">$42000</div>
                                 </div>
-                                <h3><a href="inventory-single.html">KODIAQ</a></h3>
-                                        <!-- <div class="lower-box">
-                                            <ul class="car-info">
-                                                <li><span class="fa fa-road icon"></span>26000</li>
-                                                <li><span class="icon fa fa-car"></span>Diesel</li>
-                                                <li><span class="icon fa fa-clock-o"></span>2014</li>
-                                            </ul>
-                                        </div> -->
                             </div>
+                            <!--Car Block-->
+    
+    
+    
                         </div>
-                        
-                    
+                        <!--Styled Pagination-->
+                        <!-- <div class="styled-pagination text-center">
+                            <ul class="clearfix">
+                                <li><a href="#"><span class="fa fa-caret-left"></span></a></li>
+                                <li><a href="#" class="active">1</a></li>
+                                <li><a href="#">2</a></li>
+                                <li><a href="#"><span class="fa fa-caret-right"></span></a></li>
+                            </ul>
+                        </div> -->
+                        <!--End Styled Pagination-->
                         
                     </div>
-                    <!--Styled Pagination-->
-                    <!-- <div class="styled-pagination text-center">
-                        <ul class="clearfix">
-                            <li><a href="#"><span class="fa fa-caret-left"></span></a></li>
-                            <li><a href="#" class="active">1</a></li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#"><span class="fa fa-caret-right"></span></a></li>
-                        </ul>
-                    </div> -->
-                    <!--End Styled Pagination-->
                     
-                </div>
-                
-                
+                    
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
-    <!--End Inventory Section-->
+        </section>
+    
+        <!--End Inventory Section-->
+    
+    
+          
+    
+       
     
 </div>
 <!--End pagewrapper-->

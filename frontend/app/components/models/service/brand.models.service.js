@@ -54,6 +54,23 @@ app.service('brandModelsService', function ($http, $rootScope) {
             })
     };
 
+    self.getAllModelsWithoutBrand = function (cb) {
+        $http({
+            method: 'GET',
+            url: $rootScope.backendURL + "carModel",
+        }).then(
+            function successCallback(res) {
+                if (res.status == 500) {
+                    cb(null, res);
+                } else {
+                    cb(res);
+                }
+            },
+            function errorCallback(err) {
+                cb(null, err);
+            })
+    };
+
     self.deleteModelById = function (modelId,cb) {
         $http({
             method: 'DELETE',
