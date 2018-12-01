@@ -36,10 +36,10 @@
                             <div ng-if="carModels.length > 0" class="car-block col-lg-4 col-md-6 col-sm-6 col-xs-12"  ng-repeat="model in carModels">
                                 <div class="inner-box">
                                     <div class="image">
-                                            <div class="edit-icons" ng-if="isAdmin()">
+                                            <!-- <div class="edit-icons" ng-if="isAdmin()">
                                                     <span ng-click="confirmPopup(model.id)"><a href=""><i class="fa fa-trash" data-toggle="modal" data-target=".bd-example-modal-sm"></i></a> </span>
                                                     <span ng-click="editmodel(model)"><a href=""><i class="fa fa-edit"></i></a> </span>
-                                            </div>
+                                            </div> -->
                                         <a ng-click="goTopage('/' + model.car_brand.name +'/models/' + model.name )" ><img ng-src="/uploads/{{model.mainImage.path}}" alt="{{model.mainImage.altValue}}" /></a>
                                         <!-- <div class="price">$42000</div> -->
                                     </div>
