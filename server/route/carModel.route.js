@@ -16,4 +16,5 @@ module.exports = function(app) {
     
 
     app.get('/api/extraFeatures', carModel.findAllExtraFeatures);
+    app.post('/api/extraFeatures', carModel.createExtraFeature);
 }

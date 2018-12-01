@@ -2,11 +2,11 @@
 
     
     <!--Page Title-->
-    <!-- <section class="page-title" style="background-image:url(assets/images/background/5.jpg);">
+    <section class="page-title" style="background-image:url(assets/images/background/5.jpg);">
         <div class="auto-container">
-            <h1>Skoda Models</h1>
+            <h1>{{currentTab|translate}} {{'models'|translate}}</h1>
         </div>
-    </section> -->
+    </section>
     <!--End Page Title-->
     
     <!--Page Info-->
@@ -250,6 +250,19 @@
                                                                             <input type="checkbox" id="ef-{{ef.id}}" ng-model="model.options[$index]" ng-value="ef" ng-change="toggleEf($index)"/>
                                                                             <span ng-if="lang=='en'"> {{ef.title}} </span>
                                                                             <span ng-if="lang=='ar'"> {{ef.arTitle}} </span>
+                                                                        </li>
+                                                                        <li>
+                                                                            <div class="form-group col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                                                                                <label>{{'name'|translate}}</label>
+                                                                                <input type="text" ng-model="extraFeature.name" name="name" value="" placeholder="" required="required">
+                                                                            </div>
+                                                                            <div class="form-group col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                                                                                    <label>{{'arabic_name'|translate}}</label>
+                                                                                    <input type="text"  ng-model="extraFeature.arabicName" name="name" value="" placeholder="" required="required">
+                                                                            </div>
+                                                                            <div class="form-group col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                                                                                    <i style="font-size: 3em;color: #eb1d27;margin-top: 37px;cursor: pointer;" title="add new extra feature" ng-click="addNewExtraFeature(extraFeature)"  class="fa fa-plus-circle"></i>
+                                                                            </div>
                                                                         </li>
                                                                     </ul>
                                                                 </div>

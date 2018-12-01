@@ -87,6 +87,23 @@ app.service('brandModelsService', function ($http, $rootScope) {
                 cb(null, err);
             })
     };
+    self.createNewExtraFeature = function(extraFeature,cb){
+        $http({
+            method: 'POST',
+            url: $rootScope.backendURL + "extraFeatures",
+            data:JSON.stringify(extraFeature)
+        }).then(
+            function successCallback(res) {
+                if (res.status == 500) {
+                    cb(null, res);
+                } else {
+                    cb(res);
+                }
+            },
+            function errorCallback(err) {
+                cb(null, err);
+            })
+    }
     self.getAllExtraFeatures = function(cb){
         $http({
             method: 'GET',

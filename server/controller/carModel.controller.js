@@ -108,7 +108,7 @@ exports.findByName = (req, res, next) => {
 exports.findAllExtraFeatures = (req, res, next)=>{
 	Extrafeatures.findAll().then(extrafeatures => {
 		res.send(extrafeatures);
-	})
+	}).catch(next);
 }
 exports.update = (req, res, next) => {
 	const id = req.params.carModelId;
@@ -153,3 +153,11 @@ exports.delete = (req, res, next) => {
 	  res.status(200).send('deleted successfully a carModel with id = ' + id);
 	}).catch(next);
 };
+
+exports.createExtraFeature=(req,res,next)=>{
+	extraFeatureObject = req.body;
+	Extrafeatures.create(extraFeatureObject).then( (created)=>{
+		res.send(created);
+	}).catch(next);
+
+}

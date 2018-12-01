@@ -222,6 +222,17 @@ angular.module('alBargasyApp')
              });
             
         }
+        $scope.addNewExtraFeature = function(extraFeature){
+            object = {title:extraFeature.name,arTitle:extraFeature.arabicName}
+            brandModelsService.createNewExtraFeature(object,function(res,err){
+                if(!err){
+                    createdObject = res.data;
+                    $scope.extraFeatures.push(createdObject);
+                }else{
+                    SweetAlert.swal("Error", "an error occuers", "error");
+                }
+            })
+        }
         $scope.forceClearAllData = function(model){
             model.id="";
             model.arName="";
