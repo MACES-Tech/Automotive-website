@@ -8,7 +8,7 @@ module.exports = function(app) {
     // Delete a carBrand with Id    
     app.get('/api/carBrand/:carBrandId/carModel', carModel.findBycarBrandId);
 
-    app.get('/api/carModel', carModel.findAllcars);
+    app.post('/api/carModel/allModels', carModel.findAllcars);
 
 
     app.delete('/api/carModel/:carModelId', carModel.delete);

@@ -1,6 +1,6 @@
 angular.module('alBargasyApp')
-    .controller('requestedServiceController', function ($scope,carServiceService,SweetAlert) {
-        
+    .controller('requestedServiceController', function ($scope,carServiceService,SweetAlert,$rootScope) {
+        $rootScope.currentTab = "request_services";
         $scope.init = function () {
             $scope.allRequestedServices = [];
             carServiceService.getAllRequestedServices(function(res,err){

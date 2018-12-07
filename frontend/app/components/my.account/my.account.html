@@ -1,0 +1,71 @@
+<div class="page-wrapper">
+
+    <!-- Preloader -->
+    <!-- <div class="preloader"></div> -->
+
+    <!--Page Title-->
+    <section class="page-title" style="background-image:url(images/background/5.jpg);">
+        <div class="auto-container">
+            <h1>{{'my_account'|translate}}</h1>
+        </div>
+    </section>
+    <!--End Page Title-->
+
+    <!--Page Info-->
+    <section class="page-info">
+        <div class="auto-container">
+            <ul class="bread-crumb">
+                <li><a ng-click="goTopage('/home')">{{'home'|translate}}</a></li>
+                <li class="current">{{'my_account'|translate}}</li>
+            </ul>
+        </div>
+    </section>
+    <!--End Page Info-->
+    <section class="register-section">
+        <div class="auto-container">
+            <div class="row clearfix">
+                <!--Form Column-->
+                <div class="form-column column col-lg-6 col-md-6 col-sm-12 col-xs-12">
+
+                    <div class="form-title">
+                        <h2>{{'my_info'|translate}}</h2>
+                    </div>
+
+                    <!--Login Form-->
+                    <div class="styled-form register-form">
+                        <form method="post" action="goTopage('/home')">
+                            <div class="form-group">
+                                <span class="adon-icon"><span class="fa fa-user"></span></span>
+                                <input type="text" name="username" value="" ng-model="user.name" placeholder="Your Name *">
+                            </div>
+                            <div class="form-group">
+                                <span class="adon-icon"><span class="fa fa-envelope-o"></span></span>
+                                <input type="email" name="useremil" value="" ng-model="user.email" placeholder="Emai Address*">
+                            </div>
+                            <div class="form-group">
+                                <span class="adon-icon"><span class="fa fa-mobile"></span></span>
+                                <input type="text" name="userphone" value="" ng-model="user.phone"
+                                    placeholder="phone number*">
+                            </div>
+
+                            <div class="clearfix">
+                                <div class="form-group pull-left">
+                                    <button type="button" class="theme-btn btn-style-one" ng-click="saveUser()">{{'submit_now'|translate}}</button>
+                                </div>
+                                <!-- <div class="form-group submit-text pull-right">
+                        * You must be a free registered user to submit content. 
+                    </div> -->
+                            </div>
+
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<!--End pagewrapper-->
+
+<!--Scroll to top-->
+<div class="scroll-to-top scroll-to-target" data-target="html"><span class="icon fa fa-angle-up"></span></div>

@@ -8,6 +8,7 @@ angular.module('alBargasyApp')
         $scope.init = function () {
             if ($routeParams.brandName) {
                 //get an existing object
+                console.log($routeParams.brandName)
                 brandModelsService.getCarBrandByName($routeParams.brandName,function(res, err){
                     if(!err){
                         if(res.data.length > 0 &&res.status ===200){

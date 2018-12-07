@@ -8,11 +8,14 @@ angular.module('alBargasyApp')
     }
 
     $rootScope.setcurrentUser = function (admin, token) {
-        debugger
         $cookies.put("currentUser.object", admin);
         $cookies.put("currentUser.token", token);
-        $location.path("/skoda/models");
+        $location.path("/home");
     }
+    $rootScope.updateCurrentUser = function (admin) {
+        $cookies.put("currentUser.object", admin);        
+    }
+    
 
     $rootScope.getcurrentUser = function () {
         if ($rootScope.isSignedIn()) {
@@ -45,7 +48,7 @@ angular.module('alBargasyApp')
             //     console.log("error in signing out");
             // } else {
                 $rootScope.unsetcurrentUser();
-                $location.path('/skoda/models');
+                $location.path('/home');
         //     }
         // });
     }

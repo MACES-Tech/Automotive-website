@@ -28,6 +28,9 @@ angular.module('alBargasyApp').config(function ($routeProvider, $ocLazyLoadProvi
         }).when('/account', {
             templateUrl: "./app/components/login.register/account.html",
             controller: 'loginRegisterController'
+        }).when('/my_account', {
+            templateUrl: "./app/components/my.account/my.account.html",
+            controller: 'myAccountController'
         }).when('/request_services', {
             templateUrl: "./app/components/car.service/request_service_list.html",
             controller: 'requestedServiceController',
@@ -59,6 +62,9 @@ angular.module('alBargasyApp').config(function ($routeProvider, $ocLazyLoadProvi
         }).when('/contact', {
             templateUrl: "./app/components/contactUs/contact.html",
             controller:"contactController"
+        }).when('/buy_car', {
+            templateUrl: "./app/components/buy.car/buy.car.html",
+            controller:"buyCarController"
         })
         .otherwise({
             redirectTo: "/notFound"

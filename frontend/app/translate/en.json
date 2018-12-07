@@ -23,6 +23,7 @@
     "spare_parts":"Spare Parts",
     "cars":"Cars",
     "buy":"Buy Car",
+    "buy_sell":"Buy/Sell Car",
     "sell":"Sell Car",
     "exchange":"Exchange Car",
     "contact_us":"Contact Us",
@@ -118,5 +119,12 @@
     "service2":"Selling cars in installments directly with the company",
     "service3":"Open a current account for withdrawals parts",
     "service4":"Maintenance agreements for companies",
-    "service5":"Maintenance instalment without interest"
+    "service5":"Maintenance instalment without interest",
+    "login":"Login",
+    "my_info":"My Information",
+    "used_car":"Used Car",
+    "new_car":"New Car",
+    "used_cars":"Used Cars",
+    "new_cars":"New Cars",
+    "search":"Search"
 }

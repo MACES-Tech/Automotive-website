@@ -1,0 +1,467 @@
+<!--Page Title-->
+<section class="page-title" style="background-image:url(assets/images/background/5.jpg);">
+    <div class="auto-container">
+        <h1 ng-if="!isUsedCarFilter">{{'new_cars'|translate}}</h1>
+        <h1 ng-if="isUsedCarFilter">{{'used_cars'|translate}}</h1>
+    </div>
+</section>
+<!--End Page Title-->
+
+<!--End Page Info-->
+<section class="car-search-form">
+    <div class="auto-container">
+        <div class="inner-section">
+
+            <!--Product Info Tabs-->
+            <div class="car-search-tab">
+
+                <!--Tabs Box-->
+                <div class="prod-tabs tabs-box">
+
+                    <!--Tab Btns-->
+                    <ul class="tab-btns tab-buttons clearfix">
+                        <li ng-click="switchTabCar(null)" ng-class="isUsedCarFilter?'':'active-btn'" class="tab-btn">{{'new_cars'|translate}}</li>
+                        <li ng-click="switchTabCar(1)" ng-class="isUsedCarFilter?'active-btn':''" class="tab-btn">{{'used_cars'|translate}}</li>
+                    </ul>
+
+                    <!--Tabs Container-->
+                    <div class="tabs-content">
+
+                        <!--Tab / Active Tab-->
+                        <div class="tab active-tab" id="used-car">
+                            <div class="content">
+                                <!-- Car Search Form -->
+                                <div class="car-search-form">
+                                    <form>
+                                        <div class="row clearfix">
+                                            <div class="column col-lg-7 col-md-12 col-sm-12 col-xs-12">
+                                                <div class="row clearfix">
+
+                                                    <!--Form Group-->
+                                                    <div class="form-group col-md-4 col-sm-4 col-xs-12">
+                                                        <select class="custom-select-box" name="brandSelect" ng-model="carBrandId">
+                                                            <option disabled value="">---{{'car_brand'|translate}}---</option>
+                                                            <option ng-repeat="brand in brands" value="{{brand.id}}"
+                                                                ng-if="lang=='en'">
+                                                                {{brand.name}}
+                                                            </option>
+                                                            <option ng-repeat="brand in brands" value="{{brand.id}}"
+                                                                ng-if="lang=='ar'">
+                                                                {{brand.arName}}
+                                                            </option>
+                                                        </select>
+                                                    </div>
+
+
+                                                    <div class="form-group col-md-4 col-sm-4 col-xs-12">
+                                                        <button class="theme-btn search-btn" type="submit" name="submit-form"
+                                                            ng-click="init(carBrandId,isUsedCarFilter)">{{'search'|translate}}</button>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+                                    </form>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--Tab-->
+                        <div class="tab" id="new-car">
+                            <div class="content">
+                                <!-- Car Search Form -->
+                                <div class="car-search-form">
+                                    <form method="post" action="news.html">
+                                        <div class="row clearfix">
+                                            <div class="column col-lg-7 col-md-12 col-sm-12 col-xs-12">
+                                                <div class="row clearfix">
+
+                                                    <!--Form Group-->
+                                                    <div class="form-group col-md-4 col-sm-4 col-xs-12">
+                                                        <select class="custom-select-box">
+                                                            <option>All Makes</option>
+                                                            <option>Makes One</option>
+                                                            <option>Makes Two</option>
+                                                            <option>Makes Three</option>
+                                                            <option>Makes Four</option>
+                                                        </select>
+                                                    </div>
+
+                                                    <!--Form Group-->
+                                                    <div class="form-group col-md-4 col-sm-4 col-xs-12">
+                                                        <select class="custom-select-box">
+                                                            <option>All Model</option>
+                                                            <option>Model One</option>
+                                                            <option>Model Two</option>
+                                                            <option>Model Three</option>
+                                                            <option>Model Four</option>
+                                                        </select>
+                                                    </div>
+
+                                                    <!--Form Group-->
+                                                    <div class="form-group col-md-4 col-sm-4 col-xs-12">
+                                                        <select class="custom-select-box">
+                                                            <option>Max.Price</option>
+                                                            <option>Price One</option>
+                                                            <option>Price Two</option>
+                                                            <option>Price Three</option>
+                                                            <option>Price Four</option>
+                                                        </select>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                            <div class="column col-lg-5 col-md-12 col-sm-12 col-xs-12">
+                                                <div class="row clearfix">
+                                                    <!--Form Group-->
+                                                    <div class="form-group col-md-4 col-sm-4 col-xs-12">
+                                                        <select class="custom-select-box">
+                                                            <option>Mileage</option>
+                                                            <option>Mileage One</option>
+                                                            <option>Mileage Two</option>
+                                                            <option>Mileage Three</option>
+                                                            <option>Mileage Four</option>
+                                                        </select>
+                                                    </div>
+
+                                                    <!--Form Group-->
+                                                    <div class="form-group col-md-4 col-sm-4 col-xs-12">
+                                                        <select class="custom-select-box">
+                                                            <option>Newyork City</option>
+                                                            <option>Chicago One</option>
+                                                            <option>California Two</option>
+                                                        </select>
+                                                    </div>
+
+                                                    <div class="form-group col-md-4 col-sm-4 col-xs-12">
+                                                        <button class="theme-btn search-btn" type="submit" name="submit-form">Search</button>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+                                    </form>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+            <!--End Product Info Tabs-->
+
+        </div>
+    </div>
+</section>
+<!--End Car Search Form-->
+
+<!--Inventory Section-->
+<section class="inventory-section ">
+    <div class="auto-container">
+        <div class="row clearfix">
+            <!--Column-->
+            <div class="column col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <!-- <div class="layout-box clearfix">
+                    	<div class="pull-left">
+                        	<div class="sort-form">
+                                <form action="inventory-form">
+                                    <div class="form-group">
+                                        <label>Sort By:</label>
+                                        <select class="custom-select-box">
+                                            <option>Price: Highest First</option>
+                                            <option>Second</option>
+                                            <option>Third</option>
+                                            <option>Fourth</option>
+                                            <option>Five</option>
+                                        </select>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="pull-right">
+                        	<ul class="view-options">
+                            	<li class="active"><a href="inventory-1.html"><span class="fa fa-th-large"></span></a></li>
+                                <li><a href="#"><span class="flaticon-list"></span></a></li>
+                            </ul>
+                        </div>
+                    </div> -->
+
+                <!--End Sec Title-->
+                <div class="row clearfix">
+                    <!--Car Block-->
+
+                    <div ng-if="carModels.length > 0" class="car-block col-lg-4 col-md-6 col-sm-6 col-xs-12" ng-repeat="model in carModels">
+                        <div class="inner-box">
+                            <div class="image">
+                                <div class="edit-icons" ng-if="isAdmin()">
+                                    <span ng-click="confirmPopup(model.id)"><a href=""><i class="fa fa-trash"
+                                                data-toggle="modal" data-target=".bd-example-modal-sm"></i></a> </span>
+                                    <span ng-click="editmodel(model)"><a href=""><i class="fa fa-edit"></i></a> </span>
+                                </div>
+                                <a ng-click="goToCarPage(model.carBrandId,model.name )"><img style="height: 150px;"
+                                        ng-src="/uploads/{{model.mainImage.path}}" alt="{{model.mainImage.altValue}}" /></a>
+                                <!-- <div class="price">$42000</div> -->
+                            </div>
+                            <h3>
+                                <a ng-if="lang=='en'" ng-click="goToCarPage(model.carBrandId,model.name )">{{model.name}}</a>
+                                <a ng-if="lang=='ar'" ng-click="goToCarPage(model.carBrandId,model.name )">{{model.arName}}</a>
+                            </h3>
+
+                            <div class="lower-box">
+                                <ul class="car-info">
+                                    <!-- <li><span class="fa fa-road icon"></span>26000</li> -->
+                                    <!-- <li><span class="icon fa fa-car"></span>{{model.keyFeatures.fuelType}}</li> -->
+                                    <li><span class="icon fa fa-clock-o"></span>{{model.keyFeatures.regYear}}</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Car Block-->
+
+
+
+                </div>
+                <!--Styled Pagination-->
+                <!-- <div class="styled-pagination text-center">
+                        <ul class="clearfix">
+                            <li><a href="#"><span class="fa fa-caret-left"></span></a></li>
+                            <li><a href="#" class="active">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#"><span class="fa fa-caret-right"></span></a></li>
+                        </ul>
+                    </div> -->
+                <!--End Styled Pagination-->
+
+            </div>
+
+
+        </div>
+    </div>
+    </div>
+</section>
+
+<!--End Inventory Section-->
+
+
+
+<!--Sell Car Section-->
+<section class="sell-car-section" ng-if="isAdmin()">
+    <div class="auto-container">
+        <div class="row clearfix">
+            <!--Cell Car Column-->
+            <div class="cell-car-column col-lg-9 col-md-8 col-sm-12 col-xs-12">
+                <div class="inner-column">
+                    <!--Sec Title-->
+                    <div class="sec-title">
+                        <h2>{{'add_edit_car'|translate}}</h2>
+                    </div>
+
+                    <!--Sell Car Form-->
+                    <div class="sell-car-form">
+                        <h2>{{'vehicle_info'|translate}}</h2>
+                        <div class="form-box">
+                            <form>
+                                <div class="row clearfix">
+                                    <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                        <label>
+                                            <input type="radio" ng-model="model.usedCar" ng-value="0">
+                                            {{'new_car'|translate}}
+                                        </label>
+                                    </div>
+                                    <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                        <label>
+                                            <input type="radio" ng-model="model.usedCar" ng-value="1">
+                                            {{'used_car'|translate}}
+                                        </label>
+                                    </div>
+
+                                    <div class="form-group col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                                        <label>{{'car_brand'|translate}}</label>
+                                        <select name="singleSelect" ng-model="model.carBrand">
+                                            <option ng-repeat="brand in brands" value="{{brand.id}}" ng-if="lang=='en'">
+                                                {{brand.name}}
+                                            </option>
+                                            <option ng-repeat="brand in brands" value="{{brand.id}}" ng-if="lang=='ar'">
+                                                {{brand.arName}}
+                                            </option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                                        <input type="hidden" ng-model="model.id" name="name" value="" placeholder=""
+                                            required="required">
+                                        <label>{{'name'|translate}}</label>
+                                        <input type="text" ng-model="model.name" name="name" value="" placeholder=""
+                                            required="required">
+                                    </div>
+                                    <div class="form-group col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                                        <label>{{'arabic_name'|translate}}</label>
+                                        <input type="text" ng-model="model.arName" name="arName" value="" placeholder=""
+                                            required="required">
+                                    </div>
+                                    <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                                        <label>{{'description'|translate}}</label>
+                                        <textarea ng-model="model.firstParagraph" name="firstParagraph" value=""
+                                            placeholder="" required="required"></textarea>
+                                    </div>
+                                    <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                                        <label>{{'arabic_description'|translate}}</label>
+                                        <textarea ng-model="model.arFirstParagraph" name="arFirstParagraph" value=""
+                                            placeholder="" required="required"></textarea>
+                                    </div>
+
+                                    <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                                        <label class="upload">{{'upload_photo'|translate}}</label>
+                                        <div class="field-inner clearfix">
+                                            <input id="ImageUploader1" type="file" ngf-select ng-model="up.file" name="file"
+                                                ngf-pattern="'image/*'" accept="image/*" ngf-max-size="20MB" style="display: none">
+
+
+                                            <button type="button" ng-click="openFileUploader()" class="upload-btn"><span
+                                                    class="fa fa-file-picture-o"></span> Choose File ...</button>
+                                            {{'image_thumbnail'|translate}}: <img style="width:100px;" ngf-thumbnail="up.file || '/thumb.jpg'" />
+                                            {{progress}}
+                                        </div>
+                                    </div>
+                                    <!-- <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                                            <button type="button" ng-click="addNewCarModel(up,model)" class="theme-btn btn-style-one">submit Now</button>
+                                            <button type="button" ng-click="clearData(model)" class="theme-btn btn-style-one">clear</button>
+
+                                        </div> -->
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="sell-car-form">
+                        <h2>{{'specs'|translate}}</h2>
+                        <div class="form-box">
+                            <form>
+                                <div class="row clearfix">
+                                    <div class="form-group col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                                        <label>{{'body'|translate}}</label>
+                                        <input type="text" ng-model="model.keyFeatures.body" name="name" value=""
+                                            placeholder="" required="required">
+                                    </div>
+                                    <!-- <div class="form-group col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                                            <label>Arabic Body</label>
+                                            <input type="text" ng-model="model.keyFeatures.arBody" name="arName" value="" placeholder="" required="required">
+                                        </div> -->
+
+                                    <div class="form-group col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                                        <label>{{'transmission'|translate}}</label>
+                                        <input type="text" ng-model="model.keyFeatures.transmission" name="name" value=""
+                                            placeholder="" required="required">
+                                    </div>
+                                    <!-- <div class="form-group col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                                            <label>Arabic transmission</label>
+                                            <input type="text" ng-model="model.keyFeatures.arTransmission" name="arName" value="" placeholder="" required="required">
+                                        </div> -->
+
+                                    <div class="form-group col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                                        <label>{{'fuel_type'|translate}}</label>
+                                        <input type="text" ng-model="model.keyFeatures.fuelType" name="name" value=""
+                                            placeholder="" required="required">
+                                    </div>
+                                    <!-- <div class="form-group col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                                            <label>Arabic fuelType</label>
+                                            <input type="text" ng-model="model.keyFeatures.arFuelType" name="arName" value="" placeholder="" required="required">
+                                        </div> -->
+
+                                    <div class="form-group col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                                        <label>{{'engine'|translate}}</label>
+                                        <input type="text" ng-model="model.keyFeatures.engine" name="name" value=""
+                                            placeholder="" required="required">
+                                    </div>
+                                    <!-- <div class="form-group col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                                            <label>Arabic engine</label>
+                                            <input type="text" ng-model="model.keyFeatures.arEngine" name="arName" value="" placeholder="" required="required">
+                                        </div> -->
+
+                                    <div class="form-group col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                                        <label>{{'reg_year'|translate}}</label>
+                                        <input type="text" ng-model="model.keyFeatures.regYear" name="name" value=""
+                                            placeholder="" required="required">
+                                    </div>
+                                    <!-- <div class="form-group col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                                            <label>Arabic reg Year</label>
+                                            <input type="text" ng-model="model.keyFeatures.arRegYear" name="arName" value="" placeholder="" required="required">
+                                        </div> -->
+
+                                    <div class="form-group col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                                        <label>{{'fuel_economy'|translate}}</label>
+                                        <input type="text" ng-model="model.keyFeatures.fuelEconomy" name="name" value=""
+                                            placeholder="" required="required">
+                                    </div>
+                                    <!-- <div class="form-group col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                                            <label>Arabic fuel Economy</label>
+                                            <input type="text" ng-model="model.keyFeatures.arFuelEconomy" name="arName" value="" placeholder="" required="required">
+                                        </div> -->
+
+                                    <!-- <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                                            <button type="button" ng-click="addNewCarModel(up,model)" class="theme-btn btn-style-one">{{'submit_now'|translate}}</button>
+                                            <button type="button" ng-click="clearData(model)" class="theme-btn btn-style-one">{{'cancel'|translate}}</button>
+
+                                        </div> -->
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="sell-car-form">
+                        <h2>{{'Extra_Features'|translate}}</h2>
+                        <div class="form-box">
+                            <form>
+                                <div class="row clearfix">
+
+                                    <div class="content-box">
+                                        <div class="listing-outer clearfix">
+                                            <div class="list-column">
+                                                <ul>
+                                                    <li ng-repeat="ef in extraFeatures">
+                                                        <input type="checkbox" id="ef-{{ef.id}}" ng-model="model.options[$index]"
+                                                            ng-value="ef" ng-change="toggleEf($index)" />
+                                                        <span ng-if="lang=='en'"> {{ef.title}} </span>
+                                                        <span ng-if="lang=='ar'"> {{ef.arTitle}} </span>
+                                                    </li>
+                                                    <li>
+                                                        <div class="form-group col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                                                            <label>{{'name'|translate}}</label>
+                                                            <input type="text" ng-model="extraFeature.name" name="name"
+                                                                value="" placeholder="" required="required">
+                                                        </div>
+                                                        <div class="form-group col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                                                            <label>{{'arabic_name'|translate}}</label>
+                                                            <input type="text" ng-model="extraFeature.arabicName" name="name"
+                                                                value="" placeholder="" required="required">
+                                                        </div>
+                                                        <div class="form-group col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                                                            <i style="font-size: 3em;color: #eb1d27;margin-top: 37px;cursor: pointer;"
+                                                                title="add new extra feature" ng-click="addNewExtraFeature(extraFeature)"
+                                                                class="fa fa-plus-circle"></i>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                                        <button type="button" ng-click="addNewCarModel(up,model)" class="theme-btn btn-style-one">{{'submit_now'|translate}}</button>
+                                        <button type="button" ng-click="clearData(model)" class="theme-btn btn-style-one">{{'cancel'|translate}}</button>
+
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

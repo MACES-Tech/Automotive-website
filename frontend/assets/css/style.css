@@ -1835,6 +1835,7 @@ img{
 	position:relative;
 	text-align:center;
 	border-bottom:1px solid #f2f2f2;
+	height: 160px;
 }
 
 .car-block .inner-box .image .price{

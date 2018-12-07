@@ -54,10 +54,11 @@ app.service('brandModelsService', function ($http, $rootScope) {
             })
     };
 
-    self.getAllModelsWithoutBrand = function (cb) {
+    self.getAllModelsWithoutBrand = function (filterobject,cb) {
         $http({
-            method: 'GET',
-            url: $rootScope.backendURL + "carModel",
+            method: 'POST',
+            url: $rootScope.backendURL + "carModel/allModels",
+            data:JSON.stringify(filterobject)
         }).then(
             function successCallback(res) {
                 if (res.status == 500) {

@@ -4,6 +4,9 @@ angular.module('alBargasyApp')
         $scope.goToAccountPage = function(){
             $location.path("/account");
         }
+        $scope.goToMyAccount = function(){
+            $location.path("/my_account");
+        }
         $scope.toggle = {};
         if($scope.lang=='ar'){
             $scope.toggle.switch = true;
