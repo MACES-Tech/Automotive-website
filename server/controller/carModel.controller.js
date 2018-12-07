@@ -48,6 +48,9 @@ exports.findBycarBrandId = (req, res, next) => {
 	where:{carBrandId:carBrandId}}).then((carModels)=>{
 		// next();
 		var jsonResult = [];
+		if(carModels.length ==0){
+			res.status(200).send(jsonResult);
+		}
 		for (let index = 0; index < carModels.length; index++) {
 			const element = carModels[index];
 			
@@ -73,6 +76,9 @@ exports.findAllcars = (req, res, next) => {
 	]}).then((carModels)=>{
 		// next();
 		var jsonResult = [];
+		if(carModels.length ==0){
+			res.status(200).send([]);
+		}
 		for (let index = 0; index < carModels.length; index++) {
 			const element = carModels[index];
 			
@@ -90,6 +96,18 @@ exports.findAllcars = (req, res, next) => {
 	}).catch(next);
 };
 
+exports.getExtraFeaturesByCar = (req, res, next) => {
+	carId = req.params.carModelId;
+	ExtrafeaturesJointable.findAll({include: [
+		{ model: db.extrafeatures, as: 'extraFeatures' }
+	], where:{carModelId:carId},order:[['createdAt', 'DESC']]}).then(extraFeatures =>{
+		jsonExtraFeatures = [];
+		for (let index = 0; index < extraFeatures.length; index++) {
+			jsonExtraFeatures.push(extraFeatures[index].extraFeatures.toJSON());
+		}
+		res.send(jsonExtraFeatures);
+	}).catch(next);
+};
 exports.findByName = (req, res, next) => {
 	CarModel.findAll({where:{name:req.params.modelName}}).then(carModel => {
 		// next()

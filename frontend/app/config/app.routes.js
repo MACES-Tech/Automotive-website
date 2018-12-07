@@ -59,6 +59,19 @@ angular.module('alBargasyApp').config(function ($routeProvider, $ocLazyLoadProvi
         }).when('/contact', {
             templateUrl: "./app/components/contactUs/contact.html",
             controller:"contactController"
+        }).when("/cars/compare", {
+            templateUrl: "./app/components/vehicle.compare/vehicle-compare.html",
+            controller:"vehicleCompareController",
+            resolve: {
+                deps: ['$ocLazyLoad', function ($ocLazyLoad) {
+                    return $ocLazyLoad.load({
+                        files: [
+                            "./app/components/vehicle.compare/vehicle.compare.controller.js",
+                            "./app/components/models/service/brand.models.service.js"
+                        ]
+                    });
+                }]
+            }
         })
         .otherwise({
             redirectTo: "/notFound"

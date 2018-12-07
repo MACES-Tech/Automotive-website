@@ -28,13 +28,13 @@
                                     	<div class="row clearfix">
                                         	<div class="col-md-6 col-sm-6 col-xs-12">
                                             	<ul class="footer-links">
-                                                	<li><a href="#">{{'home'|translate}}</a></li>
-                                                    <li><a href="#">{{'skoda_models' | translate}}</a></li>
-                                                    <li><a href="#">{{'skoda'|translate}} {{'spare_parts'|translate}}</a></li>
-                                                    <li><a href="#">{{'skoda'|translate}} {{'service_center'|translate}}</a></li>
-                                                    <li><a href="#">{{'toyota_models' | translate}} </a></li>
-                                                    <li><a href="#">{{'toyota'|translate}} {{'spare_parts'|translate}}</a></li>
-                                                    <li><a href="#">{{'toyota'|translate}} {{'service_center'|translate}}</a></li>
+                                                	<li><a ng-click="goTopage('/home')">{{'home'|translate}}</a></li>
+                                                    <li><a ng-click="goTopage('/skoda/models')">{{'skoda_models' | translate}}</a></li>
+                                                    <li><a ng-click="goTopage('/skoda/spare_parts')">{{'skoda'|translate}} {{'spare_parts'|translate}}</a></li>
+                                                    <li><a ng-click="goTopage('/skoda/services')">{{'skoda'|translate}} {{'service_center'|translate}}</a></li>
+                                                    <li><a ng-click="goTopage('/toyota/models')">{{'toyota_models' | translate}} </a></li>
+                                                    <li><a ng-click="goTopage('/toyota/spare_parts')">{{'toyota'|translate}} {{'spare_parts'|translate}}</a></li>
+                                                    <li><a ng-click="goTopage('/toyota/services')">{{'toyota'|translate}} {{'service_center'|translate}}</a></li>
                                                 </ul>
                                             </div>
                                             <div class="col-md-6 col-sm-6 col-xs-12">
@@ -42,7 +42,7 @@
                                                 	<li><a href="#">{{'sell' | translate}}</a></li>
                                                     <li><a href="#">{{'buy' | translate}}</a></li>
                                                     <li><a href="#">{{'exchange'|translate}}</a></li>
-                                                    <li><a href="#">{{'contact_us' | translate}}</a></li>
+                                                    <li><a ng-click="goTopage('/contact')">{{'contact_us' | translate}}</a></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -105,4 +105,4 @@
     <!--End Main Footer-->
 </div>
     <!--Scroll to top-->
-<div class="scroll-to-top scroll-to-target" data-target="html"><span class="icon fa fa-angle-up"></span></div>
+<div id="goUpButton" class="scroll-to-top scroll-to-target" data-target="html"><span class="icon fa fa-angle-up"></span></div>

@@ -118,5 +118,11 @@
     "service2":"Selling cars in installments directly with the company",
     "service3":"Open a current account for withdrawals parts",
     "service4":"Maintenance agreements for companies",
-    "service5":"Maintenance instalment without interest"
+    "service5":"Maintenance instalment without interest",
+    "compare":"compare",
+    "VEHICLE_COMPARE":"VEHICLE COMPARE",
+    "select_brand":"Select Brand",
+    "Select_Car" :"Select Car",
+    "select_model":"Select Model",
+    "Your_Comparison":"Your Comparison"
 }

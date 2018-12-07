@@ -20,4 +20,6 @@ module.exports = function(app) {
 
     app.get('/api/extraFeatures', carModel.findAllExtraFeatures);
     app.post('/api/extraFeatures', carModel.createExtraFeature);
+    app.get('/api/:carModelId/extraFeatures', carModel.getExtraFeaturesByCar);
+    
 }

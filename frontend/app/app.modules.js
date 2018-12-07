@@ -1,7 +1,7 @@
 'use strict'
 var app = angular.module('alBargasyApp',
         [
-    'ngRoute','oitozero.ngSweetAlert','ngFileUpload','ngCookies','oc.lazyLoad','pascalprecht.translate','slickCarousel'
+    'ngRoute','oitozero.ngSweetAlert','ngFileUpload','ngCookies','oc.lazyLoad','pascalprecht.translate','slickCarousel',
 ]).run(function($rootScope , $location,$http) {
     $rootScope.goToHome = function(){
         $location.path("/home");
@@ -15,6 +15,7 @@ var app = angular.module('alBargasyApp',
   // }
   $rootScope.goTopage = function(PageName){
     $location.path(PageName);
+    document.getElementById("goUpButton").click();
   }
     $rootScope.backendURL = $location.protocol() + "://" + $location.host() + ":"+ $location.port() +"/api/" ;
     $rootScope.currentTab ="home";

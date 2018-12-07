@@ -1,0 +1,212 @@
+<style>
+.form-control:focus {
+        border-color: #eb1d27;
+        box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075) inset, 0px 0px 8px rgba(235, 29, 39,0.5);
+        border-radius: inherit;
+    }
+    .form-control {
+         border-radius: inherit;
+    }
+</style>
+<section class="page-title" style="background-image:url(assets/images/background/5.jpg);">
+    <div class="auto-container">
+        <h1>{{'VEHICLE_COMPARE'|translate}}</h1>
+    </div>
+</section>
+
+<section class="page-info">
+    <div class="auto-container">
+        <ul class="bread-crumb">
+            <li>{{'cars'|translate}}</li>
+            <li class="current">{{'compare'|translate}}</li>
+        </ul>
+    </div>
+</section>
+
+<section class="cars-compare-section">
+    <div class="auto-container">
+        <div class="row clearfix">
+            <!--Title Column-->
+            <div class="title-column col-lg-3 col-md-6 col-sm-8 col-xs-12">
+                <h2>{{'VEHICLE_COMPARE'|translate}}</h2>
+                
+                
+                <!--Add Block-->
+                <!-- <div class="add-block">
+                    <div class="inner">
+                        <div class="image">
+                            <img src="assets/images/resource/image-1.jpg" alt="" />
+                            <div class="overlay-box">
+                                <h3>Audi A4 3.0</h3>
+                                <div class="text">100% Safety and 0% Emissions</div>
+                                <a href="#" class="theme-btn more-btn">Know More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+                <!--End Add Block-->
+                
+            </div>
+            <!--Options Cars Column-->
+            <div class="options-cars-column col-lg-9 col-md-12 col-sm-12 col-xs-12">
+                <div class="row clearfix">
+                
+                    <!--Car Block-->
+                    <div class="car-option-block col-md-6 col-sm-6 col-xs-12">
+                        <div class="inner-box">
+                            <h2>{{'Select_Car'|translate}}</h2>
+                            <div class="icon-box">
+                                <span class="icon flaticon-cabriolet"></span>
+                            </div>
+                            
+                            <!--Calculate Form-->
+                            <div class="default-form">
+                                <form method="post" action="calculater-form">
+                                   <div class="form-group">
+                                        <select ng-if="lang=='ar'" ng-change="changeInBrandList(1,selectedBrand1)" class="form-control"  ng-model="selectedBrand1">
+                                            <option selected disabled value="-1">{{'select_brand'|translate}}</option>
+                                            <option ng-repeat="b in brands" value="{{b}}">{{b.arName}}</option>
+                                        </select>
+                                        <select ng-if="lang=='en'" ng-change="changeInBrandList(1,selectedBrand1)" class="form-control"  ng-model="selectedBrand1">
+                                            <option selected disabled value="-1">{{'select_brand'|translate}}</option>    
+                                            <option ng-repeat="b in brands" value="{{b}}"> {{b.name}}</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <select ng-show="lang=='ar'"  class="form-control"  ng-model="selectedModel1">
+                                            <option  disabled value="-1">{{'select_model'|translate}}</option>
+                                            <option ng-repeat="m in models1" value="{{m}}">{{m.arName}}</option>
+                                        </select>
+                                        <select ng-show="lang=='en'"  class="form-control"  ng-model="selectedModel1">
+                                            <option  disabled value="-1">{{'select_model'|translate}}</option>
+                                            <option ng-repeat="m in models1" value="{{m}}">{{m.name}}</option>
+                                        </select>
+                                    </div>
+                                </form>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    
+                    <!--Car Block-->
+                    <div class="car-option-block col-md-6 col-sm-6 col-xs-12">
+                        <div class="inner-box">
+                            <h2>{{'Select_Car'|translate}}</h2>
+                            <div class="icon-box">
+                                <span class="icon flaticon-cabriolet"></span>
+                            </div>
+                            
+                            <!--Calculate Form-->
+                            <div class="default-form">
+                                <form method="post" action="calculater-form">
+                                   <div class="form-group">
+                                        <select ng-if="lang=='ar'" ng-change="changeInBrandList(2,selectedBrand2)" class="form-control"  ng-model="selectedBrand2">
+                                            <option selected disabled value="-1">{{'select_brand'|translate}}</option>
+                                            <option ng-repeat="b in brands" value="{{b}}">{{b.arName}}</option>
+                                        </select>
+                                        <select ng-if="lang=='en'" ng-change="changeInBrandList(2, selectedBrand2)" class="form-control"  ng-model="selectedBrand2">
+                                            <option selected disabled value="-1">{{'select_brand'|translate}}</option>
+                                            <option ng-repeat="b in brands" value="{{b}}">{{b.name}}</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+
+
+                                        <select ng-show="lang=='ar'" class="form-control"  ng-model="selectedModel2">
+                                            <option selected disabled value="-1">{{'select_model'|translate}}</option>
+                                            <option ng-repeat="option in models2" value="{{option}}">{{option.arName}}</option>
+                                        </select>
+                                        <select ng-show="lang=='en'"  class="form-control"  ng-model="selectedModel2">
+                                            <option disabled value="-1">{{'select_model'|translate}}</option>
+                                            <option ng-repeat="option in models2" value="{{option}}">{{option.name}}</option>
+                                        </select>
+                                    </div>
+                                </form>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="text-center">
+                    <a ng-click="startCompareFunction(selectedModel1,selectedModel2)" class="theme-btn btn-style-one compare-btn">{{'compare'|translate}}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="cars-comparison-section" ng-show="startCompare">
+    	<div class="auto-container">
+    		<div class="comparison-box">
+                <!--Compare Outer-->
+                <div class="compare-outer">
+                    
+                    <div class="car-compare-header">
+                        <div class="header-outer clearfix">
+                        
+                            <!--Title Column-->
+                            <div class="title-column">
+                                <h2>{{'Your_Comparison' |translate}}</h2>
+                                <div class="select-form">
+                                </div>
+                                
+                                <h3>{{'Key_Features' |translate}}</h3>
+                            </div>
+                            
+                            <!--Car Column-->
+                            <div class="car-column " style="width: 30%;">
+                                <div class="inner">
+                                    <figure class="image"><img ng-src="/uploads/{{compare1.mainImage.path}}" alt="{{compare1.mainImage.altValue}}"></figure>
+                                    <div class="title-box">
+                                        <h4 ng-if="lang=='ar'">{{compare1.arName}}</h4>
+                                        <h4 ng-if="lang=='en'">{{compare1.name}}</h4>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--Car Column-->
+                            <div class="car-column " style="width: 30%;">
+                                <div class="inner">
+                                    <figure class="image"><img ng-src="/uploads/{{compare2.mainImage.path}}" alt="{{compare2.mainImage.altValue}}"></figure>
+                                    <div class="title-box">
+                                        <h4 ng-if="lang=='ar'">{{compare2.arName}}</h4>
+                                        <h4 ng-if="lang=='en'">{{compare2.name}}</h4>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <!--Info Block-->
+                    <div class="car-info-block">
+                        <div class="info-inner">
+                            <div class="info-row clearfix"><div class="info-col">{{'body' |translate}}</div><div style="width: 30%;" class="info-col">{{compare1.keyFeatures.body}}</div><div class="info-col">{{compare2.keyFeatures.body}}</div></div>
+                            <div class="info-row clearfix"><div class="info-col">{{'transmission'|translate}}</div><div style="width: 30%;"  class="info-col">{{compare1.keyFeatures.transmission}}</div><div class="info-col">{{compare2.keyFeatures.transmission}}</div></div>
+                            <div class="info-row clearfix"><div class="info-col">{{'fuel_type'|translate}}</div><div style="width: 30%;" class="info-col">{{compare1.keyFeatures.fuelType}}</div><div class="info-col">{{compare2.keyFeatures.fuelType}}</div></div>
+                            <div class="info-row clearfix"><div class="info-col">{{'engine'|translate}}</div><div style="width: 30%;" class="info-col">{{compare1.keyFeatures.engine}}</div><div class="info-col">{{compare2.keyFeatures.engine}}</div></div>
+                            <div class="info-row clearfix"><div class="info-col">{{'reg_year'|translate}}</div><div style="width: 30%;" class="info-col">{{compare1.keyFeatures.regYear}}</div><div class="info-col">{{compare2.keyFeatures.regYear}}</div></div>
+                            <div class="info-row clearfix"><div class="info-col">{{'fuel_economy'|translate}}</div><div style="width: 30%;" class="info-col">{{compare1.keyFeatures.fuelEconomy}}</div><div class="info-col">{{compare2.keyFeatures.fuelEconomy}}</div></div>
+                        </div>
+                    </div>
+
+                    <!--Info Block-->
+                    <div class="car-info-block" ng-if="compare1.extraFeatures && compare2.extraFeatures">
+                        <h3>{{'Extra_Features'|translate}}</h3>
+                        <div class="info-inner">
+                            <div class="info-row clearfix" ng-repeat="f in extraFeatures">
+                                <div class="info-col"><span ng-if="lang =='ar'">{{f.arTitle}}</span> <span ng-if="lang =='en'">{{f.title}}</span></div>
+                                <div class="info-col" style="width: 30%;">
+                                    <span ng-if="checkForExtraFeature(compare1.extraFeatures,f.id) === true" class="fa fa-check"></span>
+                                    <span ng-if="checkForExtraFeature(compare1.extraFeatures,f.id) === false" class="fa fa-close"></span>
+                                </div>
+                                <div class="info-col">
+                                    <span ng-if="checkForExtraFeature(compare2.extraFeatures,f.id)===true" class="fa fa-check"></span>
+                                    <span ng-if="checkForExtraFeature(compare2.extraFeatures,f.id)===false" class="fa fa-close"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+    	</div>
+    </section>
