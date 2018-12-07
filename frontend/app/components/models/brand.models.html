@@ -62,8 +62,8 @@
                                                 <span ng-click="confirmPopup(model.id)"><a href=""><i class="fa fa-trash" data-toggle="modal" data-target=".bd-example-modal-sm"></i></a> </span>
                                                 <span ng-click="editmodel(model)"><a href=""><i class="fa fa-edit"></i></a> </span>
                                         </div>
-                                    <a ng-click="goTopage('/' + currentTab +'/models/' + model.name )" ><img ng-src="/uploads/{{model.mainImage.path}}" alt="{{model.mainImage.altValue}}" /></a>
-                                    <!-- <div class="price">$42000</div> -->
+                                    <a ng-click="goTopage('/' + currentTab +'/models/' + model.name )" ><img style="height:150px" ng-src="/uploads/{{model.mainImage.path}}" alt="{{model.mainImage.altValue}}" /></a>
+                                    <div class="price">{{model.price}} LE</div>
                                 </div>
                                 <h3>
                                     <a ng-if="lang=='en'" ng-click="goTopage('/' + currentTab +'/models/' + model.name )" >{{model.name}}</a>
@@ -143,7 +143,10 @@
                                                 <label>{{'arabic_description'|translate}}</label>
                                                 <textarea ng-model="model.arFirstParagraph" name="arFirstParagraph" value="" placeholder="" required="required"></textarea>
                                             </div>
-
+                                            <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                                                <label>{{'price'|translate}}</label>
+                                                <input type="text" ng-model="model.price" name="price" value="" placeholder=""required="required">
+                                            </div>
                                             <div class="form-group col-md-12 col-sm-12 col-xs-12">
                                                 <label class="upload">{{'upload_photo'|translate}}</label>
                                                 <div class="field-inner clearfix">
@@ -221,6 +224,8 @@
                                                 <label>{{'fuel_economy'|translate}}</label>
                                                 <input type="text" ng-model="model.keyFeatures.fuelEconomy" name="name" value="" placeholder="" required="required">
                                             </div>
+
+                                            
                                             <!-- <div class="form-group col-lg-4 col-md-6 col-sm-6 col-xs-12">
                                                 <label>Arabic fuel Economy</label>
                                                 <input type="text" ng-model="model.keyFeatures.arFuelEconomy" name="arName" value="" placeholder="" required="required">

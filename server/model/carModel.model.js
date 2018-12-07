@@ -26,7 +26,13 @@ module.exports = (sequelize, Sequelize) => {
 		},
 		arFirstParagraph: {
 			type: Sequelize.TEXT
-        }
+		},
+		usedCar:{
+			type: Sequelize.INTEGER, allowNull: true, defaultValue: null
+		},
+		price:{
+			type: Sequelize.INTEGER, allowNull: true, defaultValue: 0
+		}
 	});
 	CarModel.belongsTo(Brand, {foreignKey : 'carBrandId'})
     CarModel.belongsTo(File, {foreignKey : 'mainImageId' , as :"mainImage"})

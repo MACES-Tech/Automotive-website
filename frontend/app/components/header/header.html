@@ -49,8 +49,9 @@
                                     <li><a href="#">Cart</a></li> 
                                 </ul>
                             </li> -->
-                            <li><a class="icon flaticon-user" ng-if="!isSignedIn()" ng-click=goToAccountPage()>&ensp;{{'my_account'|translate}}&ensp;</a></li>
-                            <li><a class="icon flaticon-user" ng-if="isSignedIn()" ng-click="signOut()">&ensp;{{'sign_out'|translate}}&ensp;</a></li>
+                            <li><a class="icon flaticon-user" ng-if="!isSignedIn()" ng-click=goToAccountPage()>&ensp;{{'login'|translate}}&ensp;</a></li>
+                            <li><a class="icon flaticon-user" ng-if="isSignedIn()" ng-click="goToMyAccount()">&ensp;{{'my_account'|translate}}&ensp;</a></li>
+                            <li><a class="icon flaticon-arrow-pointing-to-right" ng-if="isSignedIn()" ng-click="signOut()">&ensp;{{'sign_out'|translate}}&ensp;</a></li>
                             <!-- <li><a class="sell-car" href="#">Sell Your Car</a></li> -->
                         </ul>
                     </div>
@@ -101,8 +102,8 @@
                                         </li>
                                         <li ng-class="currentTab==='cars'? 'current':''" class="dropdown"><a href="#">{{'cars'|translate}}</a>
                                             <ul>
-                                                <li><a href="#">{{'buy'|translate}}</a></li>
-                                                <li><a href="#">{{'sell'|translate}}</a></li>
+                                                <li><a ng-if="isAdmin()" href="#buy_car">{{'buy_sell'|translate}}</a></li>
+                                                <li><a ng-if="!isAdmin()" href="#buy_car">{{'buy'|translate}}</a></li>
                                                 <li><a href="#">{{'exchange'|translate}}</a></li>
                                                 <li><a href="#">{{'service_center'|translate}}</a></li>
                                                 <!-- <li><a href="faq.html">FAQ’s</a></li>
@@ -120,7 +121,7 @@
                                     </ul>
                                 </li> -->
                                         <li ng-class="currentTab==='contact'? 'current':''"><a ng-click="goTopage('/contact')">{{'contact_us'|translate}}</a></li>
-                                        <li><a ng-if="isAdmin()" ng-click="goTopage('request_services')">{{'requested_services'|translate}}</a></li>
+                                        <li ng-class="currentTab==='request_services'? 'current':''"><a ng-if="isAdmin()" ng-click="goTopage('request_services')">{{'requested_services'|translate}}</a></li>
                                     </ul>
                                 </div>
                             </nav>
@@ -206,8 +207,8 @@
                                 </li>
                                 <li ng-class="currentTab==='cars'? 'current':''" class="dropdown"><a href="#">{{'cars'|translate}}</a>
                                     <ul>
-                                        <li><a href="#">{{'buy'|translate}}</a></li>
-                                        <li><a href="#">{{'sell'|translate}}</a></li>
+                                        <li><a ng-if="isAdmin()" href="#buy_car">{{'buy_sell'|translate}}</a></li>
+                                        <li><a ng-if="!isAdmin()" href="#buy_car">{{'buy'|translate}}</a></li>
                                         <li><a href="#">{{'exchange'|translate}}</a></li>
                                         <li><a href="#">{{'service_center'|translate}}</a></li>
                                         <!-- <li><a href="faq.html">FAQ’s</a></li>

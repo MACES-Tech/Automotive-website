@@ -32,6 +32,7 @@
     require('./controller/file.controller.js')(app);
     require('./route/services.route.js')(app);
     require('./route/spareParts.route.js')(app);
+    require('./route/user.route.js')(app);
 
     
 

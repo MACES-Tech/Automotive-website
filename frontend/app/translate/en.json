@@ -23,6 +23,7 @@
     "spare_parts":"Spare Parts",
     "cars":"Cars",
     "buy":"Buy Car",
+    "buy_sell":"Buy/Sell Car",
     "sell":"Sell Car",
     "exchange":"Exchange Car",
     "contact_us":"Contact Us",
@@ -124,5 +125,13 @@
     "select_brand":"Select Brand",
     "Select_Car" :"Select Car",
     "select_model":"Select Model",
-    "Your_Comparison":"Your Comparison"
+    "Your_Comparison":"Your Comparison",
+    "login":"Login",
+    "my_info":"My Information",
+    "used_car":"Used Car",
+    "new_car":"New Car",
+    "used_cars":"Used Cars",
+    "new_cars":"New Cars",
+    "search":"Search"
+>>>>>>> 9bbe2efc490ef9b3916c4f2f879ad42b82f36397
 }

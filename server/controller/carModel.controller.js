@@ -11,6 +11,8 @@ const videoService = require('../service/video.service.js');
 exports.create = (req, res, next) => {	
 	// Save to MySQL database
 	var model = req.body;
+	if(!model.usedCar)
+		model.usedCar = null;
 	console.log(model);
 	var keyFeatures = model.keyFeatures;
 	CarModel.create({  
@@ -19,7 +21,9 @@ exports.create = (req, res, next) => {
 		mainImageId: req.body.mainImage,
 		carBrandId: model.brandId,
 		firstParagraph: model.firstParagraph,
-		arFirstParagraph: model.arFirstParagraph
+		arFirstParagraph: model.arFirstParagraph,
+		usedCar:model.usedCar,
+		price:model.price
 	}).then(carModel => {
 		model.extraFeatures.forEach(option => {
 			ExtrafeaturesJointable.create({carModelId:carModel.id,extraFeaturesId:option})
@@ -45,7 +49,7 @@ exports.findBycarBrandId = (req, res, next) => {
 	CarModel.findAll({include: [
 		{ model: db.file, as: 'mainImage' }
 	],
-	where:{carBrandId:carBrandId}}).then((carModels)=>{
+	where:{carBrandId:carBrandId,usedCar:null}}).then((carModels)=>{
 		// next();
 		var jsonResult = [];
 		if(carModels.length ==0){
@@ -70,10 +74,19 @@ exports.findBycarBrandId = (req, res, next) => {
 
 
 exports.findAllcars = (req, res, next) => {
+	var filterObject = {};
+	if(req.body.carBrandId)
+		filterObject.carBrandId = req.body.carBrandId;
+
+	if(req.body.usedCar)
+		filterObject.usedCar = req.body.usedCar;
+	else
+		filterObject.usedCar = null;
+
 	CarModel.findAll({include: [
 		{ model: db.file, as: 'mainImage' },
 		{ model: db.carbrand, as:'car_brand'}
-	]}).then((carModels)=>{
+	],where:filterObject}).then((carModels)=>{
 		// next();
 		var jsonResult = [];
 		if(carModels.length ==0){
@@ -109,7 +122,7 @@ exports.getExtraFeaturesByCar = (req, res, next) => {
 	}).catch(next);
 };
 exports.findByName = (req, res, next) => {
-	CarModel.findAll({where:{name:req.params.modelName}}).then(carModel => {
+	CarModel.findAll({where:{name:req.params.modelName,usedCar:null}}).then(carModel => {
 		// next()
 		model = carModel[0];
 		var jsonResult = model.toJSON();
