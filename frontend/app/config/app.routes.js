@@ -75,7 +75,7 @@ angular.module('alBargasyApp').config(function ($routeProvider, $ocLazyLoadProvi
                     });
                 }]
             }
-        }).when('/buy_car', {
+        }).when('/cars/buy', {
             templateUrl: "./app/components/buy.car/buy.car.html",
             controller:"buyCarController"
         })

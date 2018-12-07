@@ -102,13 +102,11 @@
                                         </li>
                                         <li ng-class="currentTab==='cars'? 'current':''" class="dropdown"><a href="#">{{'cars'|translate}}</a>
                                             <ul>
-                                                <li><a ng-if="isAdmin()" href="#buy_car">{{'buy_sell'|translate}}</a></li>
-                                                <li><a ng-if="!isAdmin()" href="#buy_car">{{'buy'|translate}}</a></li>
+                                                <li><a ng-if="isAdmin()" href="#/cars/buy">{{'buy_sell'|translate}}</a></li>
+                                                <li><a ng-if="!isAdmin()" href="#/cars/buy">{{'buy'|translate}}</a></li>
+                                                <li><a href="#/cars/compare">{{'VEHICLE_COMPARE'|translate}}</a></li>
                                                 <li><a href="#">{{'exchange'|translate}}</a></li>
                                                 <li><a href="#">{{'service_center'|translate}}</a></li>
-                                                <!-- <li><a href="faq.html">FAQ’s</a></li>
-                                        <li><a href="loan-calculater.html">Loan Calculator</a></li>
-                                        <li><a href="error-page.html">404 Page</a></li> -->
                                             </ul>
                                         </li>
                                         <!-- <li class="dropdown"><a href="#">Shop</a>
@@ -207,14 +205,12 @@
                                 </li>
                                 <li ng-class="currentTab==='cars'? 'current':''" class="dropdown"><a href="#">{{'cars'|translate}}</a>
                                     <ul>
-                                        <li><a ng-if="isAdmin()" href="#buy_car">{{'buy_sell'|translate}}</a></li>
-                                        <li><a ng-if="!isAdmin()" href="#buy_car">{{'buy'|translate}}</a></li>
-                                        <li><a href="#">{{'exchange'|translate}}</a></li>
-                                        <li><a href="#">{{'service_center'|translate}}</a></li>
-                                        <!-- <li><a href="faq.html">FAQ’s</a></li>
-                                                <li><a href="loan-calculater.html">Loan Calculator</a></li>
-                                                <li><a href="error-page.html">404 Page</a></li> -->
-                                    </ul>
+                                            <li><a ng-if="isAdmin()" href="#/cars/buy">{{'buy_sell'|translate}}</a></li>
+                                            <li><a ng-if="!isAdmin()" href="#/cars/buy">{{'buy'|translate}}</a></li>
+                                            <li><a  href="#/cars/compare">{{'VEHICLE_COMPARE'|translate}}</a></li>
+                                            <li><a href="#">{{'exchange'|translate}}</a></li>
+                                            <li><a href="#">{{'service_center'|translate}}</a></li>
+                                        </ul>
                                 </li>
                                 <!-- <li class="dropdown"><a href="#">Shop</a>
                                             <ul>

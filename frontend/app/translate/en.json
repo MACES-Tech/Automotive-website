@@ -23,7 +23,7 @@
     "spare_parts":"Spare Parts",
     "cars":"Cars",
     "buy":"Buy Car",
-    "buy_sell":"Buy/Sell Car",
+    "buy_sell":"Buy / Sell Car",
     "sell":"Sell Car",
     "exchange":"Exchange Car",
     "contact_us":"Contact Us",
@@ -121,7 +121,7 @@
     "service4":"Maintenance agreements for companies",
     "service5":"Maintenance instalment without interest",
     "compare":"compare",
-    "VEHICLE_COMPARE":"VEHICLE COMPARE",
+    "VEHICLE_COMPARE":"Compare Cars",
     "select_brand":"Select Brand",
     "Select_Car" :"Select Car",
     "select_model":"Select Model",
@@ -133,5 +133,4 @@
     "used_cars":"Used Cars",
     "new_cars":"New Cars",
     "search":"Search"
->>>>>>> 9bbe2efc490ef9b3916c4f2f879ad42b82f36397
 }
