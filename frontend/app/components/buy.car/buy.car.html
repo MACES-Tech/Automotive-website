@@ -279,14 +279,13 @@
                                             {{'used_car'|translate}}
                                         </label>
                                     </div>
-{{model.carBrand}}
                                     <div class="form-group col-lg-4 col-md-6 col-sm-6 col-xs-12">
                                         <label>{{'car_brand'|translate}}</label>
                                         <select name="singleSelect" ng-model="model.carBrand">
-                                            <option ng-repeat="brand in brands" ng-value="{{brand.id}}" ng-if="lang=='en'">
+                                            <option ng-repeat="brand in brands" ng-value="{{brand.id}}" value="{{brand.id}}" ng-if="lang=='en'">
                                                 {{brand.name}}
                                             </option>
-                                            <option ng-repeat="brand in brands" ng-value="{{brand.id}}" ng-if="lang=='ar'">
+                                            <option ng-repeat="brand in brands" ng-value="{{brand.id}}" value="{{brand.id}}" ng-if="lang=='ar'">
                                                 {{brand.arName}}
                                             </option>
                                         </select>
