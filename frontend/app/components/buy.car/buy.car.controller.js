@@ -85,7 +85,7 @@ angular.module('alBargasyApp')
                     data: { file: up.file } //pass file as data, should be user ng-model
                 }).then(function (resp) { //upload function returns a promise
                     if (resp.data.error_code === 0) { //validate success
-                        modelObject = { name: model.name, arName: model.arName, arFirstParagraph: model.arFirstParagraph, firstParagraph: model.firstParagraph, mainImage: resp.data.insertedFile.id, brandId: model.carBrand,price:model.price };
+                        modelObject = { name: model.name, arName: model.arName, arFirstParagraph: model.arFirstParagraph, firstParagraph: model.firstParagraph, mainImage: resp.data.insertedFile.id, brandId: $scope.model.carBrand,price:model.price };
                         modelObject.keyFeatures = model.keyFeatures;
                         modelObject.extraFeatures = [];
                         $scope.extraFeatures.forEach(element => {
@@ -121,7 +121,7 @@ angular.module('alBargasyApp')
                 console.log(up)
                 if (!up.file) {
                     console.log('edit only');
-                    modelObject = { id: model.id, name: model.name, arName: model.arName, arFirstParagraph: model.arFirstParagraph, firstParagraph: model.firstParagraph, brandId: model.carBrand,price:model.price };
+                    modelObject = { id: model.id, name: model.name, arName: model.arName, arFirstParagraph: model.arFirstParagraph, firstParagraph: model.firstParagraph, brandId: $scope.model.carBrand,price:model.price };
                     modelObject.keyFeatures = model.keyFeatures;
                     modelObject.extraFeatures = [];
                     $scope.extraFeatures.forEach(element => {
@@ -148,7 +148,7 @@ angular.module('alBargasyApp')
                         data: { file: up.file } //pass file as data, should be user ng-model
                     }).then(function (resp) { //upload function returns a promise
                         if (resp.data.error_code === 0) { //validate success                    
-                            modelObject = { id: model.id, name: model.name, arName: model.arName, arFirstParagraph: model.arFirstParagraph, firstParagraph: model.firstParagraph, mainImageId: resp.data.insertedFile.id, brandId: model.carBrand,price:model.price };
+                            modelObject = { id: model.id, name: model.name, arName: model.arName, arFirstParagraph: model.arFirstParagraph, firstParagraph: model.firstParagraph, mainImageId: resp.data.insertedFile.id, brandId: $scope.model.carBrand,price:model.price };
                             modelObject.keyFeatures = model.keyFeatures;
                             modelObject.extraFeatures = [];
                             $scope.extraFeatures.forEach(element => {
