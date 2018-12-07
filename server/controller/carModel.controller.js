@@ -170,6 +170,7 @@ exports.findAllExtraFeatures = (req, res, next)=>{
 exports.update = (req, res, next) => {
 	const id = req.params.carModelId;
 	carModelObject = req.body
+	carModelObject.carBrandId = carModelObject.brandId
 	CarModel.update( carModelObject, 
 					 { where: {id: req.params.carModelId} }
 					 ).then(() => {
