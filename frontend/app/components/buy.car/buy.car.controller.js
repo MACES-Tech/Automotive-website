@@ -86,8 +86,8 @@ angular.module('alBargasyApp')
                 }).then(function (resp) { //upload function returns a promise
                     if (resp.data.error_code === 0) { //validate success
                         modelObject = { name: model.name, arName: model.arName, arFirstParagraph: model.arFirstParagraph, firstParagraph: model.firstParagraph, mainImage: resp.data.insertedFile.id ,brandId: $scope.model.carBrand,price:model.price };
-                        if(modelObject.usedCar==1)
-                                modelObject.usedCar = model.usedCar;
+                        if($scope.model.usedCar==1)
+                                modelObject.usedCar = $scope.model.usedCar;
                             else
                                 modelObject.usedCar = null;
                         modelObject.keyFeatures = model.keyFeatures;
@@ -126,8 +126,8 @@ angular.module('alBargasyApp')
                 if (!up.file) {
                     console.log('edit only');
                     modelObject = { id: model.id, name: model.name, arName: model.arName, arFirstParagraph: model.arFirstParagraph, firstParagraph: model.firstParagraph, brandId: $scope.model.carBrand,price:model.price };
-                    if(modelObject.usedCar==1)
-                                modelObject.usedCar = model.usedCar;
+                    if($scope.model.usedCar==1)
+                                modelObject.usedCar = $scope.model.usedCar;
                             else
                                 modelObject.usedCar = null;
                     modelObject.keyFeatures = model.keyFeatures;
@@ -157,7 +157,7 @@ angular.module('alBargasyApp')
                     }).then(function (resp) { //upload function returns a promise
                         if (resp.data.error_code === 0) { //validate success                    
                             modelObject = { id: model.id, name: model.name, arName: model.arName, arFirstParagraph: model.arFirstParagraph, firstParagraph: model.firstParagraph, mainImageId: resp.data.insertedFile.id, brandId: $scope.model.carBrand,price:model.price };
-                            if(modelObject.usedCar==1)
+                            if($scope.model.usedCar==1)
                                 modelObject.usedCar = model.usedCar;
                             else
                                 modelObject.usedCar = null;
