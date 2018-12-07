@@ -205,7 +205,7 @@
                                 </div>
                                 <a ng-click="goToCarPage(model.carBrandId,model.name )"><img style="height: 150px;"
                                         ng-src="/uploads/{{model.mainImage.path}}" alt="{{model.mainImage.altValue}}" /></a>
-                                <!-- <div class="price">$42000</div> -->
+                                <div class="price">{{model.price}} LE</div>
                             </div>
                             <h3>
                                 <a ng-if="lang=='en'" ng-click="goToCarPage(model.carBrandId,model.name )">{{model.name}}</a>
@@ -283,10 +283,10 @@
                                     <div class="form-group col-lg-4 col-md-6 col-sm-6 col-xs-12">
                                         <label>{{'car_brand'|translate}}</label>
                                         <select name="singleSelect" ng-model="model.carBrand">
-                                            <option ng-repeat="brand in brands" value="{{brand.id}}" ng-if="lang=='en'">
+                                            <option ng-repeat="brand in brands" ng-value="{{brand.id}}" ng-if="lang=='en'">
                                                 {{brand.name}}
                                             </option>
-                                            <option ng-repeat="brand in brands" value="{{brand.id}}" ng-if="lang=='ar'">
+                                            <option ng-repeat="brand in brands" ng-value="{{brand.id}}" ng-if="lang=='ar'">
                                                 {{brand.arName}}
                                             </option>
                                         </select>
@@ -312,6 +312,10 @@
                                         <label>{{'arabic_description'|translate}}</label>
                                         <textarea ng-model="model.arFirstParagraph" name="arFirstParagraph" value=""
                                             placeholder="" required="required"></textarea>
+                                    </div>
+                                    <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                                        <label>{{'price'|translate}}</label>
+                                        <input type="text" ng-model="model.price" name="price" value="" placeholder=""required="required">
                                     </div>
 
                                     <div class="form-group col-md-12 col-sm-12 col-xs-12">

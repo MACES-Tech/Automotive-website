@@ -29,6 +29,9 @@ module.exports = (sequelize, Sequelize) => {
 		},
 		usedCar:{
 			type: Sequelize.INTEGER, allowNull: true, defaultValue: null
+		},
+		price:{
+			type: Sequelize.INTEGER, allowNull: true, defaultValue: 0
 		}
 	});
 	CarModel.belongsTo(Brand, {foreignKey : 'carBrandId'})

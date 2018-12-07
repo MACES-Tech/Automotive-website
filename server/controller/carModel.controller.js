@@ -22,7 +22,8 @@ exports.create = (req, res, next) => {
 		carBrandId: model.brandId,
 		firstParagraph: model.firstParagraph,
 		arFirstParagraph: model.arFirstParagraph,
-		usedCar:model.usedCar
+		usedCar:model.usedCar,
+		price:model.price
 	}).then(carModel => {
 		model.extraFeatures.forEach(option => {
 			ExtrafeaturesJointable.create({carModelId:carModel.id,extraFeaturesId:option})
