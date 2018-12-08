@@ -123,7 +123,7 @@
                                 </div>
                                 <a ng-click="goToCarPage(model.carBrandId,model.name )"><img style="height: 150px;"
                                         ng-src="/uploads/{{model.mainImage.path}}" alt="{{model.mainImage.altValue}}" /></a>
-                                <div class="price">{{model.price}} LE</div>
+                                <div class="price" ng-if="model.price > 0">{{model.price}} LE</div>
                             </div>
                             <h3>
                                 <a ng-if="lang=='en'" ng-click="goToCarPage(model.carBrandId,model.name )">{{model.name}}</a>

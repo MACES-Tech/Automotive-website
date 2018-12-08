@@ -31,28 +31,28 @@
         	
             <!--Contact Form-->
             <div class="contact-form">
-                <form method="post" action="sendemail.php" id="contact-form">
+                <form method="post" ng-submit="sendMsg(msg,1)" id="contact-form">
                     <div class="row clearfix">
                         <div class="column col-md-6 col-sm-6 col-xs-12">
                             <div class="form-group">
-                                <input type="text" name="username" placeholder="{{'Your_Name' | translate}}" required>
+                                <input type="text" name="username" ng-model="msg.name" placeholder="{{'Your_Name' | translate}}" required>
                             </div>
                             <div class="form-group">
-                                <input type="email" name="email" placeholder="{{'your_email'|translate}}" required>
+                                <input type="email" name="email" ng-model="msg.email" placeholder="{{'your_email'|translate}}" required>
                             </div>
                             <div class="form-group">
-                                <input type="text" name="phone" placeholder="{{'your_phone'|translate}}" required>
+                                <input type="text" name="phone" ng-model="msg.phone" placeholder="{{'your_phone'|translate}}" required>
                             </div>
                         </div>
                         
                         <div class="column col-md-6 col-sm-6 col-xs-12">
                             <div class="form-group">
-                                <textarea name="message" placeholder="{{'msg' | translate}}"></textarea>
+                                <textarea name="message" ng-model="msg.messsage" placeholder="{{'msg' | translate}}"></textarea>
                             </div>
                         </div>
                         <div class="column btn-column col-md-12 col-sm-12 col-xs-12">
                             <div class="form-group">
-                                <button class="theme-btn btn-style-one" type="submit" name="submit-form">{{'send'|translate}}</button>
+                                <button class="theme-btn btn-style-one"  type="submit" name="submit-form">{{'send'|translate}}</button>
                             </div>
                         </div>
                     </div>
@@ -88,6 +88,7 @@
                                 <li><a href="#"><span class="fa fa-linkedin"></span></a></li>
                                 <li><a href="#"><span class="fa fa-skype"></span></a></li> -->
                             </ul>
+                            <hr style="border-top:none">
                         </div>
                     </div>
                 </div>
@@ -233,16 +234,16 @@
             <div class="text">{{'NEWSLETTER_SUBSCRIBE_MSG'|translate}}</div>
             <div class="subscribe-form">
             	<!--Subscribe Form-->
-                <form method="post" action="contact.html">
+                <form method="post" ng-submit="sendMsg(sub,2)">
                 	<div class="row clearfix">
                         <div class="column col-md-9 col-sm-12 col-xs-12">
                             <div class="row clearfix">
                                 <div class="form-group col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text" name="text" value="" placeholder="{{'Your_Name'|translate}}" required>
+                                    <input type="text" name="text" value="" ng-model="sub.name" placeholder="{{'Your_Name'|translate}}" required>
                                 </div>
                                 
                                 <div class="form-group col-md-6 col-sm-6 col-xs-12">
-                                    <input type="email" name="email" value="" placeholder="{{'your_email'|translate}}" required>
+                                    <input type="email" name="email" value="" ng-model="sub.email" placeholder="{{'your_email'|translate}}" required>
                                 </div>
                             </div>
                          </div>

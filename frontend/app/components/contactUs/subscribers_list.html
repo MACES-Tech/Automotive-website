@@ -1,0 +1,52 @@
+<link href="../../../assets/css/jquery.dataTables.min.css" rel="stylesheet">
+
+    <div class="page-wrapper"  ng-init="init('subscribers_list')">
+    
+        <!-- Preloader -->
+        <!-- <div class="preloader"></div> -->
+    
+    
+        <!--Page Title-->
+        <section class="page-title" style="background-image:url(assets/images/services/service-offers.506ea32b2a1fb2f1765352d4a51cbdaa.fill-1920x500.jpg);">
+            <div class="auto-container">
+                <h1>subscribers List</h1>
+            </div>
+        </section>
+        <!--End Page Title-->
+    
+        <!--Page Info-->
+        <section class="page-info">
+            <div class="auto-container">
+                <ul class="bread-crumb">
+                    <li><a >Admin</a></li>
+                    <!-- <li>Pages</li> -->
+                    <li class="current">subscribers List</li>
+                </ul>
+            </div>
+        </section>
+        <!--End Page Info-->
+    
+        <section class="services-section-two">
+            <div class="auto-container">
+                <div class="row clearfix">
+                    <div class="auto-container" style="overflow-x:auto;overflow-y:auto;">
+                        <table id="myTable" >
+                            <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr ng-repeat="msg in allMsgs track by $index">
+                                <td>{{msg.name}}</td>
+                                <td>{{msg.email}}</td>
+                            </tr>
+                        </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <script src="../../../assets/js/jquery.dataTables.min.js"></script> 

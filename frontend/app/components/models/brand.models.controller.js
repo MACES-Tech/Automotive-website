@@ -83,6 +83,9 @@ angular.module('alBargasyApp')
         }
         $scope.addNewCarModel = function(up,model){
             console.log(up)
+            if(model.price == undefined){
+                model.price = 0;
+            }
             if(!model.id){
                 Upload.upload({
                     url: $rootScope.backendURL +'upload', //webAPI exposed to upload the file
@@ -258,6 +261,7 @@ angular.module('alBargasyApp')
             $scope.model.arName = model.arName;
             $scope.model.arFirstParagraph = model.arFirstParagraph;
             $scope.model.firstParagraph = model.firstParagraph;
+            $scope.model.price = model.price;
             $scope.model.keyFeatures = model.keyFeatures;
         }
         $scope.init();

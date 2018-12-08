@@ -134,5 +134,16 @@
     "used_cars":"Used Cars",
     "new_cars":"New Cars",
     "search":"Search",
-    "no_service":"No maintenance service available now"
+    "no_service":"No maintenance service available now",
+    "available":"Available",
+    "not_available":"Not available",
+    "service_sucess_msg":"Your Request received successfully one of our customer services will contact you",
+    "service_sucess_msg_title":"Thank you for your trust",
+    "service_sucess_msg_button":"Ok",
+    "error":"Error",
+    "error_msg":"An Error occuers",
+    "sucess_msg" :"Your Request received successfully",
+    "admin_pages":"Admin Pages",
+    "messages_list":"messages list",
+    "subscribers_list":"subscribers list"
 }

@@ -11,6 +11,9 @@ module.exports = (sequelize, Sequelize) => {
 		price: {
 			type: Sequelize.STRING
 		},
+		available:{
+			type: Sequelize.BOOLEAN
+		}
 	});
 	SpareParts.belongsTo(Brand, {foreignKey : 'carBrandId'})
     SpareParts.belongsTo(File, {foreignKey : 'mainImageId' , as :"mainImage"})

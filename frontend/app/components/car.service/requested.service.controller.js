@@ -1,12 +1,13 @@
 angular.module('alBargasyApp')
     .controller('requestedServiceController', function ($scope,carServiceService,SweetAlert,$rootScope) {
-        $rootScope.currentTab = "request_services";
+        $rootScope.currentTab = "admin";
         $scope.init = function () {
             $rootScope.FaceBookLink = "";
             $scope.allRequestedServices = [];
             carServiceService.getAllRequestedServices(function(res,err){
                 if(!err){
                     $scope.allRequestedServices = res.data;
+                    $scope.reloadScripts();
                 }else{
                     SweetAlert.swal("Error", "an error occuers", "error");
                 }
@@ -14,7 +15,13 @@ angular.module('alBargasyApp')
         }
         $scope.init();
         
+        $scope.reloadScripts = function(){
+            var script = document.createElement('script');
 
+            script.src = "assets/js/dataTable.js";
+
+            document.head.appendChild(script);
+        }
         $scope.confirmPopup = function(serviceId){
             SweetAlert.swal({
                 title: "Are you sure?",

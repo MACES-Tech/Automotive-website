@@ -1,5 +1,6 @@
 angular.module('alBargasyApp')
-    .controller('carServiceController', function ($rootScope, $scope, $location, brandModelsService, carServiceService, $routeParams, SweetAlert, Upload, $timeout) {
+    .controller('carServiceController', function ($filter,$rootScope, $scope, $location, brandModelsService, carServiceService, $routeParams, SweetAlert, Upload, $timeout) {
+        var $translate = $filter('translate');
         $scope.services = [];
         $scope.miniServices = [];
         $scope.sliderServices = [];
@@ -172,7 +173,7 @@ angular.module('alBargasyApp')
             
             carServiceService.updateService($scope.addEditService, function (res, err) {
                 if (!err) {
-                    SweetAlert.swal("Good job!", "The car updated successfully", "success");
+                    SweetAlert.swal("Good job!", "The Service updated successfully", "success");
                     if ($scope.generalService.id != $scope.addEditService.id && $scope.addEditService.serviceIsGeneral) {
                         $scope.generalService.serviceIsGeneral = false;
                         carServiceService.updateService($scope.generalService, function (res, err) {
@@ -298,11 +299,11 @@ angular.module('alBargasyApp')
             } else {
                 carServiceService.requestNewService($scope.requestService, function (res, err) {
                     if (!err) {
-                        SweetAlert.swal("Good job!", "The car updated successfully", "success");
+                        SweetAlert.swal({title:$translate('service_sucess_msg_title'), text:$translate('service_sucess_msg'), icon:"success",confirmButtonText:$translate('service_sucess_msg_button')});
                         $scope.forceClearAllData();
                         $scope.init();
                     } else {
-                        SweetAlert.swal("Error", "an error occuers", "error");
+                        SweetAlert.swal({title:$translate('error'), text:$translate('error_msg'), icon:"error",confirmButtonText:$translate('service_sucess_msg_button')});
                     }
                 })
             }

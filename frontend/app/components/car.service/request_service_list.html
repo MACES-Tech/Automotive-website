@@ -8,7 +8,9 @@
 <script src="/assets/js/jquery-ui.js"></script>
 <script src="/assets/js/wow.js"></script>
 <script src="/assets/js/script.js"></script>
+<link href="../../../assets/css/jquery.dataTables.min.css" rel="stylesheet">
 
+  
 <style>
     table {
         border-collapse: collapse;
@@ -46,7 +48,7 @@
     <section class="page-info">
         <div class="auto-container">
             <ul class="bread-crumb">
-                <li><a ng-click="goTopage('/skoda/models')">Skoda</a></li>
+                <li><a >Admin</a></li>
                 <!-- <li>Pages</li> -->
                 <li class="current">Requested Services</li>
             </ul>
@@ -58,7 +60,8 @@
         <div class="auto-container">
             <div class="row clearfix">
                 <div class="auto-container" style="overflow-x:auto;overflow-y:auto;">
-                    <table>
+                    <table id="myTable" >
+                        <thead>
                         <tr>
                             <th>Name</th>
                             <th>Phone</th>
@@ -67,6 +70,8 @@
                             <th>Car Model</th>
                             <th>Chassis Number</th>
                         </tr>
+                        </thead>
+                        <tbody>
                         <tr ng-repeat="service in allRequestedServices track by $index">
                             <td>{{service.name}}</td>
                             <td>{{service.phone}}</td>
@@ -75,9 +80,13 @@
                             <td>{{service.model}}</td>
                             <td>{{service.chassis}}</td>
                         </tr>
+                    </tbody>
                     </table>
                 </div>
             </div>
         </div>
     </section>
 </div>
+
+<script src="../../../assets/js/jquery.dataTables.min.js"></script> 
+<

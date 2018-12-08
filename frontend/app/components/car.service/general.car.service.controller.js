@@ -1,5 +1,6 @@
 angular.module('alBargasyApp')
-    .controller('generalCarsServiceController', function ($rootScope, $scope, $location, brandModelsService, carServiceService, $routeParams, SweetAlert, Upload, $timeout) {
+    .controller('generalCarsServiceController', function ($filter,$rootScope, $scope, $location, brandModelsService, carServiceService, $routeParams, SweetAlert, Upload, $timeout) {
+        var $translate = $filter('translate');
         $scope.ServiceAvailable = false;
         $scope.brands = [];
         $rootScope.currentTab = "cars";
@@ -12,7 +13,7 @@ angular.module('alBargasyApp')
         $scope.carbrandId = {}
         $scope.carbrandId.id=1;
         $scope.requestService = {};
-        $scope.requestService.brand = "";
+        $scope.requestService.brand = "skoda";
         $scope.lang = $rootScope.getPreffrerdLanguage();
         $scope.showSlider = false;
         $scope.addEditService.type = 1;
@@ -51,7 +52,15 @@ angular.module('alBargasyApp')
             $scope.requestService = {};
             $scope.showSlider = false;
             $scope.addEditService.type = 1;
-            $scope.requestService.brand = "";
+            $scope.requestService.brand = "skoda";
+            if($scope.brands.length > 0){
+                $scope.brands.forEach(element => {
+                    if(element.id == carBrandId){
+                        $scope.requestService.brand = element.name;
+                    }
+                });
+                $scope.requestService.brand=carBrandName
+            }
             if ($rootScope.getcurrentUser() != "") {
                 var user = $rootScope.getcurrentUser();
                 $scope.requestService.name = user.name;
@@ -296,11 +305,11 @@ angular.module('alBargasyApp')
             } else {
                 carServiceService.requestNewService($scope.requestService, function (res, err) {
                     if (!err) {
-                        SweetAlert.swal("Good job!", "The car updated successfully", "success");
+                        SweetAlert.swal({title:$translate('service_sucess_msg_title'), text:$translate('service_sucess_msg'), icon:"success",confirmButtonText:$translate('service_sucess_msg_button')});
                         $scope.forceClearAllData();
                         $scope.init($scope.carbrandId.id);
                     } else {
-                        SweetAlert.swal("Error", "an error occuers", "error");
+                        SweetAlert.swal({title:$translate('error'), text:$translate('error_msg'), icon:"error",confirmButtonText:$translate('service_sucess_msg_button')});
                     }
                 })
             }

@@ -109,17 +109,21 @@
                                                 <li><a href="#/cars/service">{{'service_center'|translate}}</a></li>
                                             </ul>
                                         </li>
-                                        <!-- <li class="dropdown"><a href="#">Shop</a>
-                                    <ul>
-                                        <li><a href="shop.html">Our Shop</a></li>
-                                        <li><a href="shop-single.html">Shop Single</a></li>
-                                        <li><a href="shoping-cart.html">Shoping Cart</a></li>
-                                        <li><a href="checkout.html">CheckOut</a></li>
-                                        <li><a href="account.html">Account</a></li>
-                                    </ul>
-                                </li> -->
                                         <li ng-class="currentTab==='contact'? 'current':''"><a ng-click="goTopage('/contact')">{{'contact_us'|translate}}</a></li>
-                                        <li ng-class="currentTab==='request_services'? 'current':''"><a ng-if="isAdmin()" ng-click="goTopage('request_services')">{{'requested_services'|translate}}</a></li>
+                                        <li ng-if="isAdmin()" ng-class="currentTab==='admin'? 'current':''" class="dropdown"><a href="#">{{'admin_pages'|translate}}</a>
+                                            <ul>
+                                                <li>
+                                                    <a ng-if="isAdmin()" ng-click="goTopage('/admin/request_services')">{{'requested_services'|translate}}</a>
+                                                </li>
+                                                <li>
+                                                    <a ng-if="isAdmin()" ng-click="goTopage('/admin/messages_list')">{{'messages_list'|translate}}</a>
+                                                </li>
+                                                <li>
+                                                    <a ng-if="isAdmin()" ng-click="goTopage('/admin/subscribers_list')">{{'subscribers_list'|translate}}</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                            
                                     </ul>
                                 </div>
                             </nav>
@@ -168,7 +172,7 @@
             <div class="auto-container clearfix">
                 <!--Logo-->
                 <div class="logo pull-left">
-                    <a ng-click="goTopage('/home')" class="img-responsive" title="Cars"><img style="width: 150px;" src="assets/images/logo.png"
+                    <a ng-click="goTopage('/home')" class="img-responsive" title="Cars"><img style="width: 119px;" src="assets/images/logo.png"
                             alt="Tali" title="Cars"></a>
                 </div>
 

@@ -160,7 +160,7 @@
                                     <div class="title-box">
                                         <h4 ng-if="lang=='ar'">{{compare1.arName}}</h4>
                                         <h4 ng-if="lang=='en'">{{compare1.name}}</h4>
-                                        <div class="price">{{compare1.price}} LE</div>
+                                        <div class="price" ng-if="compare1.price > 0">{{compare1.price}} LE</div>
                                     </div>
                                 </div>
                             </div>
@@ -171,7 +171,7 @@
                                     <div class="title-box">
                                         <h4 ng-if="lang=='ar'">{{compare2.arName}}</h4>
                                         <h4 ng-if="lang=='en'">{{compare2.name}}</h4>
-                                        <div class="price">{{compare2.price}} LE</div>
+                                        <div class="price"ng-if="compare2.price > 0">{{compare2.price}} LE</div>
                                     </div>
                                 </div>
                             </div>

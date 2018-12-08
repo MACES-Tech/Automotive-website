@@ -25,7 +25,7 @@ exports.delete = (req, res, next) => {
 };
  
 exports.getAllServices = (req, res, next) => {
-	services.findAll().then((Services)=>{
+	services.findAll({order:[['createdAt', 'DESC']]}).then((Services)=>{
 		// next();
 		res.status(200).send(Services);
 	}).catch(next);

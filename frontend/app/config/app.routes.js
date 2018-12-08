@@ -31,7 +31,7 @@ angular.module('alBargasyApp').config(function ($routeProvider, $ocLazyLoadProvi
         }).when('/my_account', {
             templateUrl: "./app/components/my.account/my.account.html",
             controller: 'myAccountController'
-        }).when('/request_services', {
+        }).when('/admin/request_services', {
             templateUrl: "./app/components/car.service/request_service_list.html",
             controller: 'requestedServiceController',
             resolve: {
@@ -41,6 +41,32 @@ angular.module('alBargasyApp').config(function ($routeProvider, $ocLazyLoadProvi
                             "./app/components/car.service/car.service.controller.js",
                             "./app/components/car.service/service/car.service.service.js",
                             "./app/components/car.service/requested.service.controller.js"
+                        ]
+                    });
+                }]
+            }
+        }).when('/admin/messages_list', {
+            templateUrl: "./app/components/contactUs/messages_list.html",
+            controller: 'contactController',
+            resolve: {
+                deps: ['$ocLazyLoad', function ($ocLazyLoad) {
+                    return $ocLazyLoad.load({
+                        files: [
+                            "./app/components/contactUs/contact.controller.js",
+                            "./app/components/contactUs/contact.service.js"
+                        ]
+                    });
+                }]
+            }
+        }).when('/admin/subscribers_list', {
+            templateUrl: "./app/components/contactUs/subscribers_list.html",
+            controller: 'contactController',
+            resolve: {
+                deps: ['$ocLazyLoad', function ($ocLazyLoad) {
+                    return $ocLazyLoad.load({
+                        files: [
+                            "./app/components/contactUs/contact.controller.js",
+                            "./app/components/contactUs/contact.service.js"
                         ]
                     });
                 }]
@@ -61,7 +87,17 @@ angular.module('alBargasyApp').config(function ($routeProvider, $ocLazyLoadProvi
             redirectTo: "/home"
         }).when('/contact', {
             templateUrl: "./app/components/contactUs/contact.html",
-            controller:"contactController"
+            controller:"contactController",
+            resolve: {
+                deps: ['$ocLazyLoad', function ($ocLazyLoad) {
+                    return $ocLazyLoad.load({
+                        files: [
+                            "./app/components/contactUs/contact.controller.js",
+                            "./app/components/contactUs/contact.service.js"
+                        ]
+                    });
+                }]
+            }
         }).when("/cars/compare", {
             templateUrl: "./app/components/vehicle.compare/vehicle-compare.html",
             controller:"vehicleCompareController",

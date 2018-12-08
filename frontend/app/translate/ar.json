@@ -134,6 +134,18 @@
     "used_cars":"سيارات مستعملة",
     "new_cars":"سيارات جديدة",
     "search":"بحث",
-    "no_service":"لا توجد صيانات متوفره حاليا"
+    "no_service":"لا توجد صيانات متوفره حاليا",
+    "available":"متوفر",
+    "not_available":"غير متوفر",
+    "service_sucess_msg":"تم تلقى طلبك احد ممثلى خدمه العملاء سوف يتصل بك",
+    "service_sucess_msg_title":"شكرأ لثقتك",
+    "service_sucess_msg_button":"موافق",
+    "error":"خطاء",
+    "error_msg":"حدث خطاء ما",
+    "sucess_msg" :"تم تلقى طلبك بنجاح",
+    "admin_pages":"صفحات مدير التطبيق",
+    "messages_list":"قائمة الرسائل",
+    "subscribers_list":"قائمة المشتركين"
+
     
 }

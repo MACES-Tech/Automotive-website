@@ -76,16 +76,22 @@ angular.module('alBargasyApp')
         }
         $scope.addNewCarSparePart = function(up,model){
             console.log(up)
+            if(model.price == undefined){
+                model.price =0;
+            }
+            if(model.available== undefined){
+                model.available=false;
+            }
             if(!model.id){
                 Upload.upload({
                     url: $rootScope.backendURL +'upload', //webAPI exposed to upload the file
                     data:{file:up.file} //pass file as data, should be user ng-model
                 }).then(function (resp) { //upload function returns a promise
                     if(resp.data.error_code === 0){ //validate success
-                        modelObject = {name:model.name, arName:model.arName,price:model.price, mainImageId:resp.data.insertedFile.id,carBrandId:$scope.carbrand.id};
+                        modelObject = {name:model.name, arName:model.arName,price:model.price, mainImageId:resp.data.insertedFile.id,carBrandId:$scope.carbrand.id,available:model.available};
                         brandSparePartsService.creatNewSparePart(modelObject,function(res,err){
                             if(!err){
-                                SweetAlert.swal("Good job!", "The car added successfully", "success");
+                                SweetAlert.swal("Good job!", "The Spare Part added successfully", "success");
                                 brandSparePartsService.getAllSpareParts($scope.carbrand.id,function(res,err){
                                     if(!err){
                                         $scope.carModels = res.data;
@@ -116,10 +122,10 @@ angular.module('alBargasyApp')
                 console.log(up)
                 if(!up.file){
                     console.log('edit only');
-                    modelObject = {id:model.id,name:model.name, arName:model.arName,price:model.price,carBrandId:$scope.carbrand.id};
+                    modelObject = {id:model.id,name:model.name, arName:model.arName,price:model.price,carBrandId:$scope.carbrand.id,available:model.available};
                         brandSparePartsService.editSparePart(modelObject,function(res,err){
                                 if(!err){
-                                    SweetAlert.swal("Good job!", "The car updated successfully", "success");
+                                    SweetAlert.swal("Good job!", "The spare part updated successfully", "success");
                                     brandSparePartsService.getAllSpareParts($scope.carbrand.id,function(res,err){
                                         if(!err){
                                             $scope.carModels = res.data;
@@ -140,10 +146,10 @@ angular.module('alBargasyApp')
                         data:{file:up.file} //pass file as data, should be user ng-model
                     }).then(function (resp) { //upload function returns a promise
                         if(resp.data.error_code === 0){ //validate success                    
-                            modelObject = {id:model.id,name:model.name, arName:model.arName,price:model.price, mainImageId:resp.data.insertedFile.id,carBrandId:$scope.carbrand.id};
+                            modelObject = {id:model.id,name:model.name, arName:model.arName,price:model.price, mainImageId:resp.data.insertedFile.id,carBrandId:$scope.carbrand.id,available:model.available};
                             brandSparePartsService.editSparePart(modelObject,function(res,err){
                                 if(!err){
-                                    SweetAlert.swal("Good job!", "The car updated successfully", "success");
+                                    SweetAlert.swal("Good job!", "The spare part updated successfully", "success");
                                     brandSparePartsService.getAllSpareParts($scope.carbrand.id,function(res,err){
                                         if(!err){
                                             $scope.carModels = res.data;
@@ -204,6 +210,7 @@ angular.module('alBargasyApp')
             $scope.model.name = model.name;
             $scope.model.arName = model.arName;
             $scope.model.price = model.price;
+            $scope.model.available = model.available;
         }
         $scope.init();
        
