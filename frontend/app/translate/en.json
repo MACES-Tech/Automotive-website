@@ -106,6 +106,7 @@
     "ford_slide":"Show ROOM, Authorized dealer FORD and Mega show room sales all brands.",
     "slider_header1":"Find your dream car",
     "slider_header2":"with Al Bargasy Automotive!.",
+    "slider_header3":"Best maintenance at the lowest prices",
     "about_header":"ِAbout Al Bargasy Automotive",
     "mission_title":"Our Mission ",
     "vision_title":"Our Vision ",
@@ -132,5 +133,6 @@
     "new_car":"New Car",
     "used_cars":"Used Cars",
     "new_cars":"New Cars",
-    "search":"Search"
+    "search":"Search",
+    "no_service":"No maintenance service available now"
 }

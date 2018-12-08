@@ -68,95 +68,13 @@
                             </div>
                         </div>
 
-                        <!--Tab-->
-                        <div class="tab" id="new-car">
-                            <div class="content">
-                                <!-- Car Search Form -->
-                                <div class="car-search-form">
-                                    <form method="post" action="news.html">
-                                        <div class="row clearfix">
-                                            <div class="column col-lg-7 col-md-12 col-sm-12 col-xs-12">
-                                                <div class="row clearfix">
-
-                                                    <!--Form Group-->
-                                                    <div class="form-group col-md-4 col-sm-4 col-xs-12">
-                                                        <select class="custom-select-box">
-                                                            <option>All Makes</option>
-                                                            <option>Makes One</option>
-                                                            <option>Makes Two</option>
-                                                            <option>Makes Three</option>
-                                                            <option>Makes Four</option>
-                                                        </select>
-                                                    </div>
-
-                                                    <!--Form Group-->
-                                                    <div class="form-group col-md-4 col-sm-4 col-xs-12">
-                                                        <select class="custom-select-box">
-                                                            <option>All Model</option>
-                                                            <option>Model One</option>
-                                                            <option>Model Two</option>
-                                                            <option>Model Three</option>
-                                                            <option>Model Four</option>
-                                                        </select>
-                                                    </div>
-
-                                                    <!--Form Group-->
-                                                    <div class="form-group col-md-4 col-sm-4 col-xs-12">
-                                                        <select class="custom-select-box">
-                                                            <option>Max.Price</option>
-                                                            <option>Price One</option>
-                                                            <option>Price Two</option>
-                                                            <option>Price Three</option>
-                                                            <option>Price Four</option>
-                                                        </select>
-                                                    </div>
-
-                                                </div>
-                                            </div>
-                                            <div class="column col-lg-5 col-md-12 col-sm-12 col-xs-12">
-                                                <div class="row clearfix">
-                                                    <!--Form Group-->
-                                                    <div class="form-group col-md-4 col-sm-4 col-xs-12">
-                                                        <select class="custom-select-box">
-                                                            <option>Mileage</option>
-                                                            <option>Mileage One</option>
-                                                            <option>Mileage Two</option>
-                                                            <option>Mileage Three</option>
-                                                            <option>Mileage Four</option>
-                                                        </select>
-                                                    </div>
-
-                                                    <!--Form Group-->
-                                                    <div class="form-group col-md-4 col-sm-4 col-xs-12">
-                                                        <select class="custom-select-box">
-                                                            <option>Newyork City</option>
-                                                            <option>Chicago One</option>
-                                                            <option>California Two</option>
-                                                        </select>
-                                                    </div>
-
-                                                    <div class="form-group col-md-4 col-sm-4 col-xs-12">
-                                                        <button class="theme-btn search-btn" type="submit" name="submit-form">Search</button>
-                                                    </div>
-                                                </div>
-
-                                            </div>
-
-                                        </div>
-                                    </form>
-
-                                </div>
-                            </div>
-                        </div>
-
                     </div>
+
                 </div>
+                <!--End Product Info Tabs-->
 
             </div>
-            <!--End Product Info Tabs-->
-
         </div>
-    </div>
 </section>
 <!--End Car Search Form-->
 
@@ -269,23 +187,25 @@
                                 <div class="row clearfix">
                                     <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                         <label>
-                                            <input type="radio" ng-model="model.usedCar" value ="0" ng-value="0">
+                                            <input type="radio" ng-model="model.usedCar" value="0" ng-value="0">
                                             {{'new_car'|translate}}
                                         </label>
                                     </div>
                                     <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                         <label>
-                                            <input type="radio" ng-model="model.usedCar" value ="1" ng-value="1">
+                                            <input type="radio" ng-model="model.usedCar" value="1" ng-value="1">
                                             {{'used_car'|translate}}
                                         </label>
                                     </div>
                                     <div class="form-group col-lg-4 col-md-6 col-sm-6 col-xs-12">
                                         <label>{{'car_brand'|translate}}</label>
                                         <select name="singleSelect" ng-model="model.carBrand">
-                                            <option ng-repeat="brand in brands" ng-value="{{brand.id}}" value="{{brand.id}}" ng-if="lang=='en'">
+                                            <option ng-repeat="brand in brands" ng-value="{{brand.id}}" value="{{brand.id}}"
+                                                ng-if="lang=='en'">
                                                 {{brand.name}}
                                             </option>
-                                            <option ng-repeat="brand in brands" ng-value="{{brand.id}}" value="{{brand.id}}" ng-if="lang=='ar'">
+                                            <option ng-repeat="brand in brands" ng-value="{{brand.id}}" value="{{brand.id}}"
+                                                ng-if="lang=='ar'">
                                                 {{brand.arName}}
                                             </option>
                                         </select>
@@ -314,7 +234,8 @@
                                     </div>
                                     <div class="form-group col-md-4 col-sm-6 col-xs-12">
                                         <label>{{'price'|translate}}</label>
-                                        <input type="text" ng-model="model.price" name="price" value="" placeholder=""required="required">
+                                        <input type="text" ng-model="model.price" name="price" value="" placeholder=""
+                                            required="required">
                                     </div>
 
                                     <div class="form-group col-md-12 col-sm-12 col-xs-12">

@@ -78,6 +78,18 @@ angular.module('alBargasyApp').config(function ($routeProvider, $ocLazyLoadProvi
         }).when('/cars/buy', {
             templateUrl: "./app/components/buy.car/buy.car.html",
             controller:"buyCarController"
+        }).when('/cars/service', {
+            templateUrl: "./app/components/car.service/general.cars.service.html",
+            controller:"generalCarsServiceController",
+            resolve: {
+                deps: ['$ocLazyLoad', function ($ocLazyLoad) {
+                    return $ocLazyLoad.load({
+                        files: [
+                            "./app/components/car.service/service/car.service.service.js"
+                        ]
+                    });
+                }]
+            }
         })
         .otherwise({
             redirectTo: "/notFound"
