@@ -15,7 +15,7 @@ var app = angular.module('alBargasyApp',
   // }
   $rootScope.goTopage = function(PageName){
     $location.path(PageName);
-    document.getElementById("goUpButton").click();
+    // document.getElementById("goUpButton").click();
   }
     $rootScope.backendURL = $location.protocol() + "://" + $location.host() + ":"+ $location.port() +"/api/" ;
     $rootScope.currentTab ="home";
