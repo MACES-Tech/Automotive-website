@@ -24,23 +24,36 @@
                 <!--End Sec Title-->
                 <div class="row clearfix">
                     <!--Car Block-->
-
-                    <div ng-if="carModels.length > 0" class="car-block col-lg-4 col-md-6 col-sm-6 col-xs-12" ng-repeat="model in carModels">
+                    <div ng-if="carModels.length > 0" class="shop-item col-lg-4 col-md-6 col-sm-6 col-xs-12" ng-repeat="model in carModels">
                         <div class="inner-box">
                             <div class="image">
-                                <div class="edit-icons" ng-if="isAdmin()">
-                                    <span ng-click="confirmPopup(model.id)"><a href=""><i class="fa fa-trash"
-                                                data-toggle="modal" data-target=".bd-example-modal-sm"></i></a> </span>
-                                    <span ng-click="editSparePart(model)"><a href=""><i class="fa fa-edit"></i></a>
-                                    </span>
-                                </div>
-                                <a><img ng-src="/uploads/{{model.mainImage.path}}" alt="{{model.mainImage.altValue}}" /></a>
-                                <div class="price">{{model.price}} LE</div>
+                                    <div class="edit-icons" ng-if="isAdmin()">
+                                        <span ng-click="confirmPopup(model.id)"><a href=""><i class="fa fa-trash"
+                                            data-toggle="modal" data-target=".bd-example-modal-sm"></i></a> </span>
+                                        <span ng-click="editSparePart(model)"><a href=""><i class="fa fa-edit"></i></a>
+                                        </span>
+                                    </div>
+                                <a ><img ng-src="/uploads/{{model.mainImage.path}}" alt="{{model.mainImage.altValue}}"/></a>
                             </div>
-                            <h3>
-                                <a ng-if="lang=='en'">{{model.name}}</a>
-                                <a ng-if="lang=='ar'">{{model.arName}}</a>
-                            </h3>
+                            <div class="lower-content">
+                                <div class="upper-box">
+                                    <h3><a ng-if="lang=='en'">{{model.name}}</a>
+                                        <a ng-if="lang=='ar'">{{model.arName}}</a></h3>
+                                    <div class="price">{{model.price}} LE</div>
+                                </div>
+                                <div class="lower-box clearfix">
+                                    <div class="pull-right">
+                                        <!--Rating-->
+                                        <div class="rating">
+                                            <span class="fa fa-star"></span>
+                                            <span class="fa fa-star"></span>
+                                            <span class="fa fa-star"></span>
+                                            <span class="fa fa-star"></span>
+                                            <span class="fa fa-star-half-empty"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <!--Car Block-->
