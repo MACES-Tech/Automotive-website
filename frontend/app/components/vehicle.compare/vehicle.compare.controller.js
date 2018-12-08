@@ -12,6 +12,7 @@ angular.module('alBargasyApp')
         $scope.compare1={};
         $scope.compare2={};
         $scope.init = function () {
+            $rootScope.FaceBookLink = "";
             $rootScope.currentTab = "cars";
             $scope.startCompare = false;
             brandModelsService.getAllBrands(function(res,err){

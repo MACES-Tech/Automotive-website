@@ -2,6 +2,7 @@ angular.module('alBargasyApp')
     .controller('appController', function ($http, $rootScope, $scope,$location,$cookies,$translate,$route,$window) {
        
         $rootScope.default_float =  'float-r' ;
+        $rootScope.FaceBookLink ="https://www.facebook.com/SkodaAlBargasy/"
         $rootScope.rootLoading = false;
     $rootScope.isSignedIn = function () {
         return $cookies.get('currentUser.token') !== undefined;

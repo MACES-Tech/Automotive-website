@@ -39,6 +39,7 @@ angular.module('alBargasyApp')
 
 
         $scope.init = function (carBrandId) {
+            $rootScope.FaceBookLink = "";
             $scope.services = [];
             $scope.miniServices = [];
             $scope.sliderServices = [];

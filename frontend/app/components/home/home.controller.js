@@ -2,6 +2,7 @@ angular.module('alBargasyApp')
     .controller('homeController', function ($rootScope, $scope, $location,brandModelsService) {
         $rootScope.currentTab = "home";
           $scope.init = function(){
+              $rootScope.FaceBookLink = "";
             brandModelsService.getAllModelsWithoutBrand({},function(res,err){
                 if(!err){
                     $scope.carModels = res.data;

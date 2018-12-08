@@ -2,6 +2,7 @@ angular.module('alBargasyApp')
     .controller('requestedServiceController', function ($scope,carServiceService,SweetAlert,$rootScope) {
         $rootScope.currentTab = "request_services";
         $scope.init = function () {
+            $rootScope.FaceBookLink = "";
             $scope.allRequestedServices = [];
             carServiceService.getAllRequestedServices(function(res,err){
                 if(!err){

@@ -24,6 +24,7 @@ angular.module('alBargasyApp')
         }
 
         $scope.init = function (carBrandId,isUsedCar) {
+            $rootScope.FaceBookLink = "";
             var filterObject = {};
             if(carBrandId)
                 filterObject.carBrandId = carBrandId;

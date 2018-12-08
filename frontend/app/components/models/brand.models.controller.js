@@ -11,8 +11,14 @@ angular.module('alBargasyApp')
                 //get an existing object
                 brandModelsService.getCarBrandByName($routeParams.brandName,function(res, err){
                     if(!err){
+                        
                         if(res.data.length > 0 &&res.status ===200){
                             $scope.carbrand = res.data[0];
+                            if($scope.carbrand.name==="skoda"){
+                                $rootScope.FaceBookLink="https://www.facebook.com/SkodaAlBargasy/"
+                            }else{
+                                $rootScope.FaceBookLink="https://www.facebook.com/Toyota.albargasy.3s/"
+                            }
                             $rootScope.currentTab = $scope.carbrand.name;
                             brandModelsService.getAllModels($scope.carbrand.id,function(res,err){
                                 if(!err){
