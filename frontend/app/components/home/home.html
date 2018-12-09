@@ -94,7 +94,7 @@
     
     
                                                 <button type="button" ng-click="openFileUploader('ImageUploader1')" class="upload-btn"><span
-                                                        class="fa fa-file-picture-o"></span> Choose File ...</button>
+                                                        class="fa fa-file-picture-o"></span> {{'Choose_File' |translate}}</button>
                                                         {{'image_thumbnail'|translate}}: <img style="width:100px;" ngf-thumbnail="up.file || '/thumb.jpg'" />
                                                 {{progress}}
                                             </div>
@@ -114,7 +114,7 @@
         </div>
     </section>
 
-        <section class="about-section">
+        <section class="about-section" ng-if="aboutUs">
                 <div class="auto-container">
                     <!--Sec Title-->
                     <div class="sec-title">
@@ -124,8 +124,14 @@
                         <!--Content Column-->
                         <div class="content-column col-md-4 col-sm-12 col-xs-12">
                             <div class="inner-column">
-                                <div class="bold-text"> {{'purpose_title'|translate}} </div>
-                                <div class="text">{{'slogan'|translate}} {{'purpose'|translate}}</div>
+                                <div class="bold-text">
+                                    <span ng-if="lang=='ar'">{{aboutUs.arTitle}}</span> 
+                                    <span ng-if="lang=='en'">{{aboutUs.title}}</span> 
+                                </div>
+                                <div class="text"> 
+                                    <span ng-if="lang=='ar'">{{aboutUs.arParagraph}}</span> 
+                                    <span ng-if="lang=='en'">{{aboutUs.paragraph}}</span> 
+                                </div>
                                 
                             </div>
                         </div>
@@ -136,11 +142,14 @@
                                 <div class="about-block col-md-6 col-sm-6 col-xs-12">
                                     <div class="inner-box">
                                         <div class="image">
-                                            <img src="assets/images/resource/about-1.jpg" alt="" />
+                                            <img ng-src="/uploads/{{aboutUs.missionImage.path}}" alt="{{aboutUs.missionImage.altValue}}"/>
                                         </div>
                                         <div class="lower-box">
-                                            <h3><a href="#">{{'mission_title'|translate}}</a></h3>
-                                            <div class="text">{{'mission'|translate}}</div>
+                                            <h3><a >{{'mission_title'|translate}}</a></h3>
+                                            <div class="text">
+                                                    <span ng-if="lang=='ar'">{{aboutUs.arMissionParagraph}}</span> 
+                                                    <span ng-if="lang=='en'">{{aboutUs.missionParagraph}}</span> 
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -149,11 +158,13 @@
                                 <div class="about-block col-md-6 col-sm-6 col-xs-12">
                                     <div class="inner-box">
                                         <div class="image">
-                                            <img src="assets/images/resource/about-2.jpg" alt="" />
+                                            <img ng-src="/uploads/{{aboutUs.visionImage.path}}" alt="{{aboutUs.visionImage.altValue}}" />
                                         </div>
                                         <div class="lower-box">
-                                                <h3><a href="#">{{'vision_title'|translate}}</a></h3>
-                                                <div class="text">{{'vision'|translate}}</div>
+                                                <h3><a >{{'vision_title'|translate}}</a></h3>
+                                                <div class="text">
+                                                    <span ng-if="lang=='ar'">{{aboutUs.arVisionParagraph}}</span> 
+                                                    <span ng-if="lang=='en'">{{aboutUs.visionParagraph}}</span> </div>
                                         </div>
                                     </div>
                                 </div>
@@ -210,6 +221,18 @@
                                             <textarea ng-model="aboutUs.arMissionParagraph" name="arFirstParagraph" value="" placeholder="" required="required"></textarea>
                                         </div>
                                         <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                                        <div class="field-inner clearfix">
+                                                <input id="ImageUploader2" type="file" ngf-select ng-model="up1.file" name="file"
+                                                    ngf-pattern="'image/*'" accept="image/*" ngf-max-size="20MB" style="display: none">
+    
+    
+                                                <button type="button" ng-click="openFileUploader('ImageUploader2')" class="upload-btn"><span
+                                                        class="fa fa-file-picture-o"></span> {{'Choose_File' |translate}}</button>
+                                                        {{'image_thumbnail'|translate}}: <img style="width:100px;" ngf-thumbnail="up1.file || '/thumb.jpg'" />
+                                                {{progress}}
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-md-12 col-sm-12 col-xs-12">
                                             <label>{{'title_vision'|translate}}</label>
                                             <textarea  ng-model="aboutUs.visionParagraph" name="firstParagraph" value="" placeholder="" required="required"></textarea>
                                         </div>
@@ -217,9 +240,20 @@
                                             <label>{{'title_arabic_vision'|translate}}</label>
                                             <textarea ng-model="aboutUs.arVisionParagraph" name="arFirstParagraph" value="" placeholder="" required="required"></textarea>
                                         </div>
-
                                         <div class="form-group col-md-12 col-sm-12 col-xs-12">
-                                            <button type="button" ng-click="addNewImageToSlider(up,aboutUs)" class="theme-btn btn-style-one">{{'submit_now'|translate}}</button>
+                                        <div class="field-inner clearfix">
+                                                <input id="ImageUploader3" type="file" ngf-select ng-model="up2.file" name="file"
+                                                    ngf-pattern="'image/*'" accept="image/*" ngf-max-size="20MB" style="display: none">
+    
+    
+                                                <button type="button" ng-click="openFileUploader('ImageUploader3')" class="upload-btn"><span
+                                                        class="fa fa-file-picture-o"></span> {{'Choose_File' |translate}}</button>
+                                                        {{'image_thumbnail'|translate}}: <img style="width:100px;" ngf-thumbnail="up2.file || '/thumb.jpg'" />
+                                                {{progress}}
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                                            <button type="button" ng-click="addContactUs(up1,up2,aboutUs)" class="theme-btn btn-style-one">{{'submit_now'|translate}}</button>
                                             <button type="button" ng-click="clearData(aboutUs)" class="theme-btn btn-style-one">{{'clear'|translate}}</button>
     
                                         </div>

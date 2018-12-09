@@ -2,7 +2,9 @@ const db = require('../config/db.config.js');
 const AboutUs = db.aboutUs;
 
 exports.findAll = (req, res, next) => {
-	AboutUs.findAll().then(aboutUs => {
+	AboutUs.findAll({include: [
+		{ model: db.file, as: 'missionImage' },{ model: db.file, as: 'visionImage' }
+	]}).then(aboutUs => {
 	//   next()
 	  res.send(aboutUs[0]);
 	}).catch(next);

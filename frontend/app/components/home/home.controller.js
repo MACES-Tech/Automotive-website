@@ -2,7 +2,10 @@ angular.module('alBargasyApp')
     .controller('homeController', function ($route,$rootScope, $scope, $location,brandModelsService,homeService,Upload,SweetAlert ) {
         $rootScope.currentTab = "home";
         $scope.slider = [];
+        $scope.aboutUs={};
         $scope.up = {};
+        $scope.up1 = {};
+        $scope.up2 = {};
         $scope.model = {};
           $scope.init = function(){
             $rootScope.FaceBookLink = "";
@@ -17,6 +20,12 @@ angular.module('alBargasyApp')
                         $scope.carModels = res.data;
                         
                     }
+                    homeService.getAboutUs(function(res,data){
+                        if(!err){
+                            $scope.aboutUs = res.data;
+                            
+                        }
+                    })
                     $scope.reloadScripts();
                 })
             })
@@ -24,6 +33,104 @@ angular.module('alBargasyApp')
           $scope.openFileUploader = function(id){
             document.getElementById(id).click();
 
+        }
+        $scope.addContactUs=function(up1,up2,model){
+            if(!model.id){
+                Upload.upload({
+                    url: $rootScope.backendURL +'upload', 
+                    data:{file:up1.file} 
+                }).then(function (resp) { 
+                    if(resp.data.error_code === 0){
+                        $scope.insertedMission =  resp.data.insertedFile.id;
+                        Upload.upload({
+                            url: $rootScope.backendURL +'upload', 
+                            data:{file:up2.file} 
+                        }).then(function (resp) {
+                            if(resp.data.error_code === 0){
+                                $scope.insertedVission =  resp.data.insertedFile.id;
+                                modelObject = {
+                                    title:model.title,
+                                    arTitle:model.arTitle,
+                                    paragraph:model.paragraph,
+                                    arParagraph:model.arParagraph,
+                                    missionParagraph:model.missionParagraph,
+                                    arMissionParagraph:model.arMissionParagraph,
+                                    visionParagraph:model.visionParagraph,
+                                    arVisionParagraph:model.arVisionParagraph,
+                                    missionImageId:$scope.insertedMission,
+                                    visionImageId:$scope.insertedVission
+                                };
+                                homeService.creatNewAboutUs(modelObject,function(res,err){
+                                    if(!err){
+                                        SweetAlert.swal("Good job!", "The About Us Section added successfully", "success");
+                                        $route.reload();
+                                        
+                                    }else{
+                                        SweetAlert.swal("Error", "an error occuers", "error");
+                                    }
+                                })
+                             }else{
+                                SweetAlert.swal("Error", "an error occuers", "error");
+                             }})
+                        
+                    } else {
+                        SweetAlert.swal("Error", "an error occuers", "error");
+
+                    }
+                    
+                }, function (resp) { 
+                    SweetAlert.swal("Error", "an error occuers", "error");
+                })
+            }else{
+                $scope.insertedMission =0;
+                $scope.insertedVission=0;
+                
+                    Upload.upload({
+                        url: $rootScope.backendURL +'upload', 
+                        data:{file:up1.file} 
+                    }).then(function (resp) { 
+                        if(resp.data.error_code === 0 && up1.file){
+                            $scope.insertedMission =  resp.data.insertedFile.id;
+                        }
+                        Upload.upload({
+                            url: $rootScope.backendURL +'upload', 
+                            data:{file:up2.file} 
+                        }).then(function (resp2) { 
+                            if(resp2.data.error_code === 0 && up2.file){
+                                $scope.insertedVission =  resp2.data.insertedFile.id;
+                            }
+                            console.log('edit only');
+                    modelObject = {
+                        id:model.id,
+                        title:model.title,
+                        arTitle:model.arTitle,
+                        paragraph:model.paragraph,
+                        arParagraph:model.arParagraph,
+                        missionParagraph:model.missionParagraph,
+                        arMissionParagraph:model.arMissionParagraph,
+                        visionParagraph:model.visionParagraph,
+                        arVisionParagraph:model.arVisionParagraph
+                    };
+                    if($scope.insertedMission != 0){
+                        modelObject.missionImageId=$scope.insertedMission
+                    }
+                    if($scope.insertedVission != 0){
+                        modelObject.visionImageId=$scope.insertedVission
+                    }
+                    homeService.editAbout(modelObject,function(res,err){
+                        if(!err){
+                            SweetAlert.swal("Good job!", "The Abou Us Section updated successfully", "success");
+                            $route.reload();
+                        }else{
+                            SweetAlert.swal("Error", "an error occuers", "error");
+                        }
+                    })
+                        })
+                    })
+                
+                
+                    
+            }
         }
           $scope.addNewImageToSlider = function(up,model){
             console.log(up)
@@ -66,15 +173,13 @@ angular.module('alBargasyApp')
                     console.log('edit only');
                     modelObject = {id:model.id,title:model.title, arTitle:model.arTitle, paragraph:model.paragraph,arParagraph:model.arParagraph};
                     homeService.editSlide(modelObject,function(res,err){
-                                if(!err){
-                                    SweetAlert.swal("Good job!", "The Image updated successfully", "success");
-
-                                    $route.reload();
-                                    
-                                }else{
-                                    SweetAlert.swal("Error", "an error occuers", "error");
-                                }
-                            })
+                        if(!err){
+                            SweetAlert.swal("Good job!", "The Image updated successfully", "success");
+                            $route.reload();
+                        }else{
+                            SweetAlert.swal("Error", "an error occuers", "error");
+                        }
+                    })
                     
                 }else{
                     console.log('edit with file');
