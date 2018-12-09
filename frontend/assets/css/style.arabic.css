@@ -3734,6 +3734,7 @@ img{
 .about-section .content-column{
 	position:relative;
 	margin-bottom:40px;
+	float: right;
 }
 
 .about-section .content-column .content-column{
