@@ -34,4 +34,6 @@ db.spareParts = require('../model/spareParts.model.js')(sequelize, Sequelize);
 db.extrafeatures = require('../model/extraFeatures.model.js')(sequelize, Sequelize);
 db.extrafeaturesJointable = require('../model/carModelextraFeatures.model.js')(sequelize, Sequelize);
 db.userMsgs = require('../model/userMesgees.model.js')(sequelize, Sequelize);
+db.aboutUs = require('../model/aboutUs.model.js')(sequelize, Sequelize);
+db.slider = require('../model/slider.model.js')(sequelize, Sequelize);
 module.exports = db;

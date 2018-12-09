@@ -34,6 +34,8 @@
     require('./route/spareParts.route.js')(app);
     require('./route/user.route.js')(app);
     require('./route/userMsgs.route.js')(app);
+    require('./route/slider.route.js')(app);
+    require('./route/aboutUs.route.js')(app);
 
     
 

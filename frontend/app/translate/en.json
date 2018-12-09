@@ -145,5 +145,8 @@
     "sucess_msg" :"Your Request received successfully",
     "admin_pages":"Admin Pages",
     "messages_list":"messages list",
-    "subscribers_list":"subscribers list"
+    "subscribers_list":"subscribers list",
+    "add_image_to_slider" :"add image to slider",
+    "english_title":"English title",
+    "arabic_title":"Arabic title"
 }
