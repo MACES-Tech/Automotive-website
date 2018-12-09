@@ -154,7 +154,9 @@ ul,li{
 	padding:0px;
 	margin:0px;	
 }
-
+.col-md-1,.col-md-2,.col-md-3,.col-md-4,.col-md-5,.col-md-6,.col-md-7,.col-md-8,.col-md-9,.col-md-10,.col-md-11,.col-md-12 {
+    float: right !important;
+}
 .theme-btn,
 .tp-caption .theme-btn{
 	display:inline-block;
@@ -295,7 +297,7 @@ ul,li{
 .sec-title h2:before{
 	position:absolute;
 	content:'';
-	left: 37.2em;
+	right: 0px;
 	bottom:0px;
 	width:55px;
 	height:2px;
@@ -342,13 +344,13 @@ ul,li{
 	color:#848484;
 	font-size:14px;
 	font-weight:400;
-	padding-left:30px;
+	padding-right:30px;
 	margin-bottom:14px;
 }
 
 .list-style-one li .icon{
 	position:absolute;
-	left:0px;
+	right:0px;
 	top:0px;
 	color:#eb1d27;
 	font-size:16px;
@@ -1455,7 +1457,7 @@ img{
 .main-slider .slider-content h2:before{
 	position:absolute;
 	content:'';
-	left: 14.1em;
+	right: -30px;
 	top:8px;
 	width:5px;
 	height:85px;
@@ -1605,7 +1607,7 @@ img{
 .car-search-form .car-search-tab .prod-tabs .tab-btns .tab-btn{
 	position:relative;
 	display:block;
-	float:left;
+	float:right;
 	margin-right:0px;
 	font-size:14px;
 	color:#ffffff;
@@ -4932,7 +4934,7 @@ img{
 .cars-compare-section .title-column h2:after{
 	position:absolute;
 	content:'';
-	left:0px;
+	right:0px;
 	bottom:0px;
 	width:55px;
 	height:2px;
@@ -6806,7 +6808,7 @@ img{
 .headquater-box .inner-box h2:after{
 	position:absolute;
 	content:'';
-	left: 14em;
+	right: 0px;
 	bottom:0px;
 	width:55px;
 	height:2px;
@@ -6839,7 +6841,7 @@ img{
 .sales-department .inner-box h2:after{
 	position:absolute;
 	content:'';
-	left:14em;
+	right: 0px;
 	bottom:0px;
 	width:55px;
 	height:2px;
@@ -6949,7 +6951,7 @@ img{
 .hours-block .inner-box h2:after{
 	position:absolute;
 	content:'';
-	left:14em;
+	right: 0px;
 	bottom:0px;
 	width:55px;
 	height:2px;
@@ -8021,7 +8023,7 @@ img{
 .register-section .form-column .form-title h2:after{
 	position:absolute;
 	content:'';
-	left:0px;
+	right:0px;
 	bottom:0px;
 	width:50px;
 	height:2px;
@@ -8108,7 +8110,7 @@ img{
 	width:100%;
 	background:#ffffff;
 	line-height:30px;
-	padding:8px 20px;
+	padding:8px 32px;
 	height:50px;
 	border:2px solid #f4f4f4;
 	transition:all 300ms ease;
