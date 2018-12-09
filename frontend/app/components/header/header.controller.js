@@ -34,7 +34,6 @@ angular.module('alBargasyApp')
             }
         }
         $rootScope.$on('$routeChangeStart', function (next, last) {
-            debugger
             if($('.preloader').length){
                 $('.preloader').delay(2).fadeOut(500);
             }

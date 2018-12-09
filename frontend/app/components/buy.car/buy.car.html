@@ -84,30 +84,6 @@
         <div class="row clearfix">
             <!--Column-->
             <div class="column col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <!-- <div class="layout-box clearfix">
-                    	<div class="pull-left">
-                        	<div class="sort-form">
-                                <form action="inventory-form">
-                                    <div class="form-group">
-                                        <label>Sort By:</label>
-                                        <select class="custom-select-box">
-                                            <option>Price: Highest First</option>
-                                            <option>Second</option>
-                                            <option>Third</option>
-                                            <option>Fourth</option>
-                                            <option>Five</option>
-                                        </select>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                        <div class="pull-right">
-                        	<ul class="view-options">
-                            	<li class="active"><a href="inventory-1.html"><span class="fa fa-th-large"></span></a></li>
-                                <li><a href="#"><span class="flaticon-list"></span></a></li>
-                            </ul>
-                        </div>
-                    </div> -->
 
                 <!--End Sec Title-->
                 <div class="row clearfix">
@@ -144,17 +120,7 @@
 
 
                 </div>
-                <!--Styled Pagination-->
-                <!-- <div class="styled-pagination text-center">
-                        <ul class="clearfix">
-                            <li><a href="#"><span class="fa fa-caret-left"></span></a></li>
-                            <li><a href="#" class="active">1</a></li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#"><span class="fa fa-caret-right"></span></a></li>
-                        </ul>
-                    </div> -->
-                <!--End Styled Pagination-->
-
+               
             </div>
 
 
@@ -168,7 +134,7 @@
 
 
 <!--Sell Car Section-->
-<section class="sell-car-section" ng-if="isAdmin()">
+<section class="sell-car-section" ng-if="user">
     <div class="auto-container">
         <div class="row clearfix">
             <!--Cell Car Column-->
@@ -185,17 +151,19 @@
                         <div class="form-box">
                             <form>
                                 <div class="row clearfix">
-                                    <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                        <label>
-                                            <input type="radio" ng-model="model.usedCar" value="0" ng-value="0">
-                                            {{'new_car'|translate}}
-                                        </label>
-                                    </div>
-                                    <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                        <label>
-                                            <input type="radio" ng-model="model.usedCar" value="1" ng-value="1">
-                                            {{'used_car'|translate}}
-                                        </label>
+                                    <div class="row">
+                                        <div ng-if="user.role != 'user'" class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                            <label>
+                                                <input type="radio" ng-model="model.usedCar" value="0" ng-value="0">
+                                                {{'new_car'|translate}}
+                                            </label>
+                                        </div>
+                                        <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                            <label>
+                                                <input type="radio" ng-model="model.usedCar" value="1" ng-value="1">
+                                                {{'used_car'|translate}}
+                                            </label>
+                                        </div>
                                     </div>
                                     <div class="form-group col-lg-4 col-md-6 col-sm-6 col-xs-12">
                                         <label>{{'car_brand'|translate}}</label>
@@ -237,7 +205,12 @@
                                         <input type="text" ng-model="model.price" name="price" value="" placeholder=""
                                             required="required">
                                     </div>
-
+                                    <div class="form-group col-md-4 col-sm-6 col-xs-12" ng-if="user.role=='user'">
+                                        <label></label>
+                                        <input type="checkbox" ng-model="model.exchange" name="generalService"
+                                            ng-true-value="true" ng-false-value="false">
+                                        {{'exchange'|translate}}
+                                    </div>
                                     <div class="form-group col-md-12 col-sm-12 col-xs-12">
                                         <label class="upload">{{'upload_photo'|translate}}</label>
                                         <div class="field-inner clearfix">
@@ -251,11 +224,7 @@
                                             {{progress}}
                                         </div>
                                     </div>
-                                    <!-- <div class="form-group col-md-12 col-sm-12 col-xs-12">
-                                            <button type="button" ng-click="addNewCarModel(up,model)" class="theme-btn btn-style-one">submit Now</button>
-                                            <button type="button" ng-click="clearData(model)" class="theme-btn btn-style-one">clear</button>
-
-                                        </div> -->
+                                    
                                 </div>
                             </form>
                         </div>
