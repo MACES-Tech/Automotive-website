@@ -6,7 +6,7 @@
     <!--Page Title-->
     <section class="page-title" style="background-image:url(images/background/5.jpg);">
         <div class="auto-container">
-            <h1>My Account</h1>
+            <h1>{{'my_account'|translate}}</h1>
         </div>
     </section>
     <!--End Page Title-->
@@ -15,9 +15,8 @@
     <section class="page-info">
         <div class="auto-container">
             <ul class="bread-crumb">
-                <li><a ng-click="goTopage('/home')">Home</a></li>
-                <li>Pages</li>
-                <li class="current">My Account</li>
+                <li><a ng-click="goTopage('/home')">{{'home'|translate}}</a></li>
+                <li class="current">{{'my_account'|translate}}</li>
             </ul>
         </div>
     </section>
@@ -32,7 +31,7 @@
                 <div class="form-column column col-lg-6 col-md-6 col-sm-12 col-xs-12">
                 
                     <div class="form-title">
-                        <h2>Login Now</h2>
+                        <h2>{{'login'|translate}}</h2>
                     </div>
                     
                     <!--Login Form-->
@@ -40,15 +39,15 @@
                         <form method="post" action = "goTopage('/home')">
                             <div class="form-group">
                                 <span class="adon-icon"><span class="fa fa-envelope-o"></span></span>
-                                <input type="email" name="useremil" value="" ng-model="email" placeholder="Emai Address*">
+                                <input type="email" name="useremil" value="" ng-model="email" placeholder="{{'email'|translate}}*">
                             </div>
                             <div class="form-group">
                                 <span class="adon-icon"><span class="fa fa-unlock-alt"></span></span>
-                                <input type="password" name="userpassword" value="" ng-model="password" placeholder="Enter Password">
+                                <input type="password" name="userpassword" value="" ng-model="password" placeholder="{{'password'|translate}}">
                             </div>
                             <div class="clearfix">
                                 <div class="form-group pull-left">
-                                    <button type="button" class="theme-btn btn-style-one" ng-click="login(email,password)">login</button>
+                                    <button type="button" class="theme-btn btn-style-one" ng-click="login(email,password)">{{'login'|translate}}</button>
                                 </div>
                                 <!-- <div class="form-group social-links-two pull-right">
                                     Or login with <a href="#" class="img-circle facebook"><span class="fa fa-facebook-f"></span></a> <a href="#" class="img-circle twitter"><span class="fa fa-twitter"></span></a> <a href="#" class="img-circle google-plus"><span class="fa fa-google-plus"></span></a>
@@ -70,7 +69,7 @@
                 <div class="form-column column col-lg-6 col-md-6 col-sm-12 col-xs-12">
                 
                     <div class="form-title">
-                        <h2>Register Here</h2>
+                        <h2>{{'register'|translate}}</h2>
                     </div>
                     
                     <!--Login Form-->
@@ -78,24 +77,24 @@
                         <form method="post" action = "goTopage('/home')">
                             <div class="form-group">
                                 <span class="adon-icon"><span class="fa fa-user"></span></span>
-                                <input type="text" name="username" value="" ng-model="registerModel.name" placeholder="Your Name *">
+                                <input type="text" name="username" value="" ng-model="registerModel.name" placeholder="{{'user_name'|translate}} *">
                             </div>
                             <div class="form-group">
                                 <span class="adon-icon"><span class="fa fa-envelope-o"></span></span>
-                                <input type="email" name="useremil" value="" ng-model="registerModel.email" placeholder="Emai Address*">
+                                <input type="email" name="useremil" value="" ng-model="registerModel.email" placeholder="{{'email'|translate}} *">
                             </div>
                             <div class="form-group">
                                 <span class="adon-icon"><span class="fa fa-mobile"></span></span>
-                                <input type="number" name="userphone" value="" ng-model="registerModel.phone" placeholder="phone number*">
+                                <input type="text" name="userphone" value="" ng-model="registerModel.phone" placeholder="{{'phone'|translate}} *">
                             </div>
                             
                             <div class="form-group">
                                 <span class="adon-icon"><span class="fa fa-unlock-alt"></span></span>
-                                <input type="password" name="userpassword" value="" ng-model="registerModel.password" placeholder="Enter Password">
+                                <input type="password" name="userpassword" value="" ng-model="registerModel.password" placeholder="{{'password'|translate}}">
                             </div>
                             <div class="clearfix">
                                 <div class="form-group pull-left">
-                                    <button type="button" class="theme-btn btn-style-one" ng-click="register(registerModel.name,registerModel.email,registerModel.password,registerModel.phone)">Register here</button>
+                                    <button type="button" class="theme-btn btn-style-one" ng-click="register(registerModel.name,registerModel.email,registerModel.password,registerModel.phone)">{{'register'|translate}}</button>
                                 </div>
                                 <!-- <div class="form-group submit-text pull-right">
                                 	* You must be a free registered user to submit content. 

@@ -1,0 +1,54 @@
+<!--Page Title-->
+<section class="page-title" style="background-image:url(assets/images/background/5.jpg);">
+    <div class="auto-container">
+        <h1>{{'requested_exchange_car'|translate}}</h1>
+    </div>
+</section>
+<!--End Page Title-->
+
+<!--Inventory Section-->
+<section class="inventory-section ">
+    <div class="auto-container">
+        <div class="row clearfix">
+            <!--Column-->
+            <div class="column col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+                <!--End Sec Title-->
+                <div class="row clearfix">
+                    <!--Car Block-->
+                    <div ng-if="carModels.length == 0" class="car-block col-lg-4 col-md-6 col-sm-6 col-xs-12" >
+                        <h1>{{'no_request'|translate}}</h1>
+                    </div>
+                    <div ng-if="carModels.length > 0" class="car-block col-lg-4 col-md-6 col-sm-6 col-xs-12" ng-repeat="model in carModels">
+                        <div class="inner-box">
+                            <div class="image">
+                                <div class="edit-icons" ng-if="isAdmin()">
+                                    <span ng-click="confirmPopup(model.id)"><a href=""><i class="fa fa-trash"
+                                                data-toggle="modal" data-target=".bd-example-modal-sm"></i></a> </span>
+                                    <!-- <span ng-click="publishCar(model.id)"><a href=""><i class="fa fa-check-square-o"></i></a> </span> -->
+                                </div>
+                                <a ng-click="goToCarPage(model.carBrandId,model.name )"><img style="height: 150px;"
+                                        ng-src="/uploads/{{model.mainImage.path}}" alt="{{model.mainImage.altValue}}" /></a>
+                                <div class="price" ng-if="model.price > 0">{{model.price}} LE</div>
+                            </div>
+                            <h3>
+                                <a ng-if="lang=='en'" ng-click="goToCarPage(model.carBrandId,model.name )">{{model.name}}</a>
+                                <a ng-if="lang=='ar'" ng-click="goToCarPage(model.carBrandId,model.name )">{{model.arName}}</a>
+                            </h3>
+
+                            <div class="lower-box">
+                                <ul class="car-info">
+                                    <!-- <li><span class="fa fa-road icon"></span>26000</li> -->
+                                    <!-- <li><span class="icon fa fa-car"></span>{{model.keyFeatures.fuelType}}</li> -->
+                                    <li><span class="icon fa fa-clock-o"></span>{{model.keyFeatures.regYear}}</li>
+                                    <li><span class="icon fa fa-inbox"></span>{{model.user.email}}</li>
+                                    <li><span class="icon fa fa-mobile"></span>{{model.user.phone}}</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

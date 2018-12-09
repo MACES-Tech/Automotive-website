@@ -23,7 +23,7 @@
     "spare_parts":"Spare Parts",
     "cars":"Mega Store",
     "buy":"Buy Car",
-    "buy_sell":"Buy / Sell Car",
+    "buy_sell":"Buy / Sell / Exchange Car",
     "sell":"Sell Car",
     "exchange":"Exchange Car",
     "contact_us":"Contact Us",
@@ -36,6 +36,8 @@
     "schedule_service":"Schedule for Service",
     "phone": "Phone",
     "email": "Email",
+    "password": "Password",
+    "user_name": "Name",
     "car_brand": "Car Brand",
     "car_model": "Car Model",
     "chassis_no": "Chassis No",
@@ -145,5 +147,9 @@
     "sucess_msg" :"Your Request received successfully",
     "admin_pages":"Admin Pages",
     "messages_list":"messages list",
-    "subscribers_list":"subscribers list"
+    "subscribers_list":"subscribers list",
+    "requested_cell_car":"Requested sell cars",
+    "requested_exchange_car":"Requested exchange cars",
+    "no_request":"No new request",
+    "register":"Register"
 }

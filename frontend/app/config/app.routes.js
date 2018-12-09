@@ -114,6 +114,32 @@ angular.module('alBargasyApp').config(function ($routeProvider, $ocLazyLoadProvi
         }).when('/cars/buy', {
             templateUrl: "./app/components/buy.car/buy.car.html",
             controller:"buyCarController"
+        }).when('/admin/request_sell_car', {
+            templateUrl: "./app/components/sell.car.requests/request.sell.car.html",
+            controller:"requestedCellCarsController",
+            resolve: {
+                deps: ['$ocLazyLoad', function ($ocLazyLoad) {
+                    return $ocLazyLoad.load({
+                        files: [
+                            "./app/components/sell.car.requests/request.sell.car.controller.js",
+                           
+                        ]
+                    });
+                }]
+            }
+        }).when('/admin/request_exchange_car', {
+            templateUrl: "./app/components/exchange.car.requests/request.exchange.car.html",
+            controller:"requestedExchangeCarsController",
+            resolve: {
+                deps: ['$ocLazyLoad', function ($ocLazyLoad) {
+                    return $ocLazyLoad.load({
+                        files: [
+                            "./app/components/exchange.car.requests/request.exchange.car.controller.js",
+                           
+                        ]
+                    });
+                }]
+            }
         }).when('/cars/service', {
             templateUrl: "./app/components/car.service/general.cars.service.html",
             controller:"generalCarsServiceController",

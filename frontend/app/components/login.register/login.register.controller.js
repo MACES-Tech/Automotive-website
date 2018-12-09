@@ -39,9 +39,17 @@ angular.module('alBargasyApp')
                 var registerObject = {"email":email,"password":password,"name":name,"phone":phone,"role":"user"};
                 loginRegisterService.register(registerObject,function(res,err){
                     if(err){
-
+                        SweetAlert.swal("Error", err, "error");
                     }else{
-                        $rootScope.setcurrentUser(JSON.stringify(res.data.user), res.data.token);
+                        $scope.login(email,password);
+                        // SweetAlert.swal("New User", "User created successfully", "success");
+                        // $scope.registerModel = {
+                        //     name:"",
+                        //     phone:"",
+                        //     email:"",
+                        //     password:""
+                        // }
+                        // $rootScope.setcurrentUser(JSON.stringify(res.data.user), res.data.token);
                     }
                     
                 });

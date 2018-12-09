@@ -6,29 +6,37 @@ angular.module('alBargasyApp')
         $scope.model = {};
         $scope.model.usedCar = 0;
         $scope.lang = $rootScope.getPreffrerdLanguage();
+        $scope.user = $rootScope.getcurrentUser();
+        console.log("saved",$rootScope.getcurrentUser())
         $rootScope.currentTab = "cars";
-        $scope.brands = [] ;
+        $scope.brands = [];
         $scope.isUsedCarFilter = null;
         $scope.carBrandId = null;
-        $scope.goToCarPage = function(carBrandId,carModel){
-            for(var i = 0 ; i < $scope.brands.length;i++){
-                if($scope.brands[i].id == carBrandId){
-                    $location.path('/' + $scope.brands[i].name +'/models/' + carModel);
+        $scope.goToCarPage = function (carBrandId, carModel) {
+            for (var i = 0; i < $scope.brands.length; i++) {
+                if ($scope.brands[i].id == carBrandId) {
+                    $location.path('/' + $scope.brands[i].name + '/models/' + carModel);
                 }
             }
-            
+
         }
-        $scope.switchTabCar = function(isUsed){
-            $scope.isUsedCarFilter  = isUsed;
-            $scope.init ($scope.carBrandId,$scope.isUsedCarFilter)
+        if ($scope.user != "") {
+            if ($scope.user.role == "user")
+                $scope.model.usedCar = 1;
+            console.log("$scope.model.usedCar ",$scope.user)
+        }
+        $scope.switchTabCar = function (isUsed) {
+            $scope.isUsedCarFilter = isUsed;
+            $scope.init($scope.carBrandId, $scope.isUsedCarFilter)
         }
 
-        $scope.init = function (carBrandId,isUsedCar) {
+        $scope.init = function (carBrandId, isUsedCar) {
             $rootScope.FaceBookLink = "";
             var filterObject = {};
-            if(carBrandId)
+            if (carBrandId)
                 filterObject.carBrandId = carBrandId;
             filterObject.usedCar = isUsedCar;
+            filterObject.isPublished = true;
             $scope.carModels = [];
             $scope.extraFeatures = [];
             brandModelsService.getAllModelsWithoutBrand(filterObject, function (res, err) {
@@ -66,7 +74,7 @@ angular.module('alBargasyApp')
             brandModelsService.deleteModelById(modelId, function (res, err) {
                 if (!err) {
                     SweetAlert.swal("Deleted!", "Your data has been deleted.", "success");
-                    $scope.init ($scope.carBrandId,$scope.isUsedCarFilter)
+                    $scope.init($scope.carBrandId, $scope.isUsedCarFilter)
                 }
             })
         }
@@ -86,11 +94,17 @@ angular.module('alBargasyApp')
                     data: { file: up.file } //pass file as data, should be user ng-model
                 }).then(function (resp) { //upload function returns a promise
                     if (resp.data.error_code === 0) { //validate success
-                        modelObject = { name: model.name, arName: model.arName, arFirstParagraph: model.arFirstParagraph, firstParagraph: model.firstParagraph, mainImage: resp.data.insertedFile.id ,brandId: $scope.model.carBrand,price:model.price };
-                        if($scope.model.usedCar==1)
-                                modelObject.usedCar = $scope.model.usedCar;
-                            else
-                                modelObject.usedCar = null;
+                        modelObject = { name: model.name, arName: model.arName, arFirstParagraph: model.arFirstParagraph, firstParagraph: model.firstParagraph, mainImage: resp.data.insertedFile.id, brandId: $scope.model.carBrand, price: model.price };
+                        if ($scope.model.usedCar == 1)
+                            modelObject.usedCar = $scope.model.usedCar;
+                        else
+                            modelObject.usedCar = null;
+                        modelObject.userId = $scope.user.id;
+                        if ($scope.user.role == 'user')
+                            modelObject.isPublished = false;
+                        else
+                            modelObject.isPublished = true;
+                        modelObject.exchange = model.exchange;
                         modelObject.keyFeatures = model.keyFeatures;
                         modelObject.extraFeatures = [];
                         $scope.extraFeatures.forEach(element => {
@@ -101,7 +115,7 @@ angular.module('alBargasyApp')
                         brandModelsService.creatNewModel(modelObject, function (res, err) {
                             if (!err) {
                                 SweetAlert.swal("Good job!", "The car added successfully", "success");
-                                $scope.init ($scope.carBrandId,$scope.isUsedCarFilter)
+                                $scope.init($scope.carBrandId, $scope.isUsedCarFilter)
                                 $scope.forceClearAllData(model)
 
                             } else {
@@ -126,11 +140,17 @@ angular.module('alBargasyApp')
                 console.log(up)
                 if (!up.file) {
                     console.log('edit only');
-                    modelObject = { id: model.id, name: model.name, arName: model.arName, arFirstParagraph: model.arFirstParagraph, firstParagraph: model.firstParagraph, brandId: $scope.model.carBrand,price:model.price };
-                    if($scope.model.usedCar==1)
-                                modelObject.usedCar = $scope.model.usedCar;
-                            else
-                                modelObject.usedCar = null;
+                    modelObject = { id: model.id, name: model.name, arName: model.arName, arFirstParagraph: model.arFirstParagraph, firstParagraph: model.firstParagraph, brandId: $scope.model.carBrand, price: model.price };
+                    if ($scope.model.usedCar == 1)
+                        modelObject.usedCar = $scope.model.usedCar;
+                    else
+                        modelObject.usedCar = null;
+                    modelObject.userId = $scope.user.id;
+                    if ($scope.user.role == 'user')
+                        modelObject.isPublished = false;
+                    else
+                        modelObject.isPublished = true;
+                    modelObject.exchange = model.exchange;
                     modelObject.keyFeatures = model.keyFeatures;
                     modelObject.extraFeatures = [];
                     $scope.extraFeatures.forEach(element => {
@@ -141,7 +161,7 @@ angular.module('alBargasyApp')
                     brandModelsService.editModel(modelObject, function (res, err) {
                         if (!err) {
                             SweetAlert.swal("Good job!", "The car updated successfully", "success");
-                            $scope.init ($scope.carBrandId,$scope.isUsedCarFilter)
+                            $scope.init($scope.carBrandId, $scope.isUsedCarFilter)
                             $scope.forceClearAllData(model)
 
 
@@ -157,11 +177,17 @@ angular.module('alBargasyApp')
                         data: { file: up.file } //pass file as data, should be user ng-model
                     }).then(function (resp) { //upload function returns a promise
                         if (resp.data.error_code === 0) { //validate success                    
-                            modelObject = { id: model.id, name: model.name, arName: model.arName, arFirstParagraph: model.arFirstParagraph, firstParagraph: model.firstParagraph, mainImageId: resp.data.insertedFile.id, brandId: $scope.model.carBrand,price:model.price };
-                            if($scope.model.usedCar==1)
+                            modelObject = { id: model.id, name: model.name, arName: model.arName, arFirstParagraph: model.arFirstParagraph, firstParagraph: model.firstParagraph, mainImageId: resp.data.insertedFile.id, brandId: $scope.model.carBrand, price: model.price };
+                            if ($scope.model.usedCar == 1)
                                 modelObject.usedCar = model.usedCar;
                             else
                                 modelObject.usedCar = null;
+                            modelObject.userId = $scope.user.id;
+                            if ($scope.user.role == 'user')
+                                modelObject.isPublished = false;
+                            else
+                                modelObject.isPublished = true;
+                            modelObject.exchange = model.exchange;
                             modelObject.keyFeatures = model.keyFeatures;
                             modelObject.extraFeatures = [];
                             $scope.extraFeatures.forEach(element => {
@@ -172,7 +198,7 @@ angular.module('alBargasyApp')
                             brandModelsService.editModel(modelObject, function (res, err) {
                                 if (!err) {
                                     SweetAlert.swal("Good job!", "The car updated successfully", "success");
-                                    $scope.init ($scope.carBrandId,$scope.isUsedCarFilter)
+                                    $scope.init($scope.carBrandId, $scope.isUsedCarFilter)
                                     $scope.forceClearAllData(model)
 
 
@@ -261,14 +287,14 @@ angular.module('alBargasyApp')
             $scope.model.carBrand = model.carBrandId;
             $scope.model.usedCar = model.usedCar;
         }
-        brandModelsService.getAllBrands(function(res, err){
-            if(res.data.length > 0 ){
+        brandModelsService.getAllBrands(function (res, err) {
+            if (res.data.length > 0) {
                 $scope.brands = res.data;
                 $scope.init();
-            }else{
+            } else {
                 SweetAlert.swal("Error", "an error occuers", "error");
             }
         })
-        
+
 
     });

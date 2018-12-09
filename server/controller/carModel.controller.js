@@ -13,6 +13,8 @@ exports.create = (req, res, next) => {
 	var model = req.body;
 	if(!model.usedCar)
 		model.usedCar = null;
+	if(!model.exchange)
+		model.exchange = false;
 	console.log(model);
 	var keyFeatures = model.keyFeatures;
 	CarModel.create({  
@@ -23,7 +25,10 @@ exports.create = (req, res, next) => {
 		firstParagraph: model.firstParagraph,
 		arFirstParagraph: model.arFirstParagraph,
 		usedCar:model.usedCar,
-		price:model.price
+		price:model.price,
+		userId:model.userId,
+		isPublished:model.isPublished,
+		exchange:model.exchange
 	}).then(carModel => {
 		model.extraFeatures.forEach(option => {
 			ExtrafeaturesJointable.create({carModelId:carModel.id,extraFeaturesId:option})
@@ -75,17 +80,26 @@ exports.findBycarBrandId = (req, res, next) => {
 
 exports.findAllcars = (req, res, next) => {
 	var filterObject = {};
+	filterObject.isPublished = true;
+	filterObject.exchange = false;
 	if(req.body.carBrandId)
 		filterObject.carBrandId = req.body.carBrandId;
 
-	if(req.body.usedCar)
+	if(req.body.usedCar){
 		filterObject.usedCar = req.body.usedCar;
+		filterObject.isPublished = req.body.isPublished;
+	}
 	else
 		filterObject.usedCar = null;
 
+	if(req.body.exchange){
+		filterObject.exchange = req.body.exchange;
+	}
+
 	CarModel.findAll({include: [
 		{ model: db.file, as: 'mainImage' },
-		{ model: db.carbrand, as:'car_brand'}
+		{ model: db.carbrand, as:'car_brand'},
+		{ model: db.users,}
 	],where:filterObject}).then((carModels)=>{
 		// next();
 		var jsonResult = [];
@@ -122,7 +136,7 @@ exports.getExtraFeaturesByCar = (req, res, next) => {
 	}).catch(next);
 };
 exports.findByName = (req, res, next) => {
-	CarModel.findAll({where:{name:req.params.modelName,usedCar:null}}).then(carModel => {
+	CarModel.findAll({where:{name:req.params.modelName}}).then(carModel => {
 		// next()
 		model = carModel[0];
 		var jsonResult = model.toJSON();
@@ -174,7 +188,7 @@ exports.update = (req, res, next) => {
 	CarModel.update( carModelObject, 
 					 { where: {id: req.params.carModelId} }
 					 ).then(() => {
-						if(carModelObject.extraFeatures.length > 0 ){
+						if(carModelObject.extraFeatures && carModelObject.extraFeatures.length > 0 ){
 							ExtrafeaturesJointable.destroy({
 								where: { carModelId: id }
 							  }).then(() => {
@@ -183,20 +197,23 @@ exports.update = (req, res, next) => {
 								});
 							  })
 						}
-
-						KeyFeatures.update(carModelObject.keyFeatures,{
-							where: {id: carModelObject.keyFeatures.id}
-						}).then((updated) =>{
-							console.log(updated);
-							if(updated[0] == 0){
-								carModelObject.keyFeatures.carModelId = carModelObject.id
-								KeyFeatures.create(carModelObject.keyFeatures).then((created) =>{
+						if(carModelObject.keyFeatures){
+							KeyFeatures.update(carModelObject.keyFeatures,{
+								where: {id: carModelObject.keyFeatures.id}
+							}).then((updated) =>{
+								console.log(updated);
+								if(updated[0] == 0){
+									carModelObject.keyFeatures.carModelId = carModelObject.id
+									KeyFeatures.create(carModelObject.keyFeatures).then((created) =>{
+									
+									});
+								}
 								
-								});
-							}
-							
+								res.status(200).send("updated successfully a carBrand with id = " + id);
+							})
+						}else{
 							res.status(200).send("updated successfully a carBrand with id = " + id);
-						})
+						}
 						// next()
 				   }).catch(next);
 };

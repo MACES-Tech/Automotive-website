@@ -102,10 +102,8 @@
                                         </li>
                                         <li ng-class="currentTab==='cars'? 'current':''" class="dropdown"><a href="#">{{'cars'|translate}}</a>
                                             <ul>
-                                                <li><a ng-if="isAdmin()" href="#/cars/buy">{{'buy_sell'|translate}}</a></li>
-                                                <li><a ng-if="!isAdmin()" href="#/cars/buy">{{'buy'|translate}}</a></li>
+                                                <li><a  href="#/cars/buy">{{'buy_sell'|translate}}</a></li>
                                                 <li><a href="#/cars/compare">{{'VEHICLE_COMPARE'|translate}}</a></li>
-                                                <li><a href="#">{{'exchange'|translate}}</a></li>
                                                 <li><a href="#/cars/service">{{'service_center'|translate}}</a></li>
                                             </ul>
                                         </li>
@@ -116,11 +114,19 @@
                                                     <a ng-if="isAdmin()" ng-click="goTopage('/admin/request_services')">{{'requested_services'|translate}}</a>
                                                 </li>
                                                 <li>
+                                                    <a ng-if="isAdmin()" ng-click="goTopage('/admin/request_sell_car')">{{'requested_cell_car'|translate}}</a>
+                                                </li>
+                                                <li>
+                                                    <a ng-if="isAdmin()" ng-click="goTopage('/admin/request_exchange_car')">{{'requested_exchange_car'|translate}}</a>
+                                                </li>
+                                                <li>
                                                     <a ng-if="isAdmin()" ng-click="goTopage('/admin/messages_list')">{{'messages_list'|translate}}</a>
                                                 </li>
                                                 <li>
                                                     <a ng-if="isAdmin()" ng-click="goTopage('/admin/subscribers_list')">{{'subscribers_list'|translate}}</a>
                                                 </li>
+
+                                                
                                             </ul>
                                         </li>
                                             
@@ -209,10 +215,8 @@
                                 </li>
                                 <li ng-class="currentTab==='cars'? 'current':''" class="dropdown"><a href="#">{{'cars'|translate}}</a>
                                     <ul>
-                                            <li><a ng-if="isAdmin()" href="#/cars/buy">{{'buy_sell'|translate}}</a></li>
-                                            <li><a ng-if="!isAdmin()" href="#/cars/buy">{{'buy'|translate}}</a></li>
+                                            <li><a  href="#/cars/buy">{{'buy_sell'|translate}}</a></li>
                                             <li><a  href="#/cars/compare">{{'VEHICLE_COMPARE'|translate}}</a></li>
-                                            <li><a href="#">{{'exchange'|translate}}</a></li>
                                             <li><a href="#/cars/service">{{'service_center'|translate}}</a></li>
                                         </ul>
                                 </li>

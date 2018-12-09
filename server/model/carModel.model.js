@@ -2,6 +2,7 @@ module.exports = (sequelize, Sequelize) => {
 	const Brand =  require('../model/carbrand.model.js')(sequelize, Sequelize);
     const File =  require('../model/file.model.js')(sequelize, Sequelize);
 	const Video =  require('../model/video.model.js')(sequelize, Sequelize);
+	const User =  require('../model/users.model.js')(sequelize, Sequelize);
 	const CarModel = sequelize.define('car_model', {
         name: {
 			type: Sequelize.STRING
@@ -32,8 +33,14 @@ module.exports = (sequelize, Sequelize) => {
 		},
 		price:{
 			type: Sequelize.INTEGER, allowNull: true, defaultValue: 0
+		},
+		isPublished:{
+			type: Sequelize.BOOLEAN, allowNull: false, defaultValue: false
+		},exchange:{
+			type: Sequelize.BOOLEAN, allowNull: true, defaultValue: false
 		}
 	});
+	CarModel.belongsTo(User, {foreignKey : 'userId'})
 	CarModel.belongsTo(Brand, {foreignKey : 'carBrandId'})
     CarModel.belongsTo(File, {foreignKey : 'mainImageId' , as :"mainImage"})
     CarModel.belongsTo(File, {foreignKey : 'coverImageId'})

@@ -23,7 +23,7 @@
     "spare_parts":"قطع الغيار",
     "cars":"ميجا ستور",
     "buy":"شراء سيارة",
-    "buy_sell":"بيع \\ شراء سيارة",
+    "buy_sell":"بيع \\ شراء \\ استبدال",
     "sell":"بيع سيارة",
     "exchange":"استبدال سيارة",
     "contact_us":"تواصل معنا",
@@ -36,6 +36,8 @@
     "schedule_service":"حجز صيانة",
     "phone": "رقم الهاتف",
     "email": "البريد الالكتروني",
+    "password": "كلمة المرور",
+    "user_name": "الاسم",
     "car_brand": "المركة",
     "car_model": "الموديل",
     "chassis_no": "رقم الشاسية",
@@ -145,7 +147,11 @@
     "sucess_msg" :"تم تلقى طلبك بنجاح",
     "admin_pages":"صفحات مدير التطبيق",
     "messages_list":"قائمة الرسائل",
-    "subscribers_list":"قائمة المشتركين"
+    "subscribers_list":"قائمة المشتركين",
+    "requested_cell_car":"طلبات بيع السيارات",
+    "requested_exchange_car":"طلبات تبديل السيارات",
+    "no_request":"لا توجد طلبات جديده",
+    "register":"تسجيل"
 
     
 }
