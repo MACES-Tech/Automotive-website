@@ -2,7 +2,17 @@ angular.module('alBargasyApp').config(function ($routeProvider, $ocLazyLoadProvi
 
     $routeProvider.when('/home', {
         templateUrl: "./app/components/home/home.html",
-        controller: 'homeController'
+        controller: 'homeController',
+        resolve: {
+            deps: ['$ocLazyLoad', function ($ocLazyLoad) {
+                return $ocLazyLoad.load({
+                    files: [
+                        "./app/components/home/home.service.js"
+                    ]
+                });
+            }
+        ]}
+            
     }).when("/:brandName/models", {
         templateUrl: "./app/components/models/brand.models.html",
         controller: 'modelsController'

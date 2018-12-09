@@ -151,7 +151,14 @@
     "requested_cell_car":"طلبات بيع السيارات",
     "requested_exchange_car":"طلبات تبديل السيارات",
     "no_request":"لا توجد طلبات جديده",
-    "register":"تسجيل"
-
+    "register":"تسجيل",
+    "add_image_to_slider":"اضافة صورة للصفحه الرئيسيه",
+    "english_title":"العنوان باالانجليزيه",
+    "arabic_title":"العنوان بالعربية",
+    "title_mission":"المهمه",
+    "title_arabic_mission":"المهمه بالعربيه",
+    "title_vision":"الرؤيه",
+    "title_arabic_vision":"الرؤيه بالعربي",
+    "clear":"مسح"
     
 }
