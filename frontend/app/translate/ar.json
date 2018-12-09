@@ -148,6 +148,11 @@
     "subscribers_list":"قائمة المشتركين",
     "add_image_to_slider":"اضافة صورة للصفحه الرئيسيه",
     "english_title":"العنوان باالانجليزيه",
-    "arabic_title":"العنوان بالعربية"
+    "arabic_title":"العنوان بالعربية",
+    "title_mission":"المهمه",
+    "title_arabic_mission":"المهمه بالعربيه",
+    "title_vision":"الرؤيه",
+    "title_arabic_vision":"الرؤيه بالعربي",
+    "clear":"مسح"
     
 }

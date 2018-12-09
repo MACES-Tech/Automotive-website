@@ -148,5 +148,10 @@
     "subscribers_list":"subscribers list",
     "add_image_to_slider" :"add image to slider",
     "english_title":"English title",
-    "arabic_title":"Arabic title"
+    "arabic_title":"Arabic title",
+    "title_mission":"Mission",
+    "title_arabic_mission":"Arabiv mission",
+    "title_vision":"vision",
+    "title_arabic_vision":"Arabic vision",
+    "clear":"clear"
 }
