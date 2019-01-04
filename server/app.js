@@ -2,12 +2,13 @@
     var app = express(); 
     var bodyParser = require('body-parser');
     const passport = require('passport');
-
+    var compression = require('compression')
 
         /** Serving from the same express Server
     No cors required */
     app.use(express.static('../frontend'));
     app.use(bodyParser.json());  
+    app.use(compression())
     app.use(function(err,req,res,next){
         // Catch unauthorised errors
     if (err.name === 'UnauthorizedError') {
