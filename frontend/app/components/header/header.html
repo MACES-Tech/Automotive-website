@@ -82,19 +82,19 @@
                                 <div class="navbar-collapse collapse clearfix">
                                     <ul class="navigation clearfix">
                                         <li ng-class="currentTab==='home'? 'current':''"><a  ng-click="goTopage('/home')">{{'home'|translate}}</a></li>
-                                        <li ng-class="currentTab==='skoda'? 'current':''" class="dropdown"><a ng-click="goTopage('/skoda/models')">{{'skoda'|translate}}</a>
-                                            <ul>
-                                                <li><a ng-click="goTopage('/skoda/models')" >{{'models'|translate}}</a></li>
-                                                <li><a ng-click="goTopage('/skoda/services')" >{{'service_center'|translate}}</a></li>
-                                                <li><a ng-click="goTopage('/skoda/spare_parts')">{{'spare_parts'|translate}}</a></li>
-                                            </ul>
-                                        </li>
                                         <!-- <li><a href="services.html">Services</a></li> -->
                                         <li ng-class="currentTab==='toyota'? 'current':''" class="dropdown"><a ng-click="goTopage('/toyota/models')" >{{'toyota'|translate}}</a>
                                             <ul>
                                                 <li><a ng-click="goTopage('/toyota/models')" >{{'models'|translate}}</a></li>
                                                 <li><a ng-click="goTopage('/toyota/services')" >{{'service_center'|translate}}</a></li>
                                                 <li><a ng-click="goTopage('/toyota/spare_parts')">{{'spare_parts'|translate}}</a></li>
+                                            </ul>
+                                        </li>
+                                        <li ng-class="currentTab==='skoda'? 'current':''" class="dropdown"><a ng-click="goTopage('/skoda/models')">{{'skoda'|translate}}</a>
+                                            <ul>
+                                                <li><a ng-click="goTopage('/skoda/models')" >{{'models'|translate}}</a></li>
+                                                <li><a ng-click="goTopage('/skoda/services')" >{{'service_center'|translate}}</a></li>
+                                                <li><a ng-click="goTopage('/skoda/spare_parts')">{{'spare_parts'|translate}}</a></li>
                                             </ul>
                                         </li>
                                         <li ng-class="currentTab==='cars'? 'current':''" class="dropdown"><a href="#">{{'cars'|translate}}</a>

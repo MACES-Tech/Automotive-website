@@ -125,14 +125,40 @@
                         <div class="content-column col-md-4 col-sm-12 col-xs-12">
                             <div class="inner-column">
                                 <div class="bold-text">
-                                    <span ng-if="lang=='ar'">{{aboutUs.arTitle}}</span> 
-                                    <span ng-if="lang=='en'">{{aboutUs.title}}</span> 
+                                    <span ng-if="lang=='ar'">{{aboutUs.arTitle}}</span>
+                                    <span ng-if="lang=='en'">{{aboutUs.title}}</span>
                                 </div>
-                                <div class="text"> 
-                                    <span ng-if="lang=='ar'">{{aboutUs.arParagraph}}</span> 
-                                    <span ng-if="lang=='en'">{{aboutUs.paragraph}}</span> 
+                                <div class="text">
+                                    <span ng-if="lang=='ar'">{{aboutUs.arParagraph}}</span>
+                                    <span ng-if="lang=='en'">{{aboutUs.paragraph}}</span>
                                 </div>
-                                
+                                <div class="blocks-column ">
+                                    <div class="row clearfix">
+                                        <!--About Block-->
+                                        <div class="about-block">
+                                            <div class="lower-box">
+                                                <h3>{{'work_smart'|translate}}</h3>
+                                                <div class="text">
+                                                    <ul ng-if="lang=='ar'" style="direction: rtl">
+                                                        <li>&#9679;{{'work_smart1'|translate}}</li>
+                                                        <li>&#9679;{{'work_smart2'|translate}}</li>
+                                                        <li>&#9679;{{'work_smart3'|translate}}</li>
+                                                        <li>&#9679;{{'work_smart4'|translate}}</li>
+                
+                                                    </ul>
+                                                    <ul ng-if="lang=='en'" >
+                                                            <li>&#9679;{{'work_smart1'|translate}}</li>
+                                                            <li>&#9679;{{'work_smart2'|translate}}</li>
+                                                            <li>&#9679;{{'work_smart3'|translate}}</li>
+                                                            <li>&#9679;{{'work_smart4'|translate}}</li>
+                    
+                                                        </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                
                             </div>
                         </div>
                         <!--Blocks Column-->
@@ -148,10 +174,39 @@
                                             <h3><a >{{'mission_title'|translate}}</a></h3>
                                             <div class="text">
                                                     <span ng-if="lang=='ar'">{{aboutUs.arMissionParagraph}}</span> 
-                                                    <span ng-if="lang=='en'">{{aboutUs.missionParagraph}}</span> 
+                                                    <span ng-if="lang=='en'">{{aboutUs.missionParagraph}}</span>
+                                                    <br>
+                                                    <ul>
+                                                        <li><span ng-if="lang=='en'">&#9679;</span> {{'mission_section_point1'|translate}}<span ng-if="lang=='ar'">&#9679;</span></li>
+                                                        <li><span ng-if="lang=='en'">&#9679;</span> {{'mission_section_point2'|translate}}<span ng-if="lang=='ar'">&#9679;</span></li>
+                                                    </ul> 
                                             </div>
                                         </div>
+                                        <div class="blocks-column ">
+                                                <div class="row clearfix">
+                                                    <!--About Block-->
+                                                    <div class="about-block">
+                                                        <div class="lower-box">
+                                                            <h3>{{'act_like_owners'|translate}}</h3>
+                                                            <div class="text">
+                                                                <ul ng-if="lang=='ar'" style="direction: rtl">
+                                                                    <li>&#9679;{{'act_like_owners1'|translate}}</li>
+                                                                    <li>&#9679;{{'act_like_owners2'|translate}}</li>
+                                                                    <li>&#9679;{{'act_like_owners3'|translate}}</li>                            
+                                                                </ul>
+                                                                <ul ng-if="lang=='en'" >
+                                                                        <li>&#9679;{{'act_like_owners1'|translate}}</li>
+                                                                        <li>&#9679;{{'act_like_owners2'|translate}}</li>
+                                                                        <li>&#9679;{{'act_like_owners3'|translate}}</li>
+                                
+                                                                    </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                     </div>
+                                    
                                 </div>
                                 
                                 <!--About Block-->
@@ -164,7 +219,38 @@
                                                 <h3><a >{{'vision_title'|translate}}</a></h3>
                                                 <div class="text">
                                                     <span ng-if="lang=='ar'">{{aboutUs.arVisionParagraph}}</span> 
-                                                    <span ng-if="lang=='en'">{{aboutUs.visionParagraph}}</span> </div>
+                                                    <span ng-if="lang=='en'">{{aboutUs.visionParagraph}}</span> 
+                                                    <br>
+                                                    <ul>
+                                                        <li><span ng-if="lang=='en'">&#9679;</span> {{'vision_section_point1'|translate}}<span ng-if="lang=='ar'">&#9679;</span></li>
+                                                        <li><span ng-if="lang=='en'">&#9679;</span> {{'vision_section_point2'|translate}}<span ng-if="lang=='ar'">&#9679;</span></li>
+                                                        <li><span ng-if="lang=='en'">&#9679;</span> {{'vision_section_point3'|translate}}<span ng-if="lang=='ar'">&#9679;</span></li>
+                                                        <li><span ng-if="lang=='en'">&#9679;</span> {{'vision_section_point4'|translate}}<span ng-if="lang=='ar'">&#9679;</span></li>
+                                                        <li>
+                                                            <span ng-if="lang=='en'">&#9679;</span> {{'vision_section_point5'|translate}}<span ng-if="lang=='ar'">&#9679;</span>
+                                                        </li>
+                                                        <li ng-if="lang=='en'" style="padding-left: 10px;">
+                                                            <ul>
+                                                                <li>&#9675; {{'vision_section_point51'|translate}}</li>
+                                                                <li>&#9675; {{'vision_section_point52'|translate}}</li>
+                                                                <li>&#9675; {{'vision_section_point53'|translate}}</li>
+                                                                <li>&#9675;{{'vision_section_point54'|translate}}</li>
+                                                                <li>&#9675;{{'vision_section_point55'|translate}}</li>
+                                                                <li>&#9675; {{'vision_section_point56'|translate}}</li>
+                                                            </ul>
+                                                        </li>
+                                                        <li ng-if="lang=='ar'" style="padding-right: 10px;direction: rtl;">
+                                                            <ul >
+                                                                <li >&#9675; {{'vision_section_point51'|translate}}</li>
+                                                                <li >&#9675; {{'vision_section_point52'|translate}}</li>
+                                                                <li >&#9675; {{'vision_section_point53'|translate}}</li>
+                                                                <li >&#9675;{{'vision_section_point54'|translate}}</li>
+                                                                <li >&#9675;{{'vision_section_point55'|translate}}</li>
+                                                                <li >&#9675; {{'vision_section_point56'|translate}}</li>
+                                                            </ul>
+                                                        </li>
+                                                    </ul> 
+                                                </div>
                                         </div>
                                     </div>
                                 </div>
@@ -172,6 +258,100 @@
                             </div>
                         </div>
                     </div>
+                    <style>
+                        .circle-text {
+                            display: inline-block;;
+                            height: 44px;
+                            width: 44px;
+                            text-align: center;
+                            vertical-align: middle;
+                            border-radius: 50%;
+                            border-color: red;
+                            background-color: black;
+                        }
+                        .companyName span{
+                            cursor: pointer
+                        }
+                        .value_inactive{
+                            display: none;
+                        }
+                        .value_active{
+                            display: block;
+                        }
+                        .sec_title{
+                            color: red;
+                            font-weight: bold;
+                            }
+                           .values h3 {
+                                font-size: 23px;
+                            }
+                            .values_section .values_section_title::before {
+                            position: absolute;
+                            content: '';
+                            bottom: 0px;
+                            width: 55px;
+                            height: 2px;
+                            background-color: #eb1d27;
+                        }
+                    </style>
+                    <div class="row clearfix values_section">
+                        <div style="text-align: center">
+                            <h3 class="values_section_title">Our values are as unique and exclusive as our name </h3>
+                            <h2 class="companyName" style="color:red" >
+                                <span class="circle-text" id="1">A</span>
+                                <span id="2">L</span>
+                                <span id="3">B</span>
+                                <span id="4">A</span>
+                                <span id="5">R</span>
+                                <span id="6">G</span>
+                                <span id="7">A</span>
+                                <span id="8">S</span>
+                                <span id="9">Y</span>
+                            </h2>
+                        </div>
+                        <div class="values" style="margin-top: 20px" style="text-align: center">
+                            <h3 id="sec1" class="value_active">
+                                <span class="sec_title">Accountability</span>: Applied to both individual accountability on the part of
+                                employees and accountability of the
+                                company as a whole to acknowledging and assuming responsibility for actions, products, decisions, and policies.
+                            </h3>
+                            <h3 id="sec2" class="value_inactive">
+                                <span class="sec_title">Loyalty</span>: Our first loyalty to regular customers from our belief that customers
+                                are the foundation upon which we
+                                build our success
+                            </h3>
+                            <h3 id="sec3" class="value_inactive">
+                                <span class="sec_title">Benefit</span>: We are delivering a value to all our stakeholders when we find wise
+                                ways to reduce our expenses, we free
+                                up funds to benefit our customers, and reward ours
+                            </h3>
+                            <h3 id="sec4" class="value_inactive">
+                                <span class="sec_title">Adaptability</span>: Remaining flexible and adapting to change and providing a positive
+                                attitude toward pipeline of new
+                                ideas
+                            </h3>
+                            <h3 id="sec5" class="value_inactive">
+                                <span class="sec_title">Responsibility</span>: Provide the highest level of customer service ever and retention
+                                our employees as the human capital
+                                as asset value for our organization
+                            </h3>
+                            <h3 id="sec6" class="value_inactive">
+                                <span class="sec_title">Growth</span>: we serve our customer's needs, earn their trust, and grow our market
+                                share to deliver value to all
+                                stakeholders
+                            </h3>
+                            <h3 id="sec7" class="value_inactive">
+                                    <span class="sec_title">Advantage</span>: To Become an effective leader
+                            </h3>
+                            <h3 id="sec8" class="value_inactive">
+                                <span class="sec_title">Sustainability</span>: we want to set benchmark in sustainable practices in design
+                                property and concept development, whilst providing higher standard of convince, security & quality to customer
+                            </h3>
+                            <h3 id="sec9" class="value_inactive">
+                                <span class="sec_title">Young-Professionals</span>: we recognize that youth plays a clear role in the success
+                                of companies. Take in their enthusiasm drive for every development </h3>
+                        </div>
+                        </div>
                 </div>
             </section>
 

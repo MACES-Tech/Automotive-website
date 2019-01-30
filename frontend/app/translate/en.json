@@ -1,6 +1,6 @@
 {
-    "skoda":"SKODA",
-    "toyota":"TOYOTA",
+    "skoda":"SKODA Albargasy",
+    "toyota":"TOYOTA Albargasy",
     "services":"Services",
     "name":"English Name",
     "arabic_name":"Arabic Name",
@@ -109,7 +109,7 @@
     "slider_header1":"Find your dream car",
     "slider_header2":"with Al Bargasy Automotive!.",
     "slider_header3":"Best maintenance at the lowest prices",
-    "about_header":"ِAbout Al Bargasy Automotive",
+    "about_header":"ِAbout Albargasy for trade and marketing",
     "mission_title":"Our Mission ",
     "vision_title":"Our Vision ",
     "mission":"Our Roadmap starts with our mission, which is our steadfast commitment and purpose as a company. It serves as the standard against which we weigh our actions and decisions.",
@@ -161,5 +161,29 @@
     "title_arabic_vision":"Arabic vision",
     "clear":"clear",
     "about_el_bargasy":"Edit About Al Bargasy",
-    "Choose_File":"Choose File"
+    "Choose_File":"Choose File",
+    "mission_section_point1":"To inspire sustainability delivery.",
+    "mission_section_point2":"To create value and make a difference in all our scope of business.",
+    "vision_section_point2":"Possess an external view",
+    "vision_section_point3":"Focus on needs of our customers",
+    "vision_section_point4":"Focus on execution in the marketplace every day",
+    "vision_section_point5":"Get out into the market and listen, observe and learn",
+    "vision_section_point1":"Focus on the Market",
+    "vision_section_point51":"People: Be a great place to work where people are inspired to be the best they can be.",
+    "vision_section_point52":"Portfolio: Bring to the stockholders a portfolio of quality services that anticipate and satisfy people's desires and needs.",
+    "vision_section_point53":"Partners: Nurture a winning network of customers and suppliers, together we create mutual, enduring value.",
+    "vision_section_point54":"Planet: Be a responsible citizen that makes a difference by helping build and support sustainable company.",
+    "vision_section_point55":"Profit: Maximize long-term return while being mindful of our overall responsibilities.",
+    "vision_section_point56":"Productivity: Be a highly effective, lean and fast-moving company.",
+    "work_smart":"Work Smart",
+    "work_smart1":"Act with urgency.",
+    "work_smart2":"Remain responsive to change.",
+    "work_smart3":"Have the courage to change course when needed.",
+    "work_smart4":"Work efficiently.",
+    "act_like_owners":"Act like Owners",
+    "act_like_owners1":"Be accountable for our actions and inactions",
+    "act_like_owners2":"Learn from our outcomes -- what worked and what didn’t",
+    "act_like_owners3":" Reward our people for taking risks and finding better ways to solve problems"
+    
+
 }
