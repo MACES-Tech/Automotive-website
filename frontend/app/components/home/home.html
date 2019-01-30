@@ -258,43 +258,8 @@
                             </div>
                         </div>
                     </div>
-                    <style>
-                        .circle-text {
-                            display: inline-block;;
-                            height: 44px;
-                            width: 44px;
-                            text-align: center;
-                            vertical-align: middle;
-                            border-radius: 50%;
-                            border-color: red;
-                            background-color: black;
-                        }
-                        .companyName span{
-                            cursor: pointer
-                        }
-                        .value_inactive{
-                            display: none;
-                        }
-                        .value_active{
-                            display: block;
-                        }
-                        .sec_title{
-                            color: red;
-                            font-weight: bold;
-                            }
-                           .values h3 {
-                                font-size: 23px;
-                            }
-                            .values_section .values_section_title::before {
-                            position: absolute;
-                            content: '';
-                            bottom: 0px;
-                            width: 55px;
-                            height: 2px;
-                            background-color: #eb1d27;
-                        }
-                    </style>
-                    <div class="row clearfix values_section">
+                    
+                    <div class="row clearfix values_section" ng-if="lang =='en'">
                         <div style="text-align: center">
                             <h3 class="values_section_title">Our values are as unique and exclusive as our name </h3>
                             <h2 class="companyName" style="color:red" >

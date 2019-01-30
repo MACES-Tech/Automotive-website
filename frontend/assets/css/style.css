@@ -14,6 +14,40 @@ ul,li{list-style:none;padding:0px;margin:0px;}
 .theme-btn,
 .tp-caption .theme-btn{display:inline-block;text-align:center;transition:all 0.3s ease;-moz-transition:all 0.3s ease;-webkit-transition:all 0.3s ease;-ms-transition:all 0.3s ease;-o-transition:all 0.3s ease;}
 .grey-bg{background-color:#f9f9f9;}
+.circle-text {
+    display: inline-block;;
+    height: 44px;
+    width: 44px;
+    text-align: center;
+    vertical-align: middle;
+    border-radius: 50%;
+    border-color: red;
+    background-color: black;
+}
+.companyName span{
+    cursor: pointer
+}
+.value_inactive{
+    display: none;
+}
+.value_active{
+    display: block;
+}
+.sec_title{
+    color: red;
+    font-weight: bold;
+    }
+   .values h3 {
+        font-size: 23px;
+    }
+    .values_section .values_section_title::before {
+    position: absolute;
+    content: '';
+    bottom: 0px;
+    width: 55px;
+    height: 2px;
+    background-color: #eb1d27;
+}
 .centered{text-align:center;}
 .btn-style-one{position:relative;padding:12px 35px;line-height:24px;color:#ffffff;text-align:center;font-size:14px;font-weight:700;background:#eb1d27;letter-spacing:1px;text-transform:uppercase;border:2px solid #eb1d27;font-family:'Montserrat', sans-serif;}
 .btn-style-one:hover{color:#ffffff;background:#101010;border-color:#101010;}
