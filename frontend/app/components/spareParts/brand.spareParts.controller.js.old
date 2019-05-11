@@ -1,7 +1,6 @@
 angular.module('alBargasyApp')
-    .controller('modelsController', function ($window,$rootScope, $scope, $location, $routeParams, brandModelsService,SweetAlert,Upload) {
+    .controller('sparePartsController', function ($window,$rootScope, $scope, $location, $routeParams, brandSparePartsService,brandModelsService,SweetAlert,Upload) {
         $scope.carModels =[];
-        $scope.extraFeatures =[];
         $scope.up = {};
         $scope.model = {};
         $scope.lang = $rootScope.getPreffrerdLanguage();
@@ -11,7 +10,6 @@ angular.module('alBargasyApp')
                 //get an existing object
                 brandModelsService.getCarBrandByName($routeParams.brandName,function(res, err){
                     if(!err){
-                        
                         if(res.data.length > 0 &&res.status ===200){
                             $scope.carbrand = res.data[0];
                             if($scope.carbrand.name==="skoda"){
@@ -20,14 +18,9 @@ angular.module('alBargasyApp')
                                 $rootScope.FaceBookLink="https://www.facebook.com/Toyota.albargasy.3s/"
                             }
                             $rootScope.currentTab = $scope.carbrand.name;
-                            brandModelsService.getAllModels($scope.carbrand.id,function(res,err){
+                            brandSparePartsService.getAllSpareParts($scope.carbrand.id,function(res,err){
                                 if(!err){
                                     $scope.carModels = res.data;
-                                    brandModelsService.getAllExtraFeatures(function(res,err){
-                                        if(!err){
-                                            $scope.extraFeatures = res.data;
-                                        }
-                                    })
                                 }
                             })
 
@@ -62,10 +55,10 @@ angular.module('alBargasyApp')
              });
         }
         $scope.deleteIt = function(modelId){
-            brandModelsService.deleteModelById(modelId,function(res,err){
+            brandSparePartsService.deleteSparePartsById(modelId,function(res,err){
                 if(!err){
                     SweetAlert.swal("Deleted!", "Your data has been deleted.", "success");
-                    brandModelsService.getAllModels($scope.carbrand.id,function(res,err){
+                    brandSparePartsService.getAllSpareParts($scope.carbrand.id,function(res,err){
                         if(!err){
                             $scope.carModels = res.data;
                         }
@@ -81,10 +74,13 @@ angular.module('alBargasyApp')
                 $scope.filesSelected = files;
                 $scope.$apply();
         }
-        $scope.addNewCarModel = function(up,model){
+        $scope.addNewCarSparePart = function(up,model){
             console.log(up)
             if(model.price == undefined){
-                model.price = 0;
+                model.price =0;
+            }
+            if(model.available== undefined){
+                model.available=false;
             }
             if(!model.id){
                 Upload.upload({
@@ -92,18 +88,11 @@ angular.module('alBargasyApp')
                     data:{file:up.file} //pass file as data, should be user ng-model
                 }).then(function (resp) { //upload function returns a promise
                     if(resp.data.error_code === 0){ //validate success
-                        modelObject = {name:model.name, arName:model.arName,arFirstParagraph:model.arFirstParagraph,firstParagraph:model.firstParagraph, mainImage:resp.data.insertedFile.id,brandId:$scope.carbrand.id,price:model.price};
-                        modelObject.keyFeatures = model.keyFeatures;
-                        modelObject.extraFeatures=[];
-                        $scope.extraFeatures.forEach(element => {
-                            if(element.selected){
-                                modelObject.extraFeatures.push(element.id);
-                            }
-                        });
-                        brandModelsService.creatNewModel(modelObject,function(res,err){
+                        modelObject = {name:model.name, arName:model.arName,price:model.price, mainImageId:resp.data.insertedFile.id,carBrandId:$scope.carbrand.id,available:model.available};
+                        brandSparePartsService.creatNewSparePart(modelObject,function(res,err){
                             if(!err){
-                                SweetAlert.swal("Good job!", "The car added successfully", "success");
-                                brandModelsService.getAllModels($scope.carbrand.id,function(res,err){
+                                SweetAlert.swal("Good job!", "The Spare Part added successfully", "success");
+                                brandSparePartsService.getAllSpareParts($scope.carbrand.id,function(res,err){
                                     if(!err){
                                         $scope.carModels = res.data;
                                     }
@@ -133,18 +122,11 @@ angular.module('alBargasyApp')
                 console.log(up)
                 if(!up.file){
                     console.log('edit only');
-                    modelObject = {id:model.id,name:model.name, arName:model.arName,arFirstParagraph:model.arFirstParagraph,firstParagraph:model.firstParagraph,brandId:$scope.carbrand.id,price:model.price};
-                    modelObject.keyFeatures = model.keyFeatures;
-                    modelObject.extraFeatures=[];
-                        $scope.extraFeatures.forEach(element => {
-                            if(element.selected){
-                                modelObject.extraFeatures.push(element.id);
-                            }
-                        });    
-                        brandModelsService.editModel(modelObject,function(res,err){
+                    modelObject = {id:model.id,name:model.name, arName:model.arName,price:model.price,carBrandId:$scope.carbrand.id,available:model.available};
+                        brandSparePartsService.editSparePart(modelObject,function(res,err){
                                 if(!err){
-                                    SweetAlert.swal("Good job!", "The car updated successfully", "success");
-                                    brandModelsService.getAllModels($scope.carbrand.id,function(res,err){
+                                    SweetAlert.swal("Good job!", "The spare part updated successfully", "success");
+                                    brandSparePartsService.getAllSpareParts($scope.carbrand.id,function(res,err){
                                         if(!err){
                                             $scope.carModels = res.data;
                                         }
@@ -164,18 +146,11 @@ angular.module('alBargasyApp')
                         data:{file:up.file} //pass file as data, should be user ng-model
                     }).then(function (resp) { //upload function returns a promise
                         if(resp.data.error_code === 0){ //validate success                    
-                            modelObject = {id:model.id,name:model.name, arName:model.arName,arFirstParagraph:model.arFirstParagraph,firstParagraph:model.firstParagraph, mainImageId:resp.data.insertedFile.id,brandId:$scope.carbrand.id,price:model.price};
-                            modelObject.keyFeatures = model.keyFeatures;
-                            modelObject.extraFeatures=[];
-                            $scope.extraFeatures.forEach(element => {
-                                if(element.selected){
-                                    modelObject.extraFeatures.push(element.id);
-                                }
-                            });  
-                            brandModelsService.editModel(modelObject,function(res,err){
+                            modelObject = {id:model.id,name:model.name, arName:model.arName,price:model.price, mainImageId:resp.data.insertedFile.id,carBrandId:$scope.carbrand.id,available:model.available};
+                            brandSparePartsService.editSparePart(modelObject,function(res,err){
                                 if(!err){
-                                    SweetAlert.swal("Good job!", "The car updated successfully", "success");
-                                    brandModelsService.getAllModels($scope.carbrand.id,function(res,err){
+                                    SweetAlert.swal("Good job!", "The spare part updated successfully", "success");
+                                    brandSparePartsService.getAllSpareParts($scope.carbrand.id,function(res,err){
                                         if(!err){
                                             $scope.carModels = res.data;
                                         }
@@ -204,16 +179,7 @@ angular.module('alBargasyApp')
                 }
             }
         }
-        $scope.toggleEf = function(index){
-            if($scope.extraFeatures[index].selected){
-                if($scope.extraFeatures[index].selected==true)
-                    $scope.extraFeatures[index].selected=false;
-                if($scope.extraFeatures[index].selected==false)
-                    $scope.extraFeatures[index].selected=true;
-            }else{
-                $scope.extraFeatures[index].selected=true;
-            }
-        }
+
         $scope.clearData = function(model){
             SweetAlert.swal({
                 title: "Are you sure?",
@@ -231,38 +197,20 @@ angular.module('alBargasyApp')
              });
             
         }
-        $scope.addNewExtraFeature = function(extraFeature){
-            object = {title:extraFeature.name,arTitle:extraFeature.arabicName}
-            brandModelsService.createNewExtraFeature(object,function(res,err){
-                if(!err){
-                    createdObject = res.data;
-                    $scope.extraFeatures.push(createdObject);
-                    extraFeature.name="";
-                    extraFeature.arabicName="";
-                }else{
-                    SweetAlert.swal("Error", "an error occuers", "error");
-                }
-            })
-        }
         $scope.forceClearAllData = function(model){
             model.id="";
             model.arName="";
             model.name="";
-            model.arFirstParagraph="";
-            model.firstParagraph="";
+            model.price="";
             $scope.progress = "";
             $scope.up = {}
-            model.keyFeatures={};
-            model.options={};
         }
-        $scope.editmodel = function(model){
+        $scope.editSparePart = function(model){
             $scope.model.id = model.id;
             $scope.model.name = model.name;
             $scope.model.arName = model.arName;
-            $scope.model.arFirstParagraph = model.arFirstParagraph;
-            $scope.model.firstParagraph = model.firstParagraph;
             $scope.model.price = model.price;
-            $scope.model.keyFeatures = model.keyFeatures;
+            $scope.model.available = model.available;
         }
         $scope.init();
        
