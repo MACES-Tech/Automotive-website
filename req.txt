@@ -1,0 +1,55 @@
+Automotive
+
+dashboard
+
+from albargasy --> albargasy group
+
+ford tab
+--remove contact us from main page (header)
+--contact us of hq on footer
+
+
+--showroom zayed w mansorya friday 1pm-10pm
+--haram 9-6 service center
+--giza spare parts 9-9
+--giza showroom 9-9
+
+--mansorya 10-10
+--mansorya friday 1-10
+
+--mega store --> Albargasy Automotive(mega store)
+
+
+--swap toyota tab with skoda tab
+
+--corolla 2019
+--rush 
+--fortun
+
+
+--title service center toyota --> OEM --> genuine
+--spare parts --> spare parts and accessories
+
+--background to be watermark of each brand
+
+--sobaro, karok, fabia, octavia
+
+--no limitation on compare
+--no price
+
+--mega store --> no service center
+
+model elcar yb2a ben qoseen
+
+--remove available/out of stock icon from spare parts
+--send email with reservation
+
+--remove the title --> a5er el syarat
+--modify ta2seet mobasher to be mn 5lal sharekat el tamweel
+
+
+--tabs of brands 
+--footer to change with each tab
+
+
+
