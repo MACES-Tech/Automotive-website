@@ -23,7 +23,7 @@
     "sign_out":"Sign Out",
     "models":"Models",
     "service_center":"Service Center",
-    "spare_parts":"Spare Parts",
+    "spare_parts":"Spare parts and accessories",
     "cars":"Mega Store",
     "buy":"Buy Car",
     "buy_sell":"Buy / Sell / Exchange Car",
@@ -192,7 +192,11 @@
     "act_like_owners":"Act like Owners",
     "act_like_owners1":"Be accountable for our actions and inactions",
     "act_like_owners2":"Learn from our outcomes -- what worked and what didn’t",
-    "act_like_owners3":" Reward our people for taking risks and finding better ways to solve problems"
-    
-
+    "act_like_owners3":" Reward our people for taking risks and finding better ways to solve problems",
+    "subaru":"Subaru ALBARGASY",
+    "jac":"Jac ALBARGASY",
+    "ford":"Ford ALBARGASY",
+    "Haram_Working_Hours":"All Days from 9am : 6pm",
+    "Giza_Working_Hours":"All Days from 9am : 9pm",
+    "Skoda_working_hours":"Daily from 10 am to 10 pm except Fridays from 1 pm to 10 pm"
 }
