@@ -62,19 +62,25 @@
                                 <div class="footer-widget links-widget">
 									<h2>{{'Contact_Details'|translate}}</h2>
                                     <div class="widget-content">
-                                    	<ul class="list-style-one" ng-if="currentTab =='skoda'">
+                                    	<ul class="list-style-one" ng-if="currentTab =='skoda' || currentTab == 'home'">
                                         	<li><span class="icon flaticon-maps-and-flags"></span>{{'address_skoda'|translate}}</li>
                                             <li><span class="icon flaticon-telephone"></span> 0238753006 – 0238753007 - 0238753008</li>
-                                            <li><span class="icon flaticon-telephone"></span> 01095090999 - 01094040999 - 01094090999</li>
+                                            <li><span class="icon flaticon-telephone"></span> 01095090999 - 01094040999 - 01094090999 <span ng-if="currentTabType == 'car_service'"> - 01093030999</div></li>
                                             <li><span class="icon flaticon-web"></span>Info@albargasy.com</li>
                                         </ul>
-                                        <ul class="list-style-one" ng-if="currentTab =='toyota'">
+                                        <ul class="list-style-one" ng-if="currentTab =='toyota' && currentTabType != 'spare_parts'">
                                         	<li><span class="icon flaticon-maps-and-flags"></span>{{'address_toyota_giza'|translate}}</li>
                                             <li><span class="icon flaticon-telephone"></span> 0235736290 – 0235733919</li>
-                                            <li><span class="icon flaticon-telephone"></span> 01092090999</li>
+                                            <li><span class="icon flaticon-telephone"></span> 01002518791</li>
                                             <li><span class="icon flaticon-web"></span>Info@albargasy.com</li>
                                         </ul>
-                                        <ul class="list-style-one" ng-if="currentTab !='toyota' && currentTab !='skoda'">
+                                        <ul class="list-style-one" ng-if="currentTab =='toyota' && currentTabType == 'spare_parts'">
+                                        	<li><span class="icon flaticon-maps-and-flags"></span>{{'address_toyota_giza'|translate}} <div>{{'address_mega_store'|translate}}</div></li>
+                                            <li><span class="icon flaticon-telephone"></span> 0235736290 – 0235733919 - 0233882992</li>
+                                            <li><span class="icon flaticon-telephone"></span> 01002518791 - 01022214312</li>
+                                            <li><span class="icon flaticon-web"></span>Info@albargasy.com</li>
+                                        </ul>
+                                        <ul class="list-style-one" ng-if="currentTab !='toyota' && currentTab !='skoda' && currentTab != 'home'">
                                         	<li><span class="icon flaticon-maps-and-flags"></span>{{'address_mega_store'|translate}}</li>
                                             <li><span class="icon flaticon-telephone"></span> 0233882992 </li>
                                             <li><span class="icon flaticon-telephone"></span> 01022214312</li>

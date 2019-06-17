@@ -23,7 +23,7 @@ angular.module('alBargasyApp')
 
         }
         $rootScope.currentTab = $routeParams.brandName;
-
+        $rootScope.currentTabType = 'car_service';
 
         $scope.init = function () {
             $scope.services = [];
@@ -57,6 +57,7 @@ angular.module('alBargasyApp')
                                 $rootScope.FaceBookLink="https://www.facebook.com/Toyota.albargasy.3s/"
                             }
                             $rootScope.currentTab = $scope.carbrand.name;
+                            $rootScope.currentTabType = 'car_service';
                             carServiceService.getCarServices($scope.carbrand.id, function (res, err) {
                                 if (!err) {
                                     console.log(res.data)

@@ -20,6 +20,7 @@ angular.module('alBargasyApp')
                                 $rootScope.FaceBookLink="https://www.facebook.com/Toyota.albargasy.3s/"
                             }
                             $rootScope.currentTab = $scope.carbrand.name;
+                            $rootScope.currentTabType = 'models';
                             brandModelsService.getAllModels($scope.carbrand.id,function(res,err){
                                 if(!err){
                                     $scope.carModels = res.data;
