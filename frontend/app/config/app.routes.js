@@ -97,6 +97,28 @@ angular.module('alBargasyApp').config(function($routeProvider, $ocLazyLoadProvid
             ]
         }
     }
+    ).when('/chairman', {
+        templateUrl:"./app/components/group_management/chairman.html", controller:"groupManagementController", resolve: {
+            deps:['$ocLazyLoad', function($ocLazyLoad) {
+                return $ocLazyLoad.load( {
+                    files: ["./app/components/group_management/group.management.controller.js"]
+                }
+                );
+            }
+            ]
+        }
+    }
+    ).when('/ceo', {
+        templateUrl:"./app/components/group_management/ceo.html", controller:"groupManagementController", resolve: {
+            deps:['$ocLazyLoad', function($ocLazyLoad) {
+                return $ocLazyLoad.load( {
+                    files: ["./app/components/group_management/group.management.controller.js"]
+                }
+                );
+            }
+            ]
+        }
+    }
     ).when("/cars/compare", {
         templateUrl:"./app/components/vehicle.compare/vehicle-compare.html", controller:"vehicleCompareController", resolve: {
             deps:['$ocLazyLoad', function($ocLazyLoad) {

@@ -198,5 +198,15 @@
     "ford":"Ford ALBARGASY",
     "Haram_Working_Hours":"All Days from 9am : 6pm",
     "Giza_Working_Hours":"All Days from 9am : 9pm",
-    "Skoda_working_hours":"Daily from 10 am to 10 pm except Fridays from 1 pm to 10 pm"
+    "Skoda_working_hours":"Daily from 10 am to 10 pm except Fridays from 1 pm to 10 pm",
+    "group_management":"Group Management",
+    "rabie_quote": "Al-Bargasy group dedicated to serve customers by providing them with what goes beyond their expectations",
+    "rabie_name":"Rabie Al-Bargasy",
+    "rabie_position":"Chairman of the Board",
+    "shaimaa_quote": "We are following our expansion strategy both in terms of premium products and diversify our services to cover the market multiple activities, to meet our customer's needs.",
+    "shaimaa_name":"Shimaa Al-Bargasy",
+    "shaimaa_position":"Vice President",
+    "samar_quote": "The basic principle of our work at Al-Bargasy group is strength through distinguish diversity.",
+    "samar_name":"Samar Saleh",
+    "samar_position":"CEO"
 }
