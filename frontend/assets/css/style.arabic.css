@@ -1504,3 +1504,40 @@ img{display:inline-block;max-width:100%;}
 }
 @keyframes color{100%, 0%{stroke:red;}
 }
+.toyota-watermark {
+    background-image: url(/assets/images/watermark/Toyota-Logo.png);
+background-repeat: no-repeat;
+/* background-attachment: fixed; */
+background-size: cover;
+background-position: center;
+/* background-color: rgba(255, 255, 255, 0.2); */
+width: 100%;
+    height: 100%;
+  }
+
+  .skoda-watermark {
+    background-image: url(/assets/images/watermark/skoda-logo.png);
+background-repeat: no-repeat;
+/* background-attachment: fixed; */
+background-size: cover;
+background-position: center;
+/* background-color: rgba(255, 255, 255, 0.2); */
+width: 100%;
+    height: 100%;
+  }
+  
+  /* .toyota-watermark:after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background-image: url(/assets/images/watermark/Toyota-Logo.jpg);
+    background-size: 100% 100%;
+    background-position: 30px 30px;
+    background-repeat: no-repeat;
+    opacity: 0.2;
+    z-index: 1;
+  } */

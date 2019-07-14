@@ -8,8 +8,9 @@
         </div>
     </section>
     <!--End Page Title-->
-    
-    <!--Page Info-->
+    <!-- <div ng-class="currentTab =='Toyota' ? 'toyota-watermark' : (currentTab =='Skoda' ? 'skoda-watermark' : '')"> -->
+    <div>
+            <!--Page Info-->
     <section class="page-info">
         <div class="auto-container">
             <ul class="bread-crumb">
@@ -21,8 +22,8 @@
     <!--End Page Info-->
     
     <!--Inventory Section-->
-    <section class="inventory-section ">
-    	<div class="auto-container">
+    <section class="inventory-section">
+    	<div class="auto-container ">
         	<div class="row clearfix">
             	<!--Column-->
             	<div class="column col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -100,11 +101,10 @@
                 
                 </div>
             </div>
-        </div>
     </section>
 
     <!--End Inventory Section-->
-
+    </div>
 
       
 
@@ -143,10 +143,10 @@
                                                 <label>{{'arabic_description'|translate}}</label>
                                                 <textarea ng-model="model.arFirstParagraph" name="arFirstParagraph" value="" placeholder="" required="required"></textarea>
                                             </div>
-                                            <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                                            <!-- <div class="form-group col-md-4 col-sm-6 col-xs-12">
                                                 <label>{{'price'|translate}}</label>
                                                 <input type="text" ng-model="model.price" name="price" value="" placeholder=""required="required">
-                                            </div>
+                                            </div> -->
                                             <div class="form-group col-md-12 col-sm-12 col-xs-12">
                                                 <label class="upload">{{'upload_photo'|translate}}</label>
                                                 <div class="field-inner clearfix">

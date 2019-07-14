@@ -5,7 +5,7 @@ angular.module('alBargasyApp')
         $scope.allMsgs = [];
         $scope.init = function (page) {
              $rootScope.currentTab = "contact";
-             $rootScope.FaceBookLink = "";
+             $rootScope.FaceBookLink = "https://www.facebook.com/toyotaalbargasy/";
              if(page =="messages_list"){
                 $rootScope.currentTab ="admin"
                 $scope.typeId = 1;

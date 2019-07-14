@@ -53,8 +53,10 @@ angular.module('alBargasyApp')
                             $scope.carbrand = res.data[0];
                             if($scope.carbrand.name==="skoda"){
                                 $rootScope.FaceBookLink="https://www.facebook.com/SkodaAlBargasy/"
-                            }else{
+                            }else if($scope.carbrand.name==="toyota"){
                                 $rootScope.FaceBookLink="https://www.facebook.com/Toyota.albargasy.3s/"
+                            }else{
+                                $rootScope.FaceBookLink="https://www.facebook.com/toyotaalbargasy/" 
                             }
                             $rootScope.currentTab = $scope.carbrand.name;
                             $rootScope.currentTabType = 'car_service';

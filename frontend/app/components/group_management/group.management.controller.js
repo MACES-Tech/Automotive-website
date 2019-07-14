@@ -4,7 +4,7 @@ angular.module('alBargasyApp')
 
         $scope.init = function (page) {
              $rootScope.currentTab = "group_management";
-             $rootScope.FaceBookLink = "";
+             $rootScope.FaceBookLink = "https://www.facebook.com/toyotaalbargasy/";
         }
 
         

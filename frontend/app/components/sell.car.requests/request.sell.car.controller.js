@@ -25,7 +25,7 @@ angular.module('alBargasyApp')
         }
         
         $scope.init = function (carBrandId, isUsedCar) {
-            $rootScope.FaceBookLink = "";
+            $rootScope.FaceBookLink = "https://www.facebook.com/toyotaalbargasy/";
             var filterObject = {};
             filterObject.usedCar = 1;
             filterObject.isPublished = false;

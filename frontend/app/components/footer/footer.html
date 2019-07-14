@@ -88,9 +88,12 @@
                                         </ul>
                                     </div>
                                     <h2>{{'Working_Hours'|translate}}</h2>
-                                    <div class="text" ng-if="currentTab =='skoda'">{{'Skoda_working_hours'|translate}} </div>
-                                    <div class="text" ng-if="currentTab =='toyota'">{{'Giza_Working_Hours'|translate}} </div>
-                                    <div class="text" ng-if="currentTab !='toyota' && currentTab !='skoda'">{{'Haram_Working_Hours'|translate}} </div>
+                                    <div class="text" ng-if="currentTab =='home'">{{'Home_Page_Working_Hours'|translate}} </div>
+                                    <div class="text" ng-if="currentTab =='skoda' && currentTabType != 'car_service'">{{'Skoda_working_hours'|translate}} </div>
+                                    <div class="text" ng-if="currentTab =='skoda' && currentTabType == 'car_service'">{{'Skoda_working_hours_service'|translate}} </div>
+                                    <div class="text" ng-if="currentTab =='toyota' && currentTabType != 'car_service'">{{'Giza_Working_Hours'|translate}} </div>
+                                    <div class="text" ng-if="currentTab =='toyota' && currentTabType == 'car_service'">{{'Giza_Working_Hours_service'|translate}} </div>
+                                    <div class="text" ng-if="currentTab !='toyota' && currentTab !='skoda' && currentTab !='home'">{{'Haram_Working_Hours'|translate}} </div>
                                 </div>
                             </div>
                         
@@ -106,8 +109,8 @@
         <div class="footer-bottom">
         	<div class="auto-container">
             	<div class="row clearfix">
-                	<div class="col-md-6 col-sm-6 col-xs-12">
-                    	<div class="copyright">Copyrights © 2018 All Rights Reserved by <a href="#">AlBargasy Automotive.</a></div>
+                	<div class="col-md-12 col-sm-12 col-xs-12">
+                    	<div class="copyright" style="text-align: center">Copyrights © 2018 All Rights Reserved by <a href="#">AlBargasy Automotive.</a></div>
                     </div>
                     <!-- <div class="col-md-6 col-sm-6 col-xs-12">
                     	<ul class="footer-nav">

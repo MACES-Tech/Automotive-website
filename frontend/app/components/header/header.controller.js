@@ -15,7 +15,7 @@ angular.module('alBargasyApp')
         }
         
         $scope.init = function () {
-            $rootScope.FaceBookLink="";
+            $rootScope.FaceBookLink="https://www.facebook.com/toyotaalbargasy/";
                 brandModelsService.getAllBrands(function(res, err){
                     if(res.data.length > 0 ){
                         $scope.brands = res.data;

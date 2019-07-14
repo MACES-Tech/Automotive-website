@@ -37,11 +37,14 @@ exports.create = (req, res, next) => {
 		Section.create({firstHeader:"slider",carModelId: carModel.id}).then(section=>{
 			Section.create({firstHeader:"body",carModelId: carModel.id}).then(section=>{
 				Section.create({firstHeader:"brochures",carModelId: carModel.id}).then(section=>{
-					keyFeatures.carModelId = carModel.id;
-					KeyFeatures.create(keyFeatures).then(()=>{
+					if(keyFeatures){
+						keyFeatures.carModelId = carModel.id;
+						KeyFeatures.create(keyFeatures).then(()=>{
+							res.send(carModel);
+						})
+					}else{
 						res.send(carModel);
-					})
-
+					}
 				})
 			})
 		}).catch(next);

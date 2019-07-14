@@ -2,7 +2,7 @@ angular.module('alBargasyApp').controller('generalCarsServiceController',functio
 $scope.carbrandId={}
 $scope.carbrandId.id=1;$scope.requestService={};$scope.requestService.brand="skoda";$scope.lang=$rootScope.getPreffrerdLanguage();$scope.showSlider=false;$scope.addEditService.type=1;if($rootScope.getcurrentUser()!=""){var user=$rootScope.getcurrentUser();$scope.requestService.name=user.name;$scope.requestService.email=user.email;$scope.requestService.phone=user.phone;$scope.requestService.model="";$scope.requestService.chassis="";}
 brandModelsService.getAllBrands(function(res,err){if(res.data.length>0){$scope.brands=res.data;$scope.init($scope.carbrandId.id);}else{SweetAlert.swal("Error","an error occuers","error");}})
-$scope.init=function(carBrandId){$rootScope.FaceBookLink="";$scope.services=[];$scope.miniServices=[];$scope.sliderServices=[];$scope.generalService={};$scope.addEditService={};$scope.up={}
+$scope.init=function(carBrandId){$rootScope.FaceBookLink="https://www.facebook.com/toyotaalbargasy/";$scope.services=[];$scope.miniServices=[];$scope.sliderServices=[];$scope.generalService={};$scope.addEditService={};$scope.up={}
 $scope.carbrandId={}
 $scope.carbrandId.id=carBrandId;$scope.requestService={};$scope.showSlider=false;$scope.addEditService.type=1;$scope.requestService.brand="skoda";if($scope.brands.length>0){$scope.brands.forEach(element=>{if(element.id==carBrandId){$scope.requestService.brand=element.name;}});$scope.requestService.brand=carBrandName}
 if($rootScope.getcurrentUser()!=""){var user=$rootScope.getcurrentUser();$scope.requestService.name=user.name;$scope.requestService.email=user.email;$scope.requestService.phone=user.phone;$scope.requestService.model="";$scope.requestService.chassis="";}

@@ -1,4 +1,4 @@
-angular.module('alBargasyApp').controller('homeController',function($route,$rootScope,$scope,$location,brandModelsService,homeService,Upload,SweetAlert){$rootScope.currentTab="home";$scope.slider=[];$scope.aboutUs={};$scope.up={};$scope.up1={};$scope.up2={};$scope.model={};$scope.init=function(){$rootScope.FaceBookLink="";homeService.getAllSlider(function(res,err){if(!err){$scope.slider=res.data;}
+angular.module('alBargasyApp').controller('homeController',function($route,$rootScope,$scope,$location,brandModelsService,homeService,Upload,SweetAlert){$rootScope.currentTab="home";$scope.slider=[];$scope.aboutUs={};$scope.up={};$scope.up1={};$scope.up2={};$scope.model={};$scope.init=function(){$rootScope.FaceBookLink="https://www.facebook.com/toyotaalbargasy/";homeService.getAllSlider(function(res,err){if(!err){$scope.slider=res.data;}
 brandModelsService.getAllModelsWithoutBrand({},function(res,err){if(!err){$scope.carModels=res.data;}
 homeService.getAboutUs(function(res,data){if(!err){$scope.aboutUs=res.data;}})
 $scope.reloadScripts();})})}
