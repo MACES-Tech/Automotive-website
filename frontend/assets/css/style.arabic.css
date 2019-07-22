@@ -1452,7 +1452,7 @@ img{display:inline-block;max-width:100%;}
 .cars-comparison-section .comparison-box .compare-outer{position:relative;min-width:1080px;}
 .cars-comparison-section .title-column{position:relative;float:left;width:25%;}
 .cars-comparison-section .title-column h2{position:relative;font-weight:700;color:#232527;font-size:24px;padding-bottom:15px;margin-bottom:34px;text-transform:uppercase;}
-.cars-comparison-section .title-column h2:after{position:absolute;content:'';left:0px;bottom:0px;width:55px;height:2px;background-color:#eb1d27;}
+.cars-comparison-section .title-column h2:after{position:absolute;content:'';right:0px;bottom:0px;width:55px;height:2px;background-color:#eb1d27;}
 .cars-comparison-section .title-column .select-form{position:relative;margin-bottom:65px;}
 .cars-comparison-section h3{color:#232527;font-size:20px;font-weight:700;text-transform:capitalize;margin-bottom:10px;}
 .cars-comparison-section .select-form .form-group{position:relative;margin-bottom:10px;}

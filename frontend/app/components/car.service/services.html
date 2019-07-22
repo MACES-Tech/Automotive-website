@@ -16,7 +16,8 @@
 
 
     <!--Page Title-->
-    <section class="page-title" style="background-image:url(assets/images/services/service-offers.506ea32b2a1fb2f1765352d4a51cbdaa.fill-1920x500.jpg);">
+    <section class="page-title"
+        style="background-image:url(assets/images/services/service-offers.506ea32b2a1fb2f1765352d4a51cbdaa.fill-1920x500.jpg);">
         -->
         <div class="auto-container">
             <h1>{{'services'|translate}}</h1>
@@ -43,7 +44,8 @@
                 <!--Image Column-->
                 <div class="image-column col-md-6 col-sm-12 col-xs-12">
                     <div class="image">
-                        <img ng-src="/uploads/{{generalService.serviceMainImage.path}}" alt="{{generalService.serviceMainImage.altValue}}" />
+                        <img ng-src="/uploads/{{generalService.serviceMainImage.path}}"
+                            alt="{{generalService.serviceMainImage.altValue}}" />
                     </div>
                 </div>
                 <!--Content Column-->
@@ -65,17 +67,21 @@
                             <div class="col-md-12 col-sm-12 col-xs-12">
                                 <ul class="list-style-four" ng-repeat="s in miniServices">
                                     <li ng-if="lang=='en'">{{s.serviceTitle}}
-                                        <span ng-if="isAdmin()" ng-click="confirmPopup(s.id)"><a href=""><i class="fa fa-trash"
-                                                    data-toggle="modal" data-target=".bd-example-modal-sm"></i></a>
+                                        <span ng-if="isAdmin()" ng-click="confirmPopup(s.id)"><a href=""><i
+                                                    class="fa fa-trash" data-toggle="modal"
+                                                    data-target=".bd-example-modal-sm"></i></a>
                                         </span>
-                                        <span ng-if="isAdmin()" ng-click="editService(s)"><a href=""><i class="fa fa-edit"></i></a>
+                                        <span ng-if="isAdmin()" ng-click="editService(s)"><a href=""><i
+                                                    class="fa fa-edit"></i></a>
                                         </span>
                                     </li>
                                     <li ng-if="lang=='ar'">{{s.arServiceTitle}}
-                                        <span ng-if="isAdmin()" ng-click="confirmPopup(s.id)"><a href=""><i class="fa fa-trash"
-                                                    data-toggle="modal" data-target=".bd-example-modal-sm"></i></a>
+                                        <span ng-if="isAdmin()" ng-click="confirmPopup(s.id)"><a href=""><i
+                                                    class="fa fa-trash" data-toggle="modal"
+                                                    data-target=".bd-example-modal-sm"></i></a>
                                         </span>
-                                        <span ng-if="isAdmin()" ng-click="editService(s)"><a href=""><i class="fa fa-edit"></i></a>
+                                        <span ng-if="isAdmin()" ng-click="editService(s)"><a href=""><i
+                                                    class="fa fa-edit"></i></a>
                                         </span>
                                     </li>
                                 </ul>
@@ -86,29 +92,100 @@
             </div>
             <!--Services Blocks Section-->
             <div class="services-blocks-section">
-                <div class="row clearfix">
 
-                    <!--Services Block Four-->
-                    <div class="services-block-four col-md-4 col-sm-12 col-xs-12" ng-repeat="service in services track by $index">
-                        <div class="inner-box">
-                            <div class="edit-icons" ng-if="isAdmin()">
-                                <span ng-click="confirmPopup(service.id)"><a href=""><i class="fa fa-trash" data-toggle="modal"
-                                            data-target=".bd-example-modal-sm"></i></a> </span>
-                                <span ng-click="editService(service)"><a href=""><i class="fa fa-edit"></i></a> </span>
+                <!--Services Block Four-->
+                <div class="row clearfix" ng-repeat="service in services track by $index" ng-if="$index%3 == 0">
+                    <div class="services-block-four col-md-4 col-sm-12 col-xs-12">
+                        <div class="row clearfix">
+                            <div class="inner-box" style="padding-left: 0px;">
+                                <div class="edit-icons" ng-if="isAdmin()">
+                                    <span ng-click="confirmPopup(services[$index].id)"><a href=""><i class="fa fa-trash"
+                                                data-toggle="modal" data-target=".bd-example-modal-sm"></i></a> </span>
+                                    <span ng-click="editService(services[$index])"><a href=""><i
+                                                class="fa fa-edit"></i></a> </span>
+                                </div>
+                                <div class="image-column col-md-3 col-sm-12 col-xs-12">
+                                    <div class="image">
+                                        <img ng-src="/uploads/{{services[$index].serviceMainImage.path}}"
+                                            alt="{{services[$index].serviceMainImage.altValue}}" />
+                                    </div>
+                                </div>
+                                <div class="content-column col-md-9 col-sm-12 col-xs-12">
+                                    <h3>
+                                        <div ng-if="lang=='en'">{{services[$index].serviceTitle}}</div>
+                                    </h3>
+                                    <h3>
+                                        <div ng-if="lang=='ar'">{{services[$index].arServiceTitle}}</div>
+                                    </h3>
+                                    <div class="text" ng-if="lang=='en'">{{services[$index].serviceDescription}}</div>
+                                    <div class="text" ng-if="lang=='ar'">{{services[$index].arServiceDescription}}</div>
+                                </div>
+
                             </div>
-                            <div class="image">
-                                <img ng-src="/uploads/{{service.serviceMainImage.path}}" alt="{{service.serviceMainImage.altValue}}" />
-                            </div>
-                            <h3>
-                                <div ng-if="lang=='en'">{{service.serviceTitle}}</div>
-                            </h3>
-                            <h3>
-                                <div ng-if="lang=='ar'">{{service.arServiceTitle}}</div>
-                            </h3>
-                            <div class="text" ng-if="lang=='en'">{{service.serviceDescription}}</div>
-                            <div class="text" ng-if="lang=='ar'">{{service.arServiceDescription}}</div>
+
                         </div>
                     </div>
+                    <div class="services-block-four col-md-4 col-sm-12 col-xs-12" ng-if="$index+1 < services.length">
+                        <div class="row clearfix">
+                            <div class="inner-box" style="padding-left: 0px;">
+                                <div class="edit-icons" ng-if="isAdmin()">
+                                    <span ng-click="confirmPopup(services[$index+1].id)"><a href=""><i
+                                                class="fa fa-trash" data-toggle="modal"
+                                                data-target=".bd-example-modal-sm"></i></a> </span>
+                                    <span ng-click="editService(service)"><a href=""><i class="fa fa-edit"></i></a>
+                                    </span>
+                                </div>
+                                <div class="image-column col-md-3 col-sm-12 col-xs-12">
+                                    <div class="image">
+                                        <img ng-src="/uploads/{{services[$index+1].serviceMainImage.path}}"
+                                            alt="{{services[$index+1].serviceMainImage.altValue}}" />
+                                    </div>
+                                </div>
+                                <div class="content-column col-md-9 col-sm-12 col-xs-12">
+                                    <h3>
+                                        <div ng-if="lang=='en'">{{services[$index+1].serviceTitle}}</div>
+                                    </h3>
+                                    <h3>
+                                        <div ng-if="lang=='ar'">{{services[$index+1].arServiceTitle}}</div>
+                                    </h3>
+                                    <div class="text" ng-if="lang=='en'">{{services[$index+1].serviceDescription}}</div>
+                                    <div class="text" ng-if="lang=='ar'">{{services[$index+1].arServiceDescription}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="services-block-four col-md-4 col-sm-12 col-xs-12" ng-if="$index+2 < services.length">
+                        <div class="row clearfix">
+                            <div class="inner-box" style="padding-left: 0px;">
+                                <div class="edit-icons" ng-if="isAdmin()">
+                                    <span ng-click="confirmPopup(services[$index+2].id)"><a href=""><i
+                                                class="fa fa-trash" data-toggle="modal"
+                                                data-target=".bd-example-modal-sm"></i></a> </span>
+                                    <span ng-click="editService(service)"><a href=""><i class="fa fa-edit"></i></a>
+                                    </span>
+                                </div>
+                                <div class="image-column col-md-3 col-sm-12 col-xs-12">
+                                    <div class="image">
+                                        <img ng-src="/uploads/{{services[$index+2].serviceMainImage.path}}"
+                                            alt="{{services[$index+2].serviceMainImage.altValue}}" />
+                                    </div>
+                                </div>
+                                <div class="content-column col-md-9 col-sm-12 col-xs-12">
+                                    <h3>
+                                        <div ng-if="lang=='en'">{{services[$index+2].serviceTitle}}</div>
+                                    </h3>
+                                    <h3>
+                                        <div ng-if="lang=='ar'">{{services[$index+2].arServiceTitle}}</div>
+                                    </h3>
+                                    <div class="text" ng-if="lang=='en'">{{services[$index+2].serviceDescription}}</div>
+                                    <div class="text" ng-if="lang=='ar'">{{services[$index+2].arServiceDescription}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -127,8 +204,8 @@
                 <div class="owl-carousel owl-theme" ng-repeat="s in sliderServices">
                     <!--Services Block Five-->
                     <div class="edit-icons" ng-if="isAdmin()">
-                        <span ng-click="confirmPopup(s.id)"><a href=""><i class="fa fa-trash"
-                                    data-toggle="modal" data-target=".bd-example-modal-sm"></i></a> </span>
+                        <span ng-click="confirmPopup(s.id)"><a href=""><i class="fa fa-trash" data-toggle="modal"
+                                    data-target=".bd-example-modal-sm"></i></a> </span>
                         <span ng-click="editService(s)"><a href=""><i class="fa fa-edit"></i></a>
                         </span>
                     </div>
@@ -138,7 +215,8 @@
                                 <!-- <div class="icon-box"> -->
                                 <!-- <span class="icon flaticon-rim"></span> -->
                                 <div class="image">
-                                    <img style="margin:auto" ng-src="/uploads/{{s.serviceMainImage.path}}" alt="{{generalService.serviceMainImage.altValue}}" />
+                                    <img style="margin:auto" ng-src="/uploads/{{s.serviceMainImage.path}}"
+                                        alt="{{generalService.serviceMainImage.altValue}}" />
                                 </div>
                                 <!-- </div> -->
                                 <h3> <a ng-if="lang=='en'">{{s.serviceTitle}}</a>
@@ -148,12 +226,14 @@
                                 <div class="text" ng-if="lang=='ar'">
                                     {{s.arServiceDescription}}</div>
                             </div>
-                            <div class="overlay-box" style="background-image:url(assets/images/resource/service-5.jpg);">
+                            <div class="overlay-box"
+                                style="background-image:url(assets/images/resource/service-5.jpg);">
                                 <div class="overlay-inner">
                                     <div class="icon-box">
                                         <!-- <span class="icon flaticon-rim"></span> -->
                                         <div class="image">
-                                            <img style="margin:auto" ng-src="/uploads/{{s.serviceMainImage.path}}" alt="{{generalService.serviceMainImage.altValue}}" />
+                                            <img style="margin:auto" ng-src="/uploads/{{s.serviceMainImage.path}}"
+                                                alt="{{generalService.serviceMainImage.altValue}}" />
                                         </div>
                                     </div>
                                     <h3> <a ng-if="lang=='en'">{{s.serviceTitle}}</a>
@@ -212,48 +292,57 @@
                                         <div class="form-group col-lg-4 col-md-6 col-sm-6 col-xs-12">
                                             <!-- <input type="hidden" ng-model="model.id" name="name" value="" placeholder="" required="required"> -->
                                             <label class="{{ default_float }}">{{'name'|translate}}</label>
-                                            <input type="text" ng-model="addEditService.serviceTitle" name="name" value=""
-                                                placeholder="" required="required">
+                                            <input type="text" ng-model="addEditService.serviceTitle" name="name"
+                                                value="" placeholder="" required="required">
                                         </div>
                                         <div class="form-group col-lg-4 col-md-6 col-sm-6 col-xs-12">
                                             <label class="{{ default_float }}">{{'arabic_name'|translate}}</label>
                                             <input type="text" ng-model="addEditService.arServiceTitle" name="arName"
                                                 value="" placeholder="" required="required">
                                         </div>
-                                        <div class="form-group col-md-12 col-sm-12 col-xs-12" ng-if="addEditService.type!=3">
+                                        <div class="form-group col-md-12 col-sm-12 col-xs-12"
+                                            ng-if="addEditService.type!=3">
                                             <label class="{{ default_float }}">{{'description'|translate}}</label>
                                             <textarea ng-model="addEditService.serviceDescription" name="firstParagraph"
                                                 value="" placeholder="" required="required"></textarea>
                                         </div>
-                                        <div class="form-group col-md-12 col-sm-12 col-xs-12" ng-if="addEditService.type!=3">
-                                            <label class="{{ default_float }}">{{'arabic_description'|translate}}</label>
-                                            <textarea ng-model="addEditService.arServiceDescription" name="arFirstParagraph"
-                                                value="" placeholder="" required="required"></textarea>
+                                        <div class="form-group col-md-12 col-sm-12 col-xs-12"
+                                            ng-if="addEditService.type!=3">
+                                            <label
+                                                class="{{ default_float }}">{{'arabic_description'|translate}}</label>
+                                            <textarea ng-model="addEditService.arServiceDescription"
+                                                name="arFirstParagraph" value="" placeholder=""
+                                                required="required"></textarea>
                                         </div>
 
-                                        <div class="form-group col-md-12 col-sm-12 col-xs-12" ng-if="addEditService.type!=3">
+                                        <div class="form-group col-md-12 col-sm-12 col-xs-12"
+                                            ng-if="addEditService.type!=3">
                                             <label class="upload">{{'upload_photo'|translate}}</label>
                                             <div class="field-inner clearfix">
                                                 <input id="ImageUploader1" type="file" ngf-select ng-model="up.file"
-                                                    name="file" ngf-pattern="'image/*'" accept="image/*" ngf-max-size="20MB"
-                                                    style="display: none">
+                                                    name="file" ngf-pattern="'image/*'" accept="image/*"
+                                                    ngf-max-size="20MB" style="display: none">
 
 
-                                                <button type="button" ng-click="openFileUploader()" class="upload-btn"><span
-                                                        class="fa fa-file-picture-o"></span> {{'Choose_File' |translate}}</button>
+                                                <button type="button" ng-click="openFileUploader()"
+                                                    class="upload-btn"><span class="fa fa-file-picture-o"></span>
+                                                    {{'Choose_File' |translate}}</button>
                                                 {{'image_thumbnail'|translate}}: <img style="width:100px;"
                                                     ngf-thumbnail="up.file || '/thumb.jpg'" />
                                                 {{progress}}
                                             </div>
                                         </div>
-                                        <div class="form-group col-md-12 col-sm-12 col-xs-12" ng-if="addEditService.type==1">
-                                            <input type="checkbox" ng-model="addEditService.serviceIsGeneral" name="generalService"
-                                                ng-true-value="true" ng-false-value="false">
+                                        <div class="form-group col-md-12 col-sm-12 col-xs-12"
+                                            ng-if="addEditService.type==1">
+                                            <input type="checkbox" ng-model="addEditService.serviceIsGeneral"
+                                                name="generalService" ng-true-value="true" ng-false-value="false">
                                             {{'main_service'|translate}}
                                         </div>
                                         <div class="form-group col-md-12 col-sm-12 col-xs-12">
-                                            <button type="button" ng-click="addNewService()" class="theme-btn btn-style-one">{{'submit_now'|translate}}</button>
-                                            <button type="button" ng-click="clearData()" class="theme-btn btn-style-one">{{'cancel'|translate}}</button>
+                                            <button type="button" ng-click="addNewService()"
+                                                class="theme-btn btn-style-one">{{'submit_now'|translate}}</button>
+                                            <button type="button" ng-click="clearData()"
+                                                class="theme-btn btn-style-one">{{'cancel'|translate}}</button>
 
                                         </div>
                                     </div>
@@ -299,8 +388,8 @@
                                     </div>
                                     <div class="form-group col-md-4 col-sm-6 col-xs-12">
                                         <label>{{'car_brand'|translate}}</label>
-                                        <input ng-disabled="true" type="text" name="brand" ng-model="requestService.brand"
-                                            value="" placeholder="" required>
+                                        <input ng-disabled="true" type="text" name="brand"
+                                            ng-model="requestService.brand" value="" placeholder="" required>
                                     </div>
                                     <div class="form-group col-md-4 col-sm-6 col-xs-12">
                                         <label>{{'car_model'|translate}}</label>
@@ -325,7 +414,8 @@
                                     </div> -->
 
                                     <div class="form-group col-md-4 col-sm-12 col-xs-12">
-                                        <button type="submit" ng-click="requestNewService()" class="theme-btn btn-style-one">{{'request_services'|translate}}</button>
+                                        <button type="submit" ng-click="requestNewService()"
+                                            class="theme-btn btn-style-one">{{'request_services'|translate}}</button>
                                     </div>
                                     <!-- <div class="form-group col-md-12 col-sm-12 col-xs-12">
                                         <div class="text"><span class="theme_color">*</span> Our customercare excutive
@@ -344,11 +434,13 @@
                     <div class="inner-column">
                         <h3>{{'service_hours'|translate}}</h3>
                         <ul>
-                            <li class="clearfix"><span class="left-text">Monday - Friday</span> <span class="right-text">09am
+                            <li class="clearfix"><span class="left-text">Monday - Friday</span> <span
+                                    class="right-text">09am
                                     - 18pm</span></li>
                             <li class="clearfix"><span class="left-text">Saturday</span> <span class="right-text">10am
                                     - 15pm</span></li>
-                            <li class="clearfix"><span class="left-text">Sunday</span> <span class="right-text theme_color">Closed</span></li>
+                            <li class="clearfix"><span class="left-text">Sunday</span> <span
+                                    class="right-text theme_color">Closed</span></li>
                         </ul>
                         <div class="text"><span class="theme_color">*</span> Every 3rd Staurday and all govt holidays
                             are closed.</div>
