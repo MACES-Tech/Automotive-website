@@ -294,7 +294,7 @@ ul,li{
 .sec-title h2:before{
 	position:absolute;
 	content:'';
-	left:0px;
+	/* left:0px; */
 	bottom:0px;
 	width:55px;
 	height:2px;
