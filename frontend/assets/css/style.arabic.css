@@ -34,8 +34,8 @@ ul,li{list-style:none;padding:0px;margin:0px;}
 .sec-title.style-two h2{border-color:#ececec;}
 .sec-title.no-border h2{border:0px;}
 .list-style-one{position:relative;margin-bottom:25px;}
-.list-style-one li{position:relative;color:#848484;font-size:14px;font-weight:400;padding-right:30px;margin-bottom:14px;}
-.list-style-one li .icon{position:absolute;right:0px;top:0px;color:#eb1d27;font-size:16px;}
+.list-style-one li{position:relative;color:#e4e3e3; font-size:14px;font-weight:400;padding-right:30px;margin-bottom:14px;}
+.list-style-one li .icon{position:absolute;right:0px;top:0px;color:#e4e3e3;font-size:16px;}
 .list-style-two{position:relative;margin-bottom:25px;}
 .list-style-two li{position:relative;color:#848484;font-size:14px;font-weight:400;padding-left:25px;margin-bottom:6px;}
 .list-style-two li:before{position:absolute;content:'\f101';left:0px;top:0px;color:#eb1d27;font-size:16px;font-family:'FontAwesome';}
@@ -108,8 +108,8 @@ img{display:inline-block;max-width:100%;}
 .main-header .account .dropdown-menu > li > a{padding:5px 15px !important;color:#ffffff !important;text-align:left;font-size:13px;transition:all 500ms ease;-moz-transition:all 500ms ease;-webkit-transition:all 500ms ease;-ms-transition:all 500ms ease;-o-transition:all 500ms ease;}
 .main-header .account .dropdown-menu > li > a:hover{color:#ffffff;background:#eb1d27;}
 .main-header .header-upper{position:relative;transition:all 500ms ease;-moz-transition:all 500ms ease;-webkit-transition:all 500ms ease;-ms-transition:all 500ms ease;-o-transition:all 500ms ease;z-index:5;}
-.main-header .header-upper .upper-inner{padding:0px 80px 0px 20px;border-left:1px solid #f0f0f0;border-right:1px solid #f0f0f0;}
-.main-header .logo-outer{position:relative;float:left;z-index:25;padding:18px 0px;}
+.main-header .header-upper .upper-inner{padding:0px 80px 0px 20px;}
+.main-header .logo-outer{position:relative;float:left;z-index:25;padding:30px 0px;}
 .main-header .logo-outer .logo img{position:relative;display:inline-block;max-width:100%;}
 .main-header .header-upper .upper-right{position:relative;float:right;}
 .main-header .header-upper .nav-outer{position:relative;padding-right:110px;}
@@ -437,17 +437,20 @@ img{display:inline-block;max-width:100%;}
 .news-block .inner-box .lower-box .content h3 a{color:#232527;transition:all 0.3s ease;-moz-transition:all 0.3s ease;-webkit-transition:all 0.3s ease;-ms-transition:all 0.3s ease;-o-transition:all 0.3s ease;}
 .news-block .inner-box .lower-box .content h3 a:hover{color:#fb2530;}
 .news-block .inner-box .lower-box .content .text{position:relative;color:#848484;font-size:14px;line-height:1.8em;margin-top:12px;}
-.main-footer{position:relative;background-color:#232628;background-repeat:no-repeat;background-position:center center;}
-.main-footer:before{position:absolute;content:'';left:0px;top:0px;width:100%;height:100%;display:block;background-color:rgba(35,38,40,0.95);}
+.main-footer-default{background-color:rgba(35,38,40,0.95)}
+.main-footer-toyota{background-color:rgba(211, 43, 52, 0.95);}
+.main-footer-skoda{background-color:#3aaa35}
+.main-footer{position:relative;background-repeat:no-repeat;background-position:center center;}
+.main-footer:before{position:absolute;content:'';left:0px;top:0px;width:100%;height:100%;display:block;}
 .main-footer .widgets-section{position:relative;padding:65px 50px 30px;}
 .main-footer .footer-widget{position:relative;margin-bottom:30px;}
 .main-footer .footer-widget h2{position:relative;color:#ffffff;font-size:20px;font-weight:600;margin-bottom:25px;text-transform:capitalize;}
 .main-footer .footer-widget .text{position:relative;margin-bottom:28px;}
-.main-footer .footer-widget .text p{position:relative;color:#848484;font-size:14px;line-height:1.8em;margin-bottom:14px;}
-.main-footer .links-widget .text{position:relative;color:#848484;font-size:14px;margin-top:-5px;line-height:1.8em;}
+.main-footer .footer-widget .text p{position:relative;color:#e4e3e3; font-size:14px;line-height:1.8em;margin-bottom:14px;}
+.main-footer .links-widget .text{position:relative;color:#e4e3e3; font-size:14px;margin-top:-5px;line-height:1.8em;}
 .footer-links{position:relative;}
 .footer-links li{position:relative;margin-bottom:10px;transition:all 0.3s ease;-moz-transition:all 0.3s ease;-webkit-transition:all 0.3s ease;-ms-transition:all 0.3s ease;-o-transition:all 0.3s ease;}
-.footer-links li a{position:relative;color:#848484;font-size:14px;line-height:20px;transition:all 0.3s ease;-moz-transition:all 0.3s ease;-webkit-transition:all 0.3s ease;-ms-transition:all 0.3s ease;-o-transition:all 0.3s ease;}
+.footer-links li a{position:relative;color:#e4e3e3; font-size:14px;line-height:20px;transition:all 0.3s ease;-moz-transition:all 0.3s ease;-webkit-transition:all 0.3s ease;-ms-transition:all 0.3s ease;-o-transition:all 0.3s ease;}
 .footer-links li a:before{position:absolute;content:'\f101';left:0px;top:0px;opacity:0;line-height:20px;font-family:'FontAwesome';transition:all 0.3s ease;-moz-transition:all 0.3s ease;-webkit-transition:all 0.3s ease;-ms-transition:all 0.3s ease;-o-transition:all 0.3s ease;}
 .footer-links li a:hover{padding-left:15px;}
 .footer-links li a:hover::before{opacity:1;color:#eb1d27;}
@@ -464,10 +467,10 @@ img{display:inline-block;max-width:100%;}
 .offer-widget .widget-content .owl-dots .owl-dot.active,
 .offer-widget .widget-content .owl-dots .owl-dot:hover{background-color:#eb1d27;border-color:#eb1d27;}
 .main-footer .footer-bottom{position:relative;padding:20px 0px;background-color:#26292b;}
-.main-footer .footer-bottom .copyright{position:relative;color:#848484;font-size:14px;font-family:'Open Sans', sans-serif;}
+.main-footer .footer-bottom .copyright{position:relative;color:#e4e3e3; font-size:14px;font-family:'Open Sans', sans-serif;}
 .main-footer .footer-bottom .footer-nav{position:relative;text-align:right;font-family:'Open Sans', sans-serif;}
 .main-footer .footer-bottom .footer-nav li{position:relative;margin-left:20px;display:inline-block;}
-.main-footer .footer-bottom .footer-nav li a{position:relative;color:#848484;font-size:14px;}
+.main-footer .footer-bottom .footer-nav li a{position:relative;color:#e4e3e3; font-size:14px;}
 .main-footer .footer-bottom .footer-nav li a:hover{color:#eb1d27;}
 .page-title{position:relative;text-align:center;padding:73px 0px 73px 0px;background-size:cover;background-position:center center;background-repeat:no-repeat;}
 .page-title:before{position:absolute;content:'';left:0px;top:0px;width:100%;height:100%;display:block;background-color:rgba(0,0,0,0.80);}

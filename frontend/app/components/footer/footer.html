@@ -1,15 +1,15 @@
     <!--Main Footer-->
-    <footer class="main-footer">
+    <footer class="main-footer" ng-class="currentTab == 'Toyota' ? 'main-footer-toyota' : (currentTab == 'Skoda' ? 'main-footer-skoda' : 'main-footer-default')">
 		<div class="auto-container">
         	<!--Widgets Section-->
             <div class="widgets-section">
-            	<div class="row clearfix" style="background-color: #282b2e;">
+            	<div class="row clearfix" style="background-color: #282b2e1a">
                 	
                     <!--big column-->
                     <div class="big-column col-md-7 col-sm-12 col-xs-12" style="margin-top: 12px; padding-right:12px;">
                         <div class="row clearfix">
                         
-                            <!--Footer Column-->
+                            <!-- Footer Column
                             <div class="footer-column col-md-6 col-sm-6 col-xs-12">
                                 <div class="footer-widget about-widget">
 									<h2>{{'About_Us'|translate}}</h2>
@@ -19,9 +19,9 @@
                                     </div>
 								</div>
                             </div>
-                            
+                             -->
                             <!--Footer Column-->
-                            <div class="footer-column col-md-6 col-sm-6 col-xs-12">
+                            <div class="footer-column col-md-12 col-sm-12 col-xs-12">
                                 <div class="footer-widget links-widget">
 									<h2>{{'Usefull_Links'|translate}}</h2>
                                     <div class="widget-content">
@@ -62,38 +62,46 @@
                                 <div class="footer-widget links-widget">
 									<h2>{{'Contact_Details'|translate}}</h2>
                                     <div class="widget-content">
-                                    	<ul class="list-style-one" ng-if="currentTab =='skoda' || currentTab == 'home'">
+                                    	<ul class="list-style-one" ng-if="currentTab =='Skoda' || currentTab == 'home'">
                                         	<li><span class="icon flaticon-maps-and-flags"></span>{{'address_skoda'|translate}}</li>
                                             <li><span class="icon flaticon-telephone"></span> 0238753006 – 0238753007 - 0238753008</li>
-                                            <li><span class="icon flaticon-telephone"></span> 01095090999 - 01094040999 - 01094090999 <span ng-if="currentTabType == 'car_service'"> - 01093030999</div></li>
-                                            <li><span class="icon flaticon-web"></span>Info@albargasy.com</li>
+                                            <li><span class="icon flaticon-telephone"></span> 01095090999 - 01094040999 - 01094090999 <span ng-if="currentTabType == 'car_service'"> - 01093030999</span></li>
+                                            <li style="color: #e4e3e3; "><span class="icon flaticon-web"></span>Info@albargasy.com</li>
                                         </ul>
-                                        <ul class="list-style-one" ng-if="currentTab =='toyota' && currentTabType != 'spare_parts'">
+                                        <ul class="list-style-one" ng-if="currentTab =='Toyota' && currentTabType == 'models'">
                                         	<li><span class="icon flaticon-maps-and-flags"></span>{{'address_toyota_giza'|translate}}</li>
                                             <li><span class="icon flaticon-telephone"></span> 0235736290 – 0235733919</li>
                                             <li><span class="icon flaticon-telephone"></span> 01002518791</li>
-                                            <li><span class="icon flaticon-web"></span>Info@albargasy.com</li>
+                                            <li style="color: #e4e3e3; "><span class="icon flaticon-web"></span>Info@albargasy.com</li>
                                         </ul>
-                                        <ul class="list-style-one" ng-if="currentTab =='toyota' && currentTabType == 'spare_parts'">
+                                        <ul class="list-style-one" ng-if="currentTab =='Toyota' && currentTabType == 'car_service'">
+                                        	<li><span class="icon flaticon-maps-and-flags"></span>{{'address_toyota_haram'|translate}}</li>
+                                            <li><span class="icon flaticon-telephone"></span> 0237405052</li>
+                                            <li><span class="icon flaticon-telephone"></span> 01220290002</li>
+                                            <li><span class="icon flaticon-telephone"></span> 0233826923</li>
+                                            <li style="color: #e4e3e3; "><span class="icon flaticon-web"></span>Info@albargasy.com</li>
+                                        </ul>
+                                        <ul class="list-style-one" ng-if="currentTab =='Toyota' && currentTabType == 'spare_parts'">
                                         	<li><span class="icon flaticon-maps-and-flags"></span>{{'address_toyota_giza'|translate}} <div>{{'address_mega_store'|translate}}</div></li>
                                             <li><span class="icon flaticon-telephone"></span> 0235736290 – 0235733919 - 0233882992</li>
                                             <li><span class="icon flaticon-telephone"></span> 01002518791 - 01022214312</li>
-                                            <li><span class="icon flaticon-web"></span>Info@albargasy.com</li>
+                                            <li style="color: #e4e3e3; "><span class="icon flaticon-web"></span>Info@albargasy.com</li>
                                         </ul>
-                                        <ul class="list-style-one" ng-if="currentTab !='toyota' && currentTab !='skoda' && currentTab != 'home'">
-                                        	<li><span class="icon flaticon-maps-and-flags"></span>{{'address_mega_store'|translate}}</li>
-                                            <li><span class="icon flaticon-telephone"></span> 0233882992 </li>
-                                            <li><span class="icon flaticon-telephone"></span> 01022214312</li>
-                                            <li><span class="icon flaticon-web"></span>Info@albargasy.com</li>
+                                        <ul class="list-style-one" ng-if="currentTab !='Toyota' && currentTab !='Skoda' && currentTab != 'home'">
+                                        	<li><span class="icon flaticon-maps-and-flags"></span>{{'address_skoda'|translate}}</li>
+                                            <li><span class="icon flaticon-telephone"></span> 0238753006 – 0238753007 - 0238753008</li>
+                                            <li><span class="icon flaticon-telephone"></span> 01095090999 - 01094040999 - 01094090999 <span ng-if="currentTabType == 'car_service'"> - 01093030999</span></li>
+                                            <li style="color: #e4e3e3; "><span class="icon flaticon-web"></span>Info@albargasy.com</li>
                                         </ul>
                                     </div>
-                                    <h2>{{'Working_Hours'|translate}}</h2>
-                                    <div class="text" ng-if="currentTab =='home'">{{'Home_Page_Working_Hours'|translate}} </div>
-                                    <div class="text" ng-if="currentTab =='skoda' && currentTabType != 'car_service'">{{'Skoda_working_hours'|translate}} </div>
-                                    <div class="text" ng-if="currentTab =='skoda' && currentTabType == 'car_service'">{{'Skoda_working_hours_service'|translate}} </div>
-                                    <div class="text" ng-if="currentTab =='toyota' && currentTabType != 'car_service'">{{'Giza_Working_Hours'|translate}} </div>
-                                    <div class="text" ng-if="currentTab =='toyota' && currentTabType == 'car_service'">{{'Giza_Working_Hours_service'|translate}} </div>
-                                    <div class="text" ng-if="currentTab !='toyota' && currentTab !='skoda' && currentTab !='home'">{{'Haram_Working_Hours'|translate}} </div>
+                                    <h2 style="color: #ffffff; ">{{'Working_Hours'|translate}}</h2>
+                                    <div class="text" style="color: #e4e3e3; " ng-if="currentTab =='home'">{{'Home_Page_Working_Hours'|translate}} </div>
+                                    <div class="text" style="color: #e4e3e3; " ng-if="currentTab =='Skoda' && currentTabType == 'models'">{{'Skoda_working_hours'|translate}} </div>
+                                    <div class="text" style="color: #e4e3e3; " ng-if="currentTab =='Skoda' && currentTabType != 'models'">{{'Skoda_working_hours_service'|translate}} </div>
+                                    <div class="text" style="color: #e4e3e3; " ng-if="currentTab =='Toyota' && currentTabType == 'models'">{{'Giza_Working_Hours'|translate}} </div>
+                                    <div class="text" style="color: #e4e3e3; " ng-if="currentTab =='Toyota' && currentTabType == 'car_service'">{{'Giza_Working_Hours_service'|translate}} </div>
+                                    <div class="text" style="color: #e4e3e3; " ng-if="currentTab =='Toyota' && currentTabType == 'spare_parts'">{{'Giza_Working_Hours_service'|translate}} </div>
+                                    <div class="text" style="color: #e4e3e3; " ng-if="currentTab !='Toyota' && currentTab !='Skoda' && currentTab !='home'">{{'Home_Page_Working_Hours'|translate}} </div>
                                 </div>
                             </div>
                         

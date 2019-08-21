@@ -108,6 +108,28 @@ angular.module('alBargasyApp').config(function($routeProvider, $ocLazyLoadProvid
             ]
         }
     }
+    ).when('/vice_president_shaimaa', {
+        templateUrl:"./app/components/group_management/vice_president_shaimaa.html", controller:"groupManagementController", resolve: {
+            deps:['$ocLazyLoad', function($ocLazyLoad) {
+                return $ocLazyLoad.load( {
+                    files: ["./app/components/group_management/group.management.controller.js"]
+                }
+                );
+            }
+            ]
+        }
+    }
+    ).when('/vice_president_walid', {
+        templateUrl:"./app/components/group_management/vice_president_walid.html", controller:"groupManagementController", resolve: {
+            deps:['$ocLazyLoad', function($ocLazyLoad) {
+                return $ocLazyLoad.load( {
+                    files: ["./app/components/group_management/group.management.controller.js"]
+                }
+                );
+            }
+            ]
+        }
+    }
     ).when('/ceo', {
         templateUrl:"./app/components/group_management/ceo.html", controller:"groupManagementController", resolve: {
             deps:['$ocLazyLoad', function($ocLazyLoad) {
