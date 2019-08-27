@@ -12,11 +12,11 @@
   font-style: normal;
 }
 .fa {
-  display: inline-block;
+  display: block;
   font-family: 'FontAwesome';
   font-weight: normal;
   font-style: normal;
-  font-size: inherit;
+  font-size: 300% !important;
   text-rendering: auto;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

@@ -309,6 +309,7 @@
 		margin:0px 0px 0px 0px;
 		border-radius:0px;
 		background:#ff5400;
+		
 	}
 	
 	.main-menu .navbar-header .navbar-toggle .icon-bar{
@@ -771,5 +772,16 @@
 	.comment-form .rating-box .rating,
 	.shop-comment-form .rating-box .rating{
 		margin-bottom:10px;	
+	}
+	.navbar-toggle{
+		display:inline-block;
+		z-index:7;
+		border:1px solid #ffffff;
+		float:none;
+		margin:0px 0px 0px 0px;
+		border-radius:0px;
+		background:#ff5400;
+		top:0;
+		
 	}
 }

@@ -9,9 +9,11 @@ angular.module('alBargasyApp')
         }
         $scope.toggle = {};
         if($scope.lang=='ar'){
+            $scope.class = 'modify';
             $scope.toggle.switch = true;
         }else{
             $scope.toggle.switch = false;
+            $scope.class = '';
         }
         
         $scope.init = function () {

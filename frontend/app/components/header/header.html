@@ -1,3 +1,7 @@
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+
 <div class="page-wrapper">
     <!-- Preloader -->
     <!-- <div id="loading-bar-container"></div> -->
@@ -63,7 +67,7 @@
                 <div class="upper-inner clearfix">
 
                     <div class="logo-outer">
-                        <div class="logo"><a ng-click="goTopage('/home')" href=""><img style="width: 162px;" src="assets/images/logo.jpg" alt="" title=""></a></div>
+                        <div class="logo float-left"><a ng-click="goTopage('/home')" href=""><img style="  width: 100%;" src="assets/images/logo.jpg" alt="" title=""></a></div>
                     </div>
 
                     <div class="upper-right clearfix">
@@ -80,27 +84,33 @@
                                     </button>
                                 </div>
                     
-                                <div class="navbar-collapse collapse clearfix">
+                                <div class="navbar-collapse collapse clearfix" style="background-color = black;">
                                     <ul class="navigation clearfix">
                                         <li ng-class="currentTab==='home'? 'current':''"><a  ng-click="goTopage('/home')">{{'home'|translate}}</a></li>
                                         <!-- <li><a href="services.html">Services</a></li> -->
                                         
                                         <li ng-class="currentTab==='Toyota'? 'current':''" class="dropdown"><a ng-click="goTopage('/toyota/models')" >{{'toyota'|translate}}</a>
-                                            <ul>
+                                            <ul ng-If="!lang == 'ar'">
                                                 <li><a ng-click="goTopage('/toyota/models')" >{{'models'|translate}}</a></li>
                                                 <li><a ng-click="goTopage('/toyota/services')" >{{'service_center'|translate}}</a></li>
                                                 <li><a ng-click="goTopage('/toyota/spare_parts')">{{'spare_parts'|translate}}</a></li>
                                             </ul>
+                                            <ul ng-If="lang == 'ar'">
+                                                <li><a class="float-right" ng-click="goTopage('/toyota/models')" >{{'models'|translate}}</a></li>
+                                                <li><a class="float-right" ng-click="goTopage('/toyota/services')" >{{'service_center'|translate}}</a></li>
+                                                <li><a class="float-right" ng-click="goTopage('/toyota/spare_parts')">{{'spare_parts'|translate}}</a></li>
+                                            </ul>
                                         </li>
-                                        <li ng-class="currentTab==='Skoda'? 'current':''" class="dropdown"><a ng-click="goTopage('/skoda/models')">{{'skoda'|translate}}</a>
+                                        <li ng-class="currentTab==='Skoda'? 'current':''" class="dropdown"><a ng-click="goTopage('/skoda/models')" >{{'skoda'|translate}}</a>
                                             <ul>
-                                                <li><a ng-click="goTopage('/skoda/models')" >{{'models'|translate}}</a></li>
+                                                <li><a ng-controller="headerController"class=" class" ng-click="goTopage('/skoda/models')" >{{'models'|translate}}</a></li>
                                                 <li><a ng-click="goTopage('/skoda/services')" >{{'service_center'|translate}}</a></li>
                                                 <li><a ng-click="goTopage('/skoda/spare_parts')">{{'spare_parts'|translate}}</a></li>
                                             </ul>
                                         </li>
                                         <!-- <li ng-class="currentTab==='Ford'? 'current':''" class="dropdown"><a ng-click="goTopage('/ford/models')">{{'ford'|translate}}</a>
                                             <ul>
+                                            modify//////////////////
                                                 <li><a ng-click="goTopage('/ford/models')" >{{'models'|translate}}</a></li>
                                             </ul>
                                         </li>
