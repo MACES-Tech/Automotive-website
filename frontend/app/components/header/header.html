@@ -90,16 +90,12 @@
                                         <!-- <li><a href="services.html">Services</a></li> -->
                                         
                                         <li ng-class="currentTab==='Toyota'? 'current':''" class="dropdown"><a ng-click="goTopage('/toyota/models')" >{{'toyota'|translate}}</a>
-                                            <ul ng-If="!lang == 'ar'">
+                                            <ul >
                                                 <li><a ng-click="goTopage('/toyota/models')" >{{'models'|translate}}</a></li>
                                                 <li><a ng-click="goTopage('/toyota/services')" >{{'service_center'|translate}}</a></li>
                                                 <li><a ng-click="goTopage('/toyota/spare_parts')">{{'spare_parts'|translate}}</a></li>
                                             </ul>
-                                            <ul ng-If="lang == 'ar'">
-                                                <li><a class="float-right" ng-click="goTopage('/toyota/models')" >{{'models'|translate}}</a></li>
-                                                <li><a class="float-right" ng-click="goTopage('/toyota/services')" >{{'service_center'|translate}}</a></li>
-                                                <li><a class="float-right" ng-click="goTopage('/toyota/spare_parts')">{{'spare_parts'|translate}}</a></li>
-                                            </ul>
+                                            
                                         </li>
                                         <li ng-class="currentTab==='Skoda'? 'current':''" class="dropdown"><a ng-click="goTopage('/skoda/models')" >{{'skoda'|translate}}</a>
                                             <ul>
