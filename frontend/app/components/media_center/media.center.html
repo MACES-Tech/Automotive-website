@@ -1,0 +1,169 @@
+
+<style>
+
+.thumb {
+  position: relative;
+  
+  height: 220px;
+  overflow: hidden;
+}
+#add-image {
+  margin-top:10px;
+}
+
+span.text-content {
+  background: rgba(0,0,0,0.5);
+  color: white;
+  cursor: pointer;
+  display: table;
+  height: auto;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  opacity: 0;
+}
+span.text-content span {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+}
+.modal-body {
+  text-align: center;
+  vertical-align: middle;
+}
+.img-modal {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+.thumbnail:hover span.text-content {
+  opacity: 1;
+}
+</style>
+
+<section class="page-title" style="background-image:url(assets/images/background/5.jpg);">
+    <div class="auto-container">
+        <h1>{{'gallery'|translate}}</h1>
+    </div>
+</section>
+
+
+<!--Inventory Section-->
+<section class="inventory-section inventory-single">
+    <div class="auto-container">
+        <div class="row clearfix">
+
+            <!--Column-->
+            <div class="column col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <!-- Modal -->
+                <div id="myModal" class="modal fade" role="dialog">
+                    <div class="modal-dialog">
+
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <!-- <h4 class="modal-title">My Album</h4> -->
+                            </div>
+                            <div class="modal-body">
+                                <!-- <div>
+                                    <p>{{images[current].caption}}</p>
+                                </div> -->
+                                <div class="img-modal" ng-click="nextImage()">
+                                    <img class="img-responsive" ng-src="{{images[current].src}}">
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <div class="row" style="margin-top: 50px;" ng-if="$index%3 == 0" ng-repeat="image in images track by $index">
+                        <div class="col-md-4 col-xs-4" >
+                                <!-- <h5 class="caption text-center">{{ctrl.caption}}</h5> -->
+                                <div class="thumb" data-toggle='modal' data-target="#myModal" ng-click="images[$index]">
+                                    <a class="thumbnail" href="" ng-click="getIndex(images[$index])">
+                                        <img class="img-responsive" ng-src="{{images[$index].src}}" alt="invalid image url">
+                                        <!-- <span class="text-content"><span>{{image.caption}}</span></span> -->
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-xs-4" >
+                                    <!-- <h5 class="caption text-center">{{ctrl.caption}}</h5> -->
+                                    <div class="thumb" data-toggle='modal' data-target="#myModal" ng-click="images[$index+1]">
+                                        <a class="thumbnail" href="" ng-click="getIndex(images[$index+1])">
+                                            <img class="img-responsive" ng-src="{{images[$index+1].src}}" alt="invalid image url">
+                                            <!-- <span class="text-content"><span>{{image.caption}}</span></span> -->
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-xs-4" >
+                                        <!-- <h5 class="caption text-center">{{ctrl.caption}}</h5> -->
+                                        <div class="thumb" data-toggle='modal' data-target="#myModal" ng-click="images[$index+2]">
+                                            <a class="thumbnail" href="" ng-click="getIndex(images[$index+2])">
+                                                <img class="img-responsive" ng-src="{{images[$index+2].src}}" alt="invalid image url">
+                                                <!-- <span class="text-content"><span>{{image.caption}}</span></span> -->
+                                            </a>
+                                        </div>
+                                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<section class="sell-car-section" ng-if="isAdmin()">
+    <div class="auto-container">
+        <div class="row clearfix">
+            <!--Cell Car Column-->
+            <div class="cell-car-column col-lg-9 col-md-8 col-sm-12 col-xs-12">
+                <div class="inner-column">
+                    <!--Sec Title-->
+                    <div class="sec-title">
+                        <h2>{{'add_image_slider'|translate}}</h2>
+                    </div>
+
+                    <!--Sell Car Form-->
+                    <div class="sell-car-form">
+                        <h2>{{'image_info'|translate}}</h2>
+                        <div class="form-box">
+                            <form>
+                                <div class="row clearfix">
+                                    <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                                        <label class="upload">{{'upload_photo'|translate}}</label>
+                                        <div class="field-inner clearfix">
+                                            <input id="ImageUploader1" type="file" ngf-select ng-model="up.file"
+                                                name="file" ngf-pattern="'image/*'" accept="image/*" ngf-max-size="20MB"
+                                                style="display: none">
+
+
+                                            <button type="button" ng-click="openFileUploader('ImageUploader1')"
+                                                class="upload-btn"><span class="fa fa-file-picture-o"></span>
+                                                {{'Choose_File' |translate}}</button>
+                                            {{'image_thumbnail'|translate}}: <img style="width:100px;"
+                                                ngf-thumbnail="up.file || '/thumb.jpg'" />
+                                            {{progress}}
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                                        <button type="button" ng-click="addNewImageToGallery(up)"
+                                            class="theme-btn btn-style-one">{{'submit_now'|translate}}</button>
+
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

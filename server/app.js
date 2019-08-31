@@ -30,6 +30,9 @@
     require('./route/authentication.route.js')(app);
     require('./route/carService.route.js')(app);
     require('./route/gallery.route.js')(app);
+    require('./route/media.center.gallery.route.js')(app);
+    require('./route/media.center.video.route.js')(app);
+    require('./route/media.center.event.route.js')(app);
     require('./controller/file.controller.js')(app);
     require('./route/services.route.js')(app);
     require('./route/spareParts.route.js')(app);

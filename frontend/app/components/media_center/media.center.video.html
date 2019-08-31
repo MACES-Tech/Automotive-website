@@ -1,0 +1,75 @@
+
+        <section class="page-title" style="background-image:url(assets/images/background/5.jpg);">
+            <div class="auto-container">
+                <h1>{{'videos'|translate}}</h1>
+            </div>
+        </section>
+        
+        
+        <!--Inventory Section-->
+        <section class="inventory-section inventory-single">
+            <div class="auto-container">
+                <div class="row clearfix">
+        
+                    <!--Column-->
+                    <div class="column col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        
+                            <div class="row" style="margin-top: 50px;" ng-repeat="video in videos track by $index">
+                                    <div class="col-md-12 col-xs-12" >
+                                            <iframe style="    margin: 0 auto;
+                                            display: block;
+                                            width: 800px;
+                                            height: -webkit-fill-available;" _ngcontent-c1="" allowfullscreen="" frameborder="0" mozallowfullscreen="" webkitallowfullscreen="" ng-src="{{video}}"></iframe>
+                                            <!-- <div class="thumb" data-toggle='modal' data-target="#myModal" ng-click="images[$index]">
+                                                <a class="thumbnail" href="" ng-click="getIndex(images[$index])">
+                                                    <img class="img-responsive" ng-src="{{images[$index].src}}" alt="invalid image url">
+                                                </a>
+                                            </div> -->
+                                        </div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        
+        
+        <section class="sell-car-section" ng-if="isAdmin()">
+            <div class="auto-container">
+                <div class="row clearfix">
+                    <!--Cell Car Column-->
+                    <div class="cell-car-column col-lg-9 col-md-8 col-sm-12 col-xs-12">
+                        <div class="inner-column">
+                            <!--Sec Title-->
+                            <div class="sec-title">
+                                <h2>{{'add_video_slider'|translate}}</h2>
+                            </div>
+        
+                            <!--Sell Car Form-->
+                            <div class="sell-car-form">
+                                <h2>{{'video_info'|translate}}</h2>
+                                <div class="form-box">
+                                    <form>
+                                        <div class="row clearfix">
+                                            <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                                                <label class="upload">{{'video_link'|translate}}</label>
+                                                <div class="field-inner clearfix">
+                                                    <input placeholder="https://www.youtube.com/embed/OirQTCFtEpkXYZ" type="text" 
+                                                        name="videoUrl" ng-model="videoUrl"
+                                                        style="border-color: #eb1d27; text-align: left;"/>
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                                                <button type="button" ng-click="addNewVideoToGallery(videoUrl)"
+                                                    class="theme-btn btn-style-one">{{'submit_now'|translate}}</button>
+        
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>

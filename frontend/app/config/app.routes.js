@@ -188,6 +188,28 @@ angular.module('alBargasyApp').config(function($routeProvider, $ocLazyLoadProvid
             ]
         }
     }
+    ).when('/media/gallery', {
+        templateUrl:"./app/components/media_center/media.center.html", controller:"mediaCenterController", resolve: {
+            deps:['$ocLazyLoad', function($ocLazyLoad) {
+                return $ocLazyLoad.load( {
+                    files: ["./app/components/media_center/media.center.controller.js", "./app/components/media_center/service/gallery.service.js"]
+                }
+                );
+            }
+            ]
+        }
+    }
+    ).when('/media/videos', {
+        templateUrl:"./app/components/media_center/media.center.video.html", controller:"mediaCenterVideoController", resolve: {
+            deps:['$ocLazyLoad', function($ocLazyLoad) {
+                return $ocLazyLoad.load( {
+                    files: ["./app/components/media_center/media.center.video.controller.js", "./app/components/media_center/service/video.service.js"]
+                }
+                );
+            }
+            ]
+        }
+    }
     ).otherwise( {
         redirectTo: "/notFound"
     }

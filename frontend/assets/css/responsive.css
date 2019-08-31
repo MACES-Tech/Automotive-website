@@ -20,7 +20,7 @@
 .main-menu .navigation > li > ul > li > ul{display:block !important;visibility:hidden;opacity:0;}
 }
 @media only screen and (max-width:1023px){.sticky-header{display:none !important;}
-.main-header .header-upper .upper-right{width:100%;}
+/* .main-header .header-upper .upper-right{width:100%;} */
 .main-header .header-lower .lower-inner .info-block{text-align:center;padding-top:15px;width:100%;}
 .main-header .header-lower .lower-inner .info-block li{margin:0px 12px 10px;border:none;padding:10px 0px;}
 .main-header .header-lower .lower-inner .info-block li .icon{position:relative;display:block;left:0px;top:0px;width:40px;margin:0 auto 15px;}
