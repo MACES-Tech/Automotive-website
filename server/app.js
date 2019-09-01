@@ -52,6 +52,6 @@
 // });
 app.use('/uploads', express.static(process.cwd() + '/uploads'));
 
-    app.listen('3005', function(){
+    app.listen('3000', function(){
         console.log('running on 3000...');
     });
