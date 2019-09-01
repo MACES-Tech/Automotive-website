@@ -210,6 +210,17 @@ angular.module('alBargasyApp').config(function($routeProvider, $ocLazyLoadProvid
             ]
         }
     }
+    ).when('/media/events', {
+        templateUrl:"./app/components/media_center/media.center.events.html", controller:"mediaCenterEventController", resolve: {
+            deps:['$ocLazyLoad', function($ocLazyLoad) {
+                return $ocLazyLoad.load( {
+                    files: ["./app/components/media_center/media.center.events.controller.js", "./app/components/media_center/service/events.service.js"]
+                }
+                );
+            }
+            ]
+        }
+    }
     ).otherwise( {
         redirectTo: "/notFound"
     }

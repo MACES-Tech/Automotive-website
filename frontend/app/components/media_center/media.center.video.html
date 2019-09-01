@@ -16,10 +16,13 @@
         
                             <div class="row" style="margin-top: 50px;" ng-repeat="video in videos track by $index">
                                     <div class="col-md-12 col-xs-12" >
+                                            <div class="edit-icons ng-scope" ng-if="isAdmin()">
+                                                    <span ng-click="confirmPopup(video.id)"><a href=""><i class="fa fa-trash" data-toggle="modal" data-target=".bd-example-modal-sm"></i></a> </span>
+                                            </div>
                                             <iframe style="    margin: 0 auto;
                                             display: block;
                                             width: 800px;
-                                            height: -webkit-fill-available;" _ngcontent-c1="" allowfullscreen="" frameborder="0" mozallowfullscreen="" webkitallowfullscreen="" ng-src="{{video}}"></iframe>
+                                            height: -webkit-fill-available;" _ngcontent-c1="" allowfullscreen="" frameborder="0" mozallowfullscreen="" webkitallowfullscreen="" ng-src="{{video.url}}"></iframe>
                                             <!-- <div class="thumb" data-toggle='modal' data-target="#myModal" ng-click="images[$index]">
                                                 <a class="thumbnail" href="" ng-click="getIndex(images[$index])">
                                                     <img class="img-responsive" ng-src="{{images[$index].src}}" alt="invalid image url">

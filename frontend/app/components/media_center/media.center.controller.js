@@ -11,7 +11,7 @@ angular.module('alBargasyApp')
                 var images = [];
                 res = res.data;
                 res.forEach(o => {
-                  images.push({src: '/uploads/' + o.file.path})
+                  images.push({src: '/uploads/' + o.file.path, id:o.id})
                 });
                 $scope.images = images;
               }
@@ -57,6 +57,36 @@ angular.module('alBargasyApp')
                         }
 
                     })
+                }
+            })
+        }
+        
+
+        $scope.confirmPopup = function (modelId) {
+            SweetAlert.swal({
+                title: "Are you sure?",
+                text: "Your will not be able to recover this operation!",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#DD6B55", confirmButtonText: "Yes, delete it!",
+                cancelButtonText: "No, cancel please!",
+                closeOnConfirm: false,
+                closeOnCancel: false
+            },
+                function (isConfirm) {
+                    if (isConfirm) {
+                        $scope.deleteIt(modelId)
+                    } else {
+                        SweetAlert.swal("Cancelled", "Your imaginary data is safe :)", "error");
+                    }
+                });
+        }
+        $scope.deleteIt = function (modelId) {
+            debugger;
+            mediaCenterGalleryService.deletegalleryById(modelId, function (res, err) {
+                if (!err) {
+                    SweetAlert.swal("Deleted!", "Your data has been deleted.", "success");
+                    $scope.init($scope.carBrandId, $scope.isUsedCarFilter)
                 }
             })
         }

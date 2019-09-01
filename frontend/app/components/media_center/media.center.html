@@ -4,7 +4,6 @@
 .thumb {
   position: relative;
   
-  height: 220px;
   overflow: hidden;
 }
 #add-image {
@@ -88,6 +87,9 @@ span.text-content span {
                         <div class="col-md-4 col-xs-4" >
                                 <!-- <h5 class="caption text-center">{{ctrl.caption}}</h5> -->
                                 <div class="thumb" data-toggle='modal' data-target="#myModal" ng-click="images[$index]">
+                                        <div class="edit-icons ng-scope" ng-if="isAdmin()">
+                                                <span ng-click="confirmPopup(images[$index].id)"><a href=""><i class="fa fa-trash" data-toggle="modal" data-target=".bd-example-modal-sm"></i></a> </span>
+                                        </div>
                                     <a class="thumbnail" href="" ng-click="getIndex(images[$index])">
                                         <img class="img-responsive" ng-src="{{images[$index].src}}" alt="invalid image url">
                                         <!-- <span class="text-content"><span>{{image.caption}}</span></span> -->
@@ -97,6 +99,9 @@ span.text-content span {
                             <div class="col-md-4 col-xs-4" >
                                     <!-- <h5 class="caption text-center">{{ctrl.caption}}</h5> -->
                                     <div class="thumb" data-toggle='modal' data-target="#myModal" ng-click="images[$index+1]">
+                                            <div class="edit-icons ng-scope" ng-if="isAdmin()">
+                                                    <span ng-click="confirmPopup(images[$index+1].id)"><a href=""><i class="fa fa-trash" data-toggle="modal" data-target=".bd-example-modal-sm"></i></a> </span>
+                                            </div>
                                         <a class="thumbnail" href="" ng-click="getIndex(images[$index+1])">
                                             <img class="img-responsive" ng-src="{{images[$index+1].src}}" alt="invalid image url">
                                             <!-- <span class="text-content"><span>{{image.caption}}</span></span> -->
@@ -106,6 +111,9 @@ span.text-content span {
                                 <div class="col-md-4 col-xs-4" >
                                         <!-- <h5 class="caption text-center">{{ctrl.caption}}</h5> -->
                                         <div class="thumb" data-toggle='modal' data-target="#myModal" ng-click="images[$index+2]">
+                                                <div class="edit-icons ng-scope" ng-if="isAdmin()">
+                                                        <span ng-click="confirmPopup(images[$index+2].id)"><a href=""><i class="fa fa-trash" data-toggle="modal" data-target=".bd-example-modal-sm"></i></a> </span>
+                                                </div>
                                             <a class="thumbnail" href="" ng-click="getIndex(images[$index+2])">
                                                 <img class="img-responsive" ng-src="{{images[$index+2].src}}" alt="invalid image url">
                                                 <!-- <span class="text-content"><span>{{image.caption}}</span></span> -->

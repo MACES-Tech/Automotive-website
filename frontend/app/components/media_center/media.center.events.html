@@ -1,75 +1,122 @@
+<section class="page-title" style="background-image:url(assets/images/background/5.jpg);">
+    <div class="auto-container">
+        <h1>{{'events'|translate}}</h1>
+    </div>
+</section>
 
-        <section class="page-title" style="background-image:url(assets/images/background/5.jpg);">
-            <div class="auto-container">
-                <h1>{{'videos'|translate}}</h1>
-            </div>
-        </section>
-        
-        
-        <!--Inventory Section-->
-        <section class="inventory-section inventory-single">
-            <div class="auto-container">
-                <div class="row clearfix">
-        
-                    <!--Column-->
-                    <div class="column col-lg-12 col-md-12 col-sm-12 col-xs-12">
-        
-                            <div class="row" style="margin-top: 50px;" ng-repeat="video in videos track by $index">
-                                    <div class="col-md-12 col-xs-12" >
-                                            <iframe style="    margin: 0 auto;
-                                            display: block;
-                                            width: 800px;
-                                            height: -webkit-fill-available;" _ngcontent-c1="" allowfullscreen="" frameborder="0" mozallowfullscreen="" webkitallowfullscreen="" ng-src="{{video}}"></iframe>
-                                            <!-- <div class="thumb" data-toggle='modal' data-target="#myModal" ng-click="images[$index]">
-                                                <a class="thumbnail" href="" ng-click="getIndex(images[$index])">
-                                                    <img class="img-responsive" ng-src="{{images[$index].src}}" alt="invalid image url">
-                                                </a>
-                                            </div> -->
-                                        </div>
-                            </div>
+
+<!--Inventory Section-->
+<section class="inventory-section inventory-single">
+    <div class="auto-container">
+        <div class="row clearfix">
+
+            <!--Column-->
+            <div class="column col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+                <div class="row" style="margin-top: 50px;" ng-if="$index%3 == 0" ng-repeat="event in events track by $index">
+                    <div class="col-md-4 col-xs-4">
+                        <!-- <h5 class="caption text-center">{{ctrl.caption}}</h5> -->
+                        <div class="edit-icons ng-scope" ng-if="isAdmin()">
+                                <span ng-click="confirmPopup(events[$index].id)"><a href=""><i class="fa fa-trash" data-toggle="modal" data-target=".bd-example-modal-sm"></i></a> </span>
+                        </div>
+                        <div class="thumb">
+                            <a style="text-align: center; color: #232628; font-size: large;" class="thumbnail" href="">
+                                <img class="img-responsive" ng-src="{{'/uploads/' + events[$index].file.path}}" alt="invalid event url">
+                                <span style="margin:10px;" ng-if="lang=='ar'" class="text-content"><span>{{events[$index].titleAr}}</span></span>
+                                <span style="margin:10px;" ng-if="lang=='en'" class="text-content"><span>{{events[$index].titleEn}}</span></span>
+                            </a>
+                        </div>
                     </div>
-                </div>
-            </div>
-        </section>
-        
-        
-        
-        <section class="sell-car-section" ng-if="isAdmin()">
-            <div class="auto-container">
-                <div class="row clearfix">
-                    <!--Cell Car Column-->
-                    <div class="cell-car-column col-lg-9 col-md-8 col-sm-12 col-xs-12">
-                        <div class="inner-column">
-                            <!--Sec Title-->
-                            <div class="sec-title">
-                                <h2>{{'add_video_slider'|translate}}</h2>
-                            </div>
-        
-                            <!--Sell Car Form-->
-                            <div class="sell-car-form">
-                                <h2>{{'video_info'|translate}}</h2>
-                                <div class="form-box">
-                                    <form>
-                                        <div class="row clearfix">
-                                            <div class="form-group col-md-12 col-sm-12 col-xs-12">
-                                                <label class="upload">{{'video_link'|translate}}</label>
-                                                <div class="field-inner clearfix">
-                                                    <input placeholder="https://www.youtube.com/embed/OirQTCFtEpkXYZ" type="text" 
-                                                        name="videoUrl" ng-model="videoUrl"
-                                                        style="border-color: #eb1d27; text-align: left;"/>
-                                                </div>
-                                            </div>
-                                            <div class="form-group col-md-12 col-sm-12 col-xs-12">
-                                                <button type="button" ng-click="addNewVideoToGallery(videoUrl)"
-                                                    class="theme-btn btn-style-one">{{'submit_now'|translate}}</button>
-        
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
+                    <div ng-if="$index+1 < events.length" class="col-md-4 col-xs-4">
+                        <!-- <h5 class="caption text-center">{{ctrl.caption}}</h5> -->
+                        <div class="edit-icons ng-scope" ng-if="isAdmin()">
+                                <span ng-click="confirmPopup(events[$index+1].id)"><a href=""><i class="fa fa-trash" data-toggle="modal" data-target=".bd-example-modal-sm"></i></a> </span>
+                        </div>
+                        <div class="thumb">
+                            <a style="text-align: center; color: #232628; font-size: large;" class="thumbnail" href="">
+                                <img class="img-responsive" ng-src="{{'/uploads/' + events[$index+1].file.path}}" alt="invalid event url">
+                                <span style="margin:10px;" ng-if="lang=='ar'" class="text-content"><span>{{events[$index+1].titleAr}}</span></span>
+                                <span style="margin:10px;" ng-if="lang=='en'" class="text-content"><span>{{events[$index+1].titleEn}}</span></span>
+                            </a>
+                        </div>
+                    </div>
+                    <div ng-if="$index+2 < events.length" class="col-md-4 col-xs-4">
+                        <!-- <h5 class="caption text-center">{{ctrl.caption}}</h5> -->
+                        <div class="edit-icons ng-scope" ng-if="isAdmin()">
+                                <span ng-click="confirmPopup(events[$index+2].id)"><a href=""><i class="fa fa-trash" data-toggle="modal" data-target=".bd-example-modal-sm"></i></a> </span>
+                        </div>
+                        <div class="thumb">
+                            <a style="text-align: center; color: #232628; font-size: large;" class="thumbnail" href="">
+                                <img class="img-responsive" ng-src="{{'/uploads/' + events[$index+2].file.path}}" alt="invalid event url">
+                                <span style="margin:10px;" ng-if="lang=='ar'" class="text-content"><span>{{events[$index+2].titleAr}}</span></span>
+                                <span style="margin:10px;" ng-if="lang=='en'" class="text-content"><span>{{events[$index+2].titleEn}}</span></span>
+                            </a>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </div>
+</section>
+
+
+
+<section class="sell-car-section" ng-if="isAdmin()">
+    <div class="auto-container">
+        <div class="row clearfix">
+            <!--Cell Car Column-->
+            <div class="cell-car-column col-lg-9 col-md-12 col-sm-12 col-xs-12">
+                <div class="inner-column">
+                    <!--Sec Title-->
+                    <div class="sec-title">
+                        <h2>{{'add_event_to_slider'|translate}}</h2>
+                    </div>
+
+                    <!--Sell Car Form-->
+                    <div class="sell-car-form">
+                        <h2>{{'event_info'|translate}}</h2>
+                        <div class="form-box">
+                            <form>
+                                <div class="row clearfix">
+                                    <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                        <label>{{'english_title'|translate}}</label>
+                                        <input type="text" ng-model="model.titleEn" name="name" value="" placeholder="" required="required">
+                                    </div>
+                                    <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                        <label>{{'arabic_title'|translate}}</label>
+                                        <input type="text" ng-model="model.titleAr" name="arName" value="" placeholder="" required="required">
+                                    </div>
+                                    <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                                        <label>{{'description'|translate}}</label>
+                                        <textarea ng-model="model.descrEn" name="firstParagraph" value="" placeholder="" required="required"></textarea>
+                                    </div>
+                                    <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                                        <label>{{'arabic_description'|translate}}</label>
+                                        <textarea ng-model="model.descrAr" name="arFirstParagraph" value="" placeholder="" required="required"></textarea>
+                                    </div>
+                                    <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                                        <label class="upload">{{'upload_photo'|translate}}</label>
+                                        <div class="field-inner clearfix">
+                                            <input id="ImageUploader1" type="file" ngf-select ng-model="up.file" name="file" ngf-pattern="'image/*'" accept="image/*"
+                                                ngf-max-size="20MB" style="display: none">
+
+
+                                            <button type="button" ng-click="openFileUploader('ImageUploader1')" class="upload-btn">
+                                                <span class="fa fa-file-picture-o"></span> {{'Choose_File' |translate}}</button>
+                                            {{'image_thumbnail'|translate}}:
+                                            <img style="width:100px;" ngf-thumbnail="up.file || '/thumb.jpg'"
+                                            /> {{progress}}
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                                        <button type="button" ng-click="addNewEventToSlider(up,model)" class="theme-btn btn-style-one">{{'submit_now'|translate}}</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

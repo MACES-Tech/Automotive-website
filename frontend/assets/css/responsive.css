@@ -1,7 +1,8 @@
-@media only screen and (max-width:1340px){.page-wrapper{overflow:hidden;}
+/* @media only screen and (max-width:1340px){.page-wrapper{overflow:hidden;}
 .inner-header .outer-container{padding:0px 15px;}
-}
-@media only screen and (max-width:1140px){.main-header .header-lower .lower-inner .search-box{display:none;}
+} */
+@media only screen and (max-width:1140px){
+    .main-header .header-lower .lower-inner .search-box{display:none;}
 .main-header .header-upper .upper-inner{padding-right:20px;}
 .main-menu .navigation > li{margin-right:18px;}
 .car-search-form .inner-section{margin-top:-46px;}
@@ -43,14 +44,15 @@
 .car-block-two .inner-box .content-column .lower-box .logos-box{padding-top:10px;}
 .car-block-two .inner-box .content-column .lower-box .logos-box li{margin-left:0px;margin-right:20px;}
 }
-@media only screen and (max-width:767px){.main-header .header-top .top-left{display:none;}
+@media only screen and (max-width:767px){
+    .main-header .header-top .top-left{display:none;}
 .main-header .header-top{text-align:center;}
 .main-header .header-top .top-right{width:100%;}
 .main-header .header-top .top-right ul > li{float:none;display:inline-block;margin:0px 10px;text-align:left;}
 .main-header .header-upper{margin-top:25px;}
 .main-header .header-upper .upper-inner{border-top:1px solid #f2f2f2;}
 .main-header .header-lower{margin-bottom:20px;}
-.main-header .logo-outer{width:100%;text-align:center;}
+.main-header .logo-outer{text-align:center;}
 .main-header .header-upper .nav-outer{padding-right:0px;margin:30px 0px 20px;}
 .main-header .nav-outer .more-options{right:auto;left:0px;top:5px;margin:0px;z-index:20;}
 .main-header .nav-outer .more-options .cart-box{padding-left:0px;padding-right:20px;border:none;border-right:1px solid #f0f0f0;}
@@ -135,7 +137,8 @@
 .cart-section .coupon-outer .pull-left,
 .cart-section .coupon-outer .pull-right{width:100%;}
 }
-@media only screen and (max-width:599px){.main-slider .slider-content h2,
+@media only screen and (max-width:599px){
+    .main-slider .slider-content h2,
 .sec-title h2,
 .services-block .inner-box .upper-box .upper-content h2,
 .inventory-details .vehicle-details h2,

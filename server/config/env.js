@@ -1,8 +1,9 @@
 const env = {
     database: 'automotive',
     username: 'root',
-    password: '',
+    password: 'root',
     host: 'localhost',
+    port:'8889',
     dialect: 'mysql',
     pool: {
         max: 5,

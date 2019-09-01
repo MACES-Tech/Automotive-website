@@ -1,9 +1,10 @@
 {
     "development":{
         "username":"root",
-        "password":"",
+        "password":"root",
         "database":"automotive",
         "host":"localhost",
+        "port":"8889",
         "dialect":"mysql"
     }
 }
