@@ -22,7 +22,7 @@ angular.module('alBargasyApp')
                     // $scope.reloadScripts();
                 }
             })
-
+            $scope.reloadScripts();
         }
         $scope.changeInBrandList = function(listId,selectedBrand){
             selectedBrandJson = JSON.parse(selectedBrand)

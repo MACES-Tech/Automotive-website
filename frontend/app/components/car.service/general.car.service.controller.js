@@ -2,11 +2,20 @@ angular.module('alBargasyApp').controller('generalCarsServiceController',functio
 $scope.carbrandId={}
 $scope.carbrandId.id=1;$scope.requestService={};$scope.requestService.brand="skoda";$scope.lang=$rootScope.getPreffrerdLanguage();$scope.showSlider=false;$scope.addEditService.type=1;if($rootScope.getcurrentUser()!=""){var user=$rootScope.getcurrentUser();$scope.requestService.name=user.name;$scope.requestService.email=user.email;$scope.requestService.phone=user.phone;$scope.requestService.model="";$scope.requestService.chassis="";}
 brandModelsService.getAllBrands(function(res,err){if(res.data.length>0){$scope.brands=res.data;$scope.init($scope.carbrandId.id);}else{SweetAlert.swal("Error","an error occuers","error");}})
+$scope.reloadScripts = function(){
+    var script = document.createElement('script');
+
+    script.src = "assets/js/script.js";
+
+    document.head.appendChild(script);
+}
 $scope.init=function(carBrandId){$rootScope.FaceBookLink="https://www.facebook.com/toyotaalbargasy/";$scope.services=[];$scope.miniServices=[];$scope.sliderServices=[];$scope.generalService={};$scope.addEditService={};$scope.up={}
 $scope.carbrandId={}
 $scope.carbrandId.id=carBrandId;$scope.requestService={};$scope.showSlider=false;$scope.addEditService.type=1;$scope.requestService.brand="skoda";if($scope.brands.length>0){$scope.brands.forEach(element=>{if(element.id==carBrandId){$scope.requestService.brand=element.name;}});$scope.requestService.brand=carBrandName}
 if($rootScope.getcurrentUser()!=""){var user=$rootScope.getcurrentUser();$scope.requestService.name=user.name;$scope.requestService.email=user.email;$scope.requestService.phone=user.phone;$scope.requestService.model="";$scope.requestService.chassis="";}
-carServiceService.getCarServices($scope.carbrandId.id,function(res,err){if(!err){console.log(res.data)
+carServiceService.getCarServices($scope.carbrandId.id,function(res,err){if(!err){
+    $scope.reloadScripts();
+    console.log(res.data)
 if(res.data.length>0)
 $scope.ServiceAvailable=true;else
 $scope.ServiceAvailable=false;for(var i=0;i<res.data.length;i++){if(res.data[i].serviceIsGeneral){$scope.generalService=res.data[i];}else if(!res.data[i].miniService&&!res.data[i].sliderService){$scope.services.push(res.data[i]);}else if(res.data[i].miniService){$scope.miniServices.push(res.data[i]);}else if(res.data[i].sliderService){$scope.sliderServices.push(res.data[i]);}}}})}

@@ -23,7 +23,13 @@ angular.module('alBargasyApp')
             if ($scope.user.role == "user")
                 $scope.model.usedCar = 1;
         }
-        
+        $scope.reloadScripts = function(){
+            var script = document.createElement('script');
+
+            script.src = "assets/js/script.js";
+
+            document.head.appendChild(script);
+        }
         $scope.init = function (carBrandId, isUsedCar) {
             $rootScope.FaceBookLink = "https://www.facebook.com/toyotaalbargasy/";
             var filterObject = {};
@@ -41,6 +47,7 @@ angular.module('alBargasyApp')
                     })
                 }
             })
+            $scope.reloadScripts();
         }
 
         $scope.confirmPopup = function (modelId) {

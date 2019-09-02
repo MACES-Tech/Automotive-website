@@ -25,6 +25,13 @@ angular.module('alBargasyApp')
         $rootScope.currentTab = $routeParams.brandName;
         $rootScope.currentTabType = 'car_service';
 
+        $scope.reloadScripts = function(){
+            var script = document.createElement('script');
+
+            script.src = "assets/js/script.js";
+
+            document.head.appendChild(script);
+        }
         $scope.init = function () {
             $scope.services = [];
             $scope.miniServices = [];
@@ -49,6 +56,7 @@ angular.module('alBargasyApp')
             if ($routeParams.brandName) {
                 brandModelsService.getCarBrandByName($routeParams.brandName, function (res, err) {
                     if (!err) {
+                        $scope.reloadScripts();
                         if (res.data.length > 0 && res.status === 200) {
                             $scope.carbrand = res.data[0];
                             if($scope.carbrand.name==="skoda"){

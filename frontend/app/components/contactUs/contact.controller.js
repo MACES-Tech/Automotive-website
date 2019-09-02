@@ -44,6 +44,13 @@ angular.module('alBargasyApp')
             script.src = "assets/js/dataTable.js";
 
             document.head.appendChild(script);
+
+                var script2 = document.createElement('script');
+    
+                script2.src = "assets/js/script.js";
+    
+                document.head.appendChild(script2);
+            
         }
         $scope.init();
 

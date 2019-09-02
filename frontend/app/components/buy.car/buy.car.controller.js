@@ -4,7 +4,16 @@ if($scope.user!=""){if($scope.user.role=="user")
 $scope.model.usedCar=1;console.log("$scope.model.usedCar ",$scope.user)}
 $scope.switchTabCar=function(isUsed){$scope.isUsedCarFilter=isUsed;$scope.init($scope.carBrandId,$scope.isUsedCarFilter)}
 $scope.init=function(carBrandId,isUsedCar){$rootScope.FaceBookLink="https://www.facebook.com/toyotaalbargasy/";var filterObject={};if(carBrandId)
-filterObject.carBrandId=carBrandId;filterObject.usedCar=isUsedCar;filterObject.isPublished=true;$scope.carModels=[];$scope.extraFeatures=[];brandModelsService.getAllModelsWithoutBrand(filterObject,function(res,err){if(!err){$scope.carModels=res.data;brandModelsService.getAllExtraFeatures(function(res,err){if(!err){$scope.extraFeatures=res.data;}})}})}
+filterObject.carBrandId=carBrandId;filterObject.usedCar=isUsedCar;filterObject.isPublished=true;$scope.carModels=[];$scope.extraFeatures=[];brandModelsService.getAllModelsWithoutBrand(filterObject,function(res,err){if(!err){$scope.carModels=res.data;
+    $scope.reloadScripts();
+    brandModelsService.getAllExtraFeatures(function(res,err){if(!err){$scope.extraFeatures=res.data;}})}})}
+$scope.reloadScripts = function(){
+    var script = document.createElement('script');
+
+    script.src = "assets/js/script.js";
+
+    document.head.appendChild(script);
+}
 $scope.confirmPopup=function(modelId){SweetAlert.swal({title:"Are you sure?",text:"Your will not be able to recover this operation!",type:"warning",showCancelButton:true,confirmButtonColor:"#DD6B55",confirmButtonText:"Yes, delete it!",cancelButtonText:"No, cancel please!",closeOnConfirm:false,closeOnCancel:false},function(isConfirm){if(isConfirm){$scope.deleteIt(modelId)}else{SweetAlert.swal("Cancelled","Your imaginary data is safe :)","error");}});}
 $scope.deleteIt=function(modelId){brandModelsService.deleteModelById(modelId,function(res,err){if(!err){SweetAlert.swal("Deleted!","Your data has been deleted.","success");$scope.init($scope.carBrandId,$scope.isUsedCarFilter)}})}
 $scope.openFileUploader=function(){document.getElementById('ImageUploader1').click();}

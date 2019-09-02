@@ -1,4 +1,13 @@
-angular.module('alBargasyApp').controller('sparePartsController',function($window,$rootScope,$scope,$location,$routeParams,brandSparePartsService,brandModelsService,SweetAlert,Upload){$scope.carModels=[];$scope.up={};$scope.model={};$scope.lang=$rootScope.getPreffrerdLanguage();$scope.init=function(){if($routeParams.brandName){brandModelsService.getCarBrandByName($routeParams.brandName,function(res,err){if(!err){if(res.data.length>0&&res.status===200){$scope.carbrand=res.data[0];if($scope.carbrand.name==="skoda"){$rootScope.FaceBookLink="https://www.facebook.com/SkodaAlBargasy/"}else if($scope.carbrand.name==="toyota"){$rootScope.FaceBookLink="https://www.facebook.com/Toyota.albargasy.3s/"}else{$rootScope.FaceBookLink="https://www.facebook.com/toyotaalbargasy/"}
+angular.module('alBargasyApp').controller('sparePartsController',function($window,$rootScope,$scope,$location,$routeParams,brandSparePartsService,brandModelsService,SweetAlert,Upload){$scope.carModels=[];$scope.up={};$scope.model={};$scope.lang=$rootScope.getPreffrerdLanguage();
+$scope.reloadScripts = function(){
+    var script = document.createElement('script');
+
+    script.src = "assets/js/script.js";
+
+    document.head.appendChild(script);
+}
+$scope.init=function(){$scope.reloadScripts();
+     if($routeParams.brandName){brandModelsService.getCarBrandByName($routeParams.brandName,function(res,err){if(!err){if(res.data.length>0&&res.status===200){$scope.carbrand=res.data[0];if($scope.carbrand.name==="skoda"){$rootScope.FaceBookLink="https://www.facebook.com/SkodaAlBargasy/"}else if($scope.carbrand.name==="toyota"){$rootScope.FaceBookLink="https://www.facebook.com/Toyota.albargasy.3s/"}else{$rootScope.FaceBookLink="https://www.facebook.com/toyotaalbargasy/"}
 $rootScope.currentTab=$scope.carbrand.name;$rootScope.currentTabType = 'spare_parts';brandSparePartsService.getAllSpareParts($scope.carbrand.id,function(res,err){if(!err){$scope.carModels=res.data;}})}else{$rootScope.redirectTo404()}}else{$rootScope.redirectTo404()}})}else{$rootScope.redirectTo404()}}
 $scope.confirmPopup=function(modelId){SweetAlert.swal({title:"Are you sure?",text:"Your will not be able to recover this operation!",type:"warning",showCancelButton:true,confirmButtonColor:"#DD6B55",confirmButtonText:"Yes, delete it!",cancelButtonText:"No, cancel please!",closeOnConfirm:false,closeOnCancel:false},function(isConfirm){if(isConfirm){$scope.deleteIt(modelId)}else{SweetAlert.swal("Cancelled","Your imaginary data is safe :)","error");}});}
 $scope.deleteIt=function(modelId){brandSparePartsService.deleteSparePartsById(modelId,function(res,err){if(!err){SweetAlert.swal("Deleted!","Your data has been deleted.","success");brandSparePartsService.getAllSpareParts($scope.carbrand.id,function(res,err){if(!err){$scope.carModels=res.data;}})}})}

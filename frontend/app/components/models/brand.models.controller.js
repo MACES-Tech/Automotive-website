@@ -5,11 +5,19 @@ angular.module('alBargasyApp')
         $scope.up = {};
         $scope.model = {};
         $scope.lang = $rootScope.getPreffrerdLanguage();
+        $scope.reloadScripts = function(){
+            var script = document.createElement('script');
+
+            script.src = "assets/js/script.js";
+
+            document.head.appendChild(script);
+        }
         $scope.init = function () {
             
             if ($routeParams.brandName) {
                 //get an existing object
                 brandModelsService.getCarBrandByName($routeParams.brandName,function(res, err){
+                    $scope.reloadScripts();
                     if(!err){
                         
                         if(res.data.length > 0 &&res.status ===200){

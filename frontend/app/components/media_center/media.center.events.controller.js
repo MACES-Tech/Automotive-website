@@ -6,6 +6,7 @@ angular.module('alBargasyApp')
              $rootScope.currentTab = "media";
              $rootScope.FaceBookLink = "https://www.facebook.com/toyotaalbargasy/";
              mediaCenterEventService.getAllEvents(function(res,err){
+                 $scope.reloadScripts();
               if(!err){
                 var events = [];
                 res = res.data;
@@ -20,6 +21,12 @@ angular.module('alBargasyApp')
             script.src = "assets/js/dataTable.js";
 
             document.head.appendChild(script);
+
+                var script2 = document.createElement('script');
+    
+                script2.src = "assets/js/script.js";
+    
+                document.head.appendChild(script2);
         }
         $scope.init();
         $scope.model = {};

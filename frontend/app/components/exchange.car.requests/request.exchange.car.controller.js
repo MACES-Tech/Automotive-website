@@ -24,6 +24,14 @@ angular.module('alBargasyApp')
                 $scope.model.usedCar = 1;
         }
         
+        $scope.reloadScripts = function(){
+            var script = document.createElement('script');
+
+            script.src = "assets/js/script.js";
+
+            document.head.appendChild(script);
+        }
+
         $scope.init = function (carBrandId, isUsedCar) {
             $rootScope.FaceBookLink = "https://www.facebook.com/toyotaalbargasy/";
             var filterObject = {};
@@ -33,6 +41,7 @@ angular.module('alBargasyApp')
             $scope.carModels = [];
             $scope.extraFeatures = [];
             brandModelsService.getAllModelsWithoutBrand(filterObject, function (res, err) {
+                $scope.reloadScripts();
                 if (!err) {
                     $scope.carModels = res.data;
                     brandModelsService.getAllExtraFeatures(function (res, err) {
